@@ -1247,6 +1247,35 @@ img {
   }
 }
 
+/* MINZ 메인 버튼 빛 스침 효과 */
+#hero .hero-button {
+  position: relative;
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #hero .hero-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+      110deg, transparent 36%, rgb(237 220 255 / 45%) 50%, transparent 64%
+    );
+  }
+
+  #hero .hero-button:hover::after {
+    animation: minz-shutter-sweep 420ms ease-out both;
+  }
+}
+
+@keyframes minz-shutter-sweep {
+  0% { opacity: 0; transform: translateX(-100%); }
+  45% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
 /* ==========================================
    END MINZ PORTFOLIO CSS
    ========================================== */
