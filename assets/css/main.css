@@ -1,4 +1,3 @@
-
 /* ==========================================
    MINZ PORTFOLIO - COMPLETE CSS
    FINAL CLEAN VERSION
@@ -55,7 +54,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font);
   color: var(--heading-color);
   line-height: 1.4;
@@ -172,7 +176,7 @@ img {
 /* PC NAVIGATION */
 
 @media (min-width: 1200px) {
-  .navmenu > ul {
+  .navmenu>ul {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -298,7 +302,7 @@ img {
   color: #FFFFFF;
 }
 
-.hero > img {
+.hero>img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -313,11 +317,9 @@ img {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    90deg,
-    rgba(15, 11, 29, 0.68),
-    rgba(25, 21, 40, 0.34)
-  );
+  background: linear-gradient(90deg,
+      rgba(15, 11, 29, 0.68),
+      rgba(25, 21, 40, 0.34));
 }
 
 .hero .container {
@@ -404,14 +406,12 @@ img {
   opacity: 0;
   pointer-events: none;
 
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.12) 20%,
-    rgba(245, 225, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0.12) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.12) 20%,
+      rgba(245, 225, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.12) 80%,
+      transparent 100%);
 
   transform: translateX(-160%) skewX(-20deg);
 }
@@ -447,7 +447,7 @@ img {
   background: #FFFFFF;
 }
 
-.about > .container {
+.about>.container {
   max-width: 1200px;
   padding: 40px;
   background: #FFFFFF;
@@ -578,12 +578,10 @@ img {
 .minz-skills .progress-bar {
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(
-    90deg,
-    #5365F5 0%,
-    #7545E8 55%,
-    #A88BFF 100%
-  );
+  background: linear-gradient(90deg,
+      #5365F5 0%,
+      #7545E8 55%,
+      #A88BFF 100%);
   transition: width 0.8s ease;
 }
 
@@ -886,12 +884,10 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1),
-    transparent 60%,
-    rgba(0, 0, 0, 0.35)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.1),
+      transparent 60%,
+      rgba(0, 0, 0, 0.35));
   pointer-events: none;
 }
 
@@ -947,7 +943,7 @@ img {
   box-shadow: 0 12px 30px rgba(65, 40, 120, 0.12);
 }
 
-.minz-contact .minz-contact-card > i {
+.minz-contact .minz-contact-card>i {
   display: inline-block;
   margin-bottom: 16px;
   color: #7545E8;
@@ -980,12 +976,10 @@ img {
   margin-top: 40px;
   padding: 56px 30px;
   border-radius: 20px;
-  background: linear-gradient(
-    135deg,
-    #342052 0%,
-    #6740CC 55%,
-    #7545E8 100%
-  );
+  background: linear-gradient(135deg,
+      #342052 0%,
+      #6740CC 55%,
+      #7545E8 100%);
   text-align: center;
   color: #FFFFFF;
 }
@@ -1189,7 +1183,7 @@ img {
     padding: 65px 0;
   }
 
-  .about > .container {
+  .about>.container {
     padding: 30px 24px;
   }
 
@@ -1258,7 +1252,7 @@ img {
     letter-spacing: 2px;
   }
 
-  .about > .container {
+  .about>.container {
     padding: 24px 20px;
   }
 
@@ -1387,7 +1381,24 @@ img {
   #hero .hero-button::after {
     animation: none !important;
   }
+
 }
+
+/* 모션 최소화 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+  .minz-portfolio .minz-work-card,
+  .minz-portfolio .minz-work-thumb > i {
+    transition: none;
+  }
+
+  .minz-portfolio .minz-work-thumb::after {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   END MINZ PORTFOLIO HOVER EFFECT
+   ========================================== */
 
 /* ==========================================
    END MINZ PORTFOLIO CSS
