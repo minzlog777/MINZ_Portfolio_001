@@ -735,6 +735,92 @@
 </script>
 <!-- END MINZ CAMERA SOUND -->
 
+
+<!-- ==========================================
+     MINZ MOTION SYSTEM v1.0 - SCRIPT
+     ========================================== -->
+<script>
+(function () {
+  "use strict";
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  // 01. HOME 인트로 - 페이지 로드 후 한 번 실행
+  function startHeroMotion() {
+    if (!reducedMotion.matches) {
+      document.body.classList.add("minz-motion-ready");
+    }
+  }
+
+  if (document.readyState === "complete") {
+    startHeroMotion();
+  } else {
+    window.addEventListener(
+      "load",
+      startHeroMotion,
+      { once: true }
+    );
+  }
+
+  // 02. EXPERIENCE 스크롤 애니메이션
+  function initExperienceMotion() {
+    if (reducedMotion.matches) return;
+    if (!("IntersectionObserver" in window)) return;
+
+    const items = document.querySelectorAll(
+      "#resume .resume-title, #resume .resume-item"
+    );
+
+    if (!items.length) return;
+
+    items.forEach((item, index) => {
+      item.classList.add("minz-motion-reveal");
+
+      const delay = (index % 3) * 85;
+
+      item.style.setProperty(
+        "--minz-reveal-delay",
+        delay + "ms"
+      );
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("minz-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -20px 0px"
+      }
+    );
+
+    items.forEach((item) => {
+      observer.observe(item);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initExperienceMotion,
+      { once: true }
+    );
+  } else {
+    initExperienceMotion();
+  }
+
+})();
+</script>
+<!-- END MINZ MOTION SYSTEM v1.0 -->
+
+
 </body>
 
 </html>

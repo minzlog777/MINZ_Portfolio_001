@@ -1584,6 +1584,163 @@ img {
 /* END MINZ HERO VIDEO */
 
 
+/* ==========================================
+   MINZ MOTION SYSTEM v1.0
+   Home / About / Experience / Contact
+   ========================================== */
+
+/* 01. HOME - 순차 등장 */
+
+body.minz-motion-ready #hero .hero-eyebrow {
+  animation: minz-intro-up 0.65s ease-out 0.1s backwards;
+}
+
+body.minz-motion-ready #hero h2 {
+  animation: minz-intro-up 0.8s ease-out 0.3s backwards;
+}
+
+body.minz-motion-ready #hero .container > p {
+  animation: minz-intro-up 0.8s ease-out 0.55s backwards;
+}
+
+body.minz-motion-ready #hero .hero-button {
+  animation: minz-intro-up 0.8s ease-out 0.85s backwards;
+}
+
+body.minz-motion-ready #hero .minz-shutter-control {
+  animation: minz-intro-up 0.8s ease-out 1.05s backwards;
+}
+
+@keyframes minz-intro-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 02. ABOUT - 프로필 호버 */
+
+.about .minz-profile-image {
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+  transform-origin: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about .minz-profile-image:hover {
+    transform: translateY(-5px) scale(1.035);
+
+    box-shadow:
+      0 18px 38px rgba(117, 69, 232, 0.22),
+      0 0 0 2px rgba(168, 139, 255, 0.22);
+  }
+}
+
+/* 03. EXPERIENCE - 스크롤 등장 */
+
+#resume .minz-motion-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  transition-delay: var(--minz-reveal-delay, 0ms);
+}
+
+#resume .minz-motion-reveal.minz-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 타임라인 원 강조 */
+
+#resume .resume-item::before {
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+#resume .resume-item:hover::before {
+  background-color: #A88BFF;
+  box-shadow: 0 0 0 5px rgba(117, 69, 232, 0.12);
+}
+
+/* 04. CONTACT - 협업 버튼 */
+
+.minz-contact .minz-contact-btn {
+  position: relative;
+  box-shadow: 0 4px 15px rgba(25, 21, 40, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.minz-contact .minz-contact-btn:hover,
+.minz-contact .minz-contact-btn:focus-visible {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 28px rgba(225, 205, 255, 0.3),
+    0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* 오른쪽 위 화살표 */
+
+.minz-contact .minz-contact-btn .bi-arrow-up-right {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.minz-contact .minz-contact-btn:hover .bi-arrow-up-right,
+.minz-contact .minz-contact-btn:focus-visible .bi-arrow-up-right {
+  transform: translate(4px, -4px);
+}
+
+/* 05. ACCESSIBILITY - 움직임 최소화 */
+
+@media (prefers-reduced-motion: reduce) {
+
+  body.minz-motion-ready #hero .hero-eyebrow,
+  body.minz-motion-ready #hero h2,
+  body.minz-motion-ready #hero .container > p,
+  body.minz-motion-ready #hero .hero-button,
+  body.minz-motion-ready #hero .minz-shutter-control {
+    animation: none !important;
+  }
+
+  #resume .minz-motion-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .about .minz-profile-image,
+  .minz-contact .minz-contact-btn,
+  .minz-contact .minz-contact-btn .bi-arrow-up-right {
+    transition: none !important;
+  }
+
+  .about .minz-profile-image:hover,
+  .minz-contact .minz-contact-btn:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================
+   END MINZ MOTION SYSTEM v1.0
+   ========================================== */
+
+
 
 /* ==========================================
    END MINZ PORTFOLIO CSS
