@@ -1,7 +1,8 @@
 
 /* ==========================================
    MINZ PORTFOLIO - COMPLETE CSS
-   Brand: Blue Violet
+   FINAL CLEAN VERSION
+   BRAND : BLUE VIOLET
    ========================================== */
 
 /* 01. GLOBAL */
@@ -84,6 +85,8 @@ img {
   font-weight: 400;
 }
 
+/* 02. COMMON SECTIONS */
+
 .section {
   padding: 80px 0;
   scroll-margin-top: 80px;
@@ -125,7 +128,7 @@ img {
   word-break: keep-all;
 }
 
-/* 02. HEADER */
+/* 03. HEADER */
 
 .header {
   --background-color: #191528;
@@ -166,6 +169,8 @@ img {
   list-style: none;
 }
 
+/* PC NAVIGATION */
+
 @media (min-width: 1200px) {
   .navmenu > ul {
     display: flex;
@@ -203,6 +208,8 @@ img {
     width: 100%;
   }
 }
+
+/* MOBILE NAVIGATION */
 
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
@@ -248,10 +255,6 @@ img {
     overflow: hidden;
   }
 
-  .mobile-nav-active .navmenu ul {
-    display: block;
-  }
-
   .mobile-nav-active .navmenu {
     position: fixed;
     inset: 0;
@@ -260,6 +263,7 @@ img {
   }
 
   .mobile-nav-active .navmenu ul {
+    display: block;
     position: absolute;
     top: 80px;
   }
@@ -273,7 +277,7 @@ img {
   }
 }
 
-/* 03. HERO */
+/* 04. HERO */
 
 .dark-background {
   --background-color: #191528;
@@ -351,9 +355,13 @@ img {
   color: #D5C5FF;
 }
 
-.hero-button {
+/* HERO BUTTON BASE */
+
+#hero .hero-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 13px 25px;
   border: 1px solid rgba(255, 255, 255, 0.65);
@@ -362,16 +370,78 @@ img {
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
+  text-decoration: none;
   backdrop-filter: blur(8px);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.hero-button:hover {
+/* HERO BUTTON HOVER */
+
+#hero .hero-button:hover,
+#hero .hero-button:focus-visible {
   background: #7545E8;
-  border-color: #7545E8;
+  border-color: #BFAAFF;
   color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(117, 69, 232, 0.55);
 }
 
-/* 04. ABOUT */
+/* HERO BUTTON LIGHT SWEEP */
+
+#hero .hero-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 20%,
+    rgba(245, 225, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.12) 80%,
+    transparent 100%
+  );
+
+  transform: translateX(-160%) skewX(-20deg);
+}
+
+#hero .hero-button:hover::after,
+#hero .hero-button:focus-visible::after {
+  animation: minz-light-sweep 1.1s ease-in-out 1;
+}
+
+@keyframes minz-light-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) skewX(-20deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(230%) skewX(-20deg);
+  }
+}
+
+/* 05. ABOUT */
 
 .about {
   background: #FFFFFF;
@@ -460,7 +530,7 @@ img {
   margin-top: 24px;
 }
 
-/* 05. SKILLS */
+/* 06. SKILLS */
 
 .minz-skills h5 {
   margin: 34px 0 24px;
@@ -517,7 +587,7 @@ img {
   transition: width 0.8s ease;
 }
 
-/* 06. CREATIVE FIELDS */
+/* 07. CREATIVE FIELDS */
 
 .minz-creative-fields {
   margin-top: 32px;
@@ -552,7 +622,7 @@ img {
   line-height: 1.4;
 }
 
-/* 07. EXPERIENCE */
+/* 08. EXPERIENCE */
 
 .resume {
   background: #FAF9FD;
@@ -656,7 +726,7 @@ img {
   margin-top: 28px;
 }
 
-/* 08. PORTFOLIO */
+/* 09. PORTFOLIO */
 
 .minz-portfolio {
   background: #FFFFFF;
@@ -786,7 +856,75 @@ img {
   line-height: 1.6;
 }
 
-/* 09. CONTACT */
+/* 10. SUPERCAR VIDEO CARD */
+
+.minz-portfolio .minz-video-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #191528;
+}
+
+.minz-portfolio .minz-project-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+}
+
+.minz-portfolio .minz-work-card:hover .minz-project-video {
+  transform: scale(1.07);
+}
+
+.minz-portfolio .minz-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    transparent 60%,
+    rgba(0, 0, 0, 0.35)
+  );
+  pointer-events: none;
+}
+
+.minz-portfolio .minz-video-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 7px 11px;
+  border-radius: 6px;
+  background: rgba(25, 21, 40, 0.8);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.minz-portfolio .minz-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  color: #7545E8;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.minz-portfolio .minz-project-link:hover {
+  color: #6740CC;
+}
+
+/* 11. CONTACT */
 
 .minz-contact {
   background: #FAF9FD;
@@ -911,7 +1049,7 @@ img {
   color: #FFFFFF;
 }
 
-/* 10. FOOTER */
+/* 12. FOOTER */
 
 #footer.minz-footer {
   --background-color: #191528;
@@ -978,7 +1116,7 @@ img {
   font-weight: 400;
 }
 
-/* 11. SCROLL TOP */
+/* 13. SCROLL TOP */
 
 .scroll-top {
   position: fixed;
@@ -1015,7 +1153,7 @@ img {
   color: #FFFFFF;
 }
 
-/* 12. PRELOADER */
+/* 14. PRELOADER */
 
 #preloader {
   position: fixed;
@@ -1044,7 +1182,7 @@ img {
   }
 }
 
-/* 13. RESPONSIVE - TABLET */
+/* 15. TABLET RESPONSIVE */
 
 @media (max-width: 991px) {
   .section {
@@ -1068,7 +1206,7 @@ img {
   }
 }
 
-/* 14. RESPONSIVE - MOBILE */
+/* 16. MOBILE RESPONSIVE */
 
 @media (max-width: 767px) {
   .header {
@@ -1232,7 +1370,7 @@ img {
   }
 }
 
-/* 15. ACCESSIBILITY */
+/* 17. ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1245,94 +1383,12 @@ img {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-}
 
-/* ==========================================
-   MINZ HERO BUTTON - LIGHT SWEEP
-   ========================================== */
-
-/* 버튼 기본 설정 */
-#hero .hero-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 50px;
-  isolation: isolate;
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-/* 버튼에 마우스를 올렸을 때 */
-#hero .hero-button:hover {
-  background-color: #7545E8;
-  color: #FFFFFF;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(117, 69, 232, 0.45);
-}
-
-/* 버튼 위를 지나가는 빛 */
-#hero .hero-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -80%;
-  width: 70%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.15) 20%,
-    rgba(245, 225, 255, 0.85) 50%,
-    rgba(255, 255, 255, 0.15) 80%,
-    transparent 100%
-  );
-
-  transform: skewX(-20deg);
-}
-
-/* 마우스를 올리면 빛이 왼쪽에서 오른쪽으로 이동 */
-#hero .hero-button:hover::after,
-#hero .hero-button:focus-visible::after {
-  animation: minz-hero-light-sweep 1.1s ease-in-out;
-}
-
-/* 빛 스침 애니메이션 */
-@keyframes minz-hero-light-sweep {
-  0% {
-    left: -80%;
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  85% {
-    opacity: 1;
-  }
-
-  100% {
-    left: 140%;
-    opacity: 0;
-  }
-}
-
-/* 움직임 최소화 설정을 사용하는 경우 */
-@media (prefers-reduced-motion: reduce) {
-  #hero .hero-button,
   #hero .hero-button::after {
     animation: none !important;
-    transition: none;
   }
 }
 
 /* ==========================================
-   END MINZ HERO BUTTON EFFECT
+   END MINZ PORTFOLIO CSS
    ========================================== */
