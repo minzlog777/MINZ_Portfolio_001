@@ -1,7 +1,7 @@
+
 /* ==========================================
-   MINZ PORTFOLIO - COMPLETE CSS
-   FINAL CLEAN VERSION
-   BRAND : BLUE VIOLET
+   MINZ PORTFOLIO - MAIN.CSS v1.1
+   COMPLETE INTEGRATED DESIGN
    ========================================== */
 
 /* 01. GLOBAL */
@@ -26,12 +26,7 @@
   --nav-font: "Pretendard Variable", "Pretendard", sans-serif;
 
   --minz-purple: #7545E8;
-  --minz-purple-dark: #6740CC;
-  --minz-purple-light: #A88BFF;
   --minz-dark: #191528;
-  --minz-text: #383344;
-  --minz-muted: #625B71;
-  --minz-border: #EEEAF7;
 
   scroll-behavior: smooth;
 }
@@ -41,7 +36,7 @@
 }
 
 html {
-  scroll-padding-top: 85px;
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -54,14 +49,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
+  color: #191528;
   font-family: var(--heading-font);
-  color: var(--heading-color);
   line-height: 1.4;
 }
 
@@ -72,7 +62,7 @@ a {
 }
 
 a:hover {
-  color: var(--minz-purple-dark);
+  color: #6740CC;
 }
 
 img {
@@ -93,7 +83,7 @@ img {
 
 .section {
   padding: 80px 0;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 84px;
 }
 
 .section-title {
@@ -104,38 +94,37 @@ img {
 .section-title h2 {
   position: relative;
   display: inline-block;
+  margin: 0 0 20px;
+  padding-bottom: 18px;
   font-size: 34px;
   font-weight: 800;
   letter-spacing: -0.8px;
-  margin: 0 0 20px;
-  padding-bottom: 18px;
   color: #191528;
 }
 
 .section-title h2::after {
   content: "";
   position: absolute;
+  bottom: 0;
+  left: 50%;
   width: 55px;
   height: 3px;
-  left: 50%;
-  bottom: 0;
   transform: translateX(-50%);
-  border-radius: 3px;
+  border-radius: 4px;
   background: #7545E8;
 }
 
 .section-title p {
   margin: 0;
   font-size: 16px;
-  color: #625B71;
   line-height: 1.8;
+  color: #625B71;
   word-break: keep-all;
 }
 
 /* 03. HEADER */
 
 .header {
-  --background-color: #191528;
   position: relative;
   z-index: 997;
   min-height: 82px;
@@ -144,9 +133,13 @@ img {
   transition: box-shadow 0.3s ease;
 }
 
+.scrolled .header {
+  box-shadow: 0 5px 25px rgba(25, 21, 40, 0.16);
+}
+
 .header .logo {
-  gap: 11px;
   flex-shrink: 0;
+  gap: 11px;
 }
 
 .header .logo img {
@@ -158,25 +151,20 @@ img {
 .header .sitename {
   margin: 0;
   font-size: 31px;
-  font-weight: 400;
-  color: #FFFFFF;
   line-height: 1;
-}
-
-.scrolled .header {
-  box-shadow: 0 5px 25px rgba(25, 21, 40, 0.15);
+  color: #FFFFFF;
 }
 
 .navmenu ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 /* PC NAVIGATION */
 
 @media (min-width: 1200px) {
-  .navmenu>ul {
+  .navmenu > ul {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -185,10 +173,10 @@ img {
   .navmenu a {
     position: relative;
     display: inline-block;
+    padding: 12px 0;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: 600;
-    padding: 12px 0;
   }
 
   .navmenu a::after {
@@ -231,9 +219,9 @@ img {
   .navmenu ul {
     display: none;
     position: absolute;
-    left: 16px;
-    right: 16px;
     top: 75px;
+    right: 16px;
+    left: 16px;
     padding: 16px;
     border-radius: 14px;
     background: #FFFFFF;
@@ -243,10 +231,10 @@ img {
   .navmenu a {
     display: block;
     padding: 11px 14px;
-    font-weight: 600;
-    font-size: 16px;
-    color: #272333;
     border-radius: 8px;
+    color: #272333;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   .navmenu a:hover,
@@ -263,7 +251,7 @@ img {
     position: fixed;
     inset: 0;
     z-index: 9997;
-    background: rgba(25, 21, 40, 0.65);
+    background: rgba(25, 21, 40, 0.68);
   }
 
   .mobile-nav-active .navmenu ul {
@@ -276,12 +264,12 @@ img {
     position: fixed;
     top: 22px;
     right: 24px;
-    z-index: 9999;
     color: #FFFFFF;
+    z-index: 9999;
   }
 }
 
-/* 04. HERO */
+/* 04. HERO VIDEO */
 
 .dark-background {
   --background-color: #191528;
@@ -302,14 +290,15 @@ img {
   color: #FFFFFF;
 }
 
-.hero>img {
+#hero > .minz-hero-video {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 1;
 }
 
 .hero::before {
@@ -317,12 +306,16 @@ img {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(90deg,
-      rgba(15, 11, 29, 0.68),
-      rgba(25, 21, 40, 0.34));
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(15, 11, 29, 0.68),
+    rgba(25, 21, 40, 0.34)
+  );
 }
 
-.hero .container {
+.hero > .container {
   position: relative;
   z-index: 3;
 }
@@ -348,42 +341,42 @@ img {
 .hero p {
   min-height: 50px;
   margin: 0 0 28px;
+  color: #FFFFFF;
   font-size: clamp(19px, 2.5vw, 30px);
   font-weight: 600;
-  color: #FFFFFF;
 }
 
 .hero .typed-cursor {
   color: #D5C5FF;
 }
 
-/* HERO BUTTON BASE */
+/* 05. HERO BUTTON LIGHT SWEEP */
 
 #hero .hero-button {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding: 13px 25px;
+
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
+
   font-size: 14px;
   font-weight: 700;
-  text-decoration: none;
   backdrop-filter: blur(8px);
-  overflow: hidden;
-  isolation: isolate;
+
   transition:
-    transform 0.3s ease,
-    background-color 0.3s ease,
+    background 0.3s ease,
     border-color 0.3s ease,
+    transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-
-/* HERO BUTTON HOVER */
 
 #hero .hero-button:hover,
 #hero .hero-button:focus-visible {
@@ -394,8 +387,6 @@ img {
   box-shadow: 0 8px 28px rgba(117, 69, 232, 0.55);
 }
 
-/* HERO BUTTON LIGHT SWEEP */
-
 #hero .hero-button::after {
   content: "";
   position: absolute;
@@ -403,15 +394,17 @@ img {
   left: 0;
   width: 65%;
   height: 100%;
-  opacity: 0;
   pointer-events: none;
+  opacity: 0;
 
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.12) 20%,
-      rgba(245, 225, 255, 0.9) 50%,
-      rgba(255, 255, 255, 0.12) 80%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12) 20%,
+    rgba(245, 225, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.12) 80%,
+    transparent
+  );
 
   transform: translateX(-160%) skewX(-20deg);
 }
@@ -427,11 +420,7 @@ img {
     transform: translateX(-160%) skewX(-20deg);
   }
 
-  15% {
-    opacity: 1;
-  }
-
-  85% {
+  15%, 85% {
     opacity: 1;
   }
 
@@ -441,25 +430,120 @@ img {
   }
 }
 
-/* 05. ABOUT */
+/* 06. SHUTTER SOUND BUTTON */
+
+#hero .minz-shutter-control {
+  margin-top: 18px;
+}
+
+#hero .minz-shutter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  background: rgba(25, 21, 40, 0.55);
+  color: #FFFFFF;
+
+  font-family: var(--default-font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+#hero .minz-shutter-btn:hover,
+#hero .minz-shutter-btn:focus-visible {
+  background: #7545E8;
+  border-color: #A88BFF;
+  box-shadow: 0 6px 22px rgba(117, 69, 232, 0.4);
+  transform: translateY(-2px);
+}
+
+#hero .minz-shutter-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* 07. HOME INTRO ANIMATION */
+
+body.minz-intro-start #hero .hero-eyebrow {
+  animation: minz-intro-up 0.65s ease-out 0.1s backwards;
+}
+
+body.minz-intro-start #hero h2 {
+  animation: minz-intro-up 0.8s ease-out 0.3s backwards;
+}
+
+body.minz-intro-start #hero .container > p {
+  animation: minz-intro-up 0.8s ease-out 0.55s backwards;
+}
+
+body.minz-intro-start #hero .hero-button {
+  animation: minz-intro-up 0.8s ease-out 0.85s backwards;
+}
+
+body.minz-intro-start #hero .minz-shutter-control {
+  animation: minz-intro-up 0.8s ease-out 1.05s backwards;
+}
+
+@keyframes minz-intro-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 08. ABOUT */
 
 .about {
   background: #FFFFFF;
 }
 
-.about>.container {
+.about > .container {
   max-width: 1200px;
   padding: 40px;
-  background: #FFFFFF;
   border-radius: 16px;
+  background: #FFFFFF;
   box-shadow: 0 6px 35px rgba(40, 25, 80, 0.08);
 }
 
-.minz-profile-image {
+.about .minz-profile-image {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 12px;
+  transform-origin: center;
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+/* 프로필 이미지 Glow */
+
+@media (hover: hover) and (pointer: fine) {
+  .about .minz-profile-image:hover {
+    transform: translateY(-5px) scale(1.035);
+
+    box-shadow:
+      0 18px 38px rgba(117, 69, 232, 0.22),
+      0 0 0 2px rgba(168, 139, 255, 0.22);
+  }
 }
 
 .about .about-info {
@@ -500,37 +584,37 @@ img {
 .about .about-me h4::after {
   content: "";
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   width: 64px;
   height: 3px;
   background: #7545E8;
 }
 
 .about .about-me p {
+  margin-bottom: 19px;
+  color: #383344;
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: -0.3px;
-  margin-bottom: 19px;
-  color: #383344;
   word-break: keep-all;
 }
 
 .about .about-me .about-lead {
+  color: #272333;
   font-size: 18px;
   font-weight: 700;
-  color: #272333;
   line-height: 1.75;
 }
 
 .about .about-me .about-signature {
+  margin-top: 24px;
   color: #7545E8;
   font-size: 16px;
   font-weight: 800;
-  margin-top: 24px;
 }
 
-/* 06. SKILLS */
+/* 09. SKILLS */
 
 .minz-skills h5 {
   margin: 34px 0 24px;
@@ -544,8 +628,8 @@ img {
   height: auto;
   margin: 0 0 22px;
   padding: 0;
-  background: transparent;
   border-radius: 0;
+  background: transparent;
   overflow: visible;
 }
 
@@ -554,17 +638,17 @@ img {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 9px;
+  color: #383344;
   font-size: 14px;
   font-weight: 600;
-  color: #383344;
   line-height: 1.5;
 }
 
 .minz-skills .progress .val {
   color: #7545E8;
-  font-style: normal;
   font-size: 14px;
   font-weight: 700;
+  font-style: normal;
 }
 
 .minz-skills .progress-bar-wrap {
@@ -578,14 +662,18 @@ img {
 .minz-skills .progress-bar {
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(90deg,
-      #5365F5 0%,
-      #7545E8 55%,
-      #A88BFF 100%);
+
+  background: linear-gradient(
+    90deg,
+    #5365F5 0%,
+    #7545E8 55%,
+    #A88BFF 100%
+  );
+
   transition: width 0.8s ease;
 }
 
-/* 07. CREATIVE FIELDS */
+/* 10. CREATIVE FIELDS */
 
 .minz-creative-fields {
   margin-top: 32px;
@@ -620,7 +708,7 @@ img {
   line-height: 1.4;
 }
 
-/* 08. EXPERIENCE */
+/* 11. EXPERIENCE */
 
 .resume {
   background: #FAF9FD;
@@ -651,6 +739,15 @@ img {
   border: 2px solid #7545E8;
   border-radius: 50%;
   background: #7545E8;
+
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.resume .resume-item:hover::before {
+  background: #A88BFF;
+  box-shadow: 0 0 0 5px rgba(117, 69, 232, 0.12);
 }
 
 .resume .resume-item h4 {
@@ -724,7 +821,25 @@ img {
   margin-top: 28px;
 }
 
-/* 09. PORTFOLIO */
+/* EXPERIENCE SCROLL REVEAL */
+
+#resume .minz-motion-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  transition-delay: var(--minz-delay, 0ms);
+}
+
+#resume .minz-motion-reveal.minz-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 12. PORTFOLIO */
 
 .minz-portfolio {
   background: #FFFFFF;
@@ -732,8 +847,8 @@ img {
 
 .minz-portfolio .portfolio-filters {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin: 0 0 40px;
   padding: 0;
@@ -754,7 +869,10 @@ img {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
-  transition: background 0.25s ease, color 0.25s ease;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .minz-portfolio .portfolio-filters li:hover,
@@ -767,38 +885,61 @@ img {
   position: relative;
 }
 
+/* PORTFOLIO CARD */
+
 .minz-portfolio .minz-work-card {
+  position: relative;
   height: 100%;
   overflow: hidden;
   border: 1px solid #EEEAF7;
   border-radius: 15px;
   background: #FFFFFF;
+
   box-shadow: 0 5px 24px rgba(40, 25, 80, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .minz-portfolio .minz-work-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 34px rgba(70, 40, 140, 0.13);
+  transform: translateY(-8px);
+  border-color: #C5B1FF;
+  box-shadow: 0 18px 42px rgba(88, 49, 170, 0.2);
 }
 
+/* THUMBNAIL */
+
 .minz-portfolio .minz-work-thumb {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
-.minz-portfolio .minz-work-thumb i {
+.minz-portfolio .minz-work-thumb > i {
+  position: relative;
+  z-index: 2;
   font-size: 46px;
   line-height: 1;
+  transition: transform 0.4s ease;
 }
 
-.minz-portfolio .minz-work-thumb span {
+.minz-portfolio .minz-work-card:hover
+.minz-work-thumb > i {
+  transform: scale(1.13);
+}
+
+.minz-portfolio .minz-work-thumb > span {
+  position: relative;
+  z-index: 2;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -823,6 +964,53 @@ img {
   background: linear-gradient(135deg, #252A59, #5365F5);
   color: #FFFFFF;
 }
+
+/* PORTFOLIO LIGHT SWEEP */
+
+.minz-portfolio .minz-work-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+
+  background: linear-gradient(
+    105deg,
+    transparent 28%,
+    rgba(255, 255, 255, 0.08) 39%,
+    rgba(255, 255, 255, 0.67) 50%,
+    rgba(255, 255, 255, 0.08) 61%,
+    transparent 72%
+  );
+
+  transform: translateX(-120%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .minz-portfolio .minz-work-card:hover
+  .minz-work-thumb::after {
+    animation: minz-card-sweep 1.35s ease-out 1;
+  }
+}
+
+@keyframes minz-card-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  15%, 80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+/* CARD INFORMATION */
 
 .minz-portfolio .minz-work-info {
   position: static;
@@ -854,14 +1042,11 @@ img {
   line-height: 1.6;
 }
 
-/* 10. SUPERCAR VIDEO CARD */
+/* 13. SUPERCAR MP4 */
 
 .minz-portfolio .minz-video-thumb {
-  position: relative;
   display: block;
-  width: 100%;
   aspect-ratio: 16 / 10;
-  overflow: hidden;
   background: #191528;
 }
 
@@ -872,11 +1057,11 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1);
   transition: transform 0.6s ease;
 }
 
-.minz-portfolio .minz-work-card:hover .minz-project-video {
+.minz-portfolio .minz-work-card:hover
+.minz-project-video {
   transform: scale(1.07);
 }
 
@@ -884,18 +1069,21 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.1),
-      transparent 60%,
-      rgba(0, 0, 0, 0.35));
   pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    transparent 60%,
+    rgba(0, 0, 0, 0.35)
+  );
 }
 
-.minz-portfolio .minz-video-badge {
+.minz-portfolio .minz-video-thumb > .minz-video-badge {
   position: absolute;
+  z-index: 4;
   top: 14px;
   left: 14px;
-  z-index: 2;
   padding: 7px 11px;
   border-radius: 6px;
   background: rgba(25, 21, 40, 0.8);
@@ -913,14 +1101,13 @@ img {
   color: #7545E8;
   font-size: 13px;
   font-weight: 700;
-  text-decoration: none;
 }
 
 .minz-portfolio .minz-project-link:hover {
   color: #6740CC;
 }
 
-/* 11. CONTACT */
+/* 14. CONTACT */
 
 .minz-contact {
   background: #FAF9FD;
@@ -934,8 +1121,12 @@ img {
   border-radius: 15px;
   background: #FFFFFF;
   text-align: center;
+
   box-shadow: 0 5px 20px rgba(65, 40, 120, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .minz-contact .minz-contact-card:hover {
@@ -943,7 +1134,7 @@ img {
   box-shadow: 0 12px 30px rgba(65, 40, 120, 0.12);
 }
 
-.minz-contact .minz-contact-card>i {
+.minz-contact .minz-contact-card > i {
   display: inline-block;
   margin-bottom: 16px;
   color: #7545E8;
@@ -964,7 +1155,6 @@ img {
   color: #625B71;
   font-size: 15px;
   line-height: 1.7;
-  text-decoration: none;
   overflow-wrap: anywhere;
 }
 
@@ -972,14 +1162,20 @@ img {
   color: #7545E8;
 }
 
+/* CONTACT CTA */
+
 .minz-contact .minz-contact-cta {
   margin-top: 40px;
   padding: 56px 30px;
   border-radius: 20px;
-  background: linear-gradient(135deg,
-      #342052 0%,
-      #6740CC 55%,
-      #7545E8 100%);
+
+  background: linear-gradient(
+    135deg,
+    #342052 0%,
+    #6740CC 55%,
+    #7545E8 100%
+  );
+
   text-align: center;
   color: #FFFFFF;
 }
@@ -1009,7 +1205,10 @@ img {
   word-break: keep-all;
 }
 
+/* CONTACT BUTTON GLOW */
+
 .minz-contact .minz-contact-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1020,14 +1219,34 @@ img {
   color: #6740CC;
   font-size: 15px;
   font-weight: 800;
-  text-decoration: none;
-  transition: all 0.25s ease;
+
+  box-shadow: 0 4px 15px rgba(25, 21, 40, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
-.minz-contact .minz-contact-btn:hover {
+.minz-contact .minz-contact-btn:hover,
+.minz-contact .minz-contact-btn:focus-visible {
   background: #F1ECFF;
   color: #4E2CA8;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 28px rgba(225, 205, 255, 0.35),
+    0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.minz-contact .minz-contact-btn .bi-arrow-up-right {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.minz-contact .minz-contact-btn:hover .bi-arrow-up-right,
+.minz-contact .minz-contact-btn:focus-visible .bi-arrow-up-right {
+  transform: translate(4px, -4px);
 }
 
 .minz-contact .minz-instagram-link {
@@ -1036,14 +1255,13 @@ img {
   margin: 20px auto 0;
   color: #EAE2FF;
   font-size: 14px;
-  text-decoration: none;
 }
 
 .minz-contact .minz-instagram-link:hover {
   color: #FFFFFF;
 }
 
-/* 12. FOOTER */
+/* 15. FOOTER */
 
 #footer.minz-footer {
   --background-color: #191528;
@@ -1079,16 +1297,18 @@ img {
 
 #footer.minz-footer .minz-footer-social a {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background: #302344;
   color: #FFFFFF;
   font-size: 18px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 #footer.minz-footer .minz-footer-social a:hover {
@@ -1107,10 +1327,9 @@ img {
   margin: 0;
   color: #B9AEC9;
   font-size: 13px;
-  font-weight: 400;
 }
 
-/* 13. SCROLL TOP */
+/* 16. SCROLL TOP */
 
 .scroll-top {
   position: fixed;
@@ -1127,6 +1346,7 @@ img {
   color: #FFFFFF;
   opacity: 0;
   visibility: hidden;
+
   transition: all 0.3s ease;
 }
 
@@ -1147,14 +1367,17 @@ img {
   color: #FFFFFF;
 }
 
-/* 14. PRELOADER */
+/* 17. PRELOADER */
 
 #preloader {
   position: fixed;
   inset: 0;
   z-index: 999999;
   background: #FFFFFF;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
 }
 
 #preloader::before {
@@ -1167,6 +1390,7 @@ img {
   border: 5px solid #EEEAF7;
   border-top-color: #7545E8;
   border-radius: 50%;
+
   animation: minz-spin 0.8s linear infinite;
 }
 
@@ -1176,14 +1400,14 @@ img {
   }
 }
 
-/* 15. TABLET RESPONSIVE */
+/* 18. TABLET RESPONSIVE */
 
 @media (max-width: 991px) {
   .section {
     padding: 65px 0;
   }
 
-  .about>.container {
+  .about > .container {
     padding: 30px 24px;
   }
 
@@ -1200,7 +1424,7 @@ img {
   }
 }
 
-/* 16. MOBILE RESPONSIVE */
+/* 19. MOBILE RESPONSIVE */
 
 @media (max-width: 767px) {
   .header {
@@ -1243,8 +1467,8 @@ img {
   }
 
   .hero p {
-    font-size: 20px;
     min-height: 40px;
+    font-size: 20px;
   }
 
   .hero-eyebrow {
@@ -1252,11 +1476,16 @@ img {
     letter-spacing: 2px;
   }
 
-  .about>.container {
+  #hero .minz-shutter-btn {
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+
+  .about > .container {
     padding: 24px 20px;
   }
 
-  .minz-profile-image {
+  .about .minz-profile-image {
     max-width: 300px;
   }
 
@@ -1364,7 +1593,12 @@ img {
   }
 }
 
-/* 17. ACCESSIBILITY */
+/* 20. ACCESSIBILITY */
+
+:focus-visible {
+  outline: 2px solid #A88BFF;
+  outline-offset: 3px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1378,370 +1612,18 @@ img {
     transition-duration: 0.01ms !important;
   }
 
-  #hero .hero-button::after {
-    animation: none !important;
-  }
-
-}
-
-
-
-/* ==========================================
-   MINZ PORTFOLIO - CINEMATIC HOVER EFFECT
-   FINAL FIX
-   ========================================== */
-
-/* 1. 카드 전체 움직임 */
-.minz-portfolio .minz-work-card {
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
-}
-
-/* 2. 마우스를 올렸을 때 */
-.minz-portfolio .minz-work-card:hover {
-  transform: translateY(-9px);
-  border-color: #A88BFF;
-  box-shadow:
-    0 18px 42px rgba(88, 49, 170, 0.22),
-    0 0 0 1px rgba(168, 139, 255, 0.25);
-}
-
-/* 3. 썸네일 영역 */
-.minz-portfolio .minz-work-thumb {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* 4. 아이콘 부드러운 확대 */
-.minz-portfolio .minz-work-thumb > i {
-  position: relative;
-  z-index: 2;
-  transition: transform 0.5s ease;
-}
-
-.minz-portfolio .minz-work-card:hover
-.minz-work-thumb > i {
-  transform: scale(1.14);
-}
-
-/* 5. 빛 스침 레이어 */
-.minz-portfolio .minz-work-thumb::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 65%;
-  height: 100%;
-  z-index: 3;
-  opacity: 0;
-  pointer-events: none;
-
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 20%,
-    rgba(255, 255, 255, 0.65) 45%,
-    rgba(255, 255, 255, 0.85) 50%,
-    rgba(255, 255, 255, 0.65) 55%,
-    rgba(255, 255, 255, 0.08) 80%,
-    transparent 100%
-  );
-
-  transform: translateX(-115%) skewX(-12deg);
-}
-
-/* 6. 호버하면 빛이 왼쪽에서 오른쪽으로 이동 */
-.minz-portfolio .minz-work-card:hover
-.minz-work-thumb::after {
-  animation: minz-card-sweep-final 1.6s ease-in-out 1;
-}
-
-/* 7. 빛 이동 애니메이션 */
-@keyframes minz-card-sweep-final {
-  0% {
-    opacity: 0;
-    transform: translateX(-115%) skewX(-12deg);
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(200%) skewX(-12deg);
-  }
-}
-
-/* 8. 영상 배지 위치 유지 */
-.minz-portfolio .minz-video-badge {
-  z-index: 4;
-}
-
-/* 9. 영상 확대 효과 */
-.minz-portfolio .minz-work-card:hover
-.minz-project-video {
-  transform: scale(1.07);
-}
-
-/* 10. 움직임 최소화 설정 */
-@media (prefers-reduced-motion: reduce) {
-  .minz-portfolio .minz-work-card,
-  .minz-portfolio .minz-work-thumb > i {
-    transition: none;
-  }
-
-  .minz-portfolio .minz-work-thumb::after {
-    animation: none !important;
-  }
-}
-
-/* ==========================================
-   END MINZ PORTFOLIO HOVER EFFECT
-   ========================================== */
-
-   
-/* ==========================================
-   MINZ HERO - VIDEO BACKGROUND
-   ========================================== */
-
-/* 16:9 MP4를 메인 배경으로 표시 */
-#hero > .minz-hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  z-index: 1;
-}
-
-/* 기존 어두운 오버레이와 텍스트 유지 */
-#hero::before {
-  z-index: 2;
-  pointer-events: none;
-}
-
-#hero > .container {
-  position: relative;
-  z-index: 3;
-}
-
-/* 셔터 사운드 버튼 영역 */
-#hero .minz-shutter-control {
-  margin-top: 18px;
-}
-
-/* 사운드 버튼 */
-#hero .minz-shutter-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 30px;
-  background: rgba(25, 21, 40, 0.55);
-  backdrop-filter: blur(8px);
-  color: #FFFFFF;
-  font-family: var(--default-font);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#hero .minz-shutter-btn:hover,
-#hero .minz-shutter-btn:focus-visible {
-  background: #7545E8;
-  border-color: #A88BFF;
-  box-shadow: 0 6px 22px rgba(117, 69, 232, 0.4);
-  transform: translateY(-2px);
-}
-
-/* 모바일 */
-@media (max-width: 767px) {
-  #hero > .minz-hero-video {
-    object-position: center;
-  }
-
-  #hero .minz-shutter-btn {
-    font-size: 12px;
-    padding: 9px 15px;
-  }
-}
-
-/* END MINZ HERO VIDEO */
-
-
-/* ==========================================
-   MINZ MOTION SYSTEM v1.0
-   Home / About / Experience / Contact
-   ========================================== */
-
-/* 01. HOME - 순차 등장 */
-
-body.minz-motion-ready #hero .hero-eyebrow {
-  animation: minz-intro-up 0.65s ease-out 0.1s backwards;
-}
-
-body.minz-motion-ready #hero h2 {
-  animation: minz-intro-up 0.8s ease-out 0.3s backwards;
-}
-
-body.minz-motion-ready #hero .container > p {
-  animation: minz-intro-up 0.8s ease-out 0.55s backwards;
-}
-
-body.minz-motion-ready #hero .hero-button {
-  animation: minz-intro-up 0.8s ease-out 0.85s backwards;
-}
-
-body.minz-motion-ready #hero .minz-shutter-control {
-  animation: minz-intro-up 0.8s ease-out 1.05s backwards;
-}
-
-@keyframes minz-intro-up {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 02. ABOUT - 프로필 호버 */
-
-.about .minz-profile-image {
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
-  transform-origin: center;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .about .minz-profile-image:hover {
-    transform: translateY(-5px) scale(1.035);
-
-    box-shadow:
-      0 18px 38px rgba(117, 69, 232, 0.22),
-      0 0 0 2px rgba(168, 139, 255, 0.22);
-  }
-}
-
-/* 03. EXPERIENCE - 스크롤 등장 */
-
-#resume .minz-motion-reveal {
-  opacity: 0;
-  transform: translateY(22px);
-
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
-
-  transition-delay: var(--minz-reveal-delay, 0ms);
-}
-
-#resume .minz-motion-reveal.minz-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 타임라인 원 강조 */
-
-#resume .resume-item::before {
-  transition:
-    background-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-#resume .resume-item:hover::before {
-  background-color: #A88BFF;
-  box-shadow: 0 0 0 5px rgba(117, 69, 232, 0.12);
-}
-
-/* 04. CONTACT - 협업 버튼 */
-
-.minz-contact .minz-contact-btn {
-  position: relative;
-  box-shadow: 0 4px 15px rgba(25, 21, 40, 0.08);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.minz-contact .minz-contact-btn:hover,
-.minz-contact .minz-contact-btn:focus-visible {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 10px 28px rgba(225, 205, 255, 0.3),
-    0 0 0 3px rgba(255, 255, 255, 0.2);
-}
-
-/* 오른쪽 위 화살표 */
-
-.minz-contact .minz-contact-btn .bi-arrow-up-right {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.minz-contact .minz-contact-btn:hover .bi-arrow-up-right,
-.minz-contact .minz-contact-btn:focus-visible .bi-arrow-up-right {
-  transform: translate(4px, -4px);
-}
-
-/* 05. ACCESSIBILITY - 움직임 최소화 */
-
-@media (prefers-reduced-motion: reduce) {
-
-  body.minz-motion-ready #hero .hero-eyebrow,
-  body.minz-motion-ready #hero h2,
-  body.minz-motion-ready #hero .container > p,
-  body.minz-motion-ready #hero .hero-button,
-  body.minz-motion-ready #hero .minz-shutter-control {
-    animation: none !important;
-  }
-
   #resume .minz-motion-reveal {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
-  }
-
-  .about .minz-profile-image,
-  .minz-contact .minz-contact-btn,
-  .minz-contact .minz-contact-btn .bi-arrow-up-right {
-    transition: none !important;
   }
 
   .about .minz-profile-image:hover,
-  .minz-contact .minz-contact-btn:hover {
+  .minz-contact .minz-contact-btn:hover,
+  .minz-portfolio .minz-work-card:hover {
     transform: none;
   }
 }
 
 /* ==========================================
-   END MINZ MOTION SYSTEM v1.0
-   ========================================== */
-
-
-
-/* ==========================================
-   END MINZ PORTFOLIO CSS
+   END MINZ PORTFOLIO CSS v1.1
    ========================================== */
