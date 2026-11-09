@@ -1624,6 +1624,131 @@ body.minz-intro-start #hero .minz-shutter-control {
   }
 }
 
+
+/* ==========================================
+   MINZ INSTAGRAM REEL FEATURE
+   ========================================== */
+
+.minz-reel-section {
+  background: #FAF9FD;
+}
+
+.minz-reel-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.minz-reel-heading > span {
+  color: #7545E8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.minz-reel-heading h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.minz-reel-heading p {
+  color: #625B71;
+  font-size: 15px;
+}
+
+.minz-reel-feature {
+  padding: 35px;
+  background: #FFFFFF;
+  border: 1px solid #EEEAF7;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(40,25,80,.06);
+}
+
+.minz-reel-player {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.minz-reel-player .instagram-media {
+  width: 100% !important;
+  max-width: 400px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+}
+
+.minz-reel-description {
+  padding: 20px;
+}
+
+.minz-reel-category {
+  color: #7545E8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.minz-reel-description h3 {
+  margin: 15px 0;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.minz-reel-views {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #7545E8;
+  font-size: 23px;
+}
+
+.minz-reel-description p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #454052;
+  word-break: keep-all;
+}
+
+.minz-reel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.minz-reel-tags span {
+  padding: 8px 13px;
+  background: #F4F0FF;
+  color: #6740CC;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .minz-reel-feature {
+    padding: 18px;
+  }
+
+  .minz-reel-heading h2 {
+    font-size: 26px;
+  }
+
+  .minz-reel-description {
+    padding: 10px 3px;
+  }
+
+  .minz-reel-description h3 {
+    font-size: 22px;
+  }
+}
+
+/* END MINZ INSTAGRAM REEL */
+
+
+
 /* ==========================================
    END MINZ PORTFOLIO CSS v1.1
    ========================================== */
