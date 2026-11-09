@@ -63,31 +63,74 @@
 
   <main class="main">
 
-    <!-- ======================================
-         02 HERO
-         ====================================== -->
-    <section id="hero" class="hero section dark-background">
+    
+<!-- ======================================
+     02 HERO - MINZ CAMERA FLASH VIDEO
+     ====================================== -->
+<section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/보라빛 스튜디오의 MINZ 크리에이터.png" alt="MINZ 크리에이터 메인 비주얼" data-aos="fade-in">
+  <!-- 메인 배경 영상 -->
+  <video
+    id="minz-hero-video"
+    class="minz-hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="assets/img/보라빛 스튜디오의 MINZ 크리에이터.png">
 
-      <div class="container text-center" data-aos="zoom-in-up" data-aos-delay="100">
+    <source
+      src="assets/img/MINZ_hero_shutter.mp4"
+      type="video/mp4">
 
-        <span class="hero-eyebrow">CREATIVE PORTFOLIO</span>
+    브라우저가 영상을 지원하지 않습니다.
+  </video>
 
-        <h2 class="new-logo-minz">I am MINZ Creator</h2>
+  <!-- 메인 텍스트 -->
+  <div class="container text-center"
+       data-aos="zoom-in-up"
+       data-aos-delay="100">
 
-        <p>
-          <span class="typed" data-typed-items="영상 크리에이터, AI 콘텐츠 제작자, 드론 촬영, 디지털 마케터, 브랜드 스토리텔러">
-          </span>
-        </p>
+    <span class="hero-eyebrow">
+      CREATIVE PORTFOLIO
+    </span>
 
-        <a href="#portfolio" class="hero-button">
-          View My Works
-          <i class="bi bi-arrow-down-right"></i>
-        </a>
+    <h2 class="new-logo-minz">
+      I am MINZ Creator
+    </h2>
 
-      </div>
-    </section>
+    <p>
+      <span
+        class="typed"
+        data-typed-items="영상 크리에이터, AI 콘텐츠 제작자, 드론 촬영, 디지털 마케터, 브랜드 스토리텔러">
+      </span>
+    </p>
+
+    <!-- 기존 포트폴리오 버튼 -->
+    <a href="#portfolio" class="hero-button">
+      View My Works
+      <i class="bi bi-arrow-down-right"></i>
+    </a>
+
+    <!-- 셔터 사운드 재생 -->
+    <div class="minz-shutter-control">
+      <button
+        type="button"
+        id="minz-shutter-btn"
+        class="minz-shutter-btn">
+
+        <i class="bi bi-volume-up"></i>
+        찰칵 사운드 듣기
+
+      </button>
+    </div>
+
+  </div>
+
+</section>
+<!-- END MINZ HERO -->
+
 
     <!-- ======================================
          03 ABOUT
@@ -655,6 +698,42 @@
 
   <!-- MAIN JS -->
   <script src="assets/js/main.js"></script>
+  
+<!-- MINZ CAMERA SHUTTER SOUND -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("minz-hero-video");
+    const button = document.getElementById("minz-shutter-btn");
+
+    if (!video || !button) return;
+
+    button.addEventListener("click", async function () {
+      // 처음부터 재생하여 플래시와 사운드를 동기화
+      video.pause();
+      video.loop = false;
+      video.currentTime = 0;
+      video.muted = false;
+
+      try {
+        await video.play();
+      } catch (error) {
+        // 재생 실패 시 무음 반복 상태로 복구
+        video.muted = true;
+        video.loop = true;
+        video.play().catch(() => {});
+      }
+    });
+
+    // 소리가 있는 영상 1회 재생 후 무음 반복 복귀
+    video.addEventListener("ended", function () {
+      video.muted = true;
+      video.loop = true;
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+  });
+</script>
+<!-- END MINZ CAMERA SOUND -->
 
 </body>
 

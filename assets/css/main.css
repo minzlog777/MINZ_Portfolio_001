@@ -1509,6 +1509,80 @@ img {
    END MINZ PORTFOLIO HOVER EFFECT
    ========================================== */
 
+   
+/* ==========================================
+   MINZ HERO - VIDEO BACKGROUND
+   ========================================== */
+
+/* 16:9 MP4를 메인 배경으로 표시 */
+#hero > .minz-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  z-index: 1;
+}
+
+/* 기존 어두운 오버레이와 텍스트 유지 */
+#hero::before {
+  z-index: 2;
+  pointer-events: none;
+}
+
+#hero > .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* 셔터 사운드 버튼 영역 */
+#hero .minz-shutter-control {
+  margin-top: 18px;
+}
+
+/* 사운드 버튼 */
+#hero .minz-shutter-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  background: rgba(25, 21, 40, 0.55);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--default-font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#hero .minz-shutter-btn:hover,
+#hero .minz-shutter-btn:focus-visible {
+  background: #7545E8;
+  border-color: #A88BFF;
+  box-shadow: 0 6px 22px rgba(117, 69, 232, 0.4);
+  transform: translateY(-2px);
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  #hero > .minz-hero-video {
+    object-position: center;
+  }
+
+  #hero .minz-shutter-btn {
+    font-size: 12px;
+    padding: 9px 15px;
+  }
+}
+
+/* END MINZ HERO VIDEO */
+
 
 
 /* ==========================================
