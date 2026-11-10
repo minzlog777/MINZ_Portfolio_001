@@ -1748,6 +1748,82 @@ body.minz-intro-start #hero .minz-shutter-control {
 /* END MINZ INSTAGRAM REEL */
 
 
+/* ==========================================
+   MINZ FIGMA APP PROJECT
+   ========================================== */
+
+/* 카드의 앱 체험 버튼 */
+.minz-figma-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.minz-figma-btn:hover {
+  color: #6740CC;
+}
+
+/* Figma 팝업 */
+.minz-figma-modal {
+  overflow: hidden;
+  border: 1px solid #E7DEFF;
+  border-radius: 18px;
+  background: #FFFFFF;
+}
+
+.minz-figma-modal .modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #EEEAF7;
+}
+
+.minz-figma-modal .modal-title {
+  color: #191528;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.minz-figma-modal small {
+  color: #7545E8;
+  font-size: 12px;
+}
+
+.minz-figma-modal .modal-body {
+  padding: 0;
+  background: #191528;
+}
+
+.minz-figma-modal iframe {
+  display: block;
+  width: 100%;
+  height: min(75vh, 760px);
+  border: 0;
+}
+
+.minz-figma-modal .modal-footer {
+  border-top: 1px solid #EEEAF7;
+  padding: 14px 24px;
+}
+
+.minz-figma-open {
+  color: #7545E8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.minz-figma-open:hover {
+  color: #6740CC;
+}
+
+@media (max-width: 767px) {
+  .minz-figma-modal iframe {
+    height: 70vh;
+  }
+}
+
+/* END MINZ FIGMA PROJECT */
+
 
 /* ==========================================
    END MINZ PORTFOLIO CSS v1.1
