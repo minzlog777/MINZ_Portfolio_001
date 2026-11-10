@@ -1824,33 +1824,90 @@ body.minz-intro-start #hero .minz-shutter-control {
 
 /* END MINZ FIGMA PROJECT */
 
+
 /* ==========================================
-   MINZ ONPICK THUMBNAIL
+   MINZ ONPICK THUMBNAIL - FINAL
+   이미지 위치 + 호버 + 빛 스침
    ========================================== */
 
-.minz-work-thumb.has-image {
-  padding: 0;
+/* 썸네일 영역 */
+.minz-portfolio .minz-work-thumb.has-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 320px;
+  aspect-ratio: auto;
   overflow: hidden;
-  border-radius: 18px 18px 0 0;
-  background: #eef4ff;
+  isolation: isolate;
+  background: linear-gradient(135deg, #E8EEFF, #F4ECFF);
 }
 
-.minz-work-thumb.has-image img {
+/* 기본 이미지 - 위로 12px 이동 */
+.minz-portfolio .minz-work-thumb.has-image img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
+  transform: translateY(-12px) scale(1);
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+/* 호버 - 같은 위치를 유지하면서 확대 */
+.minz-portfolio .minz-work-card:hover .has-image img {
+  transform: translateY(-12px) scale(1.055);
+}
+
+/* 기존 카드의 빛 스침 효과 유지 */
+.minz-portfolio .has-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+
+  background: linear-gradient(
+    105deg,
+    transparent 28%,
+    rgba(255, 255, 255, 0.07) 39%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.07) 61%,
+    transparent 72%
+  );
+
+  transform: translateX(-120%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .minz-portfolio .minz-work-card:hover .has-image::after {
+    animation: minz-card-sweep 1.35s ease-out 1;
+  }
+}
+
+/* 모바일 */
 @media (max-width: 767px) {
-  .minz-work-thumb.has-image {
+  .minz-portfolio .minz-work-thumb.has-image {
     height: 280px;
   }
 }
 
-/* END MINZ ONPICK THUMBNAIL */
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .minz-portfolio .minz-work-thumb.has-image img,
+  .minz-portfolio .minz-work-card:hover .has-image img {
+    transform: translateY(-12px);
+    transition: none;
+  }
+
+  .minz-portfolio .has-image::after {
+    animation: none !important;
+  }
+}
+
+/* ===== END MINZ ONPICK THUMBNAIL ===== */
+
 
 /* ==========================================
    END MINZ PORTFOLIO CSS v1.1
