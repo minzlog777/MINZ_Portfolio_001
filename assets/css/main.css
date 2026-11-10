@@ -1826,66 +1826,60 @@ body.minz-intro-start #hero .minz-shutter-control {
 
 
 
+
 /* ==========================================
-   MINZ ONPICK THUMBNAIL - FINAL
-   전체 글자 표시 + 호버 효과
+   MINZ ONPICK THUMBNAIL - FULL IMAGE
+   글자 전체 표시 + 카드 호버 유지
    ========================================== */
 
-/* 썸네일 영역 */
+/* 이미지 원본 비율 유지 */
 .minz-portfolio .minz-work-thumb.has-image {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 430px;
-  aspect-ratio: auto;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(135deg, #E8EEFF, #F4ECFF);
-}
-
-/* 이미지 전체가 보이도록 배치 */
-.minz-portfolio .minz-work-thumb.has-image img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 390 / 844;
+  overflow: hidden;
+  isolation: isolate;
+  background: #E8EEFF;
+}
+
+/* 원본 이미지를 자르지 않고 전체 표시 */
+.minz-portfolio .minz-work-thumb.has-image > img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
   object-fit: contain;
   object-position: center;
+  transform: none;
 
-  /* 살짝 위로 올리되 잘리지 않도록 축소 */
-  transform: translateY(-10px) scale(0.94);
-
-  transition: transform 0.5s ease;
+  transition: filter 0.4s ease;
 }
 
-/* 호버하면 자연스럽게 확대 */
-.minz-portfolio .minz-work-card:hover .has-image img {
-  transform: translateY(-10px) scale(0.97);
+/* 호버 시 이미지 밝기 강조 - 글자는 잘리지 않음 */
+.minz-portfolio .minz-work-card:hover
+.minz-work-thumb.has-image > img {
+  transform: none;
+  filter: brightness(1.06);
 }
 
-/* 기존 카드 빛 스침 효과 그대로 사용 */
-.minz-portfolio .has-image::after {
+/* 기존 빛 스침 효과 유지 */
+.minz-portfolio .minz-work-thumb.has-image::after {
   z-index: 3;
 }
 
-/* 모바일 */
+/* 모바일에서도 원본 전체 표시 */
 @media (max-width: 767px) {
   .minz-portfolio .minz-work-thumb.has-image {
-    height: 390px;
-  }
-}
-
-/* 움직임 최소화 설정 */
-@media (prefers-reduced-motion: reduce) {
-  .minz-portfolio .has-image img,
-  .minz-portfolio .minz-work-card:hover .has-image img {
-    transform: translateY(-10px) scale(0.94);
-    transition: none;
+    height: auto;
+    aspect-ratio: 390 / 844;
   }
 }
 
 /* END MINZ ONPICK THUMBNAIL */
+
 
 
 
