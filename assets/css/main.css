@@ -1828,95 +1828,57 @@ body.minz-intro-start #hero .minz-shutter-control {
 
 
 
+
 /* ==========================================
-   MINZ ONPICK - TEXT THUMBNAIL
+   MINZ ONPICK THUMBNAIL - FINAL POSITION
    ========================================== */
 
-.minz-portfolio .minz-work-thumb.onpick-text-thumb {
+/* 모든 프로젝트와 동일한 카드 크기 */
+.minz-portfolio .minz-work-thumb.onpick-image-thumb {
   position: relative;
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(
-    135deg,
-    #E7EDFF 0%,
-    #F5F0FF 55%,
-    #D8CEFF 100%
-  );
-  text-align: center;
+  background: #E8EEFF;
 }
 
-/* 위쪽 작은 문구 */
-.minz-portfolio .onpick-text-thumb .onpick-label {
-  color: #7566AC;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2px;
+/* 실제 썸네일을 확대하고 글자 위치에 맞춤 */
+.minz-portfolio .onpick-image-thumb > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+
+  object-fit: cover;
+
+  /* 핵심: 이미지의 글자가 있는 부분을 표시 */
+  object-position: 50% 25%;
+
+  transform: none;
+  transition: filter 0.4s ease;
 }
 
-/* ONPICK 큰 글자 */
-.minz-portfolio .onpick-text-thumb .onpick-wordmark {
-  position: relative;
-  z-index: 2;
-  color: #353076;
-  font-family: var(--heading-font);
-  font-size: clamp(32px, 4vw, 53px);
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1.2;
-  transition: transform 0.45s ease;
-}
-
-/* 앱 이름 */
-.minz-portfolio .onpick-text-thumb .onpick-tagline {
-  color: #514888;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-}
-
-/* 아래 작은 설명 */
-.minz-portfolio .onpick-text-thumb .onpick-caption {
-  margin-top: 9px;
-  padding: 5px 12px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.8);
-  color: #6740CC;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-/* 호버 시 텍스트 살짝 확대 */
+/* 호버 시 이미지 강조 */
 .minz-portfolio .minz-work-card:hover
-.onpick-text-thumb .onpick-wordmark {
-  transform: scale(1.07);
+.onpick-image-thumb > img {
+  transform: none;
+  filter: brightness(1.06);
 }
 
-/* 기존 카드 빛 스침 효과 유지 */
-.minz-portfolio .onpick-text-thumb::after {
+/* 기존 빛 스침 효과 유지 */
+.minz-portfolio .onpick-image-thumb::after {
   z-index: 3;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .minz-portfolio .onpick-text-thumb .onpick-wordmark {
-    transition: none;
-  }
+/* ==========================================
+   END MINZ ONPICK THUMBNAIL
+   ========================================== */
 
-  .minz-portfolio .minz-work-card:hover
-  .onpick-text-thumb .onpick-wordmark {
-    transform: none;
-  }
-}
-
-/* END MINZ ONPICK TEXT THUMBNAIL */
 
 
 
