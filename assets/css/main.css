@@ -1,27 +1,20 @@
 
-/* =================================================
-   MINZ PORTFOLIO v2.0
-   COMPLETE MAIN.CSS
-   ================================================= */
+/* ====================================================
+   MINZ PORTFOLIO v2.1 - COMPLETE CSS
+   ONPICK / BUSAN NIGHT / YOUTUBE DART BALLOON
+   ==================================================== */
 
-/* 01. GLOBAL */
+/* 01 GLOBAL */
 
 :root {
-  --minz-purple: #7545E8;
-  --minz-purple-dark: #6740CC;
-  --minz-purple-light: #A88BFF;
-
-  --minz-dark: #191528;
-  --minz-text: #383344;
-  --minz-muted: #625B71;
-
-  --minz-border: #EEEAF7;
-  --minz-bg-soft: #FAF9FD;
-
-  --minz-font:
-    "Pretendard Variable",
-    "Pretendard",
-    sans-serif;
+  --purple: #7545e8;
+  --purple-dark: #6740cc;
+  --purple-light: #a88bff;
+  --ink: #191528;
+  --text: #383344;
+  --muted: #625b71;
+  --border: #eeeaf7;
+  --font: "Pretendard Variable", Pretendard, sans-serif;
 }
 
 * {
@@ -35,24 +28,17 @@ html {
 
 body {
   margin: 0;
-  color: var(--minz-text);
-  background: #FFFFFF;
-  font-family: var(--minz-font);
-  font-size: 16px;
-  line-height: 1.75;
+  background: #fff;
+  color: var(--text);
+  font: 16px/1.75 var(--font);
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  color: var(--minz-dark);
-  font-family: var(--minz-font);
+  color: var(--ink);
   line-height: 1.4;
+  font-family: var(--font);
 }
 
 p {
@@ -60,27 +46,30 @@ p {
 }
 
 a {
-  color: var(--minz-purple);
+  color: var(--purple);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: color .25s ease;
 }
 
 a:hover {
-  color: var(--minz-purple-dark);
+  color: var(--purple-dark);
 }
 
 button {
-  font-family: inherit;
+  font: inherit;
 }
 
-img,
-video {
+img, video {
   max-width: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 ::selection {
-  background: #DCCEFF;
   color: #191528;
+  background: #dcceff;
 }
 
 .brand-font {
@@ -89,30 +78,28 @@ video {
 }
 
 .container {
-  width: min(100% - 40px, 1200px);
+  width: min(calc(100% - 40px), 1200px);
   margin-inline: auto;
 }
 
 .section {
-  padding: 85px 0;
+  padding: 84px 0;
   scroll-margin-top: 84px;
 }
 
 .section-title {
-  margin-bottom: 45px;
   text-align: center;
+  margin-bottom: 45px;
 }
 
 .section-title h2 {
   position: relative;
   display: inline-block;
-  margin: 0 0 18px;
-  padding-bottom: 17px;
-
-  color: #191528;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
   font-size: 35px;
   font-weight: 800;
-  letter-spacing: -0.8px;
+  letter-spacing: -.8px;
 }
 
 .section-title h2::after {
@@ -120,19 +107,16 @@ video {
   position: absolute;
   bottom: 0;
   left: 50%;
-
   width: 56px;
   height: 3px;
+  background: var(--purple);
   border-radius: 5px;
-
-  background: var(--minz-purple);
-
   transform: translateX(-50%);
 }
 
 .section-title p {
   margin: 0;
-  color: var(--minz-muted);
+  color: var(--muted);
   font-size: 16px;
   line-height: 1.8;
   word-break: keep-all;
@@ -141,30 +125,29 @@ video {
 .section-eyebrow {
   display: block;
   margin-bottom: 10px;
-  color: var(--minz-purple);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
+  color: var(--purple);
 }
 
-/* 02. HEADER */
+/* 02 HEADER */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   min-height: 82px;
   background: #191528;
-  box-shadow: 0 5px 22px rgba(25, 21, 40, 0.12);
+  box-shadow: 0 5px 22px rgb(25 21 40 / 12%);
 }
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  min-height: 82px;
+  align-items: center;
   gap: 24px;
+  min-height: 82px;
 }
 
 .site-logo {
@@ -175,30 +158,27 @@ video {
 }
 
 .site-logo img {
-  display: block;
   width: 38px;
   height: 38px;
   object-fit: contain;
 }
 
 .site-logo span {
-  color: #FFFFFF;
+  color: white;
   font-size: 31px;
   line-height: 1;
 }
 
 .navmenu {
   display: flex;
-  align-items: center;
   gap: 30px;
+  align-items: center;
 }
 
 .navmenu a {
   position: relative;
-  display: inline-block;
   padding: 12px 0;
-
-  color: #FFFFFF;
+  color: white;
   font-size: 15px;
   font-weight: 600;
 }
@@ -208,17 +188,15 @@ video {
   position: absolute;
   left: 0;
   bottom: 5px;
-
   width: 0;
   height: 2px;
-
-  background: #A88BFF;
-  transition: width 0.25s ease;
+  background: var(--purple-light);
+  transition: width .25s;
 }
 
 .navmenu a:hover,
 .navmenu a.active {
-  color: #DCCEFF;
+  color: #dcceff;
 }
 
 .navmenu a:hover::after,
@@ -230,33 +208,28 @@ video {
   display: none;
   align-items: center;
   justify-content: center;
-
+  border: 0;
   width: 44px;
   height: 44px;
   padding: 0;
-
-  border: 0;
   background: transparent;
-  color: #FFFFFF;
+  color: white;
   font-size: 28px;
   cursor: pointer;
 }
 
-/* 03. HERO */
+/* 03 HERO VIDEO */
 
 .hero {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
   min-height: calc(100svh - 82px);
-  padding: 100px 0;
-
+  padding: 95px 0;
   overflow: hidden;
-  background: #191528;
-  color: #FFFFFF;
+  background: var(--ink);
+  color: white;
   text-align: center;
 }
 
@@ -264,11 +237,9 @@ video {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   display: block;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
 }
@@ -278,11 +249,10 @@ video {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-
   background: linear-gradient(
     90deg,
-    rgba(15, 11, 29, 0.70),
-    rgba(25, 21, 40, 0.38)
+    rgb(15 11 29 / 70%),
+    rgb(25 21 40 / 35%)
   );
 }
 
@@ -294,8 +264,7 @@ video {
 .hero-eyebrow {
   display: inline-block;
   margin-bottom: 18px;
-
-  color: #E4D8FF;
+  color: #e4d8ff;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -303,18 +272,15 @@ video {
 
 .hero h1 {
   margin: 0 0 18px;
-  color: #FFFFFF;
-
-  font-size: clamp(39px, 5.4vw, 74px);
-  line-height: 1.2;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font: 400 clamp(39px, 5.4vw, 74px)/1.2 "New Rocker", cursive;
+  text-shadow: 0 4px 18px rgb(0 0 0 / 20%);
 }
 
 .hero-subtitle {
   min-height: 52px;
   margin-bottom: 28px;
-
-  color: #FFFFFF;
+  color: #fff;
   font-size: clamp(18px, 2.5vw, 29px);
   font-weight: 600;
 }
@@ -323,106 +289,84 @@ video {
   display: inline-block;
   width: 2px;
   height: 1em;
-
   margin-left: 4px;
-  background: #D5C5FF;
-
+  background: #d5c5ff;
   vertical-align: -3px;
-  animation: minz-cursor-blink 0.8s step-end infinite;
+  animation: blink .8s step-end infinite;
 }
 
-@keyframes minz-cursor-blink {
+@keyframes blink {
   50% {
     opacity: 0;
   }
 }
 
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* 04. HERO BUTTON */
+/* 04 HERO BUTTON + LIGHT SWEEP */
 
 .hero-button {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-
   padding: 13px 26px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgb(255 255 255 / 65%);
   border-radius: 50px;
-
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.12);
-
+  color: white;
+  background: rgb(255 255 255 / 12%);
   font-size: 14px;
   font-weight: 700;
-
   backdrop-filter: blur(8px);
-
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    transform .3s,
+    background .3s,
+    border-color .3s,
+    box-shadow .3s;
 }
 
 .hero-button:hover,
 .hero-button:focus-visible {
-  color: #FFFFFF;
-  background: var(--minz-purple);
-  border-color: #BFAAFF;
-
+  color: #fff;
+  background: var(--purple);
+  border-color: #bfaaff;
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(117, 69, 232, 0.55);
+  box-shadow: 0 8px 28px rgb(117 69 232 / 55%);
 }
 
 .hero-button::after {
   content: "";
-
   position: absolute;
   top: 0;
   left: 0;
-
   width: 65%;
   height: 100%;
-
-  opacity: 0;
   pointer-events: none;
-
+  opacity: 0;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.14) 20%,
-    rgba(245, 225, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0.14) 80%,
+    rgb(255 255 255 / 12%) 20%,
+    rgb(245 225 255 / 90%) 50%,
+    rgb(255 255 255 / 12%) 80%,
     transparent
   );
-
   transform: translateX(-160%) skewX(-20deg);
 }
 
 .hero-button:hover::after,
 .hero-button:focus-visible::after {
-  animation: minz-hero-sweep 1.1s ease-in-out 1;
+  animation: hero-sweep 1.1s ease-in-out 1;
 }
 
-@keyframes minz-hero-sweep {
+@keyframes hero-sweep {
   0% {
     opacity: 0;
     transform: translateX(-160%) skewX(-20deg);
   }
 
-  15%,
-  85% {
+  15%, 85% {
     opacity: 1;
   }
 
@@ -432,7 +376,7 @@ video {
   }
 }
 
-/* 05. CAMERA SOUND BUTTON */
+/* SHUTTER BUTTON */
 
 .minz-shutter-control {
   margin-top: 18px;
@@ -443,61 +387,55 @@ video {
   align-items: center;
   justify-content: center;
   gap: 9px;
-
   padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgb(255 255 255 / 35%);
   border-radius: 30px;
-
-  color: #FFFFFF;
-  background: rgba(25, 21, 40, 0.6);
-
+  color: white;
+  background: rgb(25 21 40 / 60%);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-
   backdrop-filter: blur(8px);
-
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+    transform .3s,
+    background .3s,
+    box-shadow .3s;
 }
 
-.minz-shutter-btn:hover,
-.minz-shutter-btn:focus-visible {
-  background: var(--minz-purple);
-  box-shadow: 0 6px 22px rgba(117, 69, 232, 0.4);
+.minz-shutter-btn:hover {
+  background: var(--purple);
+  box-shadow: 0 6px 22px rgb(117 69 232 / 40%);
   transform: translateY(-2px);
 }
 
 .minz-shutter-btn:disabled {
-  opacity: 0.7;
+  opacity: .7;
   cursor: default;
 }
 
-/* 06. HOME INTRO MOTION */
+/* HOME INTRO */
 
 body.minz-intro-start .hero-eyebrow {
-  animation: minz-intro-up 0.65s ease-out 0.1s backwards;
+  animation: intro-up .65s ease-out .1s backwards;
 }
 
 body.minz-intro-start .hero h1 {
-  animation: minz-intro-up 0.8s ease-out 0.3s backwards;
+  animation: intro-up .8s ease-out .3s backwards;
 }
 
 body.minz-intro-start .hero-subtitle {
-  animation: minz-intro-up 0.8s ease-out 0.55s backwards;
+  animation: intro-up .8s ease-out .55s backwards;
 }
 
-body.minz-intro-start .hero-actions {
-  animation: minz-intro-up 0.8s ease-out 0.8s backwards;
+body.minz-intro-start .hero-button {
+  animation: intro-up .8s ease-out .8s backwards;
 }
 
 body.minz-intro-start .minz-shutter-control {
-  animation: minz-intro-up 0.8s ease-out 1.05s backwards;
+  animation: intro-up .8s ease-out 1.05s backwards;
 }
 
-@keyframes minz-intro-up {
+@keyframes intro-up {
   from {
     opacity: 0;
     transform: translateY(22px);
@@ -509,30 +447,27 @@ body.minz-intro-start .minz-shutter-control {
   }
 }
 
-/* 07. ABOUT */
+/* 05 ABOUT */
 
 .about {
-  background: #FFFFFF;
+  background: white;
 }
 
 .about-panel {
   padding: 42px;
   border-radius: 18px;
-  background: #FFFFFF;
-
-  box-shadow: 0 6px 35px rgba(40, 25, 80, 0.08);
+  box-shadow: 0 6px 35px rgb(40 25 80 / 8%);
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 48px;
 }
 
 .profile-row {
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 40% minmax(0, 1fr);
   align-items: center;
   gap: 24px;
 }
@@ -541,19 +476,15 @@ body.minz-intro-start .minz-shutter-control {
   display: block;
   width: 100%;
   border-radius: 12px;
-
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  transition: transform .5s, box-shadow .5s;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .minz-profile-image:hover {
     transform: translateY(-5px) scale(1.035);
-
     box-shadow:
-      0 18px 38px rgba(117, 69, 232, 0.22),
-      0 0 0 2px rgba(168, 139, 255, 0.22);
+      0 18px 38px rgb(117 69 232 / 22%),
+      0 0 0 2px rgb(168 139 255 / 22%);
   }
 }
 
@@ -561,7 +492,6 @@ body.minz-intro-start .minz-shutter-control {
   display: flex;
   flex-direction: column;
   gap: 2px;
-
   margin: 0 0 14px;
   font-size: 14px;
   line-height: 1.6;
@@ -569,7 +499,7 @@ body.minz-intro-start .minz-shutter-control {
 }
 
 .about-info strong {
-  color: var(--minz-purple);
+  color: var(--purple);
   font-weight: 800;
 }
 
@@ -577,12 +507,14 @@ body.minz-intro-start .minz-shutter-control {
   color: #272333;
 }
 
+.about-info span a {
+  overflow-wrap: anywhere;
+}
+
 .about-title {
   position: relative;
-
   margin: 0 0 29px;
   padding-bottom: 16px;
-
   font-size: 30px;
   font-weight: 800;
 }
@@ -592,11 +524,9 @@ body.minz-intro-start .minz-shutter-control {
   position: absolute;
   left: 0;
   bottom: 0;
-
   width: 64px;
   height: 3px;
-
-  background: var(--minz-purple);
+  background: var(--purple);
 }
 
 .about-right p {
@@ -614,12 +544,10 @@ body.minz-intro-start .minz-shutter-control {
 
 .about-right .about-signature {
   margin-top: 24px;
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 16px;
   font-weight: 800;
 }
-
-/* 08. SKILLS */
 
 .minz-skills h3 {
   margin: 34px 0 24px;
@@ -633,54 +561,46 @@ body.minz-intro-start .minz-shutter-control {
 
 .skill-heading {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 15px;
-
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 600;
 }
 
 .skill-heading b {
-  color: var(--minz-purple);
-  font-size: 14px;
+  color: var(--purple);
 }
 
 .skill-track {
   width: 100%;
   height: 10px;
-  overflow: hidden;
-
   border-radius: 20px;
-  background: #EEEAF7;
+  overflow: hidden;
+  background: #eeeaf7;
 }
 
 .skill-track > span {
   display: block;
   height: 100%;
   border-radius: inherit;
-
   background: linear-gradient(
     90deg,
-    #5365F5,
-    #7545E8 55%,
-    #A88BFF
+    #5365f5,
+    #7545e8 55%,
+    #a88bff
   );
 }
-
-/* 09. ABOUT TAGS */
 
 .minz-creative-fields {
   margin-top: 32px;
   padding-top: 22px;
-  border-top: 1px solid #EEEAF7;
+  border-top: 1px solid var(--border);
 }
 
 .minz-creative-fields h3 {
   margin-bottom: 16px;
-  color: var(--minz-purple);
-
+  color: var(--purple);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -697,73 +617,63 @@ body.minz-intro-start .minz-shutter-control {
 .project-tags span {
   display: inline-block;
   padding: 7px 12px;
-  border: 1px solid #E7DEFF;
+  border: 1px solid #e7deff;
   border-radius: 30px;
-
-  color: #6740CC;
-  background: #F4F0FF;
-
+  color: var(--purple-dark);
+  background: #f4f0ff;
   font-size: 12px;
   font-weight: 700;
   line-height: 1.4;
 }
 
-/* 10. EXPERIENCE */
+/* 06 EXPERIENCE */
 
 .resume {
-  background: #FAF9FD;
+  background: #faf9fd;
 }
 
 .resume-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 60px;
 }
 
 .resume-title {
   margin: 10px 0 24px;
   color: #272333;
-
   font-size: 25px;
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -.5px;
 }
 
 .resume-item {
   position: relative;
-  margin-top: -2px;
   padding: 0 0 28px 22px;
-
-  border-left: 2px solid var(--minz-purple);
+  margin-top: -2px;
+  border-left: 2px solid var(--purple);
 }
 
 .resume-item::before {
   content: "";
   position: absolute;
-  top: 4px;
   left: -7px;
-
+  top: 4px;
   width: 12px;
   height: 12px;
-
-  border: 2px solid var(--minz-purple);
+  border: 2px solid var(--purple);
   border-radius: 50%;
-  background: var(--minz-purple);
-
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+  background: var(--purple);
+  transition: background .3s, box-shadow .3s;
 }
 
 .resume-item:hover::before {
-  background: #A88BFF;
-  box-shadow: 0 0 0 5px rgba(117, 69, 232, 0.12);
+  background: var(--purple-light);
+  box-shadow: 0 0 0 5px rgb(117 69 232 / 12%);
 }
 
 .resume-item h4 {
   margin: 0 0 10px;
-  color: var(--minz-purple);
-
+  color: var(--purple);
   font-size: 18px;
   font-weight: 800;
   word-break: keep-all;
@@ -791,7 +701,7 @@ body.minz-intro-start .minz-shutter-control {
 }
 
 .resume-subtitle {
-  color: #625B71;
+  color: var(--muted);
   font-weight: 600;
 }
 
@@ -799,26 +709,21 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-block;
   margin: 3px 0 12px;
   padding: 6px 12px;
-
   border-radius: 6px;
-  color: #6740CC;
-  background: #F1ECFF;
-
+  background: #f1ecff;
+  color: var(--purple-dark);
   font-size: 13px;
   font-weight: 700;
 }
 
-.resume-item.minz-career-featured {
-  margin-bottom: 28px;
+.minz-career-featured {
   padding: 24px;
-
-  border: 1px solid #E7DEFF;
-  border-left: 3px solid var(--minz-purple);
+  margin-bottom: 28px;
+  border: 1px solid #e7deff;
+  border-left: 3px solid var(--purple);
   border-radius: 12px;
-
-  background: #F7F4FF;
-
-  box-shadow: 0 5px 20px rgba(80, 55, 150, 0.05);
+  background: #f7f4ff;
+  box-shadow: 0 5px 20px rgb(80 55 150 / 5%);
 }
 
 .minz-career-featured::before {
@@ -826,16 +731,12 @@ body.minz-intro-start .minz-shutter-control {
   left: -8px;
 }
 
-/* Experience 등장 효과 */
-
 .motion-reveal {
   opacity: 0;
   transform: translateY(22px);
-
   transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
-
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2, .7, .3, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -844,18 +745,17 @@ body.minz-intro-start .minz-shutter-control {
   transform: translateY(0);
 }
 
-/* 11. PORTFOLIO */
+/* 07 PORTFOLIO FILTER / GRID */
 
 .minz-portfolio {
-  background: #FFFFFF;
+  background: white;
 }
 
 .portfolio-filters {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
-
   margin-bottom: 40px;
 }
 
@@ -863,35 +763,29 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 11px 20px;
   border: none;
   border-radius: 30px;
-
-  color: #6740CC;
-  background: #F4F0FF;
-
+  color: var(--purple-dark);
+  background: #f4f0ff;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+    background .25s,
+    color .25s,
+    transform .25s;
 }
 
 .portfolio-filter:hover,
 .portfolio-filter.filter-active {
-  color: #FFFFFF;
-  background: var(--minz-purple);
+  color: white;
+  background: var(--purple);
 }
 
 .portfolio-filter:hover {
   transform: translateY(-2px);
 }
-
-/* 작품은 3열 고정 구조 */
 
 .portfolio-grid {
   display: grid;
@@ -900,76 +794,65 @@ body.minz-intro-start .minz-shutter-control {
   gap: 28px;
 }
 
-.portfolio-item {
+.portfolio-grid > .portfolio-item {
+  display: block;
   min-width: 0;
 }
 
-.portfolio-item.is-hidden {
-  display: none;
+.portfolio-grid > .portfolio-item[hidden] {
+  display: none !important;
 }
 
-/* 12. PORTFOLIO CARD */
+/* 08 CARDS - 동일한 16:10 썸네일 */
 
 .minz-work-card {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 100%;
-
   overflow: hidden;
-  border: 1px solid #EEEAF7;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: #FFFFFF;
-
-  box-shadow: 0 5px 24px rgba(40, 25, 80, 0.06);
-
+  background: white;
+  box-shadow: 0 5px 24px rgb(40 25 80 / 6%);
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform .35s,
+    box-shadow .35s,
+    border-color .35s;
 }
 
 .minz-work-card:hover {
   transform: translateY(-8px);
-  border-color: #C5B1FF;
-
-  box-shadow: 0 18px 42px rgba(88, 49, 170, 0.2);
+  border-color: #c5b1ff;
+  box-shadow: 0 18px 42px rgb(88 49 170 / 20%);
 }
-
-/* 썸네일 기본 크기 통일 */
 
 .minz-work-thumb {
   position: relative;
   isolation: isolate;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 14px;
-
   width: 100%;
   aspect-ratio: 16 / 10;
-
   overflow: hidden;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .minz-work-thumb > i {
   position: relative;
   z-index: 2;
-
   font-size: 46px;
   line-height: 1;
-
-  transition: transform 0.4s ease;
+  transition: transform .4s;
 }
 
-.minz-work-thumb > span {
+.minz-work-thumb > span:not(.youtube-play-icon):not(.youtube-thumb-label):not(.minz-video-badge) {
   position: relative;
   z-index: 2;
-
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -979,70 +862,64 @@ body.minz-intro-start .minz-shutter-control {
   transform: scale(1.13);
 }
 
-/* 색상별 썸네일 */
-
 .thumb-video {
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #21162F, #6740CC);
+  background: linear-gradient(135deg, #21162f, #6740cc);
+  color: white;
 }
 
 .thumb-ai {
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #44316D, #A88BFF);
+  background: linear-gradient(135deg, #44316d, #a88bff);
+  color: white;
 }
 
 .thumb-design {
-  color: #6740CC;
-  background: linear-gradient(135deg, #EDE7FA, #D5C5FF);
+  background: linear-gradient(135deg, #ede7fa, #d5c5ff);
+  color: #6740cc;
 }
 
 .thumb-web {
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #252A59, #5365F5);
+  background: linear-gradient(135deg, #252a59, #5365f5);
+  color: white;
 }
 
 .thumb-shortform {
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #3C2057, #9253C3);
+  background: linear-gradient(135deg, #3c2057, #9253c3);
+  color: white;
 }
 
-/* 13. CARD LIGHT SWEEP */
+/* 카드 위로 빛 스침 */
 
 .minz-work-thumb::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 3;
-
   pointer-events: none;
   opacity: 0;
-
   background: linear-gradient(
     105deg,
     transparent 28%,
-    rgba(255, 255, 255, 0.08) 39%,
-    rgba(255, 255, 255, 0.67) 50%,
-    rgba(255, 255, 255, 0.08) 61%,
+    rgb(255 255 255 / 8%) 39%,
+    rgb(255 255 255 / 67%) 50%,
+    rgb(255 255 255 / 8%) 61%,
     transparent 72%
   );
-
   transform: translateX(-120%);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .minz-work-card:hover .minz-work-thumb::after {
-    animation: minz-card-sweep 1.35s ease-out 1;
+    animation: card-sweep 1.35s ease-out 1;
   }
 }
 
-@keyframes minz-card-sweep {
+@keyframes card-sweep {
   0% {
     opacity: 0;
     transform: translateX(-120%);
   }
 
-  15%,
-  80% {
+  15%, 80% {
     opacity: 1;
   }
 
@@ -1052,31 +929,28 @@ body.minz-intro-start .minz-shutter-control {
   }
 }
 
-/* 14. PROJECT INFO */
+/* 09 CARD DESCRIPTIONS */
 
 .minz-work-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-
   padding: 23px;
-  background: #FFFFFF;
+  background: white;
   text-align: left;
 }
 
 .minz-work-category {
   display: inline-block;
   margin-bottom: 10px;
-
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 12px;
   font-weight: 800;
 }
 
 .minz-work-info h3 {
   margin: 0 0 10px;
-
   color: #272333;
   font-size: 19px;
   font-weight: 800;
@@ -1086,8 +960,7 @@ body.minz-intro-start .minz-shutter-control {
 
 .minz-work-info p {
   margin-bottom: 17px;
-
-  color: #625B71;
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.75;
   word-break: keep-all;
@@ -1101,28 +974,23 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-
   margin-top: auto;
   padding-top: 12px;
-
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 13px;
   font-weight: 800;
   line-height: 1.5;
-
-  transition:
-    color 0.25s ease,
-    gap 0.25s ease;
+  transition: gap .25s, color .25s;
 }
 
 .minz-project-link:hover {
   gap: 11px;
-  color: var(--minz-purple-dark);
+  color: var(--purple-dark);
 }
 
 .project-status {
   margin-top: auto;
-  color: #8A8397;
+  color: #8a8397;
   font-size: 12px;
   font-weight: 600;
 }
@@ -1131,33 +999,27 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-
-  margin: 0 0 10px;
-
-  color: var(--minz-purple);
+  margin-bottom: 10px;
+  color: var(--purple);
   font-size: 17px;
   font-weight: 800;
 }
 
-/* 15. SUPERCAR VIDEO */
+/* 10 SUPERCAR AI VIDEO */
 
 .minz-video-thumb {
   display: block;
-  background: #191528;
+  background: var(--ink);
 }
 
 .minz-project-video {
   position: absolute;
   inset: 0;
-
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
-
   object-fit: cover;
-
-  transform: scale(1);
-  transition: transform 0.6s ease;
+  transition: transform .6s ease;
 }
 
 .minz-work-card:hover .minz-project-video {
@@ -1168,14 +1030,12 @@ body.minz-intro-start .minz-shutter-control {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   pointer-events: none;
-
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1),
+    rgb(0 0 0 / 10%),
     transparent 60%,
-    rgba(0, 0, 0, 0.35)
+    rgb(0 0 0 / 35%)
   );
 }
 
@@ -1184,167 +1044,196 @@ body.minz-intro-start .minz-shutter-control {
   top: 14px;
   left: 14px;
   z-index: 4;
-
   padding: 7px 11px;
   border-radius: 6px;
-
-  color: #FFFFFF;
-  background: rgba(25, 21, 40, 0.8);
-
+  color: white;
+  background: rgb(25 21 40 / 80%);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
 }
 
-/* 16. ONPICK THUMBNAIL */
+/* 11 ONPICK - 앱 전용 썸네일 */
 
-.onpick-image-thumb {
+.minz-portfolio .onpick-image-thumb {
   display: block;
-  background: #E8EEFF;
+  background: #e8eeff;
 }
 
-/* 원본 이미지 안 글자 위치 조절 */
-
-.onpick-image-thumb > img {
+.minz-portfolio .onpick-image-thumb > img {
   position: absolute;
   inset: 0;
-
   display: block;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 
-  /*
-    위치 조절:
-    50% 65% = 조금 위쪽 내용
-    50% 75% = 아래쪽 내용 더 많이
-    50% 90% = 원본 하단에 가까운 내용
-  */
+  /* 원본 이미지 안 글자 위치 */
   object-position: 50% 75%;
 
   transform: scale(1);
-
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
+  transition: transform .5s, filter .5s;
 }
 
-.minz-work-card:hover .onpick-image-thumb > img {
-  transform: scale(1.04);
+.minz-portfolio .minz-work-card:hover .onpick-image-thumb > img {
+  transform: scale(1.035);
   filter: brightness(1.04);
 }
 
-/* 17. BUSAN NIGHT THUMBNAIL */
+/* 12 BUSAN NIGHT - 별도 썸네일 */
 
-.busan-night-thumb {
-  position: relative;
+.minz-portfolio .busan-night-thumb {
   display: block;
-
   background: linear-gradient(
     135deg,
-    #04112A,
-    #103C73 56%,
-    #326A9E
+    #04112a,
+    #103c73 56%,
+    #326a9e
   );
 }
 
-/* 원본 Figma 썸네일 이미지 */
-
-.busan-night-thumb > img {
+.minz-portfolio .busan-night-thumb > img {
   position: absolute;
   inset: 0;
-
+  display: block;
   width: 100%;
   height: 100%;
-
-  display: block;
   object-fit: cover;
   object-position: center;
-
-  transform: scale(1);
-  transition: transform 0.55s ease;
+  transition: transform .55s;
 }
 
-.minz-work-card:hover .busan-night-thumb > img {
+.minz-portfolio .minz-work-card:hover .busan-night-thumb > img {
   transform: scale(1.06);
 }
 
-/* 부산나이트 타이틀 오버레이 */
-
-.busan-night-overlay {
+.minz-portfolio .busan-night-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   gap: 7px;
-
   padding: 25px;
-
   background: linear-gradient(
     90deg,
-    rgba(3, 15, 40, 0.86),
-    rgba(3, 15, 40, 0.4) 70%,
+    rgb(3 15 40 / 86%),
+    rgb(3 15 40 / 40%) 70%,
     transparent
   );
-
-  color: #FFFFFF;
+  color: white;
   text-align: left;
   pointer-events: none;
 }
 
 .busan-night-overlay span {
-  color: #CEDFF5;
+  color: #cedff5;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.5px;
 }
 
 .busan-night-overlay strong {
-  color: #FFFFFF;
+  color: white;
   font-size: clamp(21px, 2vw, 29px);
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: -0.6px;
 }
 
 .busan-night-overlay small {
-  color: #EDF3FF;
+  color: #edf3ff;
   font-size: 12px;
 }
 
-/* 18. FEATURED INSTAGRAM REEL */
+/* 13 YOUTUBE DART BALLOON */
+
+.minz-portfolio .youtube-short-thumb {
+  display: block;
+  background: linear-gradient(135deg, #311644, #6e3abb);
+}
+
+.youtube-short-thumb > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform .5s;
+}
+
+.minz-work-card:hover .youtube-short-thumb > img {
+  transform: scale(1.06);
+}
+
+.youtube-play-icon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube-play-icon i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  color: white;
+  background: rgb(25 21 40 / 77%);
+  font-size: 35px;
+  transition: background .3s, transform .3s;
+}
+
+.minz-work-card:hover .youtube-play-icon i {
+  background: var(--purple);
+  transform: scale(1.08);
+}
+
+.youtube-thumb-label {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  z-index: 2;
+  padding: 6px 9px;
+  border-radius: 5px;
+  background: rgb(25 21 40 / 65%);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .8px;
+}
+
+/* 14 INSTAGRAM FEATURED SHORT-FORM */
 
 .minz-reel-section {
-  background: #FAF9FD;
+  background: #faf9fd;
 }
 
 .reel-feature {
   display: grid;
-  grid-template-columns:
-    minmax(0, 0.85fr)
-    minmax(0, 1.15fr);
-
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
   align-items: center;
   gap: 40px;
-
   padding: 40px;
-  border: 1px solid #EEEAF7;
+  border: 1px solid var(--border);
   border-radius: 20px;
-
-  background: #FFFFFF;
-  box-shadow: 0 8px 30px rgba(40, 25, 80, 0.06);
+  background: white;
+  box-shadow: 0 8px 30px rgb(40 25 80 / 6%);
 }
 
 .reel-player {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
   min-width: 0;
 }
@@ -1361,17 +1250,11 @@ body.minz-intro-start .minz-shutter-control {
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   margin-top: 16px;
-
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 13px;
   font-weight: 700;
   text-align: center;
-}
-
-.reel-info {
-  padding: 10px;
 }
 
 .reel-info h3 {
@@ -1384,10 +1267,8 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   margin-bottom: 21px;
-
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 25px;
   font-weight: 800;
 }
@@ -1403,10 +1284,10 @@ body.minz-intro-start .minz-shutter-control {
   margin: 18px 0;
 }
 
-/* 19. CONTACT */
+/* 15 CONTACT */
 
 .minz-contact {
-  background: #FFFFFF;
+  background: white;
 }
 
 .contact-grid {
@@ -1418,32 +1299,24 @@ body.minz-intro-start .minz-shutter-control {
 .minz-contact-card {
   min-height: 185px;
   padding: 30px 20px;
-
-  border: 1px solid #EAE5F4;
+  border: 1px solid #eae5f4;
   border-radius: 15px;
-
-  background: #FFFFFF;
+  background: white;
   text-align: center;
-
-  box-shadow: 0 5px 20px rgba(65, 40, 120, 0.05);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  box-shadow: 0 5px 20px rgb(65 40 120 / 5%);
+  transition: transform .3s, box-shadow .3s;
 }
 
 .minz-contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(65, 40, 120, 0.12);
+  box-shadow: 0 12px 30px rgb(65 40 120 / 12%);
 }
 
 .minz-contact-card > i {
   display: inline-block;
   margin-bottom: 16px;
-
-  color: var(--minz-purple);
+  color: var(--purple);
   font-size: 30px;
-  line-height: 1;
 }
 
 .minz-contact-card h3 {
@@ -1455,41 +1328,34 @@ body.minz-intro-start .minz-shutter-control {
 .minz-contact-card a,
 .minz-contact-card p {
   margin: 0;
-
-  color: var(--minz-muted);
+  color: var(--muted);
   font-size: 15px;
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
 
 .minz-contact-card a:hover {
-  color: var(--minz-purple);
+  color: var(--purple);
 }
-
-/* 20. CONTACT CTA */
 
 .minz-contact-cta {
   margin-top: 42px;
   padding: 60px 30px;
   border-radius: 20px;
-
-  color: #FFFFFF;
-
+  color: white;
   background: linear-gradient(
     135deg,
     #342052,
-    #6740CC 55%,
-    #7545E8
+    #6740cc 55%,
+    #7545e8
   );
-
   text-align: center;
 }
 
 .contact-eyebrow {
   display: block;
   margin-bottom: 16px;
-
-  color: #DCCEFF;
+  color: #dcceff;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -1497,8 +1363,7 @@ body.minz-intro-start .minz-shutter-control {
 
 .minz-contact-cta h3 {
   margin: 0 0 15px;
-
-  color: #FFFFFF;
+  color: white;
   font-size: 28px;
   font-weight: 800;
   word-break: keep-all;
@@ -1506,8 +1371,7 @@ body.minz-intro-start .minz-shutter-control {
 
 .minz-contact-cta p {
   margin-bottom: 28px;
-
-  color: #EAE2FF;
+  color: #eae2ff;
   font-size: 16px;
   line-height: 1.8;
   word-break: keep-all;
@@ -1518,87 +1382,73 @@ body.minz-intro-start .minz-shutter-control {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   padding: 14px 26px;
   border-radius: 30px;
-
-  color: #6740CC;
-  background: #FFFFFF;
-
+  color: var(--purple-dark);
+  background: white;
   font-size: 15px;
   font-weight: 800;
-
-  box-shadow: 0 4px 15px rgba(25, 21, 40, 0.08);
-
+  box-shadow: 0 4px 15px rgb(25 21 40 / 8%);
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+    transform .3s,
+    background .3s,
+    box-shadow .3s;
 }
 
-.minz-contact-btn:hover,
-.minz-contact-btn:focus-visible {
-  color: #4E2CA8;
-  background: #F1ECFF;
-
+.minz-contact-btn:hover {
+  color: #4e2ca8;
+  background: #f1ecff;
   transform: translateY(-4px);
-
   box-shadow:
-    0 10px 28px rgba(225, 205, 255, 0.35),
-    0 0 0 3px rgba(255, 255, 255, 0.2);
+    0 10px 28px rgb(225 205 255 / 35%),
+    0 0 0 3px rgb(255 255 255 / 20%);
 }
 
 .minz-contact-btn .bi-arrow-up-right {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform .3s;
 }
 
-.minz-contact-btn:hover .bi-arrow-up-right,
-.minz-contact-btn:focus-visible .bi-arrow-up-right {
+.minz-contact-btn:hover .bi-arrow-up-right {
   transform: translate(4px, -4px);
 }
 
 .minz-instagram-link {
   display: block;
   width: fit-content;
-
   margin: 21px auto 0;
-
-  color: #EAE2FF;
+  color: #eae2ff;
   font-size: 14px;
 }
 
 .minz-instagram-link:hover {
-  color: #FFFFFF;
+  color: white;
 }
 
-/* 21. FOOTER */
+/* 16 FOOTER */
 
 .minz-footer {
   padding: 50px 20px 27px;
-
-  color: #FFFFFF;
-  background: #191528;
+  color: white;
+  background: var(--ink);
   text-align: center;
 }
 
 .minz-footer h2 {
   margin: 0 0 12px;
-
-  color: #FFFFFF;
+  color: white;
   font-size: 36px;
 }
 
 .footer-slogan {
   margin-bottom: 24px;
-  color: #C3B8D9;
+  color: #c3b8d9;
   font-size: 15px;
 }
 
 .footer-social {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 14px;
 }
 
@@ -1606,70 +1456,54 @@ body.minz-intro-start .minz-shutter-control {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: 44px;
   height: 44px;
-
   border-radius: 50%;
-
-  color: #FFFFFF;
+  color: white;
   background: #302344;
-
   font-size: 18px;
-
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease;
+  transition: background .3s, transform .3s;
 }
 
 .footer-social a:hover {
-  color: #FFFFFF;
-  background: var(--minz-purple);
+  color: white;
+  background: var(--purple);
   transform: translateY(-3px);
 }
 
 .footer-line {
   height: 1px;
   margin: 30px 0 22px;
-  background: #3C3050;
+  background: #3c3050;
 }
 
 .footer-copyright {
   margin: 0;
-
-  color: #B9AEC9;
+  color: #b9aec9;
   font-size: 13px;
 }
-
-/* 22. SCROLL TOP */
 
 .scroll-top {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 900;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 44px;
   height: 44px;
   border-radius: 50%;
-
-  color: #FFFFFF;
-  background: var(--minz-purple);
-
+  color: white;
+  background: var(--purple);
   font-size: 24px;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    visibility 0.3s ease;
+    opacity .3s,
+    transform .3s,
+    visibility .3s;
 }
 
 .scroll-top.active {
@@ -1679,13 +1513,17 @@ body.minz-intro-start .minz-shutter-control {
 }
 
 .scroll-top:hover {
-  color: #FFFFFF;
-  background: #6740CC;
+  color: white;
+  background: var(--purple-dark);
 }
 
-/* 23. RESPONSIVE - TABLET */
+/* 17 RESPONSIVE */
 
 @media (max-width: 1024px) {
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   .about-grid {
     gap: 30px;
@@ -1699,17 +1537,11 @@ body.minz-intro-start .minz-shutter-control {
     max-width: 250px;
   }
 
-  .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .resume-grid {
     gap: 35px;
   }
 
 }
-
-/* 24. RESPONSIVE - MOBILE MENU */
 
 @media (max-width: 900px) {
 
@@ -1723,19 +1555,15 @@ body.minz-intro-start .minz-shutter-control {
     left: 20px;
     right: 20px;
     z-index: 1001;
-
     display: none;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-
     padding: 13px;
-    border: 1px solid #E7DEFF;
+    border: 1px solid #e7deff;
     border-radius: 14px;
-
-    background: #FFFFFF;
-
-    box-shadow: 0 15px 40px rgba(25, 21, 40, 0.2);
+    background: white;
+    box-shadow: 0 15px 40px rgb(25 21 40 / 20%);
   }
 
   .navmenu.nav-open {
@@ -1745,7 +1573,6 @@ body.minz-intro-start .minz-shutter-control {
   .navmenu a {
     display: block;
     padding: 11px 14px;
-
     color: #272333;
     border-radius: 8px;
   }
@@ -1756,8 +1583,8 @@ body.minz-intro-start .minz-shutter-control {
 
   .navmenu a:hover,
   .navmenu a.active {
-    color: #7545E8;
-    background: #F4F0FF;
+    color: var(--purple);
+    background: #f4f0ff;
   }
 
   .about-grid,
@@ -1772,8 +1599,6 @@ body.minz-intro-start .minz-shutter-control {
 
 }
 
-/* 25. RESPONSIVE - MOBILE */
-
 @media (max-width: 767px) {
 
   html {
@@ -1781,7 +1606,7 @@ body.minz-intro-start .minz-shutter-control {
   }
 
   .container {
-    width: min(100% - 30px, 1200px);
+    width: min(calc(100% - 30px), 1200px);
   }
 
   .section {
@@ -1841,8 +1666,8 @@ body.minz-intro-start .minz-shutter-control {
   }
 
   .minz-shutter-btn {
-    padding: 9px 15px;
     font-size: 12px;
+    padding: 9px 15px;
   }
 
   .about-panel {
@@ -1878,7 +1703,7 @@ body.minz-intro-start .minz-shutter-control {
     font-size: 14px;
   }
 
-  .resume-item.minz-career-featured {
+  .minz-career-featured {
     padding: 20px;
   }
 
@@ -1907,10 +1732,6 @@ body.minz-intro-start .minz-shutter-control {
 
   .reel-feature {
     padding: 20px;
-  }
-
-  .reel-info {
-    padding: 6px 0;
   }
 
   .reel-info h3 {
@@ -1958,15 +1779,14 @@ body.minz-intro-start .minz-shutter-control {
 
   .footer-copyright {
     font-size: 12px;
-    line-height: 1.7;
   }
 
 }
 
-/* 26. ACCESSIBILITY */
+/* 18 ACCESSIBILITY */
 
 :focus-visible {
-  outline: 2px solid #A88BFF;
+  outline: 2px solid var(--purple-light);
   outline-offset: 3px;
 }
 
@@ -1979,8 +1799,8 @@ body.minz-intro-start .minz-shutter-control {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
 
   .motion-reveal {
@@ -2000,6 +1820,4 @@ body.minz-intro-start .minz-shutter-control {
 
 }
 
-/* =================================================
-   END MINZ PORTFOLIO v2.0
-   ================================================= */
+/* END MINZ PORTFOLIO v2.1 */
