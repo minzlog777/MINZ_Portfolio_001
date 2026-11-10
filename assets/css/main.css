@@ -1825,9 +1825,10 @@ body.minz-intro-start #hero .minz-shutter-control {
 /* END MINZ FIGMA PROJECT */
 
 
+
 /* ==========================================
    MINZ ONPICK THUMBNAIL - FINAL
-   이미지 위치 + 호버 + 빛 스침
+   전체 글자 표시 + 호버 효과
    ========================================== */
 
 /* 썸네일 영역 */
@@ -1836,77 +1837,56 @@ body.minz-intro-start #hero .minz-shutter-control {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
+  width: 100%;
+  height: 430px;
   aspect-ratio: auto;
   overflow: hidden;
   isolation: isolate;
   background: linear-gradient(135deg, #E8EEFF, #F4ECFF);
 }
 
-/* 기본 이미지 - 위로 12px 이동 */
+/* 이미지 전체가 보이도록 배치 */
 .minz-portfolio .minz-work-thumb.has-image img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transform: translateY(-12px) scale(1);
-  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* 살짝 위로 올리되 잘리지 않도록 축소 */
+  transform: translateY(-10px) scale(0.94);
+
+  transition: transform 0.5s ease;
 }
 
-/* 호버 - 같은 위치를 유지하면서 확대 */
+/* 호버하면 자연스럽게 확대 */
 .minz-portfolio .minz-work-card:hover .has-image img {
-  transform: translateY(-12px) scale(1.055);
+  transform: translateY(-10px) scale(0.97);
 }
 
-/* 기존 카드의 빛 스침 효과 유지 */
+/* 기존 카드 빛 스침 효과 그대로 사용 */
 .minz-portfolio .has-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
   z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-
-  background: linear-gradient(
-    105deg,
-    transparent 28%,
-    rgba(255, 255, 255, 0.07) 39%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(255, 255, 255, 0.07) 61%,
-    transparent 72%
-  );
-
-  transform: translateX(-120%);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .minz-portfolio .minz-work-card:hover .has-image::after {
-    animation: minz-card-sweep 1.35s ease-out 1;
-  }
 }
 
 /* 모바일 */
 @media (max-width: 767px) {
   .minz-portfolio .minz-work-thumb.has-image {
-    height: 280px;
+    height: 390px;
   }
 }
 
 /* 움직임 최소화 설정 */
 @media (prefers-reduced-motion: reduce) {
-  .minz-portfolio .minz-work-thumb.has-image img,
+  .minz-portfolio .has-image img,
   .minz-portfolio .minz-work-card:hover .has-image img {
-    transform: translateY(-12px);
+    transform: translateY(-10px) scale(0.94);
     transition: none;
-  }
-
-  .minz-portfolio .has-image::after {
-    animation: none !important;
   }
 }
 
-/* ===== END MINZ ONPICK THUMBNAIL ===== */
+/* END MINZ ONPICK THUMBNAIL */
+
 
 
 /* ==========================================
