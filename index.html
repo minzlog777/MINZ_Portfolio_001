@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,105 +7,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="유재민">
   <meta name="description" content="MINZ 유재민의 영상 제작, 드론 촬영, AI 콘텐츠, 디자인 및 디지털 마케팅 포트폴리오">
-  <meta name="keywords" content="MINZ, 유재민, 포트폴리오, 영상제작, 드론촬영, AI콘텐츠, 마케팅">
   <meta name="theme-color" content="#191528">
 
-  <title>MINZ | 유재민 포트폴리오</title>
+  <title>MINZ | Creative Portfolio</title>
 
-  <!-- Favicon -->
+  <!-- FAVICON -->
   <link rel="icon" href="assets/img/lastfavicon.png">
-  <link rel="apple-touch-icon" href="assets/img/lastfavicon.png">
 
-  <!-- Fonts -->
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap"
     rel="stylesheet">
 
-  <!-- Vendor CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    rel="stylesheet">
 
-  <!-- Main CSS -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <!-- BOOTSTRAP ICONS -->
+  <link
+    href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+    rel="stylesheet">
+
+  <!-- MINZ MAIN CSS -->
+  <link href="assets/css/main.css?v=20261110" rel="stylesheet">
 </head>
 
-<body class="index-page">
+<body>
 
   <!-- ======================================
-       01 HEADER
+       01. HEADER
        ====================================== -->
-  <header id="header" class="header d-flex align-items-center sticky-top">
+  <header id="header" class="site-header">
 
-    <div class="container-xl d-flex align-items-center justify-content-between">
+    <div class="header-inner container">
 
-      <a href="#hero" class="logo d-flex align-items-center" aria-label="MINZ 홈페이지">
-        <img src="assets/img/lastfavicon.png" alt="MINZ 로고">
-        <h1 class="sitename new-logo-minz">MINZ</h1>
+      <a href="#hero" class="site-logo" aria-label="MINZ 홈">
+        <img src="assets/img/lastfavicon.png" alt="">
+        <span class="brand-font">MINZ</span>
       </a>
 
-      <nav id="navmenu" class="navmenu" aria-label="주 메뉴">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#resume">Experience</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="모바일 메뉴"></i>
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="navmenu">
+
+        <i class="bi bi-list"></i>
+
+      </button>
+
+      <nav id="navmenu" class="navmenu" aria-label="메인 메뉴">
+
+        <a href="#hero" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Experience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+
       </nav>
 
     </div>
+
   </header>
 
-  <main class="main">
+  <main>
 
     <!-- ======================================
-         02 HERO - CAMERA FLASH VIDEO
+         02. HERO
          ====================================== -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero">
 
-      <!-- 메인 영상: 기본 상태에서 무음 반복 -->
-      <video id="minz-hero-video" class="minz-hero-video" autoplay muted loop playsinline preload="metadata"
-        poster="assets/img/보라빛 스튜디오의 MINZ 크리에이터.png" aria-label="MINZ 카메라 플래시 메인 영상">
+      <!-- 메인 영상 -->
+      <video
+        id="minz-hero-video"
+        class="minz-hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/img/보라빛 스튜디오의 MINZ 크리에이터.png">
 
-        <source src="assets/img/MINZ_hero_shutter.mp4" type="video/mp4">
+        <source
+          src="assets/img/MINZ_hero_shutter.mp4"
+          type="video/mp4">
 
-        브라우저가 영상을 지원하지 않습니다.
       </video>
 
-      <div class="container text-center">
+      <div class="hero-shade"></div>
+
+      <div class="hero-content container">
 
         <span class="hero-eyebrow">
           CREATIVE PORTFOLIO
         </span>
 
-        <h2 class="new-logo-minz">
+        <h1 class="brand-font">
           I am MINZ Creator
-        </h2>
+        </h1>
 
-        <p>
-          <span class="typed" data-typed-items="영상 크리에이터, AI 콘텐츠 제작자, 드론 촬영, 디지털 마케터, 브랜드 스토리텔러">
+        <p class="hero-subtitle">
+          <span id="hero-typed">
+            영상 크리에이터 · AI 콘텐츠 제작자
           </span>
+          <span class="typing-cursor" aria-hidden="true"></span>
         </p>
 
-        <a href="#portfolio" class="hero-button">
-          View My Works
-          <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
-        </a>
+        <div class="hero-actions">
 
-        <!-- 사용자 클릭 시 셔터 소리 1회 재생 -->
+          <a href="#portfolio" class="hero-button">
+            View My Works
+            <i class="bi bi-arrow-down-right"></i>
+          </a>
+
+        </div>
+
         <div class="minz-shutter-control">
-          <button type="button" id="minz-shutter-btn" class="minz-shutter-btn">
 
-            <i class="bi bi-volume-up" aria-hidden="true"></i>
-            <span class="minz-shutter-label">찰칵 사운드 듣기</span>
+          <button
+            type="button"
+            id="minz-shutter-btn"
+            class="minz-shutter-btn">
+
+            <i class="bi bi-volume-up"></i>
+            <span class="minz-shutter-label">
+              찰칵 사운드 듣기
+            </span>
 
           </button>
+
         </div>
 
       </div>
@@ -112,137 +148,147 @@
     </section>
 
     <!-- ======================================
-         03 ABOUT MINZ
+         03. ABOUT
          ====================================== -->
-    <section id="about" class="about section">
+    <section id="about" class="section about">
 
-      <div class="container" data-aos="fade-up">
-        <div class="row gy-4">
+      <div class="container">
 
-          <!-- LEFT: PROFILE + SKILLS -->
-          <div class="col-lg-6">
+        <div class="about-panel">
 
-            <div class="row justify-content-between gy-4">
+          <div class="about-grid">
 
-              <div class="col-sm-5">
-                <img src="assets/img/보랏빛 스튜디오의 자신감 넘치는 크리에이터.png" class="img-fluid minz-profile-image"
-                  alt="MINZ 크리에이터 프로필 이미지" loading="lazy">
+            <!-- 프로필 및 스킬 -->
+            <div class="about-left">
+
+              <div class="profile-row">
+
+                <img
+                  class="minz-profile-image"
+                  src="assets/img/보랏빛 스튜디오의 자신감 넘치는 크리에이터.png"
+                  alt="MINZ 크리에이터 프로필"
+                  loading="lazy">
+
+                <div class="about-info">
+
+                  <p>
+                    <strong>Name</strong>
+                    <span>유재민</span>
+                  </p>
+
+                  <p>
+                    <strong>Profile</strong>
+                    <span>영상 크리에이터 · AI 콘텐츠 제작자</span>
+                  </p>
+
+                  <p>
+                    <strong>Email</strong>
+                    <span>jakeminz@gmail.com</span>
+                  </p>
+
+                  <p>
+                    <strong>Phone</strong>
+                    <span>010-9304-9498</span>
+                  </p>
+
+                </div>
+
               </div>
 
-              <div class="col-sm-7 about-info">
-                <p>
-                  <strong>Name</strong>
-                  <span>유재민</span>
-                </p>
-                <p>
-                  <strong>Profile</strong>
-                  <span>영상 크리에이터 · AI 콘텐츠 제작자</span>
-                </p>
-                <p>
-                  <strong>Email</strong>
-                  <span>jakeminz@gmail.com</span>
-                </p>
-                <p>
-                  <strong>Phone</strong>
-                  <span>010-9304-9498</span>
-                </p>
+              <div class="minz-skills">
+
+                <h3>Skills</h3>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>Adobe Photoshop</span>
+                    <b>90%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:90%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>Adobe Illustrator</span>
+                    <b>80%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:80%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>Adobe Premiere Pro</span>
+                    <b>90%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:90%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>Adobe After Effects</span>
+                    <b>80%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:80%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>드론 촬영</span>
+                    <b>90%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:90%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>생성형 AI</span>
+                    <b>90%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:90%"></span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-heading">
+                    <span>HTML</span>
+                    <b>80%</b>
+                  </div>
+                  <div class="skill-track">
+                    <span style="width:80%"></span>
+                  </div>
+                </div>
+
               </div>
 
             </div>
 
-            <!-- SKILLS -->
-            <div class="skills-content skills-animation minz-skills">
+            <!-- 자기소개 -->
+            <div class="about-right">
 
-              <h5>Skills</h5>
-
-              <div class="progress">
-                <span class="skill">
-                  Adobe Photoshop <i class="val">90%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="Photoshop" aria-valuenow="90"
-                    aria-valuemin="0" aria-valuemax="100" style="width:90%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  Adobe Illustrator <i class="val">80%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="Illustrator" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  Adobe Premiere Pro <i class="val">90%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="Premiere Pro" aria-valuenow="90"
-                    aria-valuemin="0" aria-valuemax="100" style="width:90%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  Adobe After Effects <i class="val">80%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="After Effects" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  드론 촬영 <i class="val">90%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="드론 촬영" aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100" style="width:90%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  생성형 AI <i class="val">90%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="생성형 AI" aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100" style="width:90%"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">
-                  HTML <i class="val">80%</i>
-                </span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-label="HTML" aria-valuenow="80" aria-valuemin="0"
-                    aria-valuemax="100" style="width:80%"></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- RIGHT: INTRODUCTION -->
-          <div class="col-lg-6">
-            <div class="about-me">
-
-              <h4>About MINZ</h4>
+              <h2 class="about-title">About MINZ</h2>
 
               <p class="about-lead">
                 일상에서 이야기를 발견하고,
-                그 이야기를 콘텐츠로 만드는 크리에이터 MINZ입니다.
+                그 이야기를 콘텐츠로 만드는
+                크리에이터 MINZ입니다.
               </p>
 
               <p>
-                15년 넘게 블로그를 운영하며 콘텐츠의 가치를 배웠고,
-                지금은 영상 촬영과 편집, 드론, AI 기술과
-                디지털 마케팅을 결합해 다양한 콘텐츠를 제작하고 있습니다.
+                15년 넘게 블로그를 운영하며 콘텐츠의
+                가치를 배웠고, 지금은 영상 촬영과 편집,
+                드론, AI 기술과 디지털 마케팅을 결합해
+                다양한 콘텐츠를 제작하고 있습니다.
               </p>
 
               <p>
@@ -258,9 +304,9 @@
 
               <div class="minz-creative-fields">
 
-                <h5>WHAT I CREATE</h5>
+                <h3>WHAT I CREATE</h3>
 
-                <div class="minz-tag-list">
+                <div class="minz-tags">
                   <span>영상 기획 · 편집</span>
                   <span>드론 촬영</span>
                   <span>AI 콘텐츠</span>
@@ -271,380 +317,554 @@
               </div>
 
             </div>
+
           </div>
 
         </div>
+
       </div>
 
     </section>
 
     <!-- ======================================
-         04 EXPERIENCE
+         04. EXPERIENCE
          ====================================== -->
-    <section id="resume" class="resume section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Experience</h2>
-        <p>경험을 콘텐츠의 가치로 연결하는 크리에이터 MINZ</p>
-      </div>
+    <section id="resume" class="section resume">
 
       <div class="container">
-        <div class="row gy-4">
 
-          <!-- LEFT -->
-          <div class="col-lg-6">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>경험을 콘텐츠의 가치로 연결하는 크리에이터 MINZ</p>
+        </div>
+
+        <div class="resume-grid">
+
+          <!-- 왼쪽 -->
+          <div>
 
             <h3 class="resume-title">Profile</h3>
 
             <div class="resume-item">
+
               <h4>유재민 | MINZ</h4>
 
               <p class="resume-subtitle">
-                영상 크리에이터 · 디지털 마케터 · AI 콘텐츠 제작자
+                영상 크리에이터 · 디지털 마케터
               </p>
 
               <p>
-                콘텐츠 기획부터 촬영, 편집, 마케팅까지
-                하나의 흐름으로 연결합니다.
+                기획부터 촬영, 편집, 마케팅까지
+                콘텐츠 제작 전 과정을 연결합니다.
               </p>
 
               <ul>
                 <li>부산 기반 영상 크리에이터</li>
-                <li>영상 촬영 · 편집 · 드론 · AI 콘텐츠 제작</li>
-                <li>SNS 콘텐츠 기획 및 디지털 마케팅</li>
+                <li>드론 촬영 · AI 콘텐츠 제작</li>
+                <li>SNS 콘텐츠 기획 및 마케팅</li>
               </ul>
+
             </div>
 
             <h3 class="resume-title">Activities</h3>
 
             <div class="resume-item">
               <h4>부산콘텐츠코리아랩 서포터즈</h4>
-              <h5>2024</h5>
-
-              <p class="resume-subtitle">
-                콘텐츠 창작 및 지역 콘텐츠 활동
-              </p>
-
-              <p>
-                지역 콘텐츠의 매력을 발굴하고
-                다양한 창작 활동에 참여했습니다.
-              </p>
+              <span class="resume-date">2024</span>
+              <p>지역 콘텐츠 창작 및 홍보 활동</p>
             </div>
 
             <div class="resume-item">
               <h4>당근 인플루언서</h4>
-              <h5>2024</h5>
-
-              <p class="resume-subtitle">
-                지역 기반 콘텐츠 제작 및 홍보
-              </p>
-
-              <p>
-                지역의 공간과 이야기를 소개하고
-                유용한 정보를 전달하는 콘텐츠를 제작했습니다.
-              </p>
+              <span class="resume-date">2024</span>
+              <p>지역 기반 정보 콘텐츠 제작</p>
             </div>
 
           </div>
 
-          <!-- RIGHT -->
-          <div class="col-lg-6">
+          <!-- 오른쪽 -->
+          <div>
 
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title">
+              Professional Experience
+            </h3>
 
             <div class="resume-item minz-career-featured">
-              <h4>이유사회적협동조합 | 마케팅 매니저</h4>
-              <h5>2023.10.16 – 2025.02.12</h5>
+
+              <h4>
+                이유사회적협동조합 | 마케팅 매니저
+              </h4>
+
+              <span class="resume-date">
+                2023.10.16 – 2025.02.12
+              </span>
 
               <p class="resume-subtitle">
-                SNS 운영 · 홍보 마케팅 · 영상 콘텐츠 제작
+                SNS 운영 · 홍보 마케팅 · 영상 제작
               </p>
 
               <ul>
                 <li>SNS 채널 운영 및 콘텐츠 관리</li>
                 <li>홍보·마케팅 콘텐츠 기획</li>
-                <li>사진 및 영상 촬영 업무 수행</li>
-                <li>홍보영상 편집 및 콘텐츠 제작</li>
+                <li>사진 및 영상 촬영</li>
+                <li>영상 편집 및 홍보 콘텐츠 제작</li>
               </ul>
+
             </div>
 
-            <h3 class="resume-title minz-projects-title">
-              Creative Projects
-            </h3>
+            <h3 class="resume-title">Creative Projects</h3>
 
             <div class="resume-item">
+
               <h4>영상 촬영 및 편집 프로젝트</h4>
 
               <p class="resume-subtitle">
-                브랜드 홍보 · 공간 영상 · 드론 촬영
+                브랜드 홍보 · 관광 영상 · 드론 촬영
               </p>
 
               <ul>
-                <li>브랜드 및 공간 홍보영상 제작</li>
+                <li>브랜드 및 공간 홍보 콘텐츠 제작</li>
                 <li>Premiere Pro · After Effects 활용</li>
-                <li>드론을 활용한 항공 영상 촬영</li>
                 <li>Instagram 릴스 및 YouTube Shorts 제작</li>
               </ul>
+
             </div>
 
             <div class="resume-item">
-              <h4>AI 콘텐츠 제작 · 디지털 마케팅</h4>
 
-              <p class="resume-subtitle">
-                Generative AI · Content Marketing
+              <h4>AI 콘텐츠 · 디지털 마케팅</h4>
+
+              <p>
+                생성형 AI를 활용한 영상 제작,
+                실사 영상과 AI 기술을 결합한
+                콘텐츠 기획 및 SNS 마케팅
               </p>
 
-              <ul>
-                <li>생성형 AI 이미지 및 영상 제작</li>
-                <li>실사 영상과 AI 기술을 결합한 콘텐츠 기획</li>
-                <li>SNS 콘텐츠 전략 및 브랜드 스토리텔링</li>
-              </ul>
             </div>
 
             <div class="resume-item">
-              <h4>개인 콘텐츠 채널 운영</h4>
-              <h5>15년 이상 블로그 운영 경험</h5>
 
-              <p class="resume-subtitle">
+              <h4>개인 콘텐츠 채널 운영</h4>
+
+              <span class="resume-date">
+                15년 이상 블로그 운영 경험
+              </span>
+
+              <p>
                 Naver Blog · Instagram · YouTube
               </p>
 
-              <ul>
-                <li>맛집 · 여행 · 지역 정보 콘텐츠 기획</li>
-                <li>블로그 및 SNS 콘텐츠 제작·운영</li>
-                <li>정보형 콘텐츠와 숏폼 스토리텔링 개발</li>
-              </ul>
             </div>
 
           </div>
 
         </div>
+
       </div>
 
     </section>
 
     <!-- ======================================
-         05 PORTFOLIO
+         05. PORTFOLIO
          ====================================== -->
-    <section id="portfolio" class="portfolio section minz-portfolio">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Selected Works</h2>
-        <p>
-          아이디어를 현실로 만드는 MINZ의 크리에이티브 포트폴리오
-        </p>
-      </div>
+    <section id="portfolio" class="section minz-portfolio">
 
       <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
+        <div class="section-title">
+          <h2>Selected Works</h2>
+          <p>
+            아이디어를 현실로 만드는
+            MINZ의 크리에이티브 포트폴리오
+          </p>
+        </div>
 
-          <!-- CATEGORY FILTERS -->
-          <ul class="portfolio-filters isotope-filters">
-            <li data-filter="*" class="filter-active">전체</li>
-            <li data-filter=".filter-video">영상 제작</li>
-            <li data-filter=".filter-ai">AI 콘텐츠</li>
-            <li data-filter=".filter-design">디자인</li>
-            <li data-filter=".filter-web">WEB · UI</li>
-          </ul>
+        <!-- 필터 -->
+        <div class="portfolio-filters" role="group" aria-label="작품 분류">
 
-          <div class="row gy-4 isotope-container">
+          <button
+            class="portfolio-filter filter-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true">
+            전체
+          </button>
 
-            <!-- PROJECT 01 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-video">
+          <button
+            class="portfolio-filter"
+            type="button"
+            data-filter="video"
+            aria-pressed="false">
+            영상 제작
+          </button>
 
-              <article class="minz-work-card">
+          <button
+            class="portfolio-filter"
+            type="button"
+            data-filter="ai"
+            aria-pressed="false">
+            AI 콘텐츠
+          </button>
 
-                <div class="minz-work-thumb thumb-video">
-                  <i class="bi bi-camera-reels"></i>
-                  <span>VIDEO PRODUCTION</span>
-                </div>
+          <button
+            class="portfolio-filter"
+            type="button"
+            data-filter="design"
+            aria-pressed="false">
+            디자인
+          </button>
 
-                <div class="minz-work-info">
-                  <span class="minz-work-category">영상 제작</span>
-                  <h4>PROJECT 01</h4>
-                  <p>프로젝트 정보를 준비 중입니다.</p>
-                </div>
+          <button
+            class="portfolio-filter"
+            type="button"
+            data-filter="web"
+            aria-pressed="false">
+            WEB · UI
+          </button>
 
-              </article>
+        </div>
 
-            </div>
+        <!-- 모든 작품은 이 안에 배치 -->
+        <div class="portfolio-grid" id="portfolio-grid">
 
-            <!-- PROJECT 02 : SUPERCAR AI VIDEO -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
+          <!-- PROJECT 01 : 봉산마을 -->
+          <div class="portfolio-item" data-category="video">
 
-              <article class="minz-work-card">
+            <article class="minz-work-card">
 
-                <div class="minz-work-thumb minz-video-thumb">
-
-                  <video class="minz-project-video" autoplay muted loop playsinline preload="metadata"
-                    aria-label="슈퍼카 AI 시네마틱 영상">
-
-                    <source src="assets/img/20261030슈퍼카_수정01.mp4" type="video/mp4">
-
-                  </video>
-
-                  <div class="minz-video-overlay"></div>
-
-                  <span class="minz-video-badge">
-                    AI CINEMATIC FILM
-                  </span>
-
-                </div>
-
-                <div class="minz-work-info">
-
-                  <span class="minz-work-category">
-                    AI 콘텐츠 · 시네마틱 광고
-                  </span>
-
-                  <h4>SUPERCAR | AI CINEMATIC</h4>
-
-                  <p>
-                    생성형 AI를 활용한 슈퍼카 광고 영상 프로젝트
-                  </p>
-
-                  <a href="assets/img/20261030슈퍼카_수정01.mp4" target="_blank" rel="noopener noreferrer"
-                    class="minz-project-link">
-
-                    영상 크게 보기
-                    <i class="bi bi-arrow-up-right"></i>
-
-                  </a>
-
-                </div>
-
-              </article>
-
-            </div>
-
-            <!-- PROJECT 03 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
-
-              <article class="minz-work-card">
-
-                <div class="minz-work-thumb thumb-design">
-                  <i class="bi bi-palette"></i>
-                  <span>VISUAL DESIGN</span>
-                </div>
-
-                <div class="minz-work-info">
-                  <span class="minz-work-category">그래픽 디자인</span>
-                  <h4>PROJECT 03</h4>
-                  <p>프로젝트 정보를 준비 중입니다.</p>
-                </div>
-
-              </article>
-
-            </div>
-
-            <!-- PROJECT 04 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-video">
-
-              <article class="minz-work-card">
-
-                <div class="minz-work-thumb thumb-video">
-                  <i class="bi bi-film"></i>
-                  <span>BRAND FILM</span>
-                </div>
-
-                <div class="minz-work-info">
-                  <span class="minz-work-category">영상 제작</span>
-                  <h4>PROJECT 04</h4>
-                  <p>프로젝트 정보를 준비 중입니다.</p>
-                </div>
-
-              </article>
-
-            </div>
-
-
-            <!-- PROJECT 05 : ONPICK APP -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web filter-design">
-              <article class="minz-work-card">
-                <!-- ONPICK 실제 이미지 썸네일 -->
-                <img src="assets/img/busan-night-thumbnail.png" alt="BUSAN NIGHT 01 부산 향수 브랜드 웹디자인" loading="lazy">
-            </div>
-
-            <div class="minz-work-info">
-
-              <span class="minz-work-category">
-                WEB · APP UI/UX
-              </span>
-
-              <h4>ONPICK | 오늘 뭐하지?!</h4>
-
-              <p>
-                맛집·카페·전시·팝업·여행 정보를 한곳에서
-                탐색하고, 취향에 맞는 장소를 발견할 수 있도록
-                기획한 라이프스타일 큐레이션 앱입니다.
-              </p>
-
-              <div class="onpick-project-meta">
-                <span>서비스 기획</span>
-                <span>와이어프레임</span>
-                <span>UI 디자인</span>
-                <span>Figma</span>
+              <div class="minz-work-thumb thumb-video">
+                <i class="bi bi-camera-reels"></i>
+                <span>VIDEO PRODUCTION</span>
               </div>
 
-              <a href="https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&amp;starting-point-node-id=324%3A2062"
-                target="_blank" rel="noopener noreferrer" class="minz-project-link">
+              <div class="minz-work-info">
 
-                앱 프로토타입 체험하기
-                <i class="bi bi-arrow-up-right"></i>
+                <span class="minz-work-category">
+                  영상 제작 · 관광 콘텐츠
+                </span>
 
-              </a>
+                <h3>영도 봉산마을 프로젝트</h3>
 
-            </div>
+                <p>
+                  마을의 공간과 이야기를 담아낸
+                  촬영·편집 중심의 관광 홍보 콘텐츠
+                </p>
 
+                <span class="project-status">
+                  영상 연결 준비 중
+                </span>
 
+              </div>
 
             </article>
 
           </div>
-          <!-- END PROJECT 05 -->
 
-
-          <!-- PROJECT 06 -->
-
-          <!-- BUSAN NIGHT 01 : BRAND LANDING PAGE -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web filter-design">
+          <!-- PROJECT 02 : 슈퍼카 AI -->
+          <div class="portfolio-item" data-category="ai">
 
             <article class="minz-work-card">
 
-              <!-- 실제 Figma 디자인 썸네일 -->
-              <div class="minz-work-thumb busan-night-thumb">
-                <img src="assets/img/busan-night-thumbnail.png" alt="BUSAN NIGHT 01 부산 향수 브랜드 웹디자인" loading="lazy">
+              <div class="minz-work-thumb minz-video-thumb">
 
-                <div class="busan-night-overlay">
-                  <span>BRAND LANDING PAGE</span>
-                  <strong>BUSAN NIGHT 01</strong>
-                  <small>부산의 밤을 향으로 담다.</small>
-                </div>
+                <video
+                  class="minz-project-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="슈퍼카 AI 시네마틱 영상">
+
+                  <source
+                    src="assets/img/20261030슈퍼카_수정01.mp4"
+                    type="video/mp4">
+
+                </video>
+
+                <div class="minz-video-overlay"></div>
+
+                <span class="minz-video-badge">
+                  AI CINEMATIC FILM
+                </span>
+
               </div>
 
-              <!-- 작품 정보 -->
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  AI 콘텐츠 · 광고 영상
+                </span>
+
+                <h3>SUPERCAR | AI CINEMATIC</h3>
+
+                <p>
+                  생성형 AI를 활용해 제작한
+                  시네마틱 슈퍼카 광고 영상
+                </p>
+
+                <a
+                  class="minz-project-link"
+                  href="assets/img/20261030슈퍼카_수정01.mp4"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  영상 크게 보기
+                  <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 03 : SNS DESIGN -->
+          <div class="portfolio-item" data-category="design">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-design">
+                <i class="bi bi-palette"></i>
+                <span>SNS VISUAL DESIGN</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  그래픽 · SNS 디자인
+                </span>
+
+                <h3>SNS 콘텐츠 디자인</h3>
+
+                <p>
+                  브랜드와 콘텐츠의 특징을 전달하는
+                  썸네일·캐러셀·시각 콘텐츠
+                </p>
+
+                <span class="project-status">
+                  작품 이미지 등록 예정
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 04 : 부동산 영상 -->
+          <div class="portfolio-item" data-category="video">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-video">
+                <i class="bi bi-buildings"></i>
+                <span>PROPERTY FILM</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  영상 제작 · 상업 영상
+                </span>
+
+                <h3>부동산 홍보영상</h3>
+
+                <p>
+                  건물의 외관·공간·입지를 전달하는
+                  촬영 및 편집 프로젝트
+                </p>
+
+                <span class="project-status">
+                  영상 연결 준비 중
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 05 : ONPICK -->
+          <div class="portfolio-item" data-category="web">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb onpick-image-thumb">
+
+                <img
+                  src="assets/img/onpick-thumbnail.png"
+                  alt="ONPICK 오늘 뭐하지 모바일 앱 썸네일"
+                  loading="lazy">
+
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  WEB · APP UI/UX
+                </span>
+
+                <h3>ONPICK | 오늘 뭐하지?!</h3>
+
+                <p>
+                  맛집·카페·전시·팝업·여행 정보를
+                  탐색하는 라이프스타일 큐레이션 앱
+                </p>
+
+                <div class="project-tags">
+                  <span>서비스 기획</span>
+                  <span>와이어프레임</span>
+                  <span>UI 디자인</span>
+                  <span>Figma</span>
+                </div>
+
+                <a
+                  class="minz-project-link"
+                  href="https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&amp;starting-point-node-id=324%3A2062"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  앱 프로토타입 체험하기
+                  <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 06 : AI CONTENT -->
+          <div class="portfolio-item" data-category="ai">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-ai">
+                <i class="bi bi-stars"></i>
+                <span>GENERATIVE AI</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  AI 콘텐츠 · 영상 연출
+                </span>
+
+                <h3>AI 크리에이티브 프로젝트</h3>
+
+                <p>
+                  생성형 AI와 영상 편집 기술을 결합한
+                  크리에이티브 콘텐츠
+                </p>
+
+                <span class="project-status">
+                  작품 등록 예정
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 07 : 짱구 숏폼 -->
+          <div class="portfolio-item" data-category="video">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-shortform">
+                <i class="bi bi-instagram"></i>
+                <span>54K VIEWS · SHORT-FORM</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  SNS 숏폼 · 팝업 콘텐츠
+                </span>
+
+                <h3>짱구 팝업스토어 릴스</h3>
+
+                <p>
+                  현장 촬영과 후킹 중심의 편집으로
+                  제작한 인스타그램 숏폼 콘텐츠
+                </p>
+
+                <strong class="project-result">
+                  <i class="bi bi-eye"></i>
+                  5.4만 조회수
+                </strong>
+
+                <a
+                  class="minz-project-link"
+                  href="#minz-reel">
+
+                  작품 상세 보기
+                  <i class="bi bi-arrow-down-right"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 08 : BUSAN NIGHT 01 -->
+          <div class="portfolio-item" data-category="web design">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb busan-night-thumb">
+
+                <!-- 이미지가 없어도 배경과 타이틀은 표시 -->
+                <img
+                  src="assets/img/busan-night-thumbnail.png"
+                  alt="BUSAN NIGHT 01 향수 브랜드 웹디자인"
+                  loading="lazy"
+                  onerror="this.style.display='none'">
+
+                <div class="busan-night-overlay">
+
+                  <span>BRAND LANDING PAGE</span>
+
+                  <strong>BUSAN NIGHT 01</strong>
+
+                  <small>부산의 밤을 향으로 담다.</small>
+
+                </div>
+
+              </div>
+
               <div class="minz-work-info">
 
                 <span class="minz-work-category">
                   WEB 디자인 · 브랜딩
                 </span>
 
-                <h4>BUSAN NIGHT 01</h4>
+                <h3>BUSAN NIGHT 01</h3>
 
                 <p>
-                  부산의 밤과 도시의 감성을 향수 브랜드로
-                  표현한 랜딩페이지 디자인 프로젝트입니다.
+                  부산의 야경과 도시의 감성을
+                  향수 브랜드의 비주얼로 표현한
+                  랜딩페이지 디자인 프로젝트
                 </p>
 
-                <div class="onpick-project-meta">
+                <div class="project-tags">
                   <span>브랜드 콘셉트</span>
-                  <span>웹 UI 디자인</span>
+                  <span>웹 UI</span>
+                  <span>비주얼 디자인</span>
                   <span>Figma</span>
                 </div>
 
-                <a href="https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191" target="_blank"
-                  rel="noopener noreferrer" class="minz-project-link">
+                <a
+                  class="minz-project-link"
+                  href="https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
+                  target="_blank"
+                  rel="noopener noreferrer">
 
                   Figma 디자인 보기
                   <i class="bi bi-arrow-up-right"></i>
@@ -656,141 +876,252 @@
             </article>
 
           </div>
-          <!-- END BUSAN NIGHT 01 -->
 
+          <!-- PROJECT 09 : MINZ WEB -->
+          <div class="portfolio-item" data-category="web">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-web">
+                <i class="bi bi-window-desktop"></i>
+                <span>RESPONSIVE WEB</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  WEB 디자인 · 퍼블리싱
+                </span>
+
+                <h3>MINZ Portfolio Website</h3>
+
+                <p>
+                  브랜드 아이덴티티와 영상 콘텐츠를
+                  결합한 개인 포트폴리오 웹사이트
+                </p>
+
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>GitHub Pages</span>
+                </div>
+
+                <a
+                  class="minz-project-link"
+                  href="https://github.com/minzlog777/MINZ_Portfolio_001"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  GitHub 프로젝트 보기
+                  <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 10 : 맛집 릴스 -->
+          <div class="portfolio-item" data-category="video">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-video">
+                <i class="bi bi-film"></i>
+                <span>FOOD &amp; LIFESTYLE</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  숏폼 · 콘텐츠 마케팅
+                </span>
+
+                <h3>맛집 · 라이프스타일 릴스</h3>
+
+                <p>
+                  실제 현장 촬영과 정보형 편집을 결합한
+                  지역 기반 SNS 콘텐츠
+                </p>
+
+                <span class="project-status">
+                  대표 작품 선정 중
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 11 : 그래픽 디자인 -->
+          <div class="portfolio-item" data-category="design">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-design">
+                <i class="bi bi-image"></i>
+                <span>GRAPHIC DESIGN</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  디자인 · 비주얼 콘텐츠
+                </span>
+
+                <h3>그래픽 · 포스터 디자인</h3>
+
+                <p>
+                  타이포그래피와 시각 요소를 활용한
+                  그래픽 디자인 작업
+                </p>
+
+                <span class="project-status">
+                  작품 이미지 등록 예정
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- PROJECT 12 : 드론 영상 -->
+          <div class="portfolio-item" data-category="video">
+
+            <article class="minz-work-card">
+
+              <div class="minz-work-thumb thumb-video">
+                <i class="bi bi-camera-video"></i>
+                <span>AERIAL CINEMATOGRAPHY</span>
+              </div>
+
+              <div class="minz-work-info">
+
+                <span class="minz-work-category">
+                  항공 촬영 · 영상 제작
+                </span>
+
+                <h3>드론 시네마틱 콘텐츠</h3>
+
+                <p>
+                  항공 촬영을 활용한 공간·도시·지역
+                  소개 영상 프로젝트
+                </p>
+
+                <span class="project-status">
+                  영상 연결 준비 중
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
 
         </div>
-      </div>
+        <!-- END PORTFOLIO GRID -->
+
       </div>
 
     </section>
 
-
     <!-- ======================================
-     MINZ FEATURED INSTAGRAM REEL
-     ====================================== -->
+         06. FEATURED SHORT-FORM
+         ====================================== -->
     <section id="minz-reel" class="section minz-reel-section">
 
       <div class="container">
 
-        <div class="minz-reel-heading">
-          <span>FEATURED SHORT-FORM</span>
+        <div class="section-title">
+
+          <span class="section-eyebrow">
+            FEATURED SHORT-FORM
+          </span>
+
           <h2>Performance Highlights</h2>
-          <p>조회수로 증명한 MINZ의 숏폼 콘텐츠</p>
-        </div>
 
-        <div class="minz-reel-feature">
-
-          <div class="row g-4 align-items-center">
-
-            <!-- 인스타그램 영상 -->
-            <div class="col-lg-5">
-
-
-              <!-- 짱구 팝업스토어 릴스 -->
-              <div class="minz-reel-player">
-
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcCqH0qSJ8n/"
-                  data-instgrm-version="14" style="width:100%; max-width:400px; margin:0 auto;">
-
-                  <a href="https://www.instagram.com/reel/DcCqH0qSJ8n/" target="_blank" rel="noopener noreferrer">
-                    짱구 팝업스토어 릴스 보기
-                  </a>
-
-                </blockquote>
-
-              </div>
-              <!-- 짱구 릴스 끝 -->
-
-
-            </div>
-
-            <!-- 작품 설명 -->
-            <div class="col-lg-7">
-
-              <div class="minz-reel-description">
-
-                <span class="minz-reel-category">
-                  INSTAGRAM REELS
-                </span>
-
-                <h3>짱구 팝업스토어 | 숏폼 콘텐츠</h3>
-
-                <div class="minz-reel-views">
-                  <i class="bi bi-eye"></i>
-                  <strong>5.4만 조회수</strong>
-                </div>
-
-                <p>
-                  현장 촬영부터 후킹 구성,
-                  영상 편집과 SNS 콘텐츠 제작까지.
-                  시청자의 관심을 끌어낸 숏폼 프로젝트입니다.
-                </p>
-
-                <div class="minz-reel-tags">
-                  <span>현장 촬영</span>
-                  <span>영상 편집</span>
-                  <span>숏폼 기획</span>
-                  <span>SNS 콘텐츠</span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
+          <p>
+            실제 시청자 반응으로 보여주는
+            MINZ의 숏폼 콘텐츠
+          </p>
 
         </div>
 
-      </div>
+        <div class="reel-feature">
 
-    </section>
+          <div class="reel-player">
 
-    <!-- Instagram Embed Script -->
-    <script async src="https://www.instagram.com/embed.js"></script>
-    <!-- END MINZ FEATURED REEL -->
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DcCqH0qSJ8n/"
+              data-instgrm-version="14">
 
+              <a
+                href="https://www.instagram.com/reel/DcCqH0qSJ8n/"
+                target="_blank"
+                rel="noopener noreferrer">
 
-    <!-- ======================================
-     MINZ FIGMA APP PREVIEW MODAL
-     ====================================== -->
+                인스타그램에서 짱구 릴스 보기
 
-    <div class="modal fade" id="minzFigmaModal" tabindex="-1" aria-labelledby="minzFigmaModalTitle" aria-hidden="true">
+              </a>
 
-      <div class="modal-dialog modal-dialog-centered modal-xl">
+            </blockquote>
 
-        <div class="modal-content minz-figma-modal">
+            <!-- 임베드가 차단돼도 링크는 유지 -->
+            <a
+              class="reel-fallback-link"
+              href="https://www.instagram.com/reel/DcCqH0qSJ8n/"
+              target="_blank"
+              rel="noopener noreferrer">
 
-          <div class="modal-header">
+              <i class="bi bi-instagram"></i>
+              인스타그램 원본으로 보기
 
-            <div>
-              <h5 class="modal-title" id="minzFigmaModalTitle">
-                오늘 뭐하지?! | APP UI / UX
-              </h5>
-              <small>Figma Interactive Prototype</small>
+            </a>
+
+          </div>
+
+          <div class="reel-info">
+
+            <span class="minz-work-category">
+              INSTAGRAM SHORT-FORM
+            </span>
+
+            <h3>
+              짱구 팝업스토어
+            </h3>
+
+            <strong class="reel-views">
+              <i class="bi bi-eye"></i>
+              5.4만 조회수
+            </strong>
+
+            <p>
+              팝업 현장 촬영부터 후킹 구성,
+              영상 편집과 SNS 콘텐츠 제작까지
+              진행한 숏폼 프로젝트입니다.
+            </p>
+
+            <div class="project-tags">
+              <span>현장 촬영</span>
+              <span>숏폼 기획</span>
+              <span>영상 편집</span>
+              <span>SNS 콘텐츠</span>
             </div>
 
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기">
-            </button>
+            <a
+              href="https://www.instagram.com/reel/DcCqH0qSJ8n/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="minz-project-link">
 
-          </div>
-
-          <div class="modal-body">
-
-            <iframe title="오늘 뭐하지?! 앱 프로토타입"
-              src="https://embed.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&amp;starting-point-node-id=324%3A2062&amp;embed-host=minz-portfolio"
-              width="100%" height="700" allowfullscreen loading="lazy">
-            </iframe>
-
-          </div>
-
-          <div class="modal-footer">
-
-            <a href="https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&amp;starting-point-node-id=324%3A2062"
-              target="_blank" rel="noopener noreferrer" class="minz-figma-open">
-
-              <i class="bi bi-box-arrow-up-right"></i>
-              Figma에서 전체 화면으로 보기
+              인스타그램에서 보기
+              <i class="bi bi-arrow-up-right"></i>
 
             </a>
 
@@ -800,74 +1131,70 @@
 
       </div>
 
-    </div>
-
-    <!-- END MINZ FIGMA MODAL -->
-
+    </section>
 
     <!-- ======================================
-         06 CONTACT
+         07. CONTACT
          ====================================== -->
-
-    <section id="contact" class="contact section minz-contact">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact MINZ</h2>
-        <p>
-          좋은 아이디어와 새로운 프로젝트,
-          MINZ와 함께 이야기해 보세요.
-        </p>
-      </div>
+    <section id="contact" class="section minz-contact">
 
       <div class="container">
 
-        <div class="row g-4">
+        <div class="section-title">
 
-          <div class="col-lg-4 col-md-6">
-            <div class="minz-contact-card">
-              <i class="bi bi-envelope"></i>
-              <h3>Email</h3>
-              <a href="mailto:jakeminz@gmail.com">
-                jakeminz@gmail.com
-              </a>
-            </div>
+          <h2>Contact MINZ</h2>
+
+          <p>
+            좋은 아이디어와 새로운 프로젝트,
+            MINZ와 함께 이야기해 보세요.
+          </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="minz-contact-card">
+            <i class="bi bi-envelope"></i>
+            <h3>Email</h3>
+            <a href="mailto:jakeminz@gmail.com">
+              jakeminz@gmail.com
+            </a>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="minz-contact-card">
-              <i class="bi bi-telephone"></i>
-              <h3>Phone</h3>
-              <a href="tel:+821093049498">
-                010-9304-9498
-              </a>
-            </div>
+          <div class="minz-contact-card">
+            <i class="bi bi-telephone"></i>
+            <h3>Phone</h3>
+            <a href="tel:+821093049498">
+              010-9304-9498
+            </a>
           </div>
 
-          <div class="col-lg-4 col-md-12">
-            <div class="minz-contact-card">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Location</h3>
-              <p>부산 기반 · 전국 프로젝트</p>
-            </div>
+          <div class="minz-contact-card">
+            <i class="bi bi-geo-alt"></i>
+            <h3>Location</h3>
+            <p>부산 기반 · 전국 프로젝트</p>
           </div>
 
         </div>
 
-        <!-- COLLABORATION -->
         <div class="minz-contact-cta">
 
-          <span class="minz-contact-eyebrow">
+          <span class="contact-eyebrow">
             LET'S CREATE TOGETHER
           </span>
 
-          <h3>함께 새로운 이야기를 만들어 볼까요?</h3>
+          <h3>
+            함께 새로운 이야기를 만들어 볼까요?
+          </h3>
 
           <p>
             브랜드 홍보영상, 드론 촬영, AI 콘텐츠,
             SNS 마케팅까지 다양한 협업을 기다립니다.
           </p>
 
-          <a href="mailto:jakeminz@gmail.com?subject=MINZ%20프로젝트%20협업%20문의" class="minz-contact-btn">
+          <a
+            class="minz-contact-btn"
+            href="mailto:jakeminz@gmail.com?subject=MINZ%20프로젝트%20협업%20문의">
 
             <i class="bi bi-envelope-paper"></i>
             이메일로 문의하기
@@ -875,8 +1202,11 @@
 
           </a>
 
-          <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer"
-            class="minz-instagram-link">
+          <a
+            class="minz-instagram-link"
+            href="https://www.instagram.com/minz_log/"
+            target="_blank"
+            rel="noopener noreferrer">
 
             <i class="bi bi-instagram"></i>
             Instagram @minz_log
@@ -886,39 +1216,49 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
 
   <!-- ======================================
-       07 FOOTER
+       08. FOOTER
        ====================================== -->
-  <footer id="footer" class="footer minz-footer">
+  <footer id="footer" class="minz-footer">
 
-    <div class="container text-center">
+    <div class="container">
 
-      <h3 class="minz-footer-logo new-logo-minz">MINZ</h3>
+      <h2 class="brand-font">MINZ</h2>
 
-      <p class="minz-footer-message">
+      <p class="footer-slogan">
         Create Stories. Inspire People.
       </p>
 
-      <div class="minz-footer-social">
+      <div class="footer-social">
 
-        <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer"
-          aria-label="MINZ Instagram">
+        <a
+          href="https://www.instagram.com/minz_log/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="인스타그램">
+
           <i class="bi bi-instagram"></i>
+
         </a>
 
-        <a href="mailto:jakeminz@gmail.com" aria-label="MINZ Email">
+        <a
+          href="mailto:jakeminz@gmail.com"
+          aria-label="이메일">
+
           <i class="bi bi-envelope"></i>
+
         </a>
 
       </div>
 
-      <div class="minz-footer-line"></div>
+      <div class="footer-line"></div>
 
-      <p class="minz-copyright">
+      <p class="footer-copyright">
         © 2026 MINZ · 유재민. All Rights Reserved.
       </p>
 
@@ -926,140 +1266,296 @@
 
   </footer>
 
-  <!-- SCROLL TOP -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="맨 위로 이동">
+  <!-- 맨 위로 -->
+  <a
+    href="#hero"
+    id="scroll-top"
+    class="scroll-top"
+    aria-label="맨 위로 이동">
 
     <i class="bi bi-arrow-up-short"></i>
 
   </a>
 
-  <!-- PRELOADER -->
-  <div id="preloader"></div>
-
-  <!-- VENDOR JS -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- EXISTING MAIN JS -->
-  <script src="assets/js/main.js"></script>
+  <!-- 인스타그램 공식 임베드 -->
+  <script
+    async
+    src="https://www.instagram.com/embed.js">
+  </script>
 
   <!-- ======================================
-       08 MINZ MOTION SYSTEM v1.1
-       별도 JS 파일 불필요
+       09. MINZ MAIN JAVASCRIPT
+       별도 main.js 없이 동작
        ====================================== -->
   <script>
-    (() => {
-      "use strict";
+    document.addEventListener("DOMContentLoaded", () => {
 
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      // HOME: 처음 들어올 때 텍스트 순차 등장
+      /* -----------------------------------
+         1. 모바일 메뉴
+         ----------------------------------- */
+      const menuButton = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("navmenu");
+
+      if (menuButton && navMenu) {
+
+        menuButton.addEventListener("click", () => {
+
+          const opened = navMenu.classList.toggle("nav-open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            String(opened)
+          );
+
+          menuButton.querySelector("i").className =
+            opened ? "bi bi-x-lg" : "bi bi-list";
+
+        });
+
+        navMenu.querySelectorAll("a").forEach(link => {
+
+          link.addEventListener("click", () => {
+
+            navMenu.classList.remove("nav-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.querySelector("i").className = "bi bi-list";
+
+          });
+
+        });
+
+      }
+
+      /* -----------------------------------
+         2. Home 등장 효과
+         ----------------------------------- */
       if (!reduceMotion) {
         document.body.classList.add("minz-intro-start");
       }
 
-      // EXPERIENCE: 스크롤 등장
-      const experienceItems = document.querySelectorAll(
-        "#resume .resume-title, #resume .resume-item"
-      );
+      /* -----------------------------------
+         3. Hero 타이핑
+         ----------------------------------- */
+      const typed = document.getElementById("hero-typed");
 
-      if (!reduceMotion && "IntersectionObserver" in window) {
+      const typedWords = [
+        "영상 크리에이터",
+        "AI 콘텐츠 제작자",
+        "드론 촬영",
+        "디지털 마케터",
+        "브랜드 스토리텔러"
+      ];
 
-        experienceItems.forEach((item, index) => {
-          item.classList.add("minz-motion-reveal");
+      if (typed && !reduceMotion) {
 
-          item.style.setProperty(
-            "--minz-delay",
-            `${(index % 3) * 85}ms`
-          );
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const runTyping = () => {
+
+          const word = typedWords[wordIndex];
+
+          if (deleting) {
+            charIndex--;
+          } else {
+            charIndex++;
+          }
+
+          typed.textContent = word.substring(0, charIndex);
+
+          let delay = deleting ? 55 : 95;
+
+          if (!deleting && charIndex === word.length) {
+            delay = 1600;
+            deleting = true;
+          }
+
+          if (deleting && charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % typedWords.length;
+            delay = 350;
+          }
+
+          window.setTimeout(runTyping, delay);
+
+        };
+
+        typed.textContent = "";
+        window.setTimeout(runTyping, 500);
+
+      }
+
+      /* -----------------------------------
+         4. 카메라 셔터 사운드
+         ----------------------------------- */
+      const heroVideo = document.getElementById("minz-hero-video");
+      const shutterButton = document.getElementById("minz-shutter-btn");
+      const shutterLabel = document.querySelector(".minz-shutter-label");
+
+      if (heroVideo && shutterButton) {
+
+        const resetHeroVideo = () => {
+
+          heroVideo.muted = true;
+          heroVideo.loop = true;
+          heroVideo.currentTime = 0;
+
+          shutterButton.disabled = false;
+
+          if (shutterLabel) {
+            shutterLabel.textContent = "찰칵 사운드 듣기";
+          }
+
+          if (!reduceMotion) {
+            heroVideo.play().catch(() => {});
+          }
+
+        };
+
+        shutterButton.addEventListener("click", async () => {
+
+          heroVideo.pause();
+          heroVideo.loop = false;
+          heroVideo.currentTime = 0;
+          heroVideo.muted = false;
+
+          shutterButton.disabled = true;
+
+          if (shutterLabel) {
+            shutterLabel.textContent = "찰칵 재생 중...";
+          }
+
+          try {
+            await heroVideo.play();
+          } catch (error) {
+            resetHeroVideo();
+          }
+
         });
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
+        heroVideo.addEventListener("ended", resetHeroVideo);
+
+        if (reduceMotion) {
+          heroVideo.pause();
+        }
+
+      }
+
+      /* -----------------------------------
+         5. Portfolio 필터
+         Isotope와 중복 사용하지 않음
+         ----------------------------------- */
+      const filterButtons = document.querySelectorAll(
+        ".portfolio-filter"
+      );
+
+      const projects = document.querySelectorAll(
+        ".portfolio-item"
+      );
+
+      filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const filter = button.dataset.filter;
+
+          filterButtons.forEach(item => {
+
+            const active = item === button;
+
+            item.classList.toggle("filter-active", active);
+            item.setAttribute("aria-pressed", String(active));
+
+          });
+
+          projects.forEach(project => {
+
+            const categories = (
+              project.dataset.category || ""
+            ).split(/\s+/);
+
+            const visible =
+              filter === "all" || categories.includes(filter);
+
+            project.classList.toggle("is-hidden", !visible);
+
+          });
+
+        });
+
+      });
+
+      /* -----------------------------------
+         6. Experience 스크롤 등장
+         ----------------------------------- */
+      if (!reduceMotion && "IntersectionObserver" in window) {
+
+        const revealItems = document.querySelectorAll(
+          "#resume .resume-title, #resume .resume-item"
+        );
+
+        const revealObserver = new IntersectionObserver(
+          entries => {
+
+            entries.forEach(entry => {
+
               if (entry.isIntersecting) {
-                entry.target.classList.add("minz-visible");
-                observer.unobserve(entry.target);
+
+                entry.target.classList.add("in-view");
+                revealObserver.unobserve(entry.target);
+
               }
+
             });
+
           },
           {
             threshold: 0.08,
-            rootMargin: "0px 0px -25px 0px"
+            rootMargin: "0px 0px -20px 0px"
           }
         );
 
-        experienceItems.forEach((item) => {
-          observer.observe(item);
+        revealItems.forEach((item, index) => {
+
+          item.classList.add("motion-reveal");
+
+          item.style.setProperty(
+            "--reveal-delay",
+            `${(index % 3) * 70}ms`
+          );
+
+          revealObserver.observe(item);
+
         });
+
       }
 
-      // HERO: 찰칵 버튼 클릭 시 사운드 포함 1회 재생
-      const video = document.getElementById("minz-hero-video");
-      const soundButton = document.getElementById("minz-shutter-btn");
-      const soundLabel = soundButton?.querySelector(
-        ".minz-shutter-label"
-      );
+      /* -----------------------------------
+         7. 위로 가기 버튼
+         ----------------------------------- */
+      const scrollTop = document.getElementById("scroll-top");
 
-      if (video && soundButton) {
+      const onScroll = () => {
 
-        const returnToSilentLoop = () => {
-          video.muted = true;
-          video.loop = true;
-
-          if (soundLabel) {
-            soundLabel.textContent = "찰칵 사운드 듣기";
-          }
-
-          soundButton.disabled = false;
-          video.currentTime = 0;
-
-          if (!reduceMotion) {
-            video.play().catch(() => { });
-          }
-        };
-
-        soundButton.addEventListener("click", async () => {
-
-          video.pause();
-          video.loop = false;
-          video.currentTime = 0;
-          video.muted = false;
-
-          if (soundLabel) {
-            soundLabel.textContent = "찰칵 재생 중...";
-          }
-
-          soundButton.disabled = true;
-
-          try {
-            await video.play();
-          } catch (error) {
-            returnToSilentLoop();
-          }
-
-        });
-
-        video.addEventListener("ended", returnToSilentLoop);
-
-        if (reduceMotion) {
-          video.pause();
+        if (scrollTop) {
+          scrollTop.classList.toggle(
+            "active",
+            window.scrollY > 350
+          );
         }
-      }
 
-    })();
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+    });
   </script>
-  <!-- END MINZ MOTION SYSTEM -->
 
 </body>
-
 </html>

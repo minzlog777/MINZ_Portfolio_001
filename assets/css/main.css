@@ -1,34 +1,27 @@
 
-/* ==========================================
-   MINZ PORTFOLIO - MAIN.CSS v1.1
-   COMPLETE INTEGRATED DESIGN
-   ========================================== */
+/* =================================================
+   MINZ PORTFOLIO v2.0
+   COMPLETE MAIN.CSS
+   ================================================= */
 
 /* 01. GLOBAL */
 
 :root {
-  --background-color: #FFFFFF;
-  --surface-color: #FFFFFF;
-  --default-color: #454052;
-  --heading-color: #191528;
-  --accent-color: #7545E8;
-  --contrast-color: #FFFFFF;
-
-  --nav-color: #FFFFFF;
-  --nav-hover-color: #A88BFF;
-  --nav-mobile-background-color: #FFFFFF;
-  --nav-dropdown-background-color: #FFFFFF;
-  --nav-dropdown-color: #272333;
-  --nav-dropdown-hover-color: #7545E8;
-
-  --default-font: "Pretendard Variable", "Pretendard", sans-serif;
-  --heading-font: "Pretendard Variable", "Pretendard", sans-serif;
-  --nav-font: "Pretendard Variable", "Pretendard", sans-serif;
-
   --minz-purple: #7545E8;
-  --minz-dark: #191528;
+  --minz-purple-dark: #6740CC;
+  --minz-purple-light: #A88BFF;
 
-  scroll-behavior: smooth;
+  --minz-dark: #191528;
+  --minz-text: #383344;
+  --minz-muted: #625B71;
+
+  --minz-border: #EEEAF7;
+  --minz-bg-soft: #FAF9FD;
+
+  --minz-font:
+    "Pretendard Variable",
+    "Pretendard",
+    sans-serif;
 }
 
 * {
@@ -36,36 +29,52 @@
 }
 
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 84px;
 }
 
 body {
   margin: 0;
+  color: var(--minz-text);
   background: #FFFFFF;
-  color: var(--default-color);
-  font-family: var(--default-font);
+  font-family: var(--minz-font);
   font-size: 16px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #191528;
-  font-family: var(--heading-font);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--minz-dark);
+  font-family: var(--minz-font);
   line-height: 1.4;
 }
 
+p {
+  margin-top: 0;
+}
+
 a {
-  color: var(--accent-color);
+  color: var(--minz-purple);
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 a:hover {
-  color: #6740CC;
+  color: var(--minz-purple-dark);
 }
 
-img {
+button {
+  font-family: inherit;
+}
+
+img,
+video {
   max-width: 100%;
 }
 
@@ -74,32 +83,36 @@ img {
   color: #191528;
 }
 
-.new-logo-minz {
+.brand-font {
   font-family: "New Rocker", cursive;
   font-weight: 400;
 }
 
-/* 02. COMMON SECTIONS */
+.container {
+  width: min(100% - 40px, 1200px);
+  margin-inline: auto;
+}
 
 .section {
-  padding: 80px 0;
+  padding: 85px 0;
   scroll-margin-top: 84px;
 }
 
 .section-title {
+  margin-bottom: 45px;
   text-align: center;
-  padding-bottom: 48px;
 }
 
 .section-title h2 {
   position: relative;
   display: inline-block;
-  margin: 0 0 20px;
-  padding-bottom: 18px;
-  font-size: 34px;
+  margin: 0 0 18px;
+  padding-bottom: 17px;
+
+  color: #191528;
+  font-size: 35px;
   font-weight: 800;
   letter-spacing: -0.8px;
-  color: #191528;
 }
 
 .section-title h2::after {
@@ -107,202 +120,160 @@ img {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 55px;
+
+  width: 56px;
   height: 3px;
+  border-radius: 5px;
+
+  background: var(--minz-purple);
+
   transform: translateX(-50%);
-  border-radius: 4px;
-  background: #7545E8;
 }
 
 .section-title p {
   margin: 0;
+  color: var(--minz-muted);
   font-size: 16px;
   line-height: 1.8;
-  color: #625B71;
   word-break: keep-all;
 }
 
-/* 03. HEADER */
+.section-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--minz-purple);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
 
-.header {
-  position: relative;
-  z-index: 997;
+/* 02. HEADER */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   min-height: 82px;
-  padding: 14px 0;
   background: #191528;
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 5px 22px rgba(25, 21, 40, 0.12);
 }
 
-.scrolled .header {
-  box-shadow: 0 5px 25px rgba(25, 21, 40, 0.16);
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 82px;
+  gap: 24px;
 }
 
-.header .logo {
+.site-logo {
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
-  gap: 11px;
+  gap: 10px;
 }
 
-.header .logo img {
-  width: 37px;
-  height: 37px;
+.site-logo img {
+  display: block;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
 }
 
-.header .sitename {
-  margin: 0;
+.site-logo span {
+  color: #FFFFFF;
   font-size: 31px;
   line-height: 1;
+}
+
+.navmenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navmenu a {
+  position: relative;
+  display: inline-block;
+  padding: 12px 0;
+
   color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.navmenu ul {
+.navmenu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+
+  width: 0;
+  height: 2px;
+
+  background: #A88BFF;
+  transition: width 0.25s ease;
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+  color: #DCCEFF;
+}
+
+.navmenu a:hover::after,
+.navmenu a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
   padding: 0;
-  margin: 0;
-  list-style: none;
+
+  border: 0;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 28px;
+  cursor: pointer;
 }
 
-/* PC NAVIGATION */
-
-@media (min-width: 1200px) {
-  .navmenu > ul {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .navmenu a {
-    position: relative;
-    display: inline-block;
-    padding: 12px 0;
-    color: #FFFFFF;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  .navmenu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 5px;
-    width: 0;
-    height: 2px;
-    background: #A88BFF;
-    transition: width 0.25s ease;
-  }
-
-  .navmenu a:hover,
-  .navmenu a.active {
-    color: #DCCEFF;
-  }
-
-  .navmenu a:hover::after,
-  .navmenu a.active::after {
-    width: 100%;
-  }
-}
-
-/* MOBILE NAVIGATION */
-
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    display: block;
-    color: #FFFFFF;
-    font-size: 29px;
-    cursor: pointer;
-    z-index: 9999;
-  }
-
-  .navmenu {
-    padding: 0;
-  }
-
-  .navmenu ul {
-    display: none;
-    position: absolute;
-    top: 75px;
-    right: 16px;
-    left: 16px;
-    padding: 16px;
-    border-radius: 14px;
-    background: #FFFFFF;
-    box-shadow: 0 12px 35px rgba(25, 21, 40, 0.15);
-  }
-
-  .navmenu a {
-    display: block;
-    padding: 11px 14px;
-    border-radius: 8px;
-    color: #272333;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .navmenu a:hover,
-  .navmenu a.active {
-    color: #7545E8;
-    background: #F4F0FF;
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    inset: 0;
-    z-index: 9997;
-    background: rgba(25, 21, 40, 0.68);
-  }
-
-  .mobile-nav-active .navmenu ul {
-    display: block;
-    position: absolute;
-    top: 80px;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    position: fixed;
-    top: 22px;
-    right: 24px;
-    color: #FFFFFF;
-    z-index: 9999;
-  }
-}
-
-/* 04. HERO VIDEO */
-
-.dark-background {
-  --background-color: #191528;
-  --default-color: #FFFFFF;
-  --heading-color: #FFFFFF;
-}
+/* 03. HERO */
 
 .hero {
   position: relative;
-  width: 100%;
-  min-height: calc(100vh - 82px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 90px 0;
+
+  width: 100%;
+  min-height: calc(100svh - 82px);
+  padding: 100px 0;
+
   overflow: hidden;
   background: #191528;
   color: #FFFFFF;
+  text-align: center;
 }
 
-#hero > .minz-hero-video {
+.minz-hero-video {
   position: absolute;
   inset: 0;
   z-index: 1;
+
   display: block;
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
 }
 
-.hero::before {
-  content: "";
+.hero-shade {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -310,12 +281,12 @@ img {
 
   background: linear-gradient(
     90deg,
-    rgba(15, 11, 29, 0.68),
-    rgba(25, 21, 40, 0.34)
+    rgba(15, 11, 29, 0.70),
+    rgba(25, 21, 40, 0.38)
   );
 }
 
-.hero > .container {
+.hero-content {
   position: relative;
   z-index: 3;
 }
@@ -323,104 +294,135 @@ img {
 .hero-eyebrow {
   display: inline-block;
   margin-bottom: 18px;
+
   color: #E4D8FF;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
 }
 
-.hero h2 {
-  margin: 0 0 16px;
+.hero h1 {
+  margin: 0 0 18px;
   color: #FFFFFF;
-  font-size: clamp(38px, 5vw, 70px);
-  font-weight: 400;
+
+  font-size: clamp(39px, 5.4vw, 74px);
   line-height: 1.2;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
-.hero p {
-  min-height: 50px;
-  margin: 0 0 28px;
+.hero-subtitle {
+  min-height: 52px;
+  margin-bottom: 28px;
+
   color: #FFFFFF;
-  font-size: clamp(19px, 2.5vw, 30px);
+  font-size: clamp(18px, 2.5vw, 29px);
   font-weight: 600;
 }
 
-.hero .typed-cursor {
-  color: #D5C5FF;
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+
+  margin-left: 4px;
+  background: #D5C5FF;
+
+  vertical-align: -3px;
+  animation: minz-cursor-blink 0.8s step-end infinite;
 }
 
-/* 05. HERO BUTTON LIGHT SWEEP */
+@keyframes minz-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
 
-#hero .hero-button {
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* 04. HERO BUTTON */
+
+.hero-button {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 13px 25px;
 
+  padding: 13px 26px;
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.12);
+
   color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
 
   font-size: 14px;
   font-weight: 700;
+
   backdrop-filter: blur(8px);
 
   transition:
+    transform 0.3s ease,
     background 0.3s ease,
     border-color 0.3s ease,
-    transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-#hero .hero-button:hover,
-#hero .hero-button:focus-visible {
-  background: #7545E8;
-  border-color: #BFAAFF;
+.hero-button:hover,
+.hero-button:focus-visible {
   color: #FFFFFF;
+  background: var(--minz-purple);
+  border-color: #BFAAFF;
+
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(117, 69, 232, 0.55);
 }
 
-#hero .hero-button::after {
+.hero-button::after {
   content: "";
+
   position: absolute;
   top: 0;
   left: 0;
+
   width: 65%;
   height: 100%;
-  pointer-events: none;
+
   opacity: 0;
+  pointer-events: none;
 
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.12) 20%,
+    rgba(255, 255, 255, 0.14) 20%,
     rgba(245, 225, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0.12) 80%,
+    rgba(255, 255, 255, 0.14) 80%,
     transparent
   );
 
   transform: translateX(-160%) skewX(-20deg);
 }
 
-#hero .hero-button:hover::after,
-#hero .hero-button:focus-visible::after {
-  animation: minz-light-sweep 1.1s ease-in-out 1;
+.hero-button:hover::after,
+.hero-button:focus-visible::after {
+  animation: minz-hero-sweep 1.1s ease-in-out 1;
 }
 
-@keyframes minz-light-sweep {
+@keyframes minz-hero-sweep {
   0% {
     opacity: 0;
     transform: translateX(-160%) skewX(-20deg);
   }
 
-  15%, 85% {
+  15%,
+  85% {
     opacity: 1;
   }
 
@@ -430,69 +432,68 @@ img {
   }
 }
 
-/* 06. SHUTTER SOUND BUTTON */
+/* 05. CAMERA SOUND BUTTON */
 
-#hero .minz-shutter-control {
+.minz-shutter-control {
   margin-top: 18px;
 }
 
-#hero .minz-shutter-btn {
+.minz-shutter-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  padding: 10px 18px;
 
+  padding: 10px 18px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 30px;
-  background: rgba(25, 21, 40, 0.55);
-  color: #FFFFFF;
 
-  font-family: var(--default-font);
+  color: #FFFFFF;
+  background: rgba(25, 21, 40, 0.6);
+
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+
   backdrop-filter: blur(8px);
 
   transition:
+    transform 0.3s ease,
     background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+    box-shadow 0.3s ease;
 }
 
-#hero .minz-shutter-btn:hover,
-#hero .minz-shutter-btn:focus-visible {
-  background: #7545E8;
-  border-color: #A88BFF;
+.minz-shutter-btn:hover,
+.minz-shutter-btn:focus-visible {
+  background: var(--minz-purple);
   box-shadow: 0 6px 22px rgba(117, 69, 232, 0.4);
   transform: translateY(-2px);
 }
 
-#hero .minz-shutter-btn:disabled {
+.minz-shutter-btn:disabled {
   opacity: 0.7;
   cursor: default;
 }
 
-/* 07. HOME INTRO ANIMATION */
+/* 06. HOME INTRO MOTION */
 
-body.minz-intro-start #hero .hero-eyebrow {
+body.minz-intro-start .hero-eyebrow {
   animation: minz-intro-up 0.65s ease-out 0.1s backwards;
 }
 
-body.minz-intro-start #hero h2 {
+body.minz-intro-start .hero h1 {
   animation: minz-intro-up 0.8s ease-out 0.3s backwards;
 }
 
-body.minz-intro-start #hero .container > p {
+body.minz-intro-start .hero-subtitle {
   animation: minz-intro-up 0.8s ease-out 0.55s backwards;
 }
 
-body.minz-intro-start #hero .hero-button {
-  animation: minz-intro-up 0.8s ease-out 0.85s backwards;
+body.minz-intro-start .hero-actions {
+  animation: minz-intro-up 0.8s ease-out 0.8s backwards;
 }
 
-body.minz-intro-start #hero .minz-shutter-control {
+body.minz-intro-start .minz-shutter-control {
   animation: minz-intro-up 0.8s ease-out 1.05s backwards;
 }
 
@@ -508,36 +509,46 @@ body.minz-intro-start #hero .minz-shutter-control {
   }
 }
 
-/* 08. ABOUT */
+/* 07. ABOUT */
 
 .about {
   background: #FFFFFF;
 }
 
-.about > .container {
-  max-width: 1200px;
-  padding: 40px;
-  border-radius: 16px;
+.about-panel {
+  padding: 42px;
+  border-radius: 18px;
   background: #FFFFFF;
+
   box-shadow: 0 6px 35px rgba(40, 25, 80, 0.08);
 }
 
-.about .minz-profile-image {
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 48px;
+}
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.minz-profile-image {
   display: block;
   width: 100%;
-  height: auto;
   border-radius: 12px;
-  transform-origin: center;
 
   transition:
     transform 0.5s ease,
     box-shadow 0.5s ease;
 }
 
-/* 프로필 이미지 Glow */
-
 @media (hover: hover) and (pointer: fine) {
-  .about .minz-profile-image:hover {
+  .minz-profile-image:hover {
     transform: translateY(-5px) scale(1.035);
 
     box-shadow:
@@ -546,134 +557,119 @@ body.minz-intro-start #hero .minz-shutter-control {
   }
 }
 
-.about .about-info {
-  align-self: center;
-}
-
-.about .about-info p {
+.about-info p {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-bottom: 13px;
-  font-size: 15px;
+
+  margin: 0 0 14px;
+  font-size: 14px;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-.about .about-info strong {
-  color: #7545E8;
-  font-size: 14px;
-  font-weight: 700;
+.about-info strong {
+  color: var(--minz-purple);
+  font-weight: 800;
 }
 
-.about .about-info span {
+.about-info span {
   color: #272333;
-  font-size: 15px;
 }
 
-.about .about-me h4 {
+.about-title {
   position: relative;
-  margin: 0 0 28px;
-  padding-bottom: 15px;
-  color: #191528;
+
+  margin: 0 0 29px;
+  padding-bottom: 16px;
+
   font-size: 30px;
   font-weight: 800;
-  letter-spacing: -0.8px;
 }
 
-.about .about-me h4::after {
+.about-title::after {
   content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+
   width: 64px;
   height: 3px;
-  background: #7545E8;
+
+  background: var(--minz-purple);
 }
 
-.about .about-me p {
+.about-right p {
   margin-bottom: 19px;
-  color: #383344;
   font-size: 16px;
   line-height: 1.9;
-  letter-spacing: -0.3px;
   word-break: keep-all;
 }
 
-.about .about-me .about-lead {
+.about-right .about-lead {
   color: #272333;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.75;
 }
 
-.about .about-me .about-signature {
+.about-right .about-signature {
   margin-top: 24px;
-  color: #7545E8;
+  color: var(--minz-purple);
   font-size: 16px;
   font-weight: 800;
 }
 
-/* 09. SKILLS */
+/* 08. SKILLS */
 
-.minz-skills h5 {
+.minz-skills h3 {
   margin: 34px 0 24px;
-  color: #191528;
   font-size: 21px;
   font-weight: 800;
 }
 
-.minz-skills .progress {
-  display: block;
-  height: auto;
-  margin: 0 0 22px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  overflow: visible;
+.skill-item {
+  margin-bottom: 21px;
 }
 
-.minz-skills .progress .skill {
+.skill-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 9px;
-  color: #383344;
+  gap: 15px;
+
+  margin-bottom: 8px;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.5;
 }
 
-.minz-skills .progress .val {
-  color: #7545E8;
+.skill-heading b {
+  color: var(--minz-purple);
   font-size: 14px;
-  font-weight: 700;
-  font-style: normal;
 }
 
-.minz-skills .progress-bar-wrap {
+.skill-track {
   width: 100%;
   height: 10px;
   overflow: hidden;
+
   border-radius: 20px;
   background: #EEEAF7;
 }
 
-.minz-skills .progress-bar {
+.skill-track > span {
+  display: block;
   height: 100%;
-  border-radius: 20px;
+  border-radius: inherit;
 
   background: linear-gradient(
     90deg,
-    #5365F5 0%,
+    #5365F5,
     #7545E8 55%,
-    #A88BFF 100%
+    #A88BFF
   );
-
-  transition: width 0.8s ease;
 }
 
-/* 10. CREATIVE FIELDS */
+/* 09. ABOUT TAGS */
 
 .minz-creative-fields {
   margin-top: 32px;
@@ -681,149 +677,158 @@ body.minz-intro-start #hero .minz-shutter-control {
   border-top: 1px solid #EEEAF7;
 }
 
-.minz-creative-fields h5 {
+.minz-creative-fields h3 {
   margin-bottom: 16px;
-  color: #7545E8;
+  color: var(--minz-purple);
+
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.5px;
 }
 
-.minz-tag-list {
+.minz-tags,
+.project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
-.minz-tag-list span {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 15px;
+.minz-tags span,
+.project-tags span {
+  display: inline-block;
+  padding: 7px 12px;
   border: 1px solid #E7DEFF;
   border-radius: 30px;
-  background: #F4F0FF;
+
   color: #6740CC;
-  font-size: 13px;
+  background: #F4F0FF;
+
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.4;
 }
 
-/* 11. EXPERIENCE */
+/* 10. EXPERIENCE */
 
 .resume {
   background: #FAF9FD;
 }
 
-.resume .resume-title {
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.resume-title {
   margin: 10px 0 24px;
   color: #272333;
+
   font-size: 25px;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
-.resume .resume-item {
+.resume-item {
   position: relative;
   margin-top: -2px;
   padding: 0 0 28px 22px;
-  border-left: 2px solid #7545E8;
+
+  border-left: 2px solid var(--minz-purple);
 }
 
-.resume .resume-item::before {
+.resume-item::before {
   content: "";
   position: absolute;
-  top: 2px;
+  top: 4px;
   left: -7px;
+
   width: 12px;
   height: 12px;
-  border: 2px solid #7545E8;
+
+  border: 2px solid var(--minz-purple);
   border-radius: 50%;
-  background: #7545E8;
+  background: var(--minz-purple);
 
   transition:
-    background 0.35s ease,
-    box-shadow 0.35s ease;
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.resume .resume-item:hover::before {
+.resume-item:hover::before {
   background: #A88BFF;
   box-shadow: 0 0 0 5px rgba(117, 69, 232, 0.12);
 }
 
-.resume .resume-item h4 {
-  margin-bottom: 10px;
-  color: #7545E8;
+.resume-item h4 {
+  margin: 0 0 10px;
+  color: var(--minz-purple);
+
   font-size: 18px;
   font-weight: 800;
-  line-height: 1.5;
   word-break: keep-all;
 }
 
-.resume .resume-item h5 {
-  display: inline-block;
-  margin: 4px 0 13px;
-  padding: 7px 12px;
-  border-radius: 6px;
-  background: #F1ECFF;
-  color: #6740CC;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.resume .resume-item p,
-.resume .resume-item li {
+.resume-item p,
+.resume-item li {
   color: #454052;
   font-size: 15px;
   line-height: 1.8;
   word-break: keep-all;
 }
 
-.resume .resume-item p {
+.resume-item p {
   margin-bottom: 12px;
 }
 
-.resume .resume-item ul {
+.resume-item ul {
+  margin: 0;
   padding-left: 19px;
-  margin-bottom: 0;
 }
 
-.resume .resume-item li {
-  padding-bottom: 6px;
+.resume-item li {
+  padding-bottom: 5px;
 }
 
-.resume .resume-item .resume-subtitle {
+.resume-subtitle {
   color: #625B71;
-  font-size: 14px;
   font-weight: 600;
 }
 
-.resume .resume-item.minz-career-featured {
-  margin-bottom: 30px;
-  padding: 22px 24px;
+.resume-date {
+  display: inline-block;
+  margin: 3px 0 12px;
+  padding: 6px 12px;
+
+  border-radius: 6px;
+  color: #6740CC;
+  background: #F1ECFF;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.resume-item.minz-career-featured {
+  margin-bottom: 28px;
+  padding: 24px;
+
   border: 1px solid #E7DEFF;
-  border-left: 3px solid #7545E8;
+  border-left: 3px solid var(--minz-purple);
   border-radius: 12px;
+
   background: #F7F4FF;
+
   box-shadow: 0 5px 20px rgba(80, 55, 150, 0.05);
 }
 
-.resume .minz-career-featured::before {
-  top: 24px;
+.minz-career-featured::before {
+  top: 26px;
   left: -8px;
 }
 
-.resume .minz-career-featured h4 {
-  color: #6740CC;
-  font-size: 19px;
-}
+/* Experience 등장 효과 */
 
-.resume .minz-projects-title {
-  margin-top: 28px;
-}
-
-/* EXPERIENCE SCROLL REVEAL */
-
-#resume .minz-motion-reveal {
+.motion-reveal {
   opacity: 0;
   transform: translateY(22px);
 
@@ -831,68 +836,90 @@ body.minz-intro-start #hero .minz-shutter-control {
     opacity 0.7s ease,
     transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
 
-  transition-delay: var(--minz-delay, 0ms);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-#resume .minz-motion-reveal.minz-visible {
+.motion-reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 12. PORTFOLIO */
+/* 11. PORTFOLIO */
 
 .minz-portfolio {
   background: #FFFFFF;
 }
 
-.minz-portfolio .portfolio-filters {
+.portfolio-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin: 0 0 40px;
-  padding: 0;
-  list-style: none;
-  text-align: center;
+
+  margin-bottom: 40px;
 }
 
-.minz-portfolio .portfolio-filters li {
+.portfolio-filter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+
   padding: 11px 20px;
+  border: none;
   border-radius: 30px;
-  background: #F4F0FF;
+
   color: #6740CC;
-  cursor: pointer;
+  background: #F4F0FF;
+
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.4;
+  cursor: pointer;
 
   transition:
     background 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.minz-portfolio .portfolio-filters li:hover,
-.minz-portfolio .portfolio-filters li.filter-active {
-  background: #7545E8;
+.portfolio-filter:hover,
+.portfolio-filter.filter-active {
   color: #FFFFFF;
+  background: var(--minz-purple);
 }
 
-.minz-portfolio .portfolio-item {
-  position: relative;
+.portfolio-filter:hover {
+  transform: translateY(-2px);
 }
 
-/* PORTFOLIO CARD */
+/* 작품은 3열 고정 구조 */
 
-.minz-portfolio .minz-work-card {
-  position: relative;
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 28px;
+}
+
+.portfolio-item {
+  min-width: 0;
+}
+
+.portfolio-item.is-hidden {
+  display: none;
+}
+
+/* 12. PORTFOLIO CARD */
+
+.minz-work-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
   height: 100%;
+
   overflow: hidden;
   border: 1px solid #EEEAF7;
-  border-radius: 15px;
+  border-radius: 16px;
   background: #FFFFFF;
 
   box-shadow: 0 5px 24px rgba(40, 25, 80, 0.06);
@@ -903,75 +930,90 @@ body.minz-intro-start #hero .minz-shutter-control {
     border-color 0.35s ease;
 }
 
-.minz-portfolio .minz-work-card:hover {
+.minz-work-card:hover {
   transform: translateY(-8px);
   border-color: #C5B1FF;
+
   box-shadow: 0 18px 42px rgba(88, 49, 170, 0.2);
 }
 
-/* THUMBNAIL */
+/* 썸네일 기본 크기 통일 */
 
-.minz-portfolio .minz-work-thumb {
+.minz-work-thumb {
   position: relative;
   isolation: isolate;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 14px;
+
   width: 100%;
   aspect-ratio: 16 / 10;
+
   overflow: hidden;
+  text-align: center;
 }
 
-.minz-portfolio .minz-work-thumb > i {
+.minz-work-thumb > i {
   position: relative;
   z-index: 2;
+
   font-size: 46px;
   line-height: 1;
+
   transition: transform 0.4s ease;
 }
 
-.minz-portfolio .minz-work-card:hover
-.minz-work-thumb > i {
+.minz-work-thumb > span {
+  position: relative;
+  z-index: 2;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.minz-work-card:hover .minz-work-thumb > i {
   transform: scale(1.13);
 }
 
-.minz-portfolio .minz-work-thumb > span {
-  position: relative;
-  z-index: 2;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
+/* 색상별 썸네일 */
 
-.minz-portfolio .thumb-video {
+.thumb-video {
+  color: #FFFFFF;
   background: linear-gradient(135deg, #21162F, #6740CC);
-  color: #FFFFFF;
 }
 
-.minz-portfolio .thumb-ai {
+.thumb-ai {
+  color: #FFFFFF;
   background: linear-gradient(135deg, #44316D, #A88BFF);
-  color: #FFFFFF;
 }
 
-.minz-portfolio .thumb-design {
-  background: linear-gradient(135deg, #EDE7FA, #D5C5FF);
+.thumb-design {
   color: #6740CC;
+  background: linear-gradient(135deg, #EDE7FA, #D5C5FF);
 }
 
-.minz-portfolio .thumb-web {
-  background: linear-gradient(135deg, #252A59, #5365F5);
+.thumb-web {
   color: #FFFFFF;
+  background: linear-gradient(135deg, #252A59, #5365F5);
 }
 
-/* PORTFOLIO LIGHT SWEEP */
+.thumb-shortform {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #3C2057, #9253C3);
+}
 
-.minz-portfolio .minz-work-thumb::after {
+/* 13. CARD LIGHT SWEEP */
+
+.minz-work-thumb::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 3;
+
   pointer-events: none;
   opacity: 0;
 
@@ -988,8 +1030,7 @@ body.minz-intro-start #hero .minz-shutter-control {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .minz-portfolio .minz-work-card:hover
-  .minz-work-thumb::after {
+  .minz-work-card:hover .minz-work-thumb::after {
     animation: minz-card-sweep 1.35s ease-out 1;
   }
 }
@@ -1000,7 +1041,8 @@ body.minz-intro-start #hero .minz-shutter-control {
     transform: translateX(-120%);
   }
 
-  15%, 80% {
+  15%,
+  80% {
     opacity: 1;
   }
 
@@ -1010,65 +1052,123 @@ body.minz-intro-start #hero .minz-shutter-control {
   }
 }
 
-/* CARD INFORMATION */
+/* 14. PROJECT INFO */
 
-.minz-portfolio .minz-work-info {
-  position: static;
-  padding: 22px;
+.minz-work-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+
+  padding: 23px;
   background: #FFFFFF;
   text-align: left;
-  opacity: 1;
 }
 
-.minz-portfolio .minz-work-category {
+.minz-work-category {
   display: inline-block;
   margin-bottom: 10px;
-  color: #7545E8;
+
+  color: var(--minz-purple);
   font-size: 12px;
   font-weight: 800;
 }
 
-.minz-portfolio .minz-work-info h4 {
-  margin-bottom: 8px;
+.minz-work-info h3 {
+  margin: 0 0 10px;
+
   color: #272333;
   font-size: 19px;
   font-weight: 800;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
-.minz-portfolio .minz-work-info p {
-  margin: 0;
+.minz-work-info p {
+  margin-bottom: 17px;
+
   color: #625B71;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.75;
+  word-break: keep-all;
 }
 
-/* 13. SUPERCAR MP4 */
+.minz-work-info .project-tags {
+  margin-bottom: 16px;
+}
 
-.minz-portfolio .minz-video-thumb {
+.minz-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+  padding-top: 12px;
+
+  color: var(--minz-purple);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.minz-project-link:hover {
+  gap: 11px;
+  color: var(--minz-purple-dark);
+}
+
+.project-status {
+  margin-top: auto;
+  color: #8A8397;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin: 0 0 10px;
+
+  color: var(--minz-purple);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/* 15. SUPERCAR VIDEO */
+
+.minz-video-thumb {
   display: block;
-  aspect-ratio: 16 / 10;
   background: #191528;
 }
 
-.minz-portfolio .minz-project-video {
+.minz-project-video {
   position: absolute;
   inset: 0;
-  display: block;
+
   width: 100%;
   height: 100%;
+  display: block;
+
   object-fit: cover;
+
+  transform: scale(1);
   transition: transform 0.6s ease;
 }
 
-.minz-portfolio .minz-work-card:hover
-.minz-project-video {
+.minz-work-card:hover .minz-project-video {
   transform: scale(1.07);
 }
 
-.minz-portfolio .minz-video-overlay {
+.minz-video-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
+
   pointer-events: none;
 
   background: linear-gradient(
@@ -1079,46 +1179,249 @@ body.minz-intro-start #hero .minz-shutter-control {
   );
 }
 
-.minz-portfolio .minz-video-thumb > .minz-video-badge {
+.minz-video-thumb > .minz-video-badge {
   position: absolute;
-  z-index: 4;
   top: 14px;
   left: 14px;
+  z-index: 4;
+
   padding: 7px 11px;
   border-radius: 6px;
-  background: rgba(25, 21, 40, 0.8);
+
   color: #FFFFFF;
+  background: rgba(25, 21, 40, 0.8);
+
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
 }
 
-.minz-portfolio .minz-project-link {
+/* 16. ONPICK THUMBNAIL */
+
+.onpick-image-thumb {
+  display: block;
+  background: #E8EEFF;
+}
+
+/* 원본 이미지 안 글자 위치 조절 */
+
+.onpick-image-thumb > img {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+    위치 조절:
+    50% 65% = 조금 위쪽 내용
+    50% 75% = 아래쪽 내용 더 많이
+    50% 90% = 원본 하단에 가까운 내용
+  */
+  object-position: 50% 75%;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.minz-work-card:hover .onpick-image-thumb > img {
+  transform: scale(1.04);
+  filter: brightness(1.04);
+}
+
+/* 17. BUSAN NIGHT THUMBNAIL */
+
+.busan-night-thumb {
+  position: relative;
+  display: block;
+
+  background: linear-gradient(
+    135deg,
+    #04112A,
+    #103C73 56%,
+    #326A9E
+  );
+}
+
+/* 원본 Figma 썸네일 이미지 */
+
+.busan-night-thumb > img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1);
+  transition: transform 0.55s ease;
+}
+
+.minz-work-card:hover .busan-night-thumb > img {
+  transform: scale(1.06);
+}
+
+/* 부산나이트 타이틀 오버레이 */
+
+.busan-night-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 25px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(3, 15, 40, 0.86),
+    rgba(3, 15, 40, 0.4) 70%,
+    transparent
+  );
+
+  color: #FFFFFF;
+  text-align: left;
+  pointer-events: none;
+}
+
+.busan-night-overlay span {
+  color: #CEDFF5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.busan-night-overlay strong {
+  color: #FFFFFF;
+  font-size: clamp(21px, 2vw, 29px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.busan-night-overlay small {
+  color: #EDF3FF;
+  font-size: 12px;
+}
+
+/* 18. FEATURED INSTAGRAM REEL */
+
+.minz-reel-section {
+  background: #FAF9FD;
+}
+
+.reel-feature {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
+
+  align-items: center;
+  gap: 40px;
+
+  padding: 40px;
+  border: 1px solid #EEEAF7;
+  border-radius: 20px;
+
+  background: #FFFFFF;
+  box-shadow: 0 8px 30px rgba(40, 25, 80, 0.06);
+}
+
+.reel-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.reel-player .instagram-media {
+  width: 100% !important;
+  max-width: 400px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+}
+
+.reel-fallback-link {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin-top: 14px;
-  color: #7545E8;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: var(--minz-purple);
   font-size: 13px;
   font-weight: 700;
+  text-align: center;
 }
 
-.minz-portfolio .minz-project-link:hover {
-  color: #6740CC;
+.reel-info {
+  padding: 10px;
 }
 
-/* 14. CONTACT */
+.reel-info h3 {
+  margin: 10px 0 17px;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.reel-views {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 21px;
+
+  color: var(--minz-purple);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.reel-info p {
+  color: #454052;
+  font-size: 15px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.reel-info .project-tags {
+  margin: 18px 0;
+}
+
+/* 19. CONTACT */
 
 .minz-contact {
-  background: #FAF9FD;
-  padding-bottom: 90px;
+  background: #FFFFFF;
 }
 
-.minz-contact .minz-contact-card {
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.minz-contact-card {
   min-height: 185px;
   padding: 30px 20px;
+
   border: 1px solid #EAE5F4;
   border-radius: 15px;
+
   background: #FFFFFF;
   text-align: center;
 
@@ -1129,94 +1432,99 @@ body.minz-intro-start #hero .minz-shutter-control {
     box-shadow 0.3s ease;
 }
 
-.minz-contact .minz-contact-card:hover {
+.minz-contact-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(65, 40, 120, 0.12);
 }
 
-.minz-contact .minz-contact-card > i {
+.minz-contact-card > i {
   display: inline-block;
   margin-bottom: 16px;
-  color: #7545E8;
+
+  color: var(--minz-purple);
   font-size: 30px;
   line-height: 1;
 }
 
-.minz-contact .minz-contact-card h3 {
-  margin-bottom: 10px;
-  color: #272333;
+.minz-contact-card h3 {
+  margin: 0 0 10px;
   font-size: 19px;
   font-weight: 800;
 }
 
-.minz-contact .minz-contact-card a,
-.minz-contact .minz-contact-card p {
-  margin-bottom: 0;
-  color: #625B71;
+.minz-contact-card a,
+.minz-contact-card p {
+  margin: 0;
+
+  color: var(--minz-muted);
   font-size: 15px;
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
 
-.minz-contact .minz-contact-card a:hover {
-  color: #7545E8;
+.minz-contact-card a:hover {
+  color: var(--minz-purple);
 }
 
-/* CONTACT CTA */
+/* 20. CONTACT CTA */
 
-.minz-contact .minz-contact-cta {
-  margin-top: 40px;
-  padding: 56px 30px;
+.minz-contact-cta {
+  margin-top: 42px;
+  padding: 60px 30px;
   border-radius: 20px;
+
+  color: #FFFFFF;
 
   background: linear-gradient(
     135deg,
-    #342052 0%,
+    #342052,
     #6740CC 55%,
-    #7545E8 100%
+    #7545E8
   );
 
   text-align: center;
-  color: #FFFFFF;
 }
 
-.minz-contact .minz-contact-eyebrow {
+.contact-eyebrow {
   display: block;
   margin-bottom: 16px;
+
   color: #DCCEFF;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
 }
 
-.minz-contact .minz-contact-cta h3 {
-  margin-bottom: 15px;
+.minz-contact-cta h3 {
+  margin: 0 0 15px;
+
   color: #FFFFFF;
-  font-size: 27px;
+  font-size: 28px;
   font-weight: 800;
   word-break: keep-all;
 }
 
-.minz-contact .minz-contact-cta p {
+.minz-contact-cta p {
   margin-bottom: 28px;
+
   color: #EAE2FF;
   font-size: 16px;
   line-height: 1.8;
   word-break: keep-all;
 }
 
-/* CONTACT BUTTON GLOW */
-
-.minz-contact .minz-contact-btn {
-  position: relative;
+.minz-contact-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
   padding: 14px 26px;
   border-radius: 30px;
-  background: #FFFFFF;
+
   color: #6740CC;
+  background: #FFFFFF;
+
   font-size: 15px;
   font-weight: 800;
 
@@ -1224,14 +1532,15 @@ body.minz-intro-start #hero .minz-shutter-control {
 
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.minz-contact .minz-contact-btn:hover,
-.minz-contact .minz-contact-btn:focus-visible {
-  background: #F1ECFF;
+.minz-contact-btn:hover,
+.minz-contact-btn:focus-visible {
   color: #4E2CA8;
+  background: #F1ECFF;
+
   transform: translateY(-4px);
 
   box-shadow:
@@ -1239,71 +1548,73 @@ body.minz-intro-start #hero .minz-shutter-control {
     0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
-.minz-contact .minz-contact-btn .bi-arrow-up-right {
+.minz-contact-btn .bi-arrow-up-right {
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.minz-contact .minz-contact-btn:hover .bi-arrow-up-right,
-.minz-contact .minz-contact-btn:focus-visible .bi-arrow-up-right {
+.minz-contact-btn:hover .bi-arrow-up-right,
+.minz-contact-btn:focus-visible .bi-arrow-up-right {
   transform: translate(4px, -4px);
 }
 
-.minz-contact .minz-instagram-link {
+.minz-instagram-link {
   display: block;
   width: fit-content;
-  margin: 20px auto 0;
+
+  margin: 21px auto 0;
+
   color: #EAE2FF;
   font-size: 14px;
 }
 
-.minz-contact .minz-instagram-link:hover {
+.minz-instagram-link:hover {
   color: #FFFFFF;
 }
 
-/* 15. FOOTER */
+/* 21. FOOTER */
 
-#footer.minz-footer {
-  --background-color: #191528;
-  --default-color: #FFFFFF;
-  --heading-color: #FFFFFF;
+.minz-footer {
+  padding: 50px 20px 27px;
 
-  position: relative;
-  padding: 48px 20px 26px;
-  background: #191528;
   color: #FFFFFF;
+  background: #191528;
   text-align: center;
 }
 
-#footer.minz-footer .minz-footer-logo {
-  margin-bottom: 12px;
+.minz-footer h2 {
+  margin: 0 0 12px;
+
   color: #FFFFFF;
-  font-size: 34px;
-  font-weight: 400;
+  font-size: 36px;
 }
 
-#footer.minz-footer .minz-footer-message {
+.footer-slogan {
   margin-bottom: 24px;
   color: #C3B8D9;
   font-size: 15px;
 }
 
-#footer.minz-footer .minz-footer-social {
+.footer-social {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
 }
 
-#footer.minz-footer .minz-footer-social a {
+.footer-social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
+
   border-radius: 50%;
-  background: #302344;
+
   color: #FFFFFF;
+  background: #302344;
+
   font-size: 18px;
 
   transition:
@@ -1311,142 +1622,175 @@ body.minz-intro-start #hero .minz-shutter-control {
     transform 0.3s ease;
 }
 
-#footer.minz-footer .minz-footer-social a:hover {
-  background: #7545E8;
+.footer-social a:hover {
   color: #FFFFFF;
+  background: var(--minz-purple);
   transform: translateY(-3px);
 }
 
-#footer.minz-footer .minz-footer-line {
+.footer-line {
   height: 1px;
   margin: 30px 0 22px;
   background: #3C3050;
 }
 
-#footer.minz-footer .minz-copyright {
+.footer-copyright {
   margin: 0;
+
   color: #B9AEC9;
   font-size: 13px;
 }
 
-/* 16. SCROLL TOP */
+/* 22. SCROLL TOP */
 
 .scroll-top {
   position: fixed;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
+  right: 16px;
+  bottom: 16px;
+  z-index: 900;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #7545E8;
+
   color: #FFFFFF;
+  background: var(--minz-purple);
+
+  font-size: 24px;
+
   opacity: 0;
   visibility: hidden;
+  transform: translateY(10px);
 
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .scroll-top.active {
-  bottom: 15px;
   opacity: 1;
   visibility: visible;
-}
-
-.scroll-top i {
-  color: #FFFFFF;
-  font-size: 24px;
-  line-height: 1;
+  transform: translateY(0);
 }
 
 .scroll-top:hover {
-  background: #6740CC;
   color: #FFFFFF;
+  background: #6740CC;
 }
 
-/* 17. PRELOADER */
+/* 23. RESPONSIVE - TABLET */
 
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  background: #FFFFFF;
+@media (max-width: 1024px) {
 
-  transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
+  .about-grid {
+    gap: 30px;
+  }
+
+  .profile-row {
+    grid-template-columns: 1fr;
+  }
+
+  .minz-profile-image {
+    max-width: 250px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resume-grid {
+    gap: 35px;
+  }
+
 }
 
-#preloader::before {
-  content: "";
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  width: 50px;
-  height: 50px;
-  border: 5px solid #EEEAF7;
-  border-top-color: #7545E8;
-  border-radius: 50%;
+/* 24. RESPONSIVE - MOBILE MENU */
 
-  animation: minz-spin 0.8s linear infinite;
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .navmenu {
+    position: absolute;
+    top: 82px;
+    left: 20px;
+    right: 20px;
+    z-index: 1001;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    padding: 13px;
+    border: 1px solid #E7DEFF;
+    border-radius: 14px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0 15px 40px rgba(25, 21, 40, 0.2);
+  }
+
+  .navmenu.nav-open {
+    display: flex;
+  }
+
+  .navmenu a {
+    display: block;
+    padding: 11px 14px;
+
+    color: #272333;
+    border-radius: 8px;
+  }
+
+  .navmenu a::after {
+    display: none;
+  }
+
+  .navmenu a:hover,
+  .navmenu a.active {
+    color: #7545E8;
+    background: #F4F0FF;
+  }
+
+  .about-grid,
+  .resume-grid,
+  .reel-feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reel-feature {
+    gap: 25px;
+  }
+
 }
 
-@keyframes minz-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* 18. TABLET RESPONSIVE */
-
-@media (max-width: 991px) {
-  .section {
-    padding: 65px 0;
-  }
-
-  .about > .container {
-    padding: 30px 24px;
-  }
-
-  .about .about-me {
-    margin-top: 18px;
-  }
-
-  .resume .resume-title {
-    font-size: 23px;
-  }
-
-  .minz-contact .minz-contact-card {
-    min-height: 170px;
-  }
-}
-
-/* 19. MOBILE RESPONSIVE */
+/* 25. RESPONSIVE - MOBILE */
 
 @media (max-width: 767px) {
-  .header {
-    min-height: 70px;
-    padding: 12px 0;
+
+  html {
+    scroll-padding-top: 72px;
   }
 
-  .header .logo img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .header .sitename {
-    font-size: 27px;
+  .container {
+    width: min(100% - 30px, 1200px);
   }
 
   .section {
-    padding: 55px 0;
+    padding: 60px 0;
+    scroll-margin-top: 72px;
   }
 
   .section-title {
-    padding-bottom: 32px;
+    margin-bottom: 33px;
   }
 
   .section-title h2 {
@@ -1457,18 +1801,33 @@ body.minz-intro-start #hero .minz-shutter-control {
     font-size: 15px;
   }
 
+  .site-header,
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .site-logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .site-logo span {
+    font-size: 27px;
+  }
+
+  .navmenu {
+    top: 72px;
+    left: 15px;
+    right: 15px;
+  }
+
   .hero {
-    min-height: 76vh;
-    padding: 90px 15px;
+    min-height: 78svh;
+    padding: 85px 0;
   }
 
-  .hero h2 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    min-height: 40px;
-    font-size: 20px;
+  .hero h1 {
+    font-size: clamp(35px, 9vw, 45px);
   }
 
   .hero-eyebrow {
@@ -1476,124 +1835,135 @@ body.minz-intro-start #hero .minz-shutter-control {
     letter-spacing: 2px;
   }
 
-  #hero .minz-shutter-btn {
+  .hero-subtitle {
+    min-height: 43px;
+    font-size: 19px;
+  }
+
+  .minz-shutter-btn {
     padding: 9px 15px;
     font-size: 12px;
   }
 
-  .about > .container {
-    padding: 24px 20px;
+  .about-panel {
+    padding: 25px 20px;
   }
 
-  .about .minz-profile-image {
-    max-width: 300px;
+  .about-grid {
+    gap: 35px;
   }
 
-  .about .about-info p,
-  .about .about-info span {
-    font-size: 14px;
-  }
-
-  .about .about-me h4 {
+  .about-title {
     font-size: 27px;
   }
 
-  .about .about-me p {
+  .about-right p {
     font-size: 15px;
   }
 
-  .about .about-me .about-lead {
+  .about-right .about-lead {
     font-size: 16px;
   }
 
-  .minz-skills h5 {
-    font-size: 20px;
-  }
-
-  .minz-skills .progress .skill {
-    font-size: 13px;
-  }
-
-  .minz-tag-list {
-    gap: 8px;
-  }
-
-  .minz-tag-list span {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-
-  .resume .resume-title {
+  .resume-title {
     font-size: 22px;
   }
 
-  .resume .resume-item h4 {
+  .resume-item h4 {
     font-size: 16px;
   }
 
-  .resume .resume-item p,
-  .resume .resume-item li {
+  .resume-item p,
+  .resume-item li {
     font-size: 14px;
   }
 
-  .resume .resume-item.minz-career-featured {
-    padding: 18px;
+  .resume-item.minz-career-featured {
+    padding: 20px;
   }
 
-  .resume .minz-career-featured h4 {
-    font-size: 17px;
-  }
-
-  .minz-portfolio .portfolio-filters {
+  .portfolio-filters {
     gap: 8px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
   }
 
-  .minz-portfolio .portfolio-filters li {
+  .portfolio-filter {
     padding: 9px 14px;
     font-size: 12px;
   }
 
-  .minz-portfolio .minz-work-info {
-    padding: 18px;
+  .portfolio-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
   }
 
-  .minz-contact .minz-contact-card {
+  .minz-work-info {
+    padding: 20px;
+  }
+
+  .minz-work-info h3 {
+    font-size: 18px;
+  }
+
+  .reel-feature {
+    padding: 20px;
+  }
+
+  .reel-info {
+    padding: 6px 0;
+  }
+
+  .reel-info h3 {
+    font-size: 24px;
+  }
+
+  .reel-views {
+    font-size: 22px;
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .minz-contact-card {
     min-height: auto;
-    padding: 25px 18px;
+    padding: 26px 18px;
   }
 
-  .minz-contact .minz-contact-cta {
-    padding: 40px 22px;
+  .minz-contact-cta {
+    margin-top: 30px;
+    padding: 43px 22px;
   }
 
-  .minz-contact .minz-contact-cta h3 {
+  .minz-contact-cta h3 {
     font-size: 23px;
   }
 
-  .minz-contact .minz-contact-cta p {
+  .minz-contact-cta p {
     font-size: 15px;
   }
 
-  #footer.minz-footer {
-    padding: 40px 16px 22px;
+  .minz-footer {
+    padding: 40px 16px 24px;
   }
 
-  #footer.minz-footer .minz-footer-logo {
+  .minz-footer h2 {
     font-size: 30px;
   }
 
-  #footer.minz-footer .minz-footer-message {
+  .footer-slogan {
     font-size: 13px;
   }
 
-  #footer.minz-footer .minz-copyright {
+  .footer-copyright {
     font-size: 12px;
     line-height: 1.7;
   }
+
 }
 
-/* 20. ACCESSIBILITY */
+/* 26. ACCESSIBILITY */
 
 :focus-visible {
   outline: 2px solid #A88BFF;
@@ -1601,6 +1971,7 @@ body.minz-intro-start #hero .minz-shutter-control {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -1612,395 +1983,23 @@ body.minz-intro-start #hero .minz-shutter-control {
     transition-duration: 0.01ms !important;
   }
 
-  #resume .minz-motion-reveal {
+  .motion-reveal {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .about .minz-profile-image:hover,
-  .minz-contact .minz-contact-btn:hover,
-  .minz-portfolio .minz-work-card:hover {
+  .minz-work-card:hover,
+  .minz-profile-image:hover,
+  .minz-contact-btn:hover {
     transform: none;
   }
-}
 
-
-/* ==========================================
-   MINZ INSTAGRAM REEL FEATURE
-   ========================================== */
-
-.minz-reel-section {
-  background: #FAF9FD;
-}
-
-.minz-reel-heading {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.minz-reel-heading > span {
-  color: #7545E8;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.minz-reel-heading h2 {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 12px 0;
-}
-
-.minz-reel-heading p {
-  color: #625B71;
-  font-size: 15px;
-}
-
-.minz-reel-feature {
-  padding: 35px;
-  background: #FFFFFF;
-  border: 1px solid #EEEAF7;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(40,25,80,.06);
-}
-
-.minz-reel-player {
-  width: 100%;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.minz-reel-player .instagram-media {
-  width: 100% !important;
-  max-width: 400px !important;
-  min-width: 0 !important;
-  margin: 0 auto !important;
-}
-
-.minz-reel-description {
-  padding: 20px;
-}
-
-.minz-reel-category {
-  color: #7545E8;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-}
-
-.minz-reel-description h3 {
-  margin: 15px 0;
-  font-size: 27px;
-  font-weight: 800;
-}
-
-.minz-reel-views {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  color: #7545E8;
-  font-size: 23px;
-}
-
-.minz-reel-description p {
-  font-size: 15px;
-  line-height: 1.9;
-  color: #454052;
-  word-break: keep-all;
-}
-
-.minz-reel-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 20px;
-}
-
-.minz-reel-tags span {
-  padding: 8px 13px;
-  background: #F4F0FF;
-  color: #6740CC;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-@media (max-width: 767px) {
-  .minz-reel-feature {
-    padding: 18px;
+  .typing-cursor {
+    animation: none;
   }
 
-  .minz-reel-heading h2 {
-    font-size: 26px;
-  }
-
-  .minz-reel-description {
-    padding: 10px 3px;
-  }
-
-  .minz-reel-description h3 {
-    font-size: 22px;
-  }
 }
 
-/* END MINZ INSTAGRAM REEL */
-
-
-/* ==========================================
-   MINZ FIGMA APP PROJECT
-   ========================================== */
-
-/* 카드의 앱 체험 버튼 */
-.minz-figma-btn {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.minz-figma-btn:hover {
-  color: #6740CC;
-}
-
-/* Figma 팝업 */
-.minz-figma-modal {
-  overflow: hidden;
-  border: 1px solid #E7DEFF;
-  border-radius: 18px;
-  background: #FFFFFF;
-}
-
-.minz-figma-modal .modal-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid #EEEAF7;
-}
-
-.minz-figma-modal .modal-title {
-  color: #191528;
-  font-size: 19px;
-  font-weight: 800;
-}
-
-.minz-figma-modal small {
-  color: #7545E8;
-  font-size: 12px;
-}
-
-.minz-figma-modal .modal-body {
-  padding: 0;
-  background: #191528;
-}
-
-.minz-figma-modal iframe {
-  display: block;
-  width: 100%;
-  height: min(75vh, 760px);
-  border: 0;
-}
-
-.minz-figma-modal .modal-footer {
-  border-top: 1px solid #EEEAF7;
-  padding: 14px 24px;
-}
-
-.minz-figma-open {
-  color: #7545E8;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.minz-figma-open:hover {
-  color: #6740CC;
-}
-
-@media (max-width: 767px) {
-  .minz-figma-modal iframe {
-    height: 70vh;
-  }
-}
-
-/* END MINZ FIGMA PROJECT */
-
-
-
-
-
-
-/* ==========================================
-   MINZ ONPICK THUMBNAIL - FINAL POSITION
-   ========================================== */
-
-/* 모든 프로젝트와 동일한 카드 크기 */
-.minz-portfolio .minz-work-thumb.onpick-image-thumb {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  isolation: isolate;
-  background: #E8EEFF;
-}
-
-/* 실제 썸네일을 확대하고 글자 위치에 맞춤 */
-.minz-portfolio .onpick-image-thumb > img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-height: none;
-
-  object-fit: cover;
-
-  /* 핵심: 이미지의 글자가 있는 부분을 표시 */
-  object-position: 50% 25%;
-
-  transform: none;
-  transition: filter 0.4s ease;
-}
-
-/* 호버 시 이미지 강조 */
-.minz-portfolio .minz-work-card:hover
-.onpick-image-thumb > img {
-  transform: none;
-  filter: brightness(1.06);
-}
-
-/* 기존 빛 스침 효과 유지 */
-.minz-portfolio .onpick-image-thumb::after {
-  z-index: 3;
-}
-
-
-/* ==========================================
-   MINZ ONPICK - THUMBNAIL FOCUS
-   원본 이미지 + 글자 위치 조절 + 호버
-   ========================================== */
-
-.minz-portfolio .minz-work-thumb.has-image.onpick-image-thumb {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  isolation: isolate;
-  background: #E8EEFF;
-}
-
-/* 원본 썸네일 중 ONPICK 글자 영역 표시 */
-.minz-portfolio .minz-work-thumb.has-image.onpick-image-thumb > img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  padding: 0;
-  object-fit: cover;
-
-  /* 이 숫자로 보여지는 위치를 조절합니다 */
-  object-position: center 75%;
-
-  transform: scale(1);
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
-}
-
-/* 호버 시 자연스럽게 확대 */
-.minz-portfolio .minz-work-card:hover
-.minz-work-thumb.has-image.onpick-image-thumb > img {
-  transform: scale(1.04);
-  filter: brightness(1.04);
-}
-
-/* 기존 빛 스침 효과 유지 */
-.minz-portfolio .onpick-image-thumb::after {
-  z-index: 3;
-}
-
-/* END MINZ ONPICK */
-
-
-/* ==========================================
-   MINZ BUSAN NIGHT PROJECT
-   ========================================== */
-
-.minz-portfolio .busan-night-thumb {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  isolation: isolate;
-  background: #071A3A;
-}
-
-.minz-portfolio .busan-night-thumb > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.55s ease;
-}
-
-.minz-portfolio .busan-night-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 7px;
-  padding: 24px;
-  background: linear-gradient(
-    90deg,
-    rgba(3, 15, 40, 0.83),
-    rgba(3, 15, 40, 0.38),
-    transparent
-  );
-  color: #FFFFFF;
-  pointer-events: none;
-}
-
-.minz-portfolio .busan-night-overlay span {
-  color: #CEDFF5;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: 700;
-}
-
-.minz-portfolio .busan-night-overlay strong {
-  color: #FFFFFF;
-  font-size: clamp(22px, 2vw, 30px);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.minz-portfolio .busan-night-overlay small {
-  color: #EDF3FF;
-  font-size: 12px;
-}
-
-.minz-portfolio .minz-work-card:hover
-.busan-night-thumb > img {
-  transform: scale(1.06);
-}
-
-/* 기존 카드의 빛 스침 효과 사용 */
-
-/* END MINZ BUSAN NIGHT PROJECT */
-
-
-
-/* ==========================================
-   END MINZ PORTFOLIO CSS v1.1
-   ========================================== */
+/* =================================================
+   END MINZ PORTFOLIO v2.0
+   ================================================= */
