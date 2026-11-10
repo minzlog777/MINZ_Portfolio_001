@@ -1824,6 +1824,33 @@ body.minz-intro-start #hero .minz-shutter-control {
 
 /* END MINZ FIGMA PROJECT */
 
+/* ==========================================
+   MINZ ONPICK THUMBNAIL
+   ========================================== */
+
+.minz-work-thumb.has-image {
+  padding: 0;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  background: #eef4ff;
+}
+
+.minz-work-thumb.has-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 767px) {
+  .minz-work-thumb.has-image {
+    height: 280px;
+  }
+}
+
+/* END MINZ ONPICK THUMBNAIL */
 
 /* ==========================================
    END MINZ PORTFOLIO CSS v1.1
