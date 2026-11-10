@@ -1827,58 +1827,97 @@ body.minz-intro-start #hero .minz-shutter-control {
 
 
 
+
 /* ==========================================
-   MINZ ONPICK THUMBNAIL - FULL IMAGE
-   글자 전체 표시 + 카드 호버 유지
+   MINZ ONPICK - TEXT THUMBNAIL
    ========================================== */
 
-/* 이미지 원본 비율 유지 */
-.minz-portfolio .minz-work-thumb.has-image {
+.minz-portfolio .minz-work-thumb.onpick-text-thumb {
   position: relative;
-  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 390 / 844;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   overflow: hidden;
   isolation: isolate;
-  background: #E8EEFF;
+  background: linear-gradient(
+    135deg,
+    #E7EDFF 0%,
+    #F5F0FF 55%,
+    #D8CEFF 100%
+  );
+  text-align: center;
 }
 
-/* 원본 이미지를 자르지 않고 전체 표시 */
-.minz-portfolio .minz-work-thumb.has-image > img {
-  position: static;
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-  object-position: center;
-  transform: none;
-
-  transition: filter 0.4s ease;
+/* 위쪽 작은 문구 */
+.minz-portfolio .onpick-text-thumb .onpick-label {
+  color: #7566AC;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-/* 호버 시 이미지 밝기 강조 - 글자는 잘리지 않음 */
+/* ONPICK 큰 글자 */
+.minz-portfolio .onpick-text-thumb .onpick-wordmark {
+  position: relative;
+  z-index: 2;
+  color: #353076;
+  font-family: var(--heading-font);
+  font-size: clamp(32px, 4vw, 53px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  transition: transform 0.45s ease;
+}
+
+/* 앱 이름 */
+.minz-portfolio .onpick-text-thumb .onpick-tagline {
+  color: #514888;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+/* 아래 작은 설명 */
+.minz-portfolio .onpick-text-thumb .onpick-caption {
+  margin-top: 9px;
+  padding: 5px 12px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.8);
+  color: #6740CC;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* 호버 시 텍스트 살짝 확대 */
 .minz-portfolio .minz-work-card:hover
-.minz-work-thumb.has-image > img {
-  transform: none;
-  filter: brightness(1.06);
+.onpick-text-thumb .onpick-wordmark {
+  transform: scale(1.07);
 }
 
-/* 기존 빛 스침 효과 유지 */
-.minz-portfolio .minz-work-thumb.has-image::after {
+/* 기존 카드 빛 스침 효과 유지 */
+.minz-portfolio .onpick-text-thumb::after {
   z-index: 3;
 }
 
-/* 모바일에서도 원본 전체 표시 */
-@media (max-width: 767px) {
-  .minz-portfolio .minz-work-thumb.has-image {
-    height: auto;
-    aspect-ratio: 390 / 844;
+@media (prefers-reduced-motion: reduce) {
+  .minz-portfolio .onpick-text-thumb .onpick-wordmark {
+    transition: none;
+  }
+
+  .minz-portfolio .minz-work-card:hover
+  .onpick-text-thumb .onpick-wordmark {
+    transform: none;
   }
 }
 
-/* END MINZ ONPICK THUMBNAIL */
+/* END MINZ ONPICK TEXT THUMBNAIL */
+
 
 
 
