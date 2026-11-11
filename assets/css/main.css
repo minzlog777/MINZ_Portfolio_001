@@ -2327,4 +2327,281 @@ body.minz-intro-start .minz-shutter-control {
 
 
 
+/* ========================================
+   MINZ EXPERIENCE + VIDEO FINAL UPDATE
+   VERSION 2.3
+======================================== */
+
+/* 01. EXPERIENCE SECTION */
+#resume.minz-exp {
+  overflow: hidden;
+}
+
+#resume .minz-exp-featured {
+  isolation: isolate;
+  transition:
+    transform .45s cubic-bezier(.2,.7,.3,1),
+    box-shadow .45s ease;
+}
+
+/* 대표 프로젝트 보라빛 장식 */
+#resume .minz-exp-featured::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -160px;
+  bottom: -240px;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(169,119,255,.38) 0%,
+    rgba(117,69,232,.13) 42%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* 대표 프로젝트 호버 */
+@media (hover: hover) and (pointer: fine) {
+  #resume .minz-exp-featured:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 22px 52px rgba(63,32,130,.23);
+  }
+}
+
+/* 대표 프로젝트 버튼 정렬 */
+#resume .minz-exp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 25px;
+  margin-top: 25px;
+}
+
+#resume .minz-exp-actions
+.minz-exp-project-link {
+  margin-top: 0;
+}
+
+/* 성과 카드 */
+#resume .minz-exp-stat {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+#resume .minz-exp-stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #7545E8,
+    #B9A0FF
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #resume .minz-exp-stat:hover {
+    transform: translateY(-6px);
+    border-color: #CFBEFF;
+    box-shadow:
+      0 18px 32px rgba(70,40,140,.13);
+  }
+
+  #resume .minz-exp-stat:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+/* 경력 카드 */
+#resume .minz-exp-panel {
+  transition:
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #resume .minz-exp-panel:hover {
+    border-color: #D5C7FA;
+    box-shadow:
+      0 12px 35px rgba(50,30,110,.07);
+  }
+}
+
+/* 타임라인 도트 */
+#resume .minz-exp-entry::before {
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+}
+
+#resume .minz-exp-entry:hover::before {
+  background: #A88BFF;
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 5px rgba(117,69,232,.12);
+}
+
+/* 스킬 태그 */
+#resume .minz-exp-skill-list span {
+  transition:
+    color .3s ease,
+    border-color .3s ease,
+    background .3s ease,
+    transform .3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #resume .minz-exp-skill-list span:hover {
+    color: #FFFFFF;
+    background: #7545E8;
+    border-color: #7545E8;
+    transform: translateY(-3px);
+  }
+}
+
+/* 02. SCROLL REVEAL ANIMATION */
+/* JS에서 motion-reveal 클래스를 추가 */
+
+#resume .motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2,.7,.3,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+#resume .motion-reveal.in-view {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 03. YOUTUBE VIDEO CARDS */
+
+.minz-portfolio .minz-youtube-embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+  background: #191528;
+}
+
+.minz-portfolio .minz-youtube-embed iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 임베드에서는 기존 빛 스침 제거 */
+.minz-portfolio .minz-youtube-embed::after {
+  display: none;
+}
+
+/* 작품별 태그 */
+.minz-portfolio .minz-work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+
+.minz-portfolio .minz-work-tags span {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 30px;
+  background: #F3EEFF;
+  color: #6740CC;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 봉산마을 대표 작품 강조 */
+.minz-portfolio .minz-featured-work {
+  border-color: #CDBBFF;
+}
+
+.minz-portfolio .minz-featured-work
+.minz-work-category {
+  color: #7545E8;
+}
+
+/* 앵커 이동시 헤더가 가리지 않도록 */
+#bongsan-project,
+#seogu-project {
+  scroll-margin-top: 105px;
+}
+
+/* 04. TABLET */
+
+@media (max-width: 900px) {
+  #resume .minz-exp-actions {
+    gap: 12px 20px;
+  }
+}
+
+/* 05. MOBILE */
+
+@media (max-width: 600px) {
+  #resume .minz-exp-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  #resume .minz-exp-featured::before {
+    width: 260px;
+    height: 260px;
+    right: -130px;
+    bottom: -130px;
+  }
+
+  .minz-portfolio .minz-work-tags {
+    gap: 6px;
+  }
+
+  .minz-portfolio .minz-work-tags span {
+    font-size: 10px;
+    padding: 5px 9px;
+  }
+}
+
+/* 06. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  #resume .motion-reveal,
+  #resume .motion-reveal.in-view {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #resume .minz-exp-featured,
+  #resume .minz-exp-stat,
+  #resume .minz-exp-panel,
+  #resume .minz-exp-skill-list span {
+    transition: none !important;
+  }
+}
+
+
+
 /* END MINZ PORTFOLIO v2.1 */
