@@ -2685,4 +2685,181 @@ body.minz-intro-start .minz-shutter-control {
 
 
 
+/* MINZ 짱구 릴스 실제 썸네일 */
+
+#portfolio .minz-shinchan-thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #3c2057;
+}
+
+#portfolio .minz-shinchan-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .45s ease;
+}
+
+#portfolio .minz-shinchan-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.35),
+    transparent 45%,
+    rgba(0,0,0,.55)
+  );
+  pointer-events: none;
+}
+
+#portfolio .minz-shinchan-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: rgba(33,26,55,.8);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+#portfolio .minz-shinchan-open {
+  position: absolute;
+  bottom: 16px;
+  right: 17px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (hover:hover) {
+  #portfolio .minz-shinchan-thumb:hover img {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #portfolio .minz-shinchan-thumb img {
+    transition: none;
+  }
+}
+
+
+
+/* ==================================
+   MINZ PROPERTY VIDEO FINAL FIX
+   봉산마을 / 서구청과 영상 크기 통일
+================================== */
+
+/* 부동산 영상 영역 */
+.minz-portfolio
+#property-project
+.minz-work-thumb.minz-youtube-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #191528;
+}
+
+/* 유튜브 플레이어 전체 채우기 */
+.minz-portfolio
+#property-project
+.minz-youtube-embed iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* 영상 위 장식 효과 제거 */
+.minz-portfolio
+#property-project
+.minz-youtube-embed::after {
+  display: none;
+}
+
+/* 담당 작업 레이블 */
+#property-project .minz-work-role {
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 18px;
+}
+
+#property-project .minz-role-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #7545E8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
+
+/* 담당 업무 태그 */
+#property-project .minz-work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+
+#property-project .minz-work-tags span {
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #F3EEFF;
+  color: #6740CC;
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+/* 트렌디한 호버 효과 */
+@media (hover: hover) {
+  #property-project .minz-work-tags span:hover {
+    transform: translateY(-3px);
+    background: #E4D8FF;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  #property-project .minz-work-tags span {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #property-project .minz-work-tags span {
+    transition: none;
+  }
+}
+
+
+
 /* END MINZ PORTFOLIO v2.1 */
