@@ -1820,4 +1820,511 @@ body.minz-intro-start .minz-shutter-control {
 
 }
 
+
+/* =========================================
+   MINZ EXPERIENCE REDESIGN 2026
+   Scoped styles / Responsive
+========================================= */
+
+#resume.minz-exp {
+  --exp-purple: #7545E8;
+  --exp-dark: #211A37;
+  --exp-text: #272333;
+  --exp-muted: #696376;
+  --exp-line: #EAE4F5;
+
+  background: #FAF9FD;
+  padding: 90px 0;
+  font-family: "Pretendard Variable",
+               "Pretendard", sans-serif;
+}
+
+#resume.minz-exp *,
+#resume.minz-exp *::before,
+#resume.minz-exp *::after {
+  box-sizing: border-box;
+}
+
+#resume.minz-exp .container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+#resume .minz-exp-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #7545E8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* 01 FEATURED PROJECT */
+
+#resume .minz-exp-featured {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+  padding: 44px 48px;
+  border: 1px solid #43345F;
+  border-radius: 22px;
+  background: linear-gradient(
+    130deg,
+    #211A37 0%,
+    #32224F 65%,
+    #48316E 100%
+  );
+  color: white;
+  box-shadow: 0 16px 42px rgba(34, 20, 70, .14);
+}
+
+#resume .minz-exp-featured::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -110px;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#resume .minz-exp-featured-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+#resume .minz-exp-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #D4C3FF;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+#resume .minz-exp-selected {
+  padding: 7px 13px;
+  border: 1px solid #BFAAFF;
+  border-radius: 30px;
+  background: rgba(255,255,255,.1);
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+
+#resume .minz-exp-featured h3 {
+  margin: 0 0 10px;
+  color: #FFFFFF;
+  font-size: clamp(23px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-organizer {
+  margin: 0;
+  color: #D8CCEF;
+  font-size: 14px;
+}
+
+#resume .minz-exp-funding {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 23px 0 17px;
+}
+
+#resume .minz-exp-funding strong {
+  color: #FFFFFF;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+#resume .minz-exp-funding span {
+  color: #D8CCEF;
+  font-size: 14px;
+}
+
+#resume .minz-exp-description {
+  max-width: 720px;
+  margin: 0 0 22px;
+  color: #EFEAF9;
+  font-size: 15px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#resume .minz-exp-tags span {
+  padding: 7px 12px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 30px;
+  background: rgba(255,255,255,.09);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#resume .minz-exp-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid #D4C3FF;
+  padding-bottom: 5px;
+  transition: color .25s, gap .25s;
+}
+
+#resume .minz-exp-project-link:hover {
+  color: #D4C3FF;
+  gap: 15px;
+}
+
+/* 02 PERFORMANCE CARDS */
+
+#resume .minz-exp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#resume .minz-exp-stat {
+  min-width: 0;
+  padding: 27px 22px;
+  border: 1px solid var(--exp-line);
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 5px 22px rgba(40,25,80,.04);
+  transition: transform .25s, box-shadow .25s;
+}
+
+#resume .minz-exp-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(40,25,80,.1);
+}
+
+#resume .minz-exp-stat-label {
+  display: block;
+  min-height: 30px;
+  color: var(--exp-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+#resume .minz-exp-stat strong {
+  display: block;
+  margin: 8px 0;
+  color: var(--exp-purple);
+  font-size: clamp(27px, 3vw, 39px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+#resume .minz-exp-stat p {
+  margin: 0;
+  color: #454052;
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-stat-note {
+  margin: 12px 0 36px;
+  color: #777080;
+  font-size: 12px;
+}
+
+/* 03 CAREER & ACTIVITIES */
+
+#resume .minz-exp-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+#resume .minz-exp-panel {
+  min-width: 0;
+  padding: 34px;
+  border: 1px solid var(--exp-line);
+  border-radius: 18px;
+  background: #FFFFFF;
+}
+
+#resume .minz-exp-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--exp-line);
+  color: var(--exp-text);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+#resume .minz-exp-panel-title i {
+  color: var(--exp-purple);
+  font-size: 22px;
+}
+
+#resume .minz-exp-entry {
+  position: relative;
+  padding: 0 0 25px 22px;
+  margin-left: 5px;
+  border-left: 2px solid #E5D9FF;
+}
+
+#resume .minz-exp-entry:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+#resume .minz-exp-entry::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #7545E8;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #7545E8;
+}
+
+#resume .minz-exp-period {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #7545E8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+#resume .minz-exp-entry h4 {
+  margin: 0 0 8px;
+  color: var(--exp-text);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-entry p {
+  margin: 0;
+  color: #625B71;
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-entry .minz-exp-place {
+  margin-bottom: 8px;
+  color: var(--exp-purple);
+  font-weight: 700;
+}
+
+/* 04 CAPABILITIES */
+
+#resume .minz-exp-capabilities {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 35px;
+  margin-top: 24px;
+  padding: 33px 36px;
+  border: 1px solid var(--exp-line);
+  border-radius: 18px;
+  background: #F4F0FF;
+}
+
+#resume .minz-exp-small-label {
+  color: #7545E8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+#resume .minz-exp-capabilities h3 {
+  margin: 6px 0 10px;
+  color: #272333;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+#resume .minz-exp-capabilities p {
+  margin: 0;
+  color: #625B71;
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+#resume .minz-exp-skill-list {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+#resume .minz-exp-skill-list span {
+  padding: 10px 14px;
+  border: 1px solid #E1D4FF;
+  border-radius: 30px;
+  background: white;
+  color: #6740CC;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 05 BOTTOM CTA */
+
+#resume .minz-exp-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+#resume .minz-exp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 13px 24px;
+  border-radius: 30px;
+  background: #7545E8;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .25s, transform .25s;
+}
+
+#resume .minz-exp-cta:hover {
+  background: #6034CB;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 06 RESPONSIVE TABLET */
+
+@media (max-width: 900px) {
+  #resume .minz-exp-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #resume .minz-exp-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #resume .minz-exp-capabilities {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  #resume .minz-exp-skill-list {
+    justify-content: flex-start;
+  }
+}
+
+/* 07 RESPONSIVE MOBILE */
+
+@media (max-width: 600px) {
+  #resume.minz-exp {
+    padding: 65px 0;
+  }
+
+  #resume.minz-exp .container {
+    width: calc(100% - 30px);
+  }
+
+  #resume .minz-exp-featured {
+    padding: 28px 22px;
+    border-radius: 17px;
+  }
+
+  #resume .minz-exp-topline {
+    font-size: 10px;
+  }
+
+  #resume .minz-exp-organizer,
+  #resume .minz-exp-description {
+    font-size: 13px;
+  }
+
+  #resume .minz-exp-stat {
+    padding: 20px 15px;
+  }
+
+  #resume .minz-exp-stat-label {
+    font-size: 9px;
+  }
+
+  #resume .minz-exp-stat p {
+    font-size: 12px;
+  }
+
+  #resume .minz-exp-panel {
+    padding: 25px 20px;
+  }
+
+  #resume .minz-exp-panel-title {
+    font-size: 19px;
+  }
+
+  #resume .minz-exp-entry h4 {
+    font-size: 16px;
+  }
+
+  #resume .minz-exp-capabilities {
+    padding: 26px 20px;
+  }
+
+  #resume .minz-exp-capabilities h3 {
+    font-size: 21px;
+  }
+
+  #resume .minz-exp-cta {
+    width: 100%;
+  }
+}
+
+/* Accessibility */
+
+#resume a:focus-visible {
+  outline: 3px solid #A88BFF;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #resume .minz-exp-stat,
+  #resume .minz-exp-project-link,
+  #resume .minz-exp-cta {
+    transition: none;
+  }
+}
+
+
+
 /* END MINZ PORTFOLIO v2.1 */
