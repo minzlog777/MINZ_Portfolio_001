@@ -2517,20 +2517,20 @@ body.minz-intro-start .minz-shutter-control {
 }
 
 /* 작품별 태그 */
-.minz-portfolio .minz-work-tags {
+/* 부동산 역할 태그와 링크 간격 */
+#property-project .minz-work-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 17px;
+  gap: 8px;
+  margin: 18px 0 24px;
 }
 
-.minz-portfolio .minz-work-tags span {
-  display: inline-block;
-  padding: 6px 10px;
+#property-project .minz-work-tags span {
+  padding: 7px 12px;
   border-radius: 30px;
   background: #F3EEFF;
-  color: #6740CC;
-  font-size: 11px;
+  color: #7545E8;
+  font-size: 12px;
   font-weight: 700;
 }
 
