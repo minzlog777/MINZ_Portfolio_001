@@ -2018,6 +2018,164 @@ a:focus-visible {
   }
 }
 
+
+/* =========================================
+   MINZ INTERACTION RESTORE v4.1
+   Hero Buttons / Profile / Stats
+========================================= */
+
+/* 01. 메인 버튼 샤이닝 */
+
+.hero .button,
+.hero .shutter-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.hero .button::before,
+.hero .shutter-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -65%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255,255,255,.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+@keyframes minz-button-shine {
+  from {
+    left: -65%;
+  }
+  to {
+    left: 150%;
+  }
+}
+
+/* 02. 프로필 이미지 확대 */
+
+.about .minz-profile-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  transition:
+    transform .45s cubic-bezier(.2,.8,.25,1),
+    box-shadow .45s ease,
+    filter .45s ease;
+}
+
+/* 03. Experience 성과 카드 */
+
+#resume .exp-stat {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.25,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+}
+
+/* 기존 상단 라인은 유지 */
+#resume .exp-stat::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  z-index: 2;
+  width: 48%;
+  height: 100%;
+
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(169,119,255,.23),
+    rgba(255,255,255,.65),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+@keyframes minz-stat-shine {
+  from {
+    left: -70%;
+  }
+  to {
+    left: 150%;
+  }
+}
+
+/* 04. 데스크톱 호버 */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .hero .button:hover,
+  .hero .shutter-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 10px 26px rgba(155,112,255,.28);
+  }
+
+  .hero .button:hover::before,
+  .hero .shutter-button:hover::before {
+    animation: minz-button-shine .85s ease-out both;
+  }
+
+  .about .minz-profile-image:hover {
+    transform: scale(1.07);
+    filter: brightness(1.05);
+    box-shadow:
+      0 15px 35px rgba(117,69,232,.28);
+  }
+
+  #resume .exp-stat:hover {
+    transform: translateY(-6px);
+    border-color: #CFBEFF;
+    box-shadow:
+      0 18px 34px rgba(91,49,196,.13);
+  }
+
+  #resume .exp-stat:hover::after {
+    animation: minz-stat-shine .9s ease-out both;
+  }
+}
+
+/* 05. 키보드 접근성 */
+
+.hero .button:focus-visible::before,
+.hero .shutter-button:focus-visible::before {
+  animation: minz-button-shine .85s ease-out both;
+}
+
+/* 06. 모션 감소 설정 */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .button::before,
+  .hero .shutter-button::before,
+  #resume .exp-stat::after {
+    display: none;
+  }
+
+  .about .minz-profile-image {
+    transition: none;
+  }
+}
+
+
 /* ===================================================
    MINZ COMPLETE CSS v4.0 END
 =================================================== */
