@@ -1,560 +1,1999 @@
 
-/* =================================================
-   MINZ PORTFOLIO MOTION FINAL v3.3
-   Pretendard / Purple Branding
-   ONPICK + SHINE + REVEAL + SKILLS + EXPERIENCE
-================================================= */
+/* ===================================================
+   MINZ CREATIVE PORTFOLIO
+   COMPLETE CSS v4.0
+   Pretendard · Purple · Responsive · Motion
+=================================================== */
 
-/* =========================================
-   01. ONPICK 중앙 타이틀
-========================================= */
+/* 01. GLOBAL */
 
-#portfolio .onpick-media {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #39255F;
+:root {
+  --purple: #7545e8;
+  --purple-dark: #5b31c4;
+  --purple-soft: #a88bff;
+  --purple-pale: #f3eeff;
+  --deep: #211a37;
+  --ink: #272333;
+  --muted: #696376;
+  --line: #eae4f5;
+  --canvas: #faf9fd;
+  --white: #ffffff;
+  --font: "Pretendard Variable", "Pretendard",
+          -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
 }
 
-/* 원본 배경 이미지 */
-#portfolio .onpick-media > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition:
-    transform .65s cubic-bezier(.2,.8,.25,1),
-    filter .5s ease;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* 중앙 글자 영역 */
-#portfolio .onpick-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-
-  padding: 24px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(24,15,45,.23),
-    rgba(24,15,45,.54)
-  );
-
-  color: #FFFFFF;
-  text-align: center;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-/* 상단 작은 설명 */
-#portfolio .onpick-kicker {
-  color: #E8DBFF;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-}
-
-/* 메인 ONPICK 글자 */
-#portfolio .onpick-main-title {
-  display: block;
-  color: #FFFFFF;
-
-  font-family:
-    "Pretendard Variable",
-    "Pretendard",
-    sans-serif;
-
-  font-size: clamp(34px, 4.2vw, 56px);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: 1px;
-
-  text-shadow:
-    0 3px 18px rgba(0,0,0,.38);
-
-  transition:
-    transform .4s ease,
-    letter-spacing .4s ease;
-}
-
-/* 한글 서브타이틀 */
-#portfolio .onpick-subtitle {
-  color: #FFFFFF;
-  font-size: 17px;
-  font-weight: 800;
-  text-shadow: 0 2px 9px rgba(0,0,0,.4);
-}
-
-#portfolio .onpick-decoration {
-  margin-top: 7px;
-  color: #E9DBFF;
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font);
   font-size: 15px;
-  letter-spacing: 2px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ONPICK 호버 */
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover
-  .onpick-media > img {
-    transform: scale(1.07);
-    filter: saturate(1.12);
-  }
-
-  #portfolio .minz-work-card:hover
-  .onpick-main-title {
-    transform: translateY(-5px);
-    letter-spacing: 3px;
-  }
+img, video, iframe {
+  max-width: 100%;
 }
 
-/* =========================================
-   02. PORTFOLIO SHINE SWEEP
-   전체 작품 카드 샤이닝
-========================================= */
-
-#portfolio .work-media {
-  position: relative;
-  overflow: hidden;
+img {
+  display: block;
 }
 
-/* 반투명 사선 빛 */
-#portfolio .minz-work-card
-.work-media::before {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: -90%;
-  z-index: 5;
-
-  width: 52%;
-  height: 100%;
-
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 25%,
-    rgba(255,255,255,.43) 50%,
-    rgba(255,255,255,.08) 75%,
-    transparent 100%
-  );
-
-  transform: skewX(-24deg);
-
-  pointer-events: none;
-  transition: left .85s ease;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* 호버 시 빛이 한 번 통과 */
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover
-  .work-media::before {
-    left: 155%;
-  }
+a:hover {
+  color: var(--purple);
 }
 
-/* 유튜브 재생 중에는 샤이닝 제거 */
-#portfolio .youtube-facade.is-playing::before {
-  display: none;
+button {
+  font: inherit;
+  cursor: pointer;
 }
 
-/* 재생 버튼 클릭 유지 */
-#portfolio .youtube-play {
-  position: absolute;
-  z-index: 7;
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--purple-soft);
+  outline-offset: 4px;
 }
 
-/* =========================================
-   03. PORTFOLIO HOVER LIFT
-========================================= */
-
-#portfolio .minz-work-card {
-  transition:
-    transform .35s cubic-bezier(.2,.8,.25,1),
-    box-shadow .35s ease,
-    border-color .35s ease;
+[hidden] {
+  display: none !important;
 }
 
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover {
-    transform: translateY(-6px);
-    border-color: #C9B5FF;
-
-    box-shadow:
-      0 20px 42px rgba(56,29,122,.16);
-  }
-
-  /* 유튜브 썸네일 확대 */
-  #portfolio .youtube-facade > img {
-    transition: transform .55s ease;
-  }
-
-  #portfolio .minz-work-card:hover
-  .youtube-facade:not(.is-playing) > img {
-    transform: scale(1.045);
-  }
+::selection {
+  background: var(--purple);
+  color: white;
 }
 
-/* =========================================
-   04. 포트폴리오 카드 스크롤 등장
-========================================= */
-
-/* JS 실행 시에만 등장 애니메이션 활성화 */
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item {
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition:
-      opacity .7s ease,
-      transform .7s cubic-bezier(.2,.8,.25,1);
-
-    transition-delay: var(--minz-delay, 0ms);
-  }
-
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item.minz-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.container {
+  width: min(1160px, calc(100% - 56px));
+  margin-inline: auto;
 }
 
-/* =========================================
-   05. SKILLS PROGRESS ANIMATION
-========================================= */
-
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33
-  .minz-skills .skill-track > span {
-    transform: scaleX(0);
-    transform-origin: left center;
-
-    transition:
-      transform 1.15s cubic-bezier(.2,.8,.25,1);
-  }
-
-  .minz-motion-v33
-  .minz-skills.minz-filled
-  .skill-track > span {
-    transform: scaleX(1);
-  }
-
-  /* 각 스킬 바 순차 채우기 */
-  .minz-skills .skill-item:nth-child(2)
-  .skill-track > span {
-    transition-delay: 90ms;
-  }
-
-  .minz-skills .skill-item:nth-child(3)
-  .skill-track > span {
-    transition-delay: 160ms;
-  }
-
-  .minz-skills .skill-item:nth-child(4)
-  .skill-track > span {
-    transition-delay: 230ms;
-  }
-
-  .minz-skills .skill-item:nth-child(5)
-  .skill-track > span {
-    transition-delay: 300ms;
-  }
-
-  .minz-skills .skill-item:nth-child(6)
-  .skill-track > span {
-    transition-delay: 370ms;
-  }
+.section {
+  padding: 95px 0;
 }
 
-/* =========================================
-   06. HERO TYPING + INTRO
-========================================= */
-
-.hero-subtitle {
-  min-height: 1.7em;
+.section[id],
+.portfolio-item[id] {
+  scroll-margin-top: 90px;
 }
 
-/* 타이핑 커서 */
-.hero-subtitle.minz-typing::after {
-  content: "|";
-  display: inline-block;
-  margin-left: 4px;
-  color: #C7ADFF;
-  font-weight: 400;
-
-  animation:
-    minz-cursor-blink .65s step-end infinite;
+.brand-font {
+  font-family: "New Rocker", var(--font);
 }
 
-@keyframes minz-cursor-blink {
-  50% {
-    opacity: 0;
-  }
+.eyebrow {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
 }
 
-/* 메인 타이틀 및 버튼 등장 */
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33 .hero-eyebrow {
-    animation:
-      minz-hero-rise .65s both;
-  }
-
-  .minz-motion-v33 .hero h1 {
-    animation:
-      minz-hero-rise .85s .12s both;
-  }
-
-  .minz-motion-v33 .hero-actions {
-    animation:
-      minz-hero-rise .85s .35s both;
-  }
-
-  .minz-motion-v33 .hero-intro {
-    animation:
-      minz-hero-rise .75s .3s both;
-  }
+.section-title {
+  max-width: 760px;
+  margin: 0 auto 43px;
+  text-align: center;
 }
 
-@keyframes minz-hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.section-title h2 {
+  margin: 0 0 12px;
+  color: var(--deep);
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -1px;
 }
 
-/* =========================================
-   07. EXPERIENCE GOLD BADGE
-========================================= */
+.section-title p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  word-break: keep-all;
+}
 
-#resume .exp-selected {
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 12px;
+  z-index: 9999;
+  padding: 12px 16px;
+  background: white;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: 12px 20px;
-  border: 1px solid #F4D27D;
+  gap: 10px;
+  min-height: 45px;
+  padding: 11px 23px;
   border-radius: 999px;
-
-  background: #FFE7A1;
-  color: #64400A;
-
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: -0.3px;
-  line-height: 1.3;
-
-  box-shadow:
-    0 6px 20px rgba(255,215,120,.19);
+  font-size: 14px;
+  font-weight: 800;
+  transition: background .25s, color .25s, transform .25s;
 }
 
-/* 카드가 등장하면 배지 팝 효과 */
-@media (prefers-reduced-motion: no-preference) {
-
-  #resume .exp-featured.is-visible
-  .exp-selected {
-    animation:
-      minz-badge-pop .65s .2s both;
-  }
+.button:hover {
+  transform: translateY(-2px);
 }
 
-@keyframes minz-badge-pop {
+.button-light {
+  background: white;
+  color: var(--deep);
+}
+
+.button-outline {
+  border: 1px solid rgba(255,255,255,.7);
+  color: white;
+}
+
+.button-outline:hover {
+  background: rgba(255,255,255,.13);
+  color: white;
+}
+
+.button-purple {
+  background: var(--purple);
+  color: white;
+}
+
+.button-purple:hover {
+  background: var(--purple-dark);
+  color: white;
+}
+
+/* ===================================================
+   02. HEADER
+=================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 75px;
+  background: rgba(23,18,38,.94);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 26px;
+}
+
+.site-logo:hover {
+  color: #dbcaff;
+}
+
+.site-logo img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.navmenu {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.navmenu a {
+  position: relative;
+  color: #e8e2f2;
+  font-size: 13px;
+  font-weight: 750;
+  transition: color .25s;
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+  color: white;
+}
+
+.navmenu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+  height: 2px;
+  background: #b399ff;
+  transition: right .3s;
+}
+
+.navmenu a:hover::after,
+.navmenu a.active::after {
+  right: 0;
+}
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-size: 23px;
+}
+
+/* ===================================================
+   03. HERO
+=================================================== */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: max(580px, 96svh);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--deep);
+  color: white;
+}
+
+.minz-hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    rgba(16,11,27,.88),
+    rgba(27,18,49,.60) 55%,
+    rgba(27,18,49,.42)
+  );
+}
+
+.hero-content {
+  position: relative;
+  padding: 135px 0 100px;
+}
+
+.hero-eyebrow {
+  color: #dacbff;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 13px 0;
+  max-width: 1000px;
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
+}
+
+.hero-subtitle {
+  margin: 0;
+  min-height: 1.7em;
+  font-size: clamp(16px, 2.25vw, 26px);
+  font-weight: 800;
+  word-break: keep-all;
+}
+
+.hero-subtitle.typing-active::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 4px;
+  color: #c7adff;
+  animation: cursor-blink .65s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+.hero-intro {
+  margin: 13px 0 30px;
+  color: #ded3ee;
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shutter-button {
+  margin-top: 24px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 30px;
+  background: rgba(255,255,255,.1);
+  color: white;
+  font-size: 12px;
+  font-weight: 750;
+  transition: background .25s;
+}
+
+.shutter-button:hover {
+  background: rgba(255,255,255,.2);
+}
+
+.shutter-button:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  color: #eee7f7;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+}
+
+/* HERO 등장 효과 */
+@keyframes hero-rise {
   from {
     opacity: 0;
-    transform: scale(.90);
+    transform: translateY(25px);
   }
-
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
-/* Experience 카드 호버 */
-@media (hover: hover) and (pointer: fine) {
-
-  #resume .exp-featured:hover {
-    transform: translateY(-5px);
-    box-shadow:
-      0 23px 50px rgba(48,27,95,.23);
+@media (prefers-reduced-motion: no-preference) {
+  .hero-eyebrow {
+    animation: hero-rise .65s both;
   }
-
-  #resume .exp-stat:hover {
-    transform: translateY(-5px);
-    box-shadow:
-      0 15px 30px rgba(70,40,140,.12);
+  .hero h1 {
+    animation: hero-rise .85s .1s both;
   }
-
-  #resume .exp-panel:hover {
-    border-color: #D5C3FF;
-    box-shadow:
-      0 12px 30px rgba(70,40,140,.08);
+  .hero-intro {
+    animation: hero-rise .85s .3s both;
+  }
+  .hero-actions {
+    animation: hero-rise .85s .4s both;
   }
 }
 
-/* =========================================
-   08. 역할 태그 통일
-========================================= */
+/* ===================================================
+   04. ABOUT
+=================================================== */
 
-#portfolio .project-tags,
-#resume .project-tags {
+.about {
+  background: white;
+}
+
+.about-panel {
+  padding: 37px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 10px 34px rgba(40,25,80,.06);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .95fr 1fr;
+  gap: 44px;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.minz-profile-image {
+  width: 140px;
+  height: 160px;
+  flex: 0 0 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #ede6ff;
+}
+
+.about-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.about-info p {
+  display: grid;
+  grid-template-columns: 75px minmax(0, 1fr);
+  gap: 6px;
+  margin: 0 0 10px;
+  font-size: 12px;
+}
+
+.about-info strong {
+  color: #5b5072;
+}
+
+.about-info a,
+.about-info span {
+  overflow-wrap: anywhere;
+}
+
+.about-info a {
+  color: var(--purple-dark);
+}
+
+/* Skills */
+
+.minz-skills {
+  margin-top: 30px;
+}
+
+.minz-skills h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+.skill-item {
+  margin-bottom: 17px;
+}
+
+.skill-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+  font-size: 13px;
+}
+
+.skill-heading b {
+  color: var(--purple);
+}
+
+.skill-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #eee9f9;
+}
+
+.skill-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7545e8, #b49aff);
+}
+
+/* 게이지 스크롤 애니메이션 */
+.minz-skills.skills-animate .skill-track span {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.1s cubic-bezier(.2,.8,.25,1);
+}
+
+.minz-skills.skills-visible .skill-track span {
+  transform: scaleX(1);
+}
+
+.skill-item:nth-child(2) .skill-track span { transition-delay: .08s; }
+.skill-item:nth-child(3) .skill-track span { transition-delay: .15s; }
+.skill-item:nth-child(4) .skill-track span { transition-delay: .22s; }
+.skill-item:nth-child(5) .skill-track span { transition-delay: .29s; }
+.skill-item:nth-child(6) .skill-track span { transition-delay: .36s; }
+.skill-item:nth-child(7) .skill-track span { transition-delay: .43s; }
+
+.about-right h3 {
+  margin: 5px 0 18px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.about-right p {
+  margin: 0 0 15px;
+  color: #655e70;
+  font-size: 14px;
+  line-height: 1.95;
+  word-break: keep-all;
+}
+
+.about-right .about-lead {
+  color: #342847;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.about-right .about-signature {
+  margin-top: 20px;
+  color: var(--purple-dark);
+  font-weight: 850;
+}
+
+.about-what {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.about-what > strong {
+  display: block;
+  margin-bottom: 13px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+}
+
+/* ===================================================
+   05. EXPERIENCE
+=================================================== */
+
+.minz-exp {
+  background: var(--canvas);
+}
+
+.exp-featured {
+  position: relative;
+  padding: 42px 46px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg, #211a37, #352250 70%, #4b3272
+  );
+  color: white;
+  box-shadow: 0 20px 45px rgba(48,27,95,.16);
+  transition: transform .35s, box-shadow .35s;
+}
+
+/* 보라색 배경 글로우 */
+.exp-featured::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -140px;
+  bottom: -260px;
+  width: 490px;
+  height: 490px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(169,119,255,.35),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.exp-featured-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.exp-year {
+  color: #d5c3ff;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+/* GOLD BADGE */
+.exp-selected {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 1px solid #f0ce79;
+  border-radius: 999px;
+  background: #ffe7a1;
+  color: #64400a;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.3;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(255,215,120,.2);
+}
+
+/* 배지 등장 */
+@keyframes badge-pop {
+  from { opacity: 0; transform: scale(.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .exp-featured.is-visible .exp-selected {
+    animation: badge-pop .6s .2s both;
+  }
+}
+
+.exp-featured h3 {
+  margin: 0 0 10px;
+  color: white;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.exp-organizers {
+  margin: 0;
+  color: #ded1ef;
+  font-size: 14px;
+}
+
+.exp-funding {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0 16px;
+}
+
+.exp-funding strong {
+  font-size: clamp(36px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.exp-funding span {
+  color: #dcd0eb;
+  font-size: 14px;
+}
+
+.exp-summary {
+  max-width: 780px;
+  margin: 0 0 23px;
+  color: #ede7f7;
+  font-size: 14px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.exp-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-#portfolio .project-tags span,
-#resume .project-tags span {
-  display: inline-block;
+.exp-tags span {
   padding: 7px 12px;
-
-  border-radius: 999px;
-  background: #F2EDFF;
-  color: #7545E8;
-
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1.4;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 99px;
+  background: rgba(255,255,255,.1);
+  color: white;
+  font-size: 12px;
+  font-weight: 750;
 }
 
-/* =========================================
-   09. 짱구 썸네일 이미지 안정화
-========================================= */
+.exp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 25px;
+}
 
-#portfolio .shinchan-media {
+.exp-actions a {
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+  color: white;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.exp-actions a:hover {
+  color: #ddceff;
+}
+
+/* 성과 카드 */
+.exp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 24px;
+}
+
+.exp-stat {
   position: relative;
-  isolation: isolate;
+  min-width: 0;
   overflow: hidden;
-  background: #2F2146;
+  padding: 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 5px 20px rgba(40,25,80,.04);
+  transition: transform .3s, box-shadow .3s;
 }
 
-/* 흐린 배경 */
-#portfolio .shinchan-media
-> img.shinchan-blur {
+.exp-stat::before {
+  content: "";
   position: absolute;
-  inset: -18px;
-
-  width: calc(100% + 36px);
-  height: calc(100% + 36px);
-
-  object-fit: cover;
-
-  filter:
-    blur(17px)
-    brightness(.55);
-
-  transform: scale(1.08);
-}
-
-/* 가운데 실제 원본 포스터 */
-#portfolio .shinchan-media
-> img.shinchan-poster {
-  position: absolute;
-  z-index: 2;
-
-  top: 9px;
-  bottom: auto;
-  left: 50%;
-  right: auto;
-
-  display: block;
-
-  width: auto;
-  height: calc(100% - 18px);
-
-  max-width: 90%;
-  max-height: calc(100% - 18px);
-
-  object-fit: contain;
-  object-position: center;
-
-  transform: translateX(-50%);
-
-  border-radius: 7px;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,.25);
-}
-
-/* =========================================
-   10. VIDEO CARD SIZE
-========================================= */
-
-/* 봉산마을, 서구청, 부동산 동일 비율 */
-#portfolio .youtube-facade {
-  position: relative;
-  display: block;
-
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-
-  overflow: hidden;
-  background: #191528;
+  height: 3px;
+  background: linear-gradient(90deg, #7545e8, #c2a8ff);
 }
 
-#portfolio .youtube-facade > img,
-#portfolio .youtube-facade > iframe {
+.exp-stat > span {
+  display: block;
+  min-height: 30px;
+  color: #726b7c;
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.exp-stat > strong {
+  display: block;
+  margin: 10px 0 6px;
+  color: var(--purple);
+  font-size: clamp(29px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.exp-stat p {
+  margin: 0;
+  color: #585164;
+  font-size: 12px;
+  word-break: keep-all;
+}
+
+.exp-note {
+  margin: 12px 0 34px;
+  color: #7d7685;
+  font-size: 11px;
+}
+
+/* 경력 타임라인 */
+.exp-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.exp-panel {
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.exp-panel h3 {
+  margin: 0 0 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 22px;
+  font-weight: 850;
+}
+
+.exp-entry {
+  position: relative;
+  margin-left: 6px;
+  padding: 0 0 26px 22px;
+  border-left: 2px solid #e2d5ff;
+}
+
+.exp-entry:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.exp-entry::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow: 0 0 0 1px var(--purple);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.exp-entry > span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.exp-entry h4 {
+  margin: 0 0 7px;
+  font-size: 17px;
+  font-weight: 850;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.exp-entry b {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--purple-dark);
+  font-size: 13px;
+}
+
+.exp-entry p {
+  margin: 0;
+  color: #6b6574;
+  font-size: 13px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.exp-capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 30px;
+  margin-top: 24px;
+  padding: 30px 35px;
+  border: 1px solid #e4dbf6;
+  border-radius: 18px;
+  background: #f2edff;
+}
+
+.exp-capabilities h3 {
+  margin: 5px 0 8px;
+  font-size: 23px;
+  font-weight: 850;
+}
+
+.exp-capabilities p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.exp-capabilities .project-tags {
+  justify-content: flex-end;
+}
+
+.section-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+/* ===================================================
+   06. PORTFOLIO
+=================================================== */
+
+.minz-portfolio {
+  background: white;
+}
+
+/* 필터 */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 36px;
+}
+
+.portfolio-filter {
+  padding: 9px 18px;
+  border: 1px solid #e5ddf2;
+  border-radius: 99px;
+  background: white;
+  color: #615875;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background .25s, color .25s;
+}
+
+.portfolio-filter:hover,
+.portfolio-filter.filter-active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: white;
+}
+
+/* 작품 그리드 */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.portfolio-grid > .portfolio-item {
+  display: block;
+  min-width: 0;
+}
+
+.minz-work-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 5px 24px rgba(40,25,80,.06);
+  transition:
+    transform .35s cubic-bezier(.2,.8,.25,1),
+    border-color .35s,
+    box-shadow .35s;
+}
+
+.work-featured {
+  border-color: #d7c5ff;
+}
+
+/* 모든 작품 이미지 동일 크기 */
+.work-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--deep);
+  isolation: isolate;
+}
+
+.work-media > img:not(.shinchan-blur):not(.shinchan-poster) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-media > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.work-media > iframe {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-#portfolio .youtube-facade > img {
-  object-fit: cover;
+/* ========================================
+   SHINE SWEEP : 샤이닝 효과
+======================================== */
+
+/* 빛은 클릭을 방해하지 않도록 처리 */
+.work-media::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -85%;
+  z-index: 5;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,.06) 25%,
+    rgba(255,255,255,.44) 50%,
+    rgba(255,255,255,.07) 75%,
+    transparent 100%
+  );
+  transform: skewX(-23deg);
+  pointer-events: none;
+  transition: left .85s ease;
 }
 
-/* =========================================
-   11. 모바일
-========================================= */
+/* ========================================
+   YOUTUBE THUMBNAIL
+======================================== */
+
+.youtube-facade > img {
+  filter: brightness(.84);
+  transition: transform .55s ease;
+}
+
+.youtube-play {
+  position: absolute;
+  z-index: 7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 55px;
+  border: 0;
+  border-radius: 16px;
+  background: #ff0033;
+  color: white;
+  font-size: 27px;
+  box-shadow: 0 7px 25px rgba(0,0,0,.25);
+  transition: background .3s, transform .3s;
+}
+
+.youtube-play.visual-only {
+  pointer-events: none;
+}
+
+.youtube-facade.is-playing {
+  background: #161221;
+}
+
+/* 재생 중에는 샤이닝 비활성 */
+.youtube-facade.is-playing::after {
+  display: none;
+}
+
+/* 슈퍼카 영상 */
+.work-media-video video {
+  object-fit: contain;
+  background: #161221;
+}
+
+/* ========================================
+   ONPICK CENTRAL TITLE
+======================================== */
+
+.onpick-media {
+  background: #39255f;
+}
+
+.onpick-media > img {
+  transition: transform .65s ease, filter .5s ease;
+}
+
+.onpick-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 25px;
+  background: linear-gradient(
+    180deg,
+    rgba(24,15,45,.22),
+    rgba(24,15,45,.56)
+  );
+  text-align: center;
+  color: white;
+  pointer-events: none;
+}
+
+.onpick-kicker {
+  color: #e8dbff;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+
+.onpick-main-title {
+  display: block;
+  color: white;
+  font-size: clamp(34px, 4.5vw, 58px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 18px rgba(0,0,0,.45);
+  transition: transform .4s, letter-spacing .4s;
+}
+
+.onpick-subtitle {
+  color: white;
+  font-size: 17px;
+  font-weight: 850;
+  text-shadow: 0 2px 9px rgba(0,0,0,.45);
+}
+
+.onpick-decoration {
+  width: 60px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 99px;
+  background: #e9dbff;
+}
+
+/* ========================================
+   SHINCHAN THUMBNAIL
+======================================== */
+
+.shinchan-media {
+  background: #2f2146;
+}
+
+/* 흐린 배경 */
+.shinchan-media .shinchan-blur {
+  position: absolute;
+  inset: -18px;
+  width: calc(100% + 36px);
+  height: calc(100% + 36px);
+  object-fit: cover;
+  filter: blur(17px) brightness(.52);
+  transform: scale(1.08);
+}
+
+/* 중앙 원본 포스터 */
+.shinchan-media .shinchan-poster {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  left: 50%;
+  display: block;
+  width: auto;
+  height: calc(100% - 18px);
+  max-width: 90%;
+  object-fit: contain;
+  transform: translateX(-50%);
+  border-radius: 7px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+}
+
+.work-badge {
+  position: absolute;
+  z-index: 6;
+  top: 14px;
+  left: 14px;
+  padding: 8px 12px;
+  border-radius: 99px;
+  background: rgba(30,20,50,.88);
+  color: white;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.work-media-action {
+  position: absolute;
+  z-index: 6;
+  right: 17px;
+  bottom: 15px;
+  color: white;
+  font-size: 12px;
+  font-weight: 850;
+  text-shadow: 0 2px 7px rgba(0,0,0,.8);
+}
+
+/* ========================================
+   OTHER THUMBNAILS
+======================================== */
+
+.night-media {
+  background: #191528;
+}
+
+.night-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 45px 12px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,.72));
+  color: white;
+  text-align: center;
+  pointer-events: none;
+}
+
+.night-overlay span {
+  font-size: 10px;
+}
+
+.night-overlay strong {
+  font-size: 24px;
+}
+
+.night-overlay small {
+  font-size: 11px;
+}
+
+.dart-media > img {
+  filter: brightness(.85);
+}
+
+/* ========================================
+   CARD INFORMATION
+======================================== */
+
+.minz-work-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 24px 25px 26px;
+  background: white;
+}
+
+.minz-work-category {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .2px;
+}
+
+.minz-work-info h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.minz-work-info p {
+  margin: 0 0 16px;
+  color: #685f72;
+  font-size: 14px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+/* 공통 역할 태그 */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px;
+}
+
+.project-tags span {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 99px;
+  background: #f2edff;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.4;
+  transition: background .25s, transform .25s;
+}
+
+.minz-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.minz-project-link:hover {
+  color: var(--purple-dark);
+}
+
+.project-result {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--purple);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.project-status {
+  display: block;
+  margin-top: auto;
+  color: #8a8397;
+  font-size: 12px;
+}
+
+/* Placeholder 작품 */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  text-align: center;
+  color: white;
+}
+
+.placeholder strong {
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 1.2px;
+}
+
+.placeholder-icon {
+  font-size: 58px;
+  line-height: 1;
+}
+
+.placeholder-video {
+  background: linear-gradient(135deg, #20162f, #6740cc);
+}
+
+.placeholder-ai {
+  background: linear-gradient(135deg, #44316d, #a88bff);
+}
+
+.placeholder-design {
+  background: linear-gradient(135deg, #f0e9fa, #d9cbff);
+  color: #5834ac;
+}
+
+.placeholder-web {
+  background: linear-gradient(135deg, #252a59, #5365f5);
+}
+
+/* ===================================================
+   07. PERFORMANCE HIGHLIGHTS
+=================================================== */
+
+.performance {
+  background: var(--canvas);
+}
+
+.performance-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 970px;
+  margin-inline: auto;
+}
+
+.performance-poster {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 330px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--deep);
+  box-shadow: 0 17px 35px rgba(40,25,80,.17);
+  transition: transform .3s ease;
+}
+
+.performance-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+
+.performance-poster > span {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 35px 15px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.performance-copy h3 {
+  margin: 8px 0 10px;
+  font-size: 31px;
+  font-weight: 850;
+}
+
+.performance-number {
+  display: block;
+  margin: 10px 0 16px;
+  color: var(--purple);
+  font-size: clamp(39px, 5vw, 54px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.performance-number small {
+  font-size: 19px;
+}
+
+.performance-copy p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.performance-copy .button {
+  margin-top: 15px;
+}
+
+/* ===================================================
+   08. CONTACT
+=================================================== */
+
+.contact {
+  background: white;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 22px;
+}
+
+.contact-info,
+.contact-cta {
+  min-width: 0;
+  padding: 35px;
+  border-radius: 19px;
+}
+
+.contact-info {
+  border: 1px solid var(--line);
+  background: white;
+  box-shadow: 0 10px 34px rgba(40,25,80,.06);
+}
+
+.contact-info h3 {
+  margin: 0 0 23px;
+  font-size: 23px;
+  font-weight: 850;
+}
+
+.contact-info p {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 18px;
+}
+
+.contact-info strong {
+  color: var(--purple);
+  font-size: 12px;
+}
+
+.contact-info span,
+.contact-info a {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.contact-cta {
+  background: linear-gradient(125deg, #211a37, #3c2960);
+  color: white;
+}
+
+.contact-cta .eyebrow {
+  color: #d5c3ff;
+}
+
+.contact-cta h3 {
+  margin: 11px 0;
+  color: white;
+  font-size: clamp(21px, 2.4vw, 29px);
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.contact-cta p {
+  margin: 0 0 23px;
+  color: #e1d8f1;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ===================================================
+   09. FOOTER
+=================================================== */
+
+.site-footer {
+  padding: 30px 0;
+  background: #1a1528;
+  color: white;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 17px;
+}
+
+.footer-brand {
+  color: white;
+  font-size: 26px;
+}
+
+.footer-inner p {
+  margin: 4px 0 0;
+  color: #cbbfdc;
+  font-size: 12px;
+}
+
+.footer-inner > span {
+  color: #bcb1cd;
+  font-size: 12px;
+}
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  z-index: 80;
+  right: 24px;
+  bottom: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: white;
+  font-size: 22px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .3s, visibility .3s, transform .3s;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  color: white;
+  background: var(--purple-dark);
+}
+
+/* ===================================================
+   10. HOVER INTERACTIONS
+=================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .exp-featured:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 54px rgba(48,27,95,.23);
+  }
+
+  .exp-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(70,40,140,.12);
+  }
+
+  .exp-panel:hover {
+    border-color: #d5c3ff;
+    box-shadow: 0 12px 30px rgba(70,40,140,.08);
+  }
+
+  .exp-entry:hover::before {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 5px rgba(117,69,232,.12);
+  }
+
+  .minz-work-card:hover {
+    transform: translateY(-6px);
+    border-color: #cbb8ff;
+    box-shadow: 0 20px 42px rgba(70,40,140,.15);
+  }
+
+  /* Shine Sweep */
+  .minz-work-card:hover .work-media::after {
+    left: 155%;
+  }
+
+  .youtube-facade:hover .youtube-play {
+    background: #e6002c;
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+
+  .youtube-facade:not(.is-playing) > img {
+    transition: transform .55s ease;
+  }
+
+  .minz-work-card:hover
+  .youtube-facade:not(.is-playing) > img {
+    transform: scale(1.045);
+  }
+
+  /* ONPICK */
+  .minz-work-card:hover .onpick-media > img {
+    transform: scale(1.07);
+    filter: saturate(1.1);
+  }
+
+  .minz-work-card:hover .onpick-main-title {
+    transform: translateY(-5px);
+    letter-spacing: 3px;
+  }
+
+  /* 역할 태그 */
+  .project-tags span:hover {
+    background: #e7dcff;
+    transform: translateY(-2px);
+  }
+
+  .performance-poster:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ===================================================
+   11. SCROLL REVEAL
+=================================================== */
+
+/* 요소가 안 보이는 오류를 방지하기 위해
+   기본 상태는 항상 표시하고,
+   관찰된 순간에만 등장 애니메이션 실행 */
+
+@keyframes minz-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(27px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  .motion-enabled [data-reveal].is-visible {
+    animation: minz-reveal .72s
+      cubic-bezier(.2,.8,.25,1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+/* ===================================================
+   12. TABLET
+=================================================== */
+
+@media (max-width: 960px) {
+
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  .section {
+    padding: 78px 0;
+  }
+
+  .about-grid {
+    gap: 28px;
+  }
+
+  .profile-row {
+    flex-wrap: wrap;
+  }
+
+  .exp-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .exp-capabilities {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .exp-capabilities .project-tags {
+    justify-content: flex-start;
+  }
+
+  .performance-layout {
+    gap: 32px;
+  }
+}
+
+/* ===================================================
+   13. MOBILE
+=================================================== */
 
 @media (max-width: 700px) {
 
-  #portfolio .onpick-main-title {
-    font-size: clamp(32px, 9vw, 43px);
+  .container {
+    width: calc(100% - 32px);
   }
 
-  #portfolio .onpick-kicker {
-    font-size: 9px;
-    letter-spacing: 1.4px;
+  .section {
+    padding: 65px 0;
   }
 
-  #portfolio .onpick-subtitle {
-    font-size: 14px;
+  .section-title {
+    margin-bottom: 30px;
   }
 
-  #resume .exp-selected {
+  /* 모바일 메뉴 */
+  .site-header {
+    height: 66px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navmenu {
+    display: none;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 16px 18px;
+    background: rgba(25,18,40,.98);
+  }
+
+  .navmenu.is-open {
+    display: flex;
+  }
+
+  .navmenu a {
+    padding: 12px 10px;
+  }
+
+  .navmenu a::after {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-content {
+    padding: 125px 0 85px;
+  }
+
+  .hero h1 {
+    font-size: clamp(39px, 11vw, 64px);
+  }
+
+  .hero-scroll {
+    bottom: 17px;
+  }
+
+  /* ABOUT */
+  .about-panel {
+    padding: 24px 20px;
+  }
+
+  .about-grid,
+  .exp-columns,
+  .portfolio-grid,
+  .performance-layout,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-grid {
+    gap: 35px;
+  }
+
+  .profile-row {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .minz-profile-image {
+    width: 105px;
+    height: 127px;
+    flex-basis: 105px;
+  }
+
+  .about-info p {
+    grid-template-columns: 1fr;
+    gap: 0;
+    font-size: 11px;
+  }
+
+  /* EXPERIENCE */
+  .exp-featured {
+    padding: 28px 23px;
+    border-radius: 17px;
+  }
+
+  .exp-selected {
     padding: 10px 15px;
     font-size: 14px;
   }
 
-  #portfolio .project-tags span {
-    font-size: 10px;
-    padding: 6px 10px;
+  .exp-funding strong {
+    font-size: 38px;
+  }
+
+  .exp-stats {
+    gap: 10px;
+  }
+
+  .exp-stat {
+    padding: 20px 15px;
+  }
+
+  .exp-stat > strong {
+    font-size: 30px;
+  }
+
+  .exp-stat > span {
+    font-size: 9px;
+  }
+
+  .exp-stat p {
+    font-size: 11px;
+  }
+
+  .exp-panel {
+    padding: 26px 22px;
+  }
+
+  .exp-panel h3 {
+    font-size: 20px;
+  }
+
+  .exp-capabilities {
+    padding: 25px 21px;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-filters {
+    gap: 7px;
+  }
+
+  .portfolio-filter {
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+
+  .minz-work-info {
+    padding: 22px;
+  }
+
+  .minz-work-info h3 {
+    font-size: 19px;
+  }
+
+  /* ONPICK */
+  .onpick-main-title {
+    font-size: clamp(32px, 9vw, 43px);
+  }
+
+  .onpick-kicker {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .onpick-subtitle {
+    font-size: 14px;
+  }
+
+  /* PERFORMANCE */
+  .performance-poster {
+    margin-inline: auto;
+  }
+
+  .performance-copy {
+    text-align: center;
+  }
+
+  .performance-copy .project-tags {
+    justify-content: center;
+  }
+
+  /* CONTACT */
+  .contact-info,
+  .contact-cta {
+    padding: 27px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-/* =========================================
-   12. 접근성 및 모션 감소
-========================================= */
+/* 초소형 화면 */
+
+@media (max-width: 380px) {
+
+  .profile-row {
+    flex-wrap: wrap;
+  }
+
+  .exp-stats {
+    gap: 8px;
+  }
+
+  .exp-stat {
+    padding: 17px 12px;
+  }
+
+  .project-tags span {
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  .work-badge {
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+}
+
+/* ===================================================
+   14. ACCESSIBILITY
+=================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -562,622 +2001,23 @@
     scroll-behavior: auto;
   }
 
-  .hero-subtitle.minz-typing::after {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item {
-    opacity: 1 !important;
+  .work-media::after {
+    display: none;
+  }
+
+  .minz-skills .skill-track span {
     transform: none !important;
   }
-
-  .minz-motion-v33
-  .minz-skills .skill-track > span {
-    transform: none !important;
-  }
-
-  #portfolio .minz-work-card
-  .work-media::before {
-    display: none !important;
-  }
-
-  #resume .exp-selected {
-    animation: none !important;
-  }
 }
 
-
-/* =================================================
-   MINZ PORTFOLIO MOTION FINAL v3.3
-   Pretendard / Purple Branding
-   ONPICK + SHINE + REVEAL + SKILLS + EXPERIENCE
-================================================= */
-
-/* =========================================
-   01. ONPICK 중앙 타이틀
-========================================= */
-
-#portfolio .onpick-media {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #39255F;
-}
-
-/* 원본 배경 이미지 */
-#portfolio .onpick-media > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition:
-    transform .65s cubic-bezier(.2,.8,.25,1),
-    filter .5s ease;
-}
-
-/* 중앙 글자 영역 */
-#portfolio .onpick-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-
-  padding: 24px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(24,15,45,.23),
-    rgba(24,15,45,.54)
-  );
-
-  color: #FFFFFF;
-  text-align: center;
-  pointer-events: none;
-}
-
-/* 상단 작은 설명 */
-#portfolio .onpick-kicker {
-  color: #E8DBFF;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-}
-
-/* 메인 ONPICK 글자 */
-#portfolio .onpick-main-title {
-  display: block;
-  color: #FFFFFF;
-
-  font-family:
-    "Pretendard Variable",
-    "Pretendard",
-    sans-serif;
-
-  font-size: clamp(34px, 4.2vw, 56px);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: 1px;
-
-  text-shadow:
-    0 3px 18px rgba(0,0,0,.38);
-
-  transition:
-    transform .4s ease,
-    letter-spacing .4s ease;
-}
-
-/* 한글 서브타이틀 */
-#portfolio .onpick-subtitle {
-  color: #FFFFFF;
-  font-size: 17px;
-  font-weight: 800;
-  text-shadow: 0 2px 9px rgba(0,0,0,.4);
-}
-
-#portfolio .onpick-decoration {
-  margin-top: 7px;
-  color: #E9DBFF;
-  font-size: 15px;
-  letter-spacing: 2px;
-}
-
-/* ONPICK 호버 */
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover
-  .onpick-media > img {
-    transform: scale(1.07);
-    filter: saturate(1.12);
-  }
-
-  #portfolio .minz-work-card:hover
-  .onpick-main-title {
-    transform: translateY(-5px);
-    letter-spacing: 3px;
-  }
-}
-
-/* =========================================
-   02. PORTFOLIO SHINE SWEEP
-   전체 작품 카드 샤이닝
-========================================= */
-
-#portfolio .work-media {
-  position: relative;
-  overflow: hidden;
-}
-
-/* 반투명 사선 빛 */
-#portfolio .minz-work-card
-.work-media::before {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: -90%;
-  z-index: 5;
-
-  width: 52%;
-  height: 100%;
-
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 25%,
-    rgba(255,255,255,.43) 50%,
-    rgba(255,255,255,.08) 75%,
-    transparent 100%
-  );
-
-  transform: skewX(-24deg);
-
-  pointer-events: none;
-  transition: left .85s ease;
-}
-
-/* 호버 시 빛이 한 번 통과 */
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover
-  .work-media::before {
-    left: 155%;
-  }
-}
-
-/* 유튜브 재생 중에는 샤이닝 제거 */
-#portfolio .youtube-facade.is-playing::before {
-  display: none;
-}
-
-/* 재생 버튼 클릭 유지 */
-#portfolio .youtube-play {
-  position: absolute;
-  z-index: 7;
-}
-
-/* =========================================
-   03. PORTFOLIO HOVER LIFT
-========================================= */
-
-#portfolio .minz-work-card {
-  transition:
-    transform .35s cubic-bezier(.2,.8,.25,1),
-    box-shadow .35s ease,
-    border-color .35s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-
-  #portfolio .minz-work-card:hover {
-    transform: translateY(-6px);
-    border-color: #C9B5FF;
-
-    box-shadow:
-      0 20px 42px rgba(56,29,122,.16);
-  }
-
-  /* 유튜브 썸네일 확대 */
-  #portfolio .youtube-facade > img {
-    transition: transform .55s ease;
-  }
-
-  #portfolio .minz-work-card:hover
-  .youtube-facade:not(.is-playing) > img {
-    transform: scale(1.045);
-  }
-}
-
-/* =========================================
-   04. 포트폴리오 카드 스크롤 등장
-========================================= */
-
-/* JS 실행 시에만 등장 애니메이션 활성화 */
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item {
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition:
-      opacity .7s ease,
-      transform .7s cubic-bezier(.2,.8,.25,1);
-
-    transition-delay: var(--minz-delay, 0ms);
-  }
-
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item.minz-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================
-   05. SKILLS PROGRESS ANIMATION
-========================================= */
-
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33
-  .minz-skills .skill-track > span {
-    transform: scaleX(0);
-    transform-origin: left center;
-
-    transition:
-      transform 1.15s cubic-bezier(.2,.8,.25,1);
-  }
-
-  .minz-motion-v33
-  .minz-skills.minz-filled
-  .skill-track > span {
-    transform: scaleX(1);
-  }
-
-  /* 각 스킬 바 순차 채우기 */
-  .minz-skills .skill-item:nth-child(2)
-  .skill-track > span {
-    transition-delay: 90ms;
-  }
-
-  .minz-skills .skill-item:nth-child(3)
-  .skill-track > span {
-    transition-delay: 160ms;
-  }
-
-  .minz-skills .skill-item:nth-child(4)
-  .skill-track > span {
-    transition-delay: 230ms;
-  }
-
-  .minz-skills .skill-item:nth-child(5)
-  .skill-track > span {
-    transition-delay: 300ms;
-  }
-
-  .minz-skills .skill-item:nth-child(6)
-  .skill-track > span {
-    transition-delay: 370ms;
-  }
-}
-
-/* =========================================
-   06. HERO TYPING + INTRO
-========================================= */
-
-.hero-subtitle {
-  min-height: 1.7em;
-}
-
-/* 타이핑 커서 */
-.hero-subtitle.minz-typing::after {
-  content: "|";
-  display: inline-block;
-  margin-left: 4px;
-  color: #C7ADFF;
-  font-weight: 400;
-
-  animation:
-    minz-cursor-blink .65s step-end infinite;
-}
-
-@keyframes minz-cursor-blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* 메인 타이틀 및 버튼 등장 */
-@media (prefers-reduced-motion: no-preference) {
-
-  .minz-motion-v33 .hero-eyebrow {
-    animation:
-      minz-hero-rise .65s both;
-  }
-
-  .minz-motion-v33 .hero h1 {
-    animation:
-      minz-hero-rise .85s .12s both;
-  }
-
-  .minz-motion-v33 .hero-actions {
-    animation:
-      minz-hero-rise .85s .35s both;
-  }
-
-  .minz-motion-v33 .hero-intro {
-    animation:
-      minz-hero-rise .75s .3s both;
-  }
-}
-
-@keyframes minz-hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================
-   07. EXPERIENCE GOLD BADGE
-========================================= */
-
-#resume .exp-selected {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 12px 20px;
-  border: 1px solid #F4D27D;
-  border-radius: 999px;
-
-  background: #FFE7A1;
-  color: #64400A;
-
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: -0.3px;
-  line-height: 1.3;
-
-  box-shadow:
-    0 6px 20px rgba(255,215,120,.19);
-}
-
-/* 카드가 등장하면 배지 팝 효과 */
-@media (prefers-reduced-motion: no-preference) {
-
-  #resume .exp-featured.is-visible
-  .exp-selected {
-    animation:
-      minz-badge-pop .65s .2s both;
-  }
-}
-
-@keyframes minz-badge-pop {
-  from {
-    opacity: 0;
-    transform: scale(.90);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Experience 카드 호버 */
-@media (hover: hover) and (pointer: fine) {
-
-  #resume .exp-featured:hover {
-    transform: translateY(-5px);
-    box-shadow:
-      0 23px 50px rgba(48,27,95,.23);
-  }
-
-  #resume .exp-stat:hover {
-    transform: translateY(-5px);
-    box-shadow:
-      0 15px 30px rgba(70,40,140,.12);
-  }
-
-  #resume .exp-panel:hover {
-    border-color: #D5C3FF;
-    box-shadow:
-      0 12px 30px rgba(70,40,140,.08);
-  }
-}
-
-/* =========================================
-   08. 역할 태그 통일
-========================================= */
-
-#portfolio .project-tags,
-#resume .project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-#portfolio .project-tags span,
-#resume .project-tags span {
-  display: inline-block;
-  padding: 7px 12px;
-
-  border-radius: 999px;
-  background: #F2EDFF;
-  color: #7545E8;
-
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-/* =========================================
-   09. 짱구 썸네일 이미지 안정화
-========================================= */
-
-#portfolio .shinchan-media {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #2F2146;
-}
-
-/* 흐린 배경 */
-#portfolio .shinchan-media
-> img.shinchan-blur {
-  position: absolute;
-  inset: -18px;
-
-  width: calc(100% + 36px);
-  height: calc(100% + 36px);
-
-  object-fit: cover;
-
-  filter:
-    blur(17px)
-    brightness(.55);
-
-  transform: scale(1.08);
-}
-
-/* 가운데 실제 원본 포스터 */
-#portfolio .shinchan-media
-> img.shinchan-poster {
-  position: absolute;
-  z-index: 2;
-
-  top: 9px;
-  bottom: auto;
-  left: 50%;
-  right: auto;
-
-  display: block;
-
-  width: auto;
-  height: calc(100% - 18px);
-
-  max-width: 90%;
-  max-height: calc(100% - 18px);
-
-  object-fit: contain;
-  object-position: center;
-
-  transform: translateX(-50%);
-
-  border-radius: 7px;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,.25);
-}
-
-/* =========================================
-   10. VIDEO CARD SIZE
-========================================= */
-
-/* 봉산마을, 서구청, 부동산 동일 비율 */
-#portfolio .youtube-facade {
-  position: relative;
-  display: block;
-
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-
-  overflow: hidden;
-  background: #191528;
-}
-
-#portfolio .youtube-facade > img,
-#portfolio .youtube-facade > iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-#portfolio .youtube-facade > img {
-  object-fit: cover;
-}
-
-/* =========================================
-   11. 모바일
-========================================= */
-
-@media (max-width: 700px) {
-
-  #portfolio .onpick-main-title {
-    font-size: clamp(32px, 9vw, 43px);
-  }
-
-  #portfolio .onpick-kicker {
-    font-size: 9px;
-    letter-spacing: 1.4px;
-  }
-
-  #portfolio .onpick-subtitle {
-    font-size: 14px;
-  }
-
-  #resume .exp-selected {
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-
-  #portfolio .project-tags span {
-    font-size: 10px;
-    padding: 6px 10px;
-  }
-}
-
-/* =========================================
-   12. 접근성 및 모션 감소
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  .hero-subtitle.minz-typing::after {
-    animation: none;
-  }
-
-  .minz-motion-v33
-  #portfolio-grid > .portfolio-item {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .minz-motion-v33
-  .minz-skills .skill-track > span {
-    transform: none !important;
-  }
-
-  #portfolio .minz-work-card
-  .work-media::before {
-    display: none !important;
-  }
-
-  #resume .exp-selected {
-    animation: none !important;
-  }
-}
-
-/* ===== MINZ MOTION FINAL END ===== */
-
-
-
-/* ===== MINZ MOTION FINAL END ===== */
+/* ===================================================
+   MINZ COMPLETE CSS v4.0 END
+=================================================== */
