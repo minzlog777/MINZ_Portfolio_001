@@ -1,2697 +1,902 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="theme-color" content="#171020">
-  <meta name="description"
-        content="MINZ 영상 기획, 촬영, 드론, 편집, AI 콘텐츠 포트폴리오">
-
+  <meta name="theme-color" content="#15101f">
+  <meta name="description" content="MINZ 유재민 | 영상 기획·촬영·드론·편집·AI·브랜드 콘텐츠 포트폴리오">
+  <meta property="og:title" content="MINZ | Creative Portfolio">
+  <meta property="og:description" content="생각을 장면으로, 장면을 이야기로. 기획부터 마지막 컷까지.">
   <title>MINZ | Creative Portfolio</title>
-
   <link rel="icon" href="assets/img/lastfavicon.png">
-
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-
-  <style>
-    /* =========================================
-       MINZ PORTFOLIO — DESIGN SYSTEM
-    ========================================= */
-
-    :root {
-      --dark: #171020;
-      --dark-soft: #251932;
-      --purple: #9868e9;
-      --lavender: #c8adff;
-      --paper: #f8f7f5;
-      --ink: #211c29;
-      --muted: #77717f;
-      --line: #e7e2eb;
-      --font: 'Pretendard Variable', Pretendard,
-              system-ui, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--font);
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--lavender);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(1220px, calc(100% - 80px));
-      margin: auto;
-    }
-
-    .section {
-      padding: 110px 0;
-    }
-
-    .kicker {
-      margin: 0 0 18px;
-      font-size: 11px;
-      font-weight: 850;
-      letter-spacing: .15em;
-      color: var(--purple);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-
-    .section-title {
-      font-size: clamp(50px, 7vw, 98px);
-      font-weight: 950;
-      letter-spacing: -.075em;
-      line-height: .98;
-      margin: 0;
-    }
-
-    .section-title em {
-      font-style: normal;
-      color: var(--purple);
-    }
-
-    .section-description {
-      max-width: 340px;
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
-    .header {
-      height: 76px;
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 1000;
-      background: rgba(18, 13, 28, .6);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      transition: background .3s;
-    }
-
-    .header.scrolled {
-      background: rgba(18, 13, 28, .97);
-    }
-
-    .nav-layout {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 950;
-      color: white;
-      letter-spacing: -.07em;
-      line-height: 1;
-    }
-
-    .logo span {
-      font-size: 11px;
-      color: var(--lavender);
-      vertical-align: top;
-      margin-left: 3px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav a {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .06em;
-      color: #eee8f5;
-      transition: color .2s;
-    }
-
-    .nav a:hover {
-      color: var(--lavender);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .bgm-btn {
-      min-height: 38px;
-      padding: 8px 16px;
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 100px;
-      background: rgba(255,255,255,.07);
-      color: white;
-      font-size: 11px;
-      font-weight: 800;
-      transition: .25s;
-    }
-
-    .bgm-btn:hover {
-      background: rgba(255,255,255,.17);
-    }
-
-    .bgm-btn.active {
-      background: var(--lavender);
-      border-color: var(--lavender);
-      color: var(--dark);
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      color: white;
-      border: 0;
-      font-size: 24px;
-      min-width: 40px;
-      min-height: 40px;
-    }
-
-    /* =========================================
-       HERO / CINEMATIC INTRO
-    ========================================= */
-
-    .hero {
-      min-height: 760px;
-      min-height: 100svh;
-      position: relative;
-      isolation: isolate;
-      display: flex;
-      flex-direction: column;
-      background: var(--dark);
-      color: white;
-      overflow: hidden;
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(20,12,32,.97) 0%,
-          rgba(25,13,39,.87) 39%,
-          rgba(27,12,41,.48) 75%,
-          rgba(20,10,30,.53) 100%
-        );
-    }
-
-    .hero-layout {
-      position: relative;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding-top: 135px;
-      padding-bottom: 70px;
-    }
-
-    .hero-content {
-      max-width: 740px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-kicker {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-      color: #d2c0ed;
-      font-size: 11px;
-      font-weight: 850;
-      letter-spacing: .16em;
-    }
-
-    .signal-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--lavender);
-      border-radius: 50%;
-      box-shadow: 0 0 14px var(--lavender);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(65px, 9vw, 140px);
-      font-weight: 950;
-      line-height: .92;
-      letter-spacing: -.085em;
-    }
-
-    .hero-title em {
-      font-style: normal;
-      color: var(--lavender);
-    }
-
-    .typing-line {
-      display: block;
-      min-height: 1.1em;
-      margin-top: 7px;
-      font-size: clamp(42px, 6.8vw, 98px);
-      letter-spacing: -.07em;
-      overflow-wrap: anywhere;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 4px;
-      height: .72em;
-      margin-left: 6px;
-      background: var(--lavender);
-      animation: blink .85s step-end infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .hero-description {
-      margin: 27px 0 22px;
-      font-size: clamp(17px, 1.8vw, 23px);
-      font-weight: 750;
-      letter-spacing: -.05em;
-      line-height: 1.65;
-    }
-
-    .hero-services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 34px;
-    }
-
-    .hero-services span {
-      padding: 7px 12px;
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 100px;
-      font-size: 10px;
-      font-weight: 750;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      min-height: 52px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px 24px;
-      border-radius: 5px;
-      font-size: 12px;
-      font-weight: 850;
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-white {
-      background: white;
-      color: #211729;
-      box-shadow: 0 12px 35px rgba(0,0,0,.16);
-    }
-
-    .button-white:hover {
-      box-shadow: 0 18px 40px rgba(0,0,0,.25);
-    }
-
-    .hero-link {
-      font-size: 12px;
-      font-weight: 850;
-      color: #f4effa;
-    }
-
-    .hero-link:hover {
-      color: var(--lavender);
-    }
-
-    /* SHUTTER SOUND — SINGLE BUTTON */
-
-    .shutter-control {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      min-height: 68px;
-      min-width: 270px;
-      margin-top: 20px;
-      padding: 17px 0 0;
-      border: 0;
-      border-top: 1px solid rgba(255,255,255,.23);
-      background: transparent;
-      color: white;
-      text-align: left;
-    }
-
-    .shutter-icon {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(200,173,255,.6);
-      background: rgba(200,173,255,.1);
-      color: var(--lavender);
-      transition: .3s;
-    }
-
-    .shutter-control:hover .shutter-icon {
-      transform: scale(1.06);
-      background: rgba(200,173,255,.24);
-    }
-
-    .shutter-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .shutter-copy strong {
-      font-size: 11px;
-      font-weight: 850;
-      letter-spacing: .06em;
-    }
-
-    .shutter-copy small {
-      font-size: 11px;
-      color: #c3b7d0;
-    }
-
-    .shutter-play {
-      margin-left: auto;
-      color: var(--lavender);
-      font-size: 12px;
-    }
-
-    .shutter-control.is-playing .shutter-icon {
-      background: rgba(200,173,255,.25);
-      box-shadow: 0 0 0 5px rgba(200,173,255,.12);
-    }
-
-    .hero-footer {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding-top: 20px;
-      padding-bottom: 27px;
-      border-top: 1px solid rgba(255,255,255,.13);
-      color: #cfc1e1;
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: .1em;
-    }
-
-    /* =========================================
-       RESULTS / ACHIEVEMENTS
-    ========================================= */
-
-    .proof-section {
-      background: #21172f;
-      color: white;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .proof-item {
-      padding: 43px 28px 45px 0;
-      border-right: 1px solid rgba(255,255,255,.13);
-    }
-
-    .proof-item:not(:first-child) {
-      padding-left: 38px;
-    }
-
-    .proof-item:last-child {
-      border-right: 0;
-    }
-
-    .proof-item small {
-      display: block;
-      color: #bca7d8;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .1em;
-    }
-
-    .proof-item strong {
-      display: block;
-      margin: 10px 0;
-      font-size: clamp(34px, 4.8vw, 64px);
-      font-weight: 950;
-      letter-spacing: -.07em;
-      line-height: 1.1;
-    }
-
-    .proof-item strong span {
-      font-size: .43em;
-      margin-left: 5px;
-    }
-
-    .proof-item p {
-      margin: 0;
-      font-size: 12px;
-      color: #d0c4df;
-    }
-
-    /* =========================================
-       PORTFOLIO WORKS
-    ========================================= */
-
-    .works-section {
-      background: var(--paper);
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .filter {
-      padding: 10px 18px;
-      border: 1px solid #ded7e3;
-      border-radius: 100px;
-      background: transparent;
-      color: #6f687b;
-      font-size: 11px;
-      font-weight: 850;
-      transition: .2s;
-    }
-
-    .filter.active {
-      background: var(--dark);
-      border-color: var(--dark);
-      color: white;
-    }
-
-    .filter:hover {
-      border-color: var(--purple);
-    }
-
-    .filter span {
-      color: #c8a8ff;
-      margin-left: 5px;
-    }
-
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .project {
-      grid-column: span 6;
-      min-width: 0;
-    }
-
-    .project:nth-child(1) {
-      grid-column: span 7;
-    }
-
-    .project:nth-child(2) {
-      grid-column: span 5;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      background: white;
-      border: 1px solid #ebe6ee;
-      overflow: hidden;
-      transition: transform .35s, box-shadow .35s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 21px 46px rgba(36,24,50,.12);
-    }
-
-    .project-media {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background: #261b39;
-      overflow: hidden;
-    }
-
-    .project:nth-child(1) .project-media {
-      aspect-ratio: 16 / 8.4;
-    }
-
-    .project-media img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform .6s;
-    }
-
-    .project-card:hover .project-media img {
-      transform: scale(1.035);
-    }
-
-    .media-fallback {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 28px;
-      color: #d8bfff;
-      background:
-        radial-gradient(
-          circle at 85% 20%,
-          #644198,
-          #21172f 64%
-        );
-    }
-
-    .media-fallback span {
-      font-size: 11px;
-      font-weight: 850;
-      letter-spacing: .14em;
-    }
-
-    .media-fallback strong {
-      font-size: clamp(26px, 3vw, 46px);
-      font-weight: 950;
-      line-height: 1.05;
-    }
-
-    .media-launch {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      z-index: 2;
-      display: grid;
-      place-items: center;
-      width: 47px;
-      height: 47px;
-      border: 0;
-      border-radius: 50%;
-      background: white;
-      color: #27192f;
-      font-size: 21px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.22);
-      transition: transform .25s, background .25s;
-    }
-
-    .media-launch:hover {
-      transform: scale(1.08);
-      background: #e5d4ff;
-    }
-
-    .project-info {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-height: 244px;
-      padding: 27px 29px;
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      color: var(--purple);
-      font-size: 10px;
-      font-weight: 850;
-    }
-
-    .project-info h3 {
-      margin: 19px 0 11px;
-      font-size: clamp(20px, 2.2vw, 31px);
-      font-weight: 950;
-      line-height: 1.2;
-      letter-spacing: -.055em;
-      word-break: keep-all;
-    }
-
-    .project-description {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.75;
-    }
-
-    .project-result {
-      display: inline-block;
-      margin-bottom: 15px;
-      color: #7850b6;
-      font-size: 12px;
-      font-weight: 850;
-    }
-
-    .project-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-    }
-
-    .project-role {
-      margin: 0;
-      color: #554c60;
-      font-size: 11px;
-      font-weight: 750;
-    }
-
-    .view-label {
-      color: #7850b6;
-      font-size: 10px;
-      font-weight: 850;
-    }
-
-    /* =========================================
-       BRAND STATEMENT
-    ========================================= */
-
-    .statement-section {
-      padding: 105px 0;
-      background: var(--dark);
-      color: white;
-    }
-
-    .statement-section h2 {
-      margin: 0 0 28px;
-      font-size: clamp(29px, 4.1vw, 57px);
-      font-weight: 950;
-      letter-spacing: -.06em;
-      line-height: 1.38;
-    }
-
-    .statement-section h2 em {
-      color: var(--lavender);
-      font-style: normal;
-    }
-
-    .statement-section .tagline {
-      color: #bba9d1;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .12em;
-    }
-
-    /* =========================================
-       EXPERIENCE
-    ========================================= */
-
-    .experience-section {
-      background: #f1eff2;
-    }
-
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 23px;
-    }
-
-    .experience-panel {
-      padding: 34px 36px 20px;
-      background: white;
-      border: 1px solid #e9e4ec;
-    }
-
-    .experience-panel h3 {
-      margin: 0 0 19px;
-      color: #8a59cf;
-      font-size: 12px;
-      letter-spacing: .07em;
-    }
-
-    .career-row {
-      display: grid;
-      grid-template-columns: 98px 1fr;
-      gap: 12px;
-      padding: 22px 0;
-      border-top: 1px solid #eae6ee;
-    }
-
-    .career-row time {
-      color: #956dc7;
-      font-size: 11px;
-      font-weight: 850;
-    }
-
-    .career-row h4 {
-      margin: 0 0 6px;
-      font-size: 17px;
-      letter-spacing: -.04em;
-    }
-
-    .career-row p {
-      margin: 0;
-      color: #6b6473;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    /* =========================================
-       ABOUT
-    ========================================= */
-
-    .about-section {
-      background: white;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      align-items: center;
-      gap: 7vw;
-    }
-
-    .about-image {
-      min-height: 410px;
-      position: relative;
-      background: #281a40;
-      overflow: hidden;
-    }
-
-    .about-image img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-image-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 40px 22px 18px;
-      background: linear-gradient(
-        0deg,
-        rgba(20,12,30,.8),
-        transparent
-      );
-      color: white;
-      font-size: 10px;
-      font-weight: 850;
-    }
-
-    .about-content h2 {
-      margin: 0 0 27px;
-      font-size: clamp(46px, 5.5vw, 78px);
-      font-weight: 950;
-      line-height: 1;
-      letter-spacing: -.075em;
-    }
-
-    .about-content h2 em {
-      color: var(--purple);
-      font-style: normal;
-    }
-
-    .about-content h3 {
-      margin: 0 0 19px;
-      font-size: clamp(21px, 2.1vw, 27px);
-      line-height: 1.45;
-    }
-
-    .about-content p:not(.kicker) {
-      margin: 0 0 20px;
-      color: #686172;
-      font-size: 14px;
-      line-height: 1.95;
-    }
-
-    .skill-description {
-      color: #8b69b8 !important;
-      font-size: 12px !important;
-      font-weight: 750;
-    }
-
-    .button-dark {
-      background: var(--dark);
-      color: white;
-    }
-
-    /* =========================================
-       CONTACT / FOOTER
-    ========================================= */
-
-    .contact-section {
-      padding: 110px 0;
-      text-align: center;
-      background: #241832;
-      color: white;
-    }
-
-    .contact-section h2 {
-      margin: 0 0 25px;
-      font-size: clamp(54px, 7.5vw, 106px);
-      font-weight: 950;
-      letter-spacing: -.075em;
-      line-height: 1;
-    }
-
-    .contact-section h2 em {
-      color: var(--lavender);
-      font-style: normal;
-    }
-
-    .contact-section p:not(.kicker) {
-      color: #cfc1de;
-      font-size: 14px;
-    }
-
-    .contact-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 35px;
-    }
-
-    .contact-buttons a {
-      padding: 14px 24px;
-      border: 1px solid rgba(255,255,255,.35);
-      font-size: 12px;
-      font-weight: 850;
-      transition: .2s;
-    }
-
-    .contact-buttons a:hover {
-      background: white;
-      color: #241832;
-    }
-
-    .footer {
-      padding: 28px 0;
-      background: #171020;
-      color: white;
-    }
-
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-content p,
-    .footer-content small {
-      font-size: 11px;
-      color: #cdbbdc;
-    }
-
-    .back-top {
-      position: fixed;
-      right: 22px;
-      bottom: 23px;
-      z-index: 50;
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--dark-soft);
-      color: white;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s;
-    }
-
-    .back-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* VIDEO MODAL */
-
-    .video-dialog {
-      width: min(1000px, calc(100% - 28px));
-      max-height: 92svh;
-      padding: 0;
-      border: 1px solid rgba(200,173,255,.3);
-      background: #110c1b;
-      color: white;
-    }
-
-    .video-dialog::backdrop {
-      background: rgba(6,4,12,.85);
-      backdrop-filter: blur(8px);
-    }
-
-    .dialog-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 13px 19px;
-      font-size: 11px;
-      font-weight: 850;
-    }
-
-    .dialog-header button {
-      min-width: 38px;
-      min-height: 35px;
-      border: 0;
-      background: transparent;
-      color: white;
-      font-size: 21px;
-    }
-
-    .dialog-player video {
-      width: 100%;
-      max-height: 78svh;
-      background: black;
-    }
-
-    .toast {
-      position: fixed;
-      z-index: 2000;
-      left: 50%;
-      bottom: 25px;
-      transform: translate(-50%, 15px);
-      max-width: calc(100% - 40px);
-      padding: 12px 17px;
-      background: #2e213c;
-      color: white;
-      border-radius: 8px;
-      opacity: 0;
-      pointer-events: none;
-      transition: .25s;
-      font-size: 12px;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-    /* SCROLL ANIMATIONS */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .6s, transform .6s;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
-
-    @media (max-width: 1080px) {
-      .container {
-        width: calc(100% - 56px);
-      }
-
-      .project:nth-child(1),
-      .project:nth-child(2) {
-        grid-column: span 6;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .container {
-        width: calc(100% - 36px);
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .header {
-        height: 66px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav {
-        position: absolute;
-        top: 66px;
-        left: 0;
-        right: 0;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 14px 19px 21px;
-        background: rgba(18,13,28,.99);
-      }
-
-      .nav.open {
-        display: flex;
-      }
-
-      .nav a {
-        padding: 12px 7px;
-        font-size: 13px;
-      }
-
-      .hero {
-        min-height: 100svh;
-      }
-
-      .hero-video {
-        object-position: 58% center;
-      }
-
-      .hero-overlay {
-        background: linear-gradient(
-          90deg,
-          rgba(20,12,32,.94),
-          rgba(20,12,32,.66)
-        );
-      }
-
-      .hero-layout {
-        padding-top: 124px;
-        padding-bottom: 45px;
-      }
-
-      .hero-title {
-        font-size: clamp(56px, 12vw, 92px);
-      }
-
-      .typing-line {
-        font-size: clamp(39px, 8.1vw, 67px);
-      }
-
-      .hero-description {
-        font-size: 17px;
-      }
-
-      .hero-footer {
-        font-size: 9px;
-        flex-wrap: wrap;
-      }
-
-      .proof-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .proof-item,
-      .proof-item:not(:first-child) {
-        padding: 22px 0;
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.13);
-      }
-
-      .proof-item strong {
-        font-size: 42px;
-      }
-
-      .section-heading {
-        display: block;
-        margin-bottom: 30px;
-      }
-
-      .section-description {
-        margin-top: 20px;
-      }
-
-      .works-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .project,
-      .project:nth-child(1),
-      .project:nth-child(2) {
-        grid-column: 1 / -1;
-      }
-
-      .project-media,
-      .project:nth-child(1) .project-media {
-        aspect-ratio: 16 / 10;
-      }
-
-      .project-info {
-        min-height: 210px;
-        padding: 22px 20px;
-      }
-
-      .project-info h3 {
-        font-size: 23px;
-      }
-
-      .experience-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .experience-panel {
-        padding: 25px 22px 10px;
-      }
-
-      .career-row {
-        grid-template-columns: 78px 1fr;
-      }
-
-      .about-image {
-        min-height: 430px;
-      }
-
-      .about-grid {
-        gap: 40px;
-      }
-    }
-
-    @media (max-width: 410px) {
-      .hero-title {
-        font-size: 54px;
-      }
-
-      .typing-line {
-        font-size: 35px;
-      }
-
-      .hero-actions {
-        gap: 16px;
-      }
-
-      .button {
-        padding: 14px 16px;
-      }
-
-      .shutter-control {
-        min-width: min(100%, 260px);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .cursor {
-        animation: none;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=20261114-1">
 </head>
-
 <body>
 
-  <!-- ========================================
-       HEADER
-  ======================================== -->
+<header class="header" id="header">
+  <div class="container nav-layout">
+    <a class="logo" href="#home" aria-label="MINZ 홈">
+      MINZ<span>®</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="주 메뉴">
+      <a href="#works">WORKS</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="header-actions">
+      <button id="bgmBtn" class="bgm-btn" type="button" aria-pressed="false">♫ BGM OFF</button>
+      <button id="menuBtn" class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="메뉴 열기">☰</button>
+    </div>
+  </div>
+</header>
 
-  <header class="header" id="header">
-    <div class="container nav-layout">
+<audio id="siteBgm" src="assets/audio/focus-click.mp3" loop preload="none"></audio>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-      <a class="logo" href="#home">MINZ<span>®</span></a>
-
-      <nav class="nav" id="nav">
-        <a href="#works">WORKS</a>
-        <a href="#experience">EXPERIENCE</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
-      </nav>
-
-      <div class="header-actions">
-
-        <button id="bgmBtn" class="bgm-btn"
-                type="button" aria-pressed="false">
-          ♫ BGM OFF
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="assets/img/MINZ_hero_shutter.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-layout">
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="signal-dot"></span>
+          CREATIVE PORTFOLIO / 2026
+        </div>
+        <h1 class="hero-title">
+          I AM <em>MINZ.</em>
+          <span class="typing-line">
+            <span id="typingText">Creator.</span><span class="cursor" aria-hidden="true"></span>
+          </span>
+        </h1>
+        <p class="hero-description">
+          생각을 장면으로, 장면을 이야기로.<br>
+          기획부터 마지막 컷까지 직접 완성합니다.
+        </p>
+        <div class="hero-services">
+          <span>DIRECTING</span>
+          <span>FILMING</span>
+          <span>DRONE</span>
+          <span>EDITING</span>
+          <span>AI</span>
+          <span>INFLUENCER</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-white" href="#works">EXPLORE WORKS ↗</a>
+          <a class="hero-link" href="#about">ABOUT MINZ ↗</a>
+        </div>
+        <button type="button" id="shutterListenBtn" class="shutter-control" aria-label="셔터음과 오프닝 영상 다시 재생">
+          <span class="shutter-icon" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z"/>
+              <circle cx="12" cy="13" r="3"/>
+            </svg>
+          </span>
+          <span class="shutter-copy">
+            <strong>SHUTTER SOUND</strong>
+            <small>오프닝 사운드 다시 듣기</small>
+          </span>
+          <span class="shutter-play" aria-hidden="true">▶</span>
         </button>
-
-        <button id="menuBtn" class="menu-btn"
-                type="button" aria-expanded="false"
-                aria-controls="nav">
-          ☰
-        </button>
-
       </div>
     </div>
-  </header>
+    <div class="container hero-footer">
+      <span>BUSAN BASED · CREATIVE PRODUCER</span>
+      <a href="#works">SCROLL TO EXPLORE ↓</a>
+    </div>
+  </section>
 
-  <!-- BGM: MINZ 전용 음악 -->
+  <!-- ACHIEVEMENTS -->
+  <section class="proof-section" aria-label="주요 성과">
+    <div class="container proof-grid">
+      <div class="proof-item">
+        <small>01 / PROJECT SUPPORT</small>
+        <strong>200<span>만 원</span></strong>
+        <p>봉산마을 관광 콘텐츠 지원사업</p>
+      </div>
+      <div class="proof-item">
+        <small>02 / CONTENT PERFORMANCE</small>
+        <strong>5.4<span>만 회</span></strong>
+        <p>짱구 팝업스토어 릴스 조회수</p>
+      </div>
+      <div class="proof-item">
+        <small>03 / PRODUCTION</small>
+        <strong>ONE STOP</strong>
+        <p>기획 · 촬영 · 드론 · 편집</p>
+      </div>
+    </div>
+  </section>
 
-  <audio id="siteBgm"
-         src="assets/audio/focus-click.mp3"
-         preload="none"
-         loop>
-  </audio>
+  <!-- SELECTED WORKS -->
+  <section id="works" class="section works-section">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="kicker">01 / SELECTED PROJECTS</p>
+          <h2 class="section-title">Selected<br><em>Works.</em></h2>
+        </div>
+        <p class="section-description">
+          아이디어를 실행 가능한 결과로.<br>
+          실제 프로젝트, 콘텐츠 성과, 그리고 새로운 시도를 보여줍니다.
+        </p>
+      </div>
+      <div class="filters" role="group" aria-label="작품 카테고리">
+        <button type="button" class="filter active" data-filter="all" aria-pressed="true">
+          ALL <span id="workCount">14</span>
+        </button>
+        <button type="button" class="filter" data-filter="video" aria-pressed="false">VIDEO</button>
+        <button type="button" class="filter" data-filter="ai" aria-pressed="false">AI CONTENT</button>
+        <button type="button" class="filter" data-filter="design" aria-pressed="false">DESIGN</button>
+        <button type="button" class="filter" data-filter="web" aria-pressed="false">WEB / UI</button>
+      </div>
+      <div id="worksGrid" class="works-grid"></div>
+    </div>
+  </section>
 
-  <div id="toast" class="toast"
-       role="status" aria-live="polite"></div>
+  <!-- BRAND STATEMENT -->
+  <section class="statement-section">
+    <div class="container">
+      <p class="kicker">WHAT I DO</p>
+      <h2 class="reveal">
+        콘텐츠는 <em>보여주는 것</em>을 넘어<br>
+        기억되게 만드는 것.
+      </h2>
+      <p class="tagline">STRATEGY → PRODUCTION → IMPACT</p>
+    </div>
+  </section>
 
-  <main>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section experience-section" aria-labelledby="expTitle">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div>
+          <p class="kicker">02 / CAREER & ACHIEVEMENTS</p>
+          <h2 class="section-title" id="expTitle">Experience<em>.</em></h2>
+        </div>
+        <p class="section-description">
+          쌓아온 경험을 실질적인 제작 역량으로.<br>
+          기획부터 실행, 성과까지 이어온 기록입니다.
+        </p>
+      </div>
 
-    <!-- ======================================
-         HERO
-    ====================================== -->
-
-    <section class="hero" id="home">
-
-      <video class="hero-video"
-             id="heroVideo"
-             autoplay muted loop playsinline
-             preload="metadata"
-             aria-hidden="true">
-
-        <source
-          src="assets/img/MINZ_hero_shutter.mp4"
-          type="video/mp4">
-      </video>
-
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-layout">
-        <div class="hero-content">
-
-          <div class="hero-kicker">
-            <span class="signal-dot"></span>
-            CREATIVE PORTFOLIO / 2026
-          </div>
-
-          <h1 class="hero-title">
-            I AM <em>MINZ.</em>
-
-            <span class="typing-line">
-              <span id="typingText">Creator.</span>
-              <span class="cursor"></span>
-            </span>
-          </h1>
-
-          <p class="hero-description">
-            생각을 장면으로, 장면을 이야기로.<br>
-            기획부터 마지막 컷까지 직접 완성합니다.
+      <article class="exp-feature reveal" aria-label="영도 봉산마을 제작 성과">
+        <div class="exp-feature-copy">
+          <span class="exp-feature-label">FEATURED ACHIEVEMENT / 2026</span>
+          <h3>영도 봉산마을<br>관광 콘텐츠 제작</h3>
+          <p class="exp-feature-description">
+            제작지원 사업 선정부터 콘텐츠 기획, 현장 및 드론 촬영,
+            롱폼·숏폼 편집까지 전 과정을 수행한 지역 관광 프로젝트.
           </p>
-
-          <div class="hero-services">
+          <div class="exp-feature-tags" aria-label="수행 업무">
             <span>DIRECTING</span>
             <span>FILMING</span>
             <span>DRONE</span>
             <span>EDITING</span>
-            <span>AI</span>
           </div>
-
-          <div class="hero-actions">
-
-            <a class="button button-white" href="#works">
-              EXPLORE WORKS ↗
-            </a>
-
-            <a class="hero-link" href="#about">
-              ABOUT MINZ ↗
-            </a>
-
-          </div>
-
-          <!-- SHUTTER BUTTON: 하나만 유지 -->
-
-          <button type="button"
-                  id="shutterListenBtn"
-                  class="shutter-control"
-                  aria-label="셔터음과 오프닝 영상 다시 재생">
-
-            <span class="shutter-icon" aria-hidden="true">
-              <svg width="19" height="19"
-                   viewBox="0 0 24 24"
-                   fill="none"
-                   stroke="currentColor"
-                   stroke-width="1.7"
-                   stroke-linecap="round"
-                   stroke-linejoin="round">
-
-                <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z"/>
-                <circle cx="12" cy="13" r="3"/>
-              </svg>
-            </span>
-
-            <span class="shutter-copy">
-              <strong>SHUTTER SOUND</strong>
-              <small>오프닝 사운드 다시 듣기</small>
-            </span>
-
-            <span class="shutter-play"
-                  aria-hidden="true">▶</span>
-
-          </button>
-
         </div>
-      </div>
-
-      <div class="container hero-footer">
-        <span>BUSAN BASED · CREATIVE PRODUCER</span>
-        <a href="#works">SCROLL TO EXPLORE ↓</a>
-      </div>
-
-    </section>
-
-    <!-- ======================================
-         RESULTS
-    ====================================== -->
-
-    <section class="proof-section">
-      <div class="container proof-grid">
-
-        <div class="proof-item">
-          <small>01 / PROJECT SUPPORT</small>
-          <strong>200<span>만 원</span></strong>
-          <p>봉산마을 관광 콘텐츠 지원사업</p>
-        </div>
-
-        <div class="proof-item">
-          <small>02 / CONTENT PERFORMANCE</small>
-          <strong>5.4<span>만 회</span></strong>
-          <p>짱구 팝업스토어 릴스 조회수</p>
-        </div>
-
-        <div class="proof-item">
-          <small>03 / PRODUCTION</small>
-          <strong>ONE STOP</strong>
-          <p>기획 · 촬영 · 드론 · 편집</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         WORKS
-    ====================================== -->
-
-    <section class="section works-section" id="works">
-      <div class="container">
-
-        <div class="section-heading reveal">
+        <div class="exp-stat">
+          <span class="exp-stat-label">PROJECT FUNDING</span>
           <div>
-            <p class="kicker">01 / SELECTED PROJECTS</p>
-            <h2 class="section-title">
-              Selected<br><em>Works.</em>
-            </h2>
+            <strong class="exp-stat-number">200</strong>
+            <span class="exp-stat-unit">만 원</span>
           </div>
-
-          <p class="section-description">
-            아이디어를 실행 가능한 결과로.<br>
-            실제 프로젝트, 콘텐츠 성과,<br>
-            그리고 새로운 시도를 보여줍니다.
-          </p>
+          <p class="exp-stat-caption">관광 콘텐츠 제작지원 선정</p>
         </div>
+      </article>
 
-        <div class="filters" role="group"
-             aria-label="작품 카테고리">
+      <div class="exp-panels">
+        <section class="exp-panel reveal" aria-labelledby="careerHeading">
+          <div class="exp-panel-heading">
+            <h3 id="careerHeading">Professional Career</h3>
+            <small>01 / CAREER</small>
+          </div>
+          <div class="exp-timeline">
+            <article class="exp-entry">
+              <span class="exp-period">ONGOING</span>
+              <h4>영상 제작 · 콘텐츠 마케팅</h4>
+              <p>YouTube 채널 운영과 브랜드·지역 홍보영상, SNS 숏폼을 기획하고 직접 촬영·편집합니다.</p>
+            </article>
+            <article class="exp-entry">
+              <span class="exp-period">ONGOING · INFLUENCER</span>
+              <h4>SNS 인플루언서 · @minz_log</h4>
+              <p>부산 맛집·핫플·지역 정보를 알리는 인스타그램 릴스와 브랜드 협업 콘텐츠를 직접 기획·촬영·편집합니다.</p>
+            </article>
+            <article class="exp-entry">
+              <span class="exp-period">7 YEARS</span>
+              <h4>직업상담사 실무 경력</h4>
+              <p>요구 분석과 커뮤니케이션 경험을 콘텐츠 기획, 인터뷰, 정보 전달에 연결합니다.</p>
+            </article>
+          </div>
+        </section>
 
-          <button class="filter active"
-                  data-filter="all"
-                  aria-pressed="true">
-            ALL <span id="workCount">14</span>
-          </button>
-
-          <button class="filter" data-filter="video"
-                  aria-pressed="false">
-            VIDEO
-          </button>
-
-          <button class="filter" data-filter="ai"
-                  aria-pressed="false">
-            AI CONTENT
-          </button>
-
-          <button class="filter" data-filter="design"
-                  aria-pressed="false">
-            DESIGN
-          </button>
-
-          <button class="filter" data-filter="web"
-                  aria-pressed="false">
-            WEB / UI
-          </button>
-
-        </div>
-
-        <div id="worksGrid" class="works-grid"></div>
-
+        <section class="exp-panel reveal" aria-labelledby="activityHeading">
+          <div class="exp-panel-heading">
+            <h3 id="activityHeading">Creative Activities</h3>
+            <small>02 / ACTIVITIES</small>
+          </div>
+          <div class="exp-timeline">
+            <article class="exp-entry">
+              <span class="exp-period">2026</span>
+              <h4>부산 드론 수색대</h4>
+              <p>드론 수색 활동 참여 · 초경량비행장치 조종자 1종 취득.</p>
+            </article>
+            <article class="exp-entry">
+              <span class="exp-period">2025 —</span>
+              <h4>네이버 클립 크리에이터</h4>
+              <p>맛집·여행·지역 정보를 숏폼으로 제작하며 채널 운영을 이어갑니다.</p>
+            </article>
+            <article class="exp-entry">
+              <span class="exp-period">2024</span>
+              <h4>부산콘텐츠코리아랩 서포터즈</h4>
+              <p>지역 콘텐츠 제작 및 홍보 활동.</p>
+            </article>
+            <article class="exp-entry">
+              <span class="exp-period">INFLUENCER ACTIVITY</span>
+              <h4>당근 인플루언서</h4>
+              <p>지역 기반 콘텐츠와 홍보 활동에 참여했습니다.</p>
+            </article>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <!-- ======================================
-         BRAND STATEMENT
-    ====================================== -->
-
-    <section class="statement-section">
-      <div class="container">
-
-        <p class="kicker">WHAT I DO</p>
-
-        <h2 class="reveal">
-          콘텐츠는 <em>보여주는 것</em>을 넘어<br>
-          기억되게 만드는 것.
-        </h2>
-
-        <p class="tagline">
-          STRATEGY → PRODUCTION → IMPACT
-        </p>
-
+      <div class="exp-footer-line">
+        <span>STRATEGY · PRODUCTION · CONTENT MARKETING</span>
+        <span>MINZ / 2026</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======================================
-         EXPERIENCE
-    ====================================== -->
-
-    <section class="section experience-section"
-             id="experience">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker">
-              02 / CAREER & ACHIEVEMENTS
-            </p>
-
-            <h2 class="section-title">
-              Experience<em>.</em>
-            </h2>
-          </div>
-
-          <p class="section-description">
-            단순한 제작 경험이 아닌,<br>
-            결과물로 증명하는 실무 역량.
-          </p>
-        </div>
-
-        <div class="experience-grid">
-
-          <div class="experience-panel reveal">
-
-            <h3>PROJECTS & CAREER</h3>
-
-            <div class="career-row">
-              <time>2026</time>
-              <div>
-                <h4>영도 봉산마을 관광 콘텐츠</h4>
-                <p>
-                  200만 원 제작지원 사업 선정.
-                  기획 · 현장 촬영 · 드론 촬영 ·
-                  롱폼 및 숏폼 편집.
-                </p>
-              </div>
-            </div>
-
-            <div class="career-row">
-              <time>ONGOING</time>
-              <div>
-                <h4>YouTube 채널 운영</h4>
-                <p>
-                  콘텐츠 기획, 촬영, 편집,
-                  썸네일 제작 및 운영.
-                </p>
-              </div>
-            </div>
-
-            <div class="career-row">
-              <time>7 YEARS</time>
-              <div>
-                <h4>직업상담사 실무 경력</h4>
-                <p>
-                  요구 분석, 커뮤니케이션,
-                  문제 해결 및 정보 전달.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="experience-panel reveal">
-
-            <h3>ACTIVITIES & SKILLS</h3>
-
-            <div class="career-row">
-              <time>2026</time>
-              <div>
-                <h4>부산 드론 수색대</h4>
-                <p>
-                  드론 수색 활동 및
-                  초경량비행장치 조종자 1종 보유.
-                </p>
-              </div>
-            </div>
-
-            <div class="career-row">
-              <time>2025 —</time>
-              <div>
-                <h4>네이버 클립 크리에이터</h4>
-                <p>
-                  맛집 · 여행 · 라이프스타일
-                  숏폼 콘텐츠 제작.
-                </p>
-              </div>
-            </div>
-
-            <div class="career-row">
-              <time>2024</time>
-              <div>
-                <h4>부산콘텐츠코리아랩 서포터즈</h4>
-                <p>지역 콘텐츠 제작 및 홍보 활동.</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+  <!-- ABOUT -->
+  <section id="about" class="section about-section">
+    <div class="container about-grid">
+      <div class="about-image reveal">
+        <img src="assets/img/minz-profile.png" alt="MINZ 크리에이터 프로필" loading="lazy">
+        <div class="about-image-label">MEET THE CREATOR / MINZ</div>
       </div>
-    </section>
-
-    <!-- ======================================
-         ABOUT
-    ====================================== -->
-
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
-
-        <div class="about-image reveal">
-
-          <img src="assets/img/minz-profile.png"
-               alt="MINZ 크리에이터 프로필"
-               loading="lazy">
-
-          <div class="about-image-label">
-            MEET THE CREATOR / MINZ
-          </div>
-
-        </div>
-
-        <div class="about-content reveal">
-
-          <p class="kicker">03 / ABOUT MINZ</p>
-
-          <h2>
-            Creative mind.<br>
-            <em>Real results.</em>
-          </h2>
-
-          <h3>
-            기획부터 마지막 컷까지,<br>
-            이야기를 완성합니다.
-          </h3>
-
-          <p>
-            신문방송학 전공을 바탕으로 영상 기획,
-            촬영, 편집과 콘텐츠 마케팅을 연결합니다.
-            지역 홍보부터 브랜드 영상, 릴스,
-            AI 콘텐츠까지 목적에 맞는 제작 방식을
-            고민하고 직접 실행합니다.
-          </p>
-
-          <p class="skill-description">
-            Premiere Pro · After Effects ·
-            Photoshop · Illustrator ·
-            Drone · Generative AI
-          </p>
-
-          <a class="button button-dark" href="#contact">
-            LET'S COLLABORATE ↗
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================
-         CONTACT
-    ====================================== -->
-
-    <section class="contact-section" id="contact">
-      <div class="container">
-
-        <p class="kicker">04 / GET IN TOUCH</p>
-
-        <h2>
-          Have a story?<br>
-          <em>Let's create.</em>
-        </h2>
-
+      <div class="about-content reveal">
+        <p class="kicker">03 / ABOUT MINZ</p>
+        <h2>Creative mind.<br><em>Real results.</em></h2>
+        <h3>기획부터 마지막 컷까지,<br>이야기를 완성합니다.</h3>
         <p>
-          브랜드 홍보영상 · 드론 촬영 ·
-          AI 콘텐츠 · SNS 마케팅
+          신문방송학 전공을 바탕으로 영상 기획·촬영·편집,
+          콘텐츠 마케팅과 인플루언서 활동을 연결합니다.
+          인스타그램 @minz_log에서 부산 맛집·핫플을 소개하고,
+          브랜드 협업 릴스부터 지역 홍보영상과 AI 콘텐츠까지
+          목적에 맞게 직접 제작합니다.
         </p>
-
-        <div class="contact-buttons">
-
-          <a href="mailto:jakeminz@gmail.com">
-            EMAIL ME ↗
-          </a>
-
-          <a href="https://www.instagram.com/minz_log/"
-             target="_blank"
-             rel="noopener noreferrer">
-            INSTAGRAM ↗
-          </a>
-
-        </div>
-
+        <p class="skill-description">
+          Premiere Pro · After Effects · Photoshop ·
+          Illustrator · Drone · Generative AI
+        </p>
+        <a class="button button-dark" href="#contact">
+          LET'S COLLABORATE ↗
+        </a>
       </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-
-  <footer class="footer">
-    <div class="container footer-content">
-
-      <a href="#home" class="logo">
-        MINZ<span>®</span>
-      </a>
-
-      <p>Create Stories. Inspire People.</p>
-      <small>© 2026 MINZ · 유재민</small>
-
     </div>
-  </footer>
+  </section>
 
-  <a class="back-top" href="#home"
-     aria-label="페이지 맨 위로 이동">↑</a>
-
-  <!-- VIDEO MODAL -->
-
-  <dialog id="videoDialog"
-          class="video-dialog"
-          aria-label="작품 영상">
-
-    <div class="dialog-header">
-      <span>MINZ · PROJECT FILM</span>
-      <button type="button" id="closeDialog"
-              aria-label="영상 닫기">✕</button>
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <p class="kicker">04 / GET IN TOUCH</p>
+      <h2>Have a story?<br><em>Let's create.</em></h2>
+      <p>브랜드 홍보영상 · 드론 촬영 · AI 콘텐츠 · SNS 마케팅</p>
+      <div class="contact-buttons">
+        <a href="mailto:jakeminz@gmail.com">EMAIL ME ↗</a>
+        <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer">
+          INSTAGRAM ↗
+        </a>
+      </div>
     </div>
+  </section>
+</main>
 
-    <div class="dialog-player" id="dialogPlayer"></div>
+<footer class="footer">
+  <div class="container footer-content">
+    <a href="#home" class="logo">MINZ<span>®</span></a>
+    <p>Create Stories. Inspire People.</p>
+    <small>© 2026 MINZ · 유재민</small>
+  </div>
+</footer>
 
-  </dialog>
+<a class="back-top" href="#home" aria-label="페이지 맨 위로 이동">↑</a>
 
-  <!-- ========================================
-       JAVASCRIPT
-  ======================================== -->
+<dialog id="videoDialog" class="video-dialog" aria-label="작품 영상">
+  <div class="dialog-header">
+    <span>MINZ · PROJECT FILM</span>
+    <button type="button" id="closeDialog" aria-label="영상 닫기">✕</button>
+  </div>
+  <div class="dialog-player" id="dialogPlayer"></div>
+</dialog>
 
-  <script>
-    (() => {
-      "use strict";
+<script>
+(() => {
+  "use strict";
 
-      const $ = selector =>
-        document.querySelector(selector);
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
 
-      const $$ = selector =>
-        Array.from(document.querySelectorAll(selector));
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-      const escapeHTML = value =>
-        String(value ?? "").replace(
-          /[&<>"']/g,
-          ch => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-          })[ch]
-        );
+  const YT = "https://i.ytimg.com/vi/";
+  const IMG = "assets/img/thumbnails/";
 
-      const IMG = "assets/img/thumbnails/";
-      const YT = "https://i.ytimg.com/vi/";
+  // 14개 작품 데이터
+  const projects = [
+    {
+      id: "bongsan-project",
+      cat: "video",
+      type: "TOURISM / BRAND FILM",
+      title: "영도 봉산마을 관광 콘텐츠",
+      desc: "200만 원 제작지원 선정. 기획부터 현장·드론 촬영, 롱폼·숏폼 편집까지.",
+      result: "제작지원 200만 원",
+      role: "기획 · 촬영 · 드론 · 편집",
+      images: [YT + "WOeKcOesYJQ/hqdefault.jpg"],
+      url: "https://youtu.be/WOeKcOesYJQ"
+    },
+    {
+      id: "academy-project",
+      cat: "video",
+      type: "EDUCATION / BRAND FILM",
+      title: "센텀직업전문학교 | FIND YOUR WAY",
+      desc: "교육을 통해 새로운 가능성을 발견하는 과정을 인물 중심의 스토리텔링으로 담은 브랜드 홍보영상.",
+      role: "기획 · 촬영 · 편집",
+      images: [
+        IMG + "도심 옥상정원에서 시작됩니다.png",
+        IMG + "도심 옥상정원에서 시작됩니다.jpg"
+      ],
+      url: "https://youtu.be/9q5Y0KSXQks?si=49MLWz94KSzqTCTM"
+    },
+    {
+      id: "shinchan-project",
+      cat: "video",
+      type: "INSTAGRAM / SHORT-FORM",
+      title: "짱구 팝업스토어 릴스",
+      desc: "현장 중심의 영상과 강한 후킹을 결합한 SNS 콘텐츠.",
+      result: "약 5.4만 조회수",
+      role: "기획 · 촬영 · 편집",
+      images: [
+        IMG + "shinchan-reel-thumb.jpg",
+        IMG + "shinchan-reel-thumb.png"
+      ],
+      url: "https://www.instagram.com/minz_log/"
+    },
+    {
+      id: "seogu-project",
+      cat: "video",
+      type: "PUBLIC / PROMOTION",
+      title: "부산 서구 홍보영상",
+      desc: "부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.",
+      role: "촬영 · 편집",
+      images: [
+        IMG + "겨울 오후, 부산 서구 해안 풍경.png",
+        IMG + "겨울 오후, 부산 서구 해안 풍경.jpg",
+        YT + "nzCwQBsn9zk/hqdefault.jpg"
+      ],
+      url: "https://youtu.be/nzCwQBsn9zk"
+    },
+    {
+      id: "property-project",
+      cat: "video",
+      type: "COMMERCIAL / REAL ESTATE",
+      title: "부산 강서구 부동산 홍보영상",
+      desc: "건물과 공간, 입지 특성을 전달하는 부동산 영상.",
+      role: "기획 · 촬영 · 드론 · 편집",
+      images: [YT + "Zh1_TzhbqMY/hqdefault.jpg"],
+      url: "https://youtu.be/Zh1_TzhbqMY"
+    },
+    {
+      id: "dongbaek-upbeat-project",
+      cat: "video",
+      type: "BRAND / SHORT AD",
+      title: "동백커피 | 업비트 광고",
+      desc: "비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.",
+      role: "촬영 · 편집",
+      images: [
+        IMG + "dongbaek-upbeat-thumb.jpg",
+        IMG + "dongbaek-upbeat-thumb.png"
+      ],
+      video: "assets/img/video/동백커피 업비트 최종mp4.mp4"
+    },
+    {
+      id: "duplit-project",
+      cat: "video",
+      type: "FOOD / INSTAGRAM",
+      title: "듀플릿 해운대점",
+      desc: "맛집·디저트 정보를 감각적으로 전달한 릴스.",
+      result: "약 3.3만 조회수",
+      role: "기획 · 촬영 · 편집",
+      images: [
+        IMG + "duplit-thumb.jpg",
+        IMG + "duplit-thumb.png"
+      ],
+      url: "https://www.instagram.com/reel/DcKYiCbyROM/"
+    },
+    {
+      id: "supercar-project",
+      cat: "ai",
+      type: "AI / CINEMATIC AD",
+      title: "SUPERCAR | AI CINEMATIC",
+      desc: "AI 비주얼과 시네마틱 편집으로 구현한 15초 슈퍼카 광고 콘셉트.",
+      role: "콘셉트 기획 · AI 연출 · 편집",
+      images: [
+        IMG + "네온 시티의 AI 슈퍼카 시네마틱.png",
+        IMG + "네온 시티의 AI 슈퍼카 시네마틱.jpg"
+      ],
+      video: "assets/img/video/20261030슈퍼카_수정01.mp4"
+    },
+    {
+      id: "dongbaek-ai-project",
+      cat: "ai",
+      type: "AI / BRAND CONTENT",
+      title: "동백커피 | AI 브랜드 영상",
+      desc: "실사와 AI를 연결한 스토리형 브랜드 콘텐츠.",
+      role: "기획 · AI 연출 · 편집",
+      images: [
+        IMG + "dongbaek-ai-thumb.jpg",
+        IMG + "dongbaek-ai-thumb.png"
+      ],
+      video: "assets/img/video/동백커피 AI 최종.mp4"
+    },
+    {
+      id: "character-project",
+      cat: "design",
+      type: "CHARACTER / BRANDING",
+      title: "MINZ 캐릭터 & 브랜드 디자인",
+      desc: "MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.",
+      role: "캐릭터 기획 · 브랜드 디자인",
+      images: [
+        IMG + "minz-character-thumbnail.jpg",
+        IMG + "minz-character-thumbnail.png"
+      ],
+      url: "assets/img/minz-character-case-study.png"
+    },
+    {
+      id: "onpick-project",
+      cat: "design web",
+      type: "UI / UX DESIGN",
+      title: "ONPICK | 오늘 뭐하지?!",
+      desc: "라이프스타일 큐레이션 앱 기획 및 UI 디자인.",
+      role: "서비스 기획 · UI/UX",
+      images: [
+        IMG + "onpick-thumbnail-b.png",
+        IMG + "onpick-thumbnail-2.png"
+      ],
+      url: "https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&starting-point-node-id=324%3A2062"
+    },
+    {
+      id: "night-project",
+      cat: "design web",
+      type: "VISUAL / UI DESIGN",
+      title: "BUSAN NIGHT 01",
+      desc: "부산 야경을 주제로 한 디지털 비주얼 작업.",
+      role: "비주얼 디자인 · UI",
+      images: [IMG + "busan-night-thumbnail.png"],
+      url: "https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
+    },
+    {
+      id: "dart-project",
+      cat: "video",
+      type: "YOUTUBE / SHORTS",
+      title: "다트풍선 | YouTube Shorts",
+      desc: "빠른 컷 구성과 호흡을 활용한 숏폼 콘텐츠.",
+      role: "기획 · 편집",
+      images: [YT + "CoOvsYrYGBA/hqdefault.jpg"],
+      url: "https://www.youtube.com/shorts/CoOvsYrYGBA"
+    },
+    {
+      id: "website-project",
+      cat: "web",
+      type: "WEB / PUBLISHING",
+      title: "MINZ Portfolio Website",
+      desc: "영상·AI·브랜딩을 연결하는 포트폴리오 웹사이트.",
+      role: "기획 · 웹 퍼블리싱",
+      images: [],
+      url: "https://github.com/minzlog777/MINZ_Portfolio_001"
+    }
+  ];
 
-      /* =====================================
-         14 PORTFOLIO PROJECTS
-      ===================================== */
+  const toast = $("#toast");
+  let toastTimer;
 
-      const projects = [
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(
+      () => toast.classList.remove("show"), 4200
+    );
+  }
 
-        {
-          id: "bongsan-project",
-          category: "video",
-          type: "TOURISM / BRAND FILM",
-          title: "영도 봉산마을 관광 콘텐츠",
-          description:
-            "200만 원 제작지원 선정. 기획부터 현장·드론 촬영, 롱폼·숏폼 편집까지.",
-          result: "제작지원 200만 원",
-          role: "기획 · 촬영 · 드론 · 편집",
-          images: [
-            YT + "WOeKcOesYJQ/hqdefault.jpg"
-          ],
-          url: "https://youtu.be/WOeKcOesYJQ"
-        },
+  // 작품 카드 생성
+  const grid = $("#worksGrid");
+  $("#workCount").textContent = String(projects.length);
 
-        {
-          id: "academy-project",
-          category: "video",
-          type: "EDUCATION / BRAND FILM",
-          title: "센텀직업전문학교 | FIND YOUR WAY",
-          description:
-            "교육을 통해 새로운 가능성을 발견하는 과정을 인물 중심의 스토리텔링으로 담은 브랜드 홍보영상.",
-          role: "기획 · 촬영 · 편집",
-          images: [
-            IMG + "도심 옥상정원에서 시작됩니다.png",
-            IMG + "도심 옥상정원에서 시작됩니다.jpg"
-          ],
+  grid.innerHTML = projects.map((p, i) => {
+    const n = String(i + 1).padStart(2, "0");
 
-          // 실제 학원 홍보영상 유튜브 주소 입력
-          url: ""
-        },
+    const img = p.images?.length
+      ? `<img src="${esc(p.images[0])}"
+           data-fallbacks="${esc(p.images.slice(1).join("|"))}"
+           alt="${esc(p.title)} 작품 썸네일"
+           loading="lazy">`
+      : "";
 
-        {
-          id: "shinchan-project",
-          category: "video",
-          type: "INSTAGRAM / SHORT-FORM",
-          title: "짱구 팝업스토어 릴스",
-          description:
-            "현장 중심의 영상과 강한 후킹을 결합한 SNS 콘텐츠.",
-          result: "약 5.4만 조회수",
-          role: "기획 · 촬영 · 편집",
-          images: [
-            IMG + "shinchan-reel-thumb.jpg",
-            IMG + "shinchan-reel-thumb.png"
-          ],
-          url: "https://www.instagram.com/minz_log/"
-        },
+    const action = p.video
+      ? `<button type="button" class="media-launch"
+           aria-label="${esc(p.title)} 영상 재생"
+           data-video="${esc(p.video)}">▶</button>`
+      : p.url
+        ? `<a class="media-launch"
+           aria-label="${esc(p.title)} 열기"
+           href="${esc(p.url)}"
+           target="_blank"
+           rel="noopener noreferrer">↗</a>`
+        : "";
 
-        {
-          id: "seogu-project",
-          category: "video",
-          type: "PUBLIC / PROMOTION",
-          title: "부산 서구 홍보영상",
-          description:
-            "부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.",
-          role: "촬영 · 편집",
-          images: [
-            IMG + "겨울 오후, 부산 서구 해안 풍경.png",
-            IMG + "겨울 오후, 부산 서구 해안 풍경.jpg",
-            YT + "nzCwQBsn9zk/hqdefault.jpg"
-          ],
-          url: "https://youtu.be/nzCwQBsn9zk"
-        },
-
-        {
-          id: "property-project",
-          category: "video",
-          type: "COMMERCIAL / REAL ESTATE",
-          title: "부산 강서구 부동산 홍보영상",
-          description:
-            "건물과 공간, 입지 특성을 전달하는 부동산 영상.",
-          role: "기획 · 촬영 · 드론 · 편집",
-          images: [
-            YT + "Zh1_TzhbqMY/hqdefault.jpg"
-          ],
-          url: "https://youtu.be/Zh1_TzhbqMY"
-        },
-
-        {
-          id: "dongbaek-upbeat-project",
-          category: "video",
-          type: "BRAND / SHORT AD",
-          title: "동백커피 | 업비트 광고",
-          description:
-            "비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.",
-          role: "촬영 · 편집",
-          images: [
-            IMG + "dongbaek-upbeat-thumb.jpg",
-            IMG + "dongbaek-upbeat-thumb.png"
-          ],
-          video:
-            "assets/img/video/동백커피 업비트 최종mp4.mp4"
-        },
-
-        {
-          id: "duplit-project",
-          category: "video",
-          type: "FOOD / INSTAGRAM",
-          title: "듀플릿 해운대점",
-          description:
-            "맛집·디저트 정보를 감각적으로 전달한 릴스.",
-          result: "약 3.3만 조회수",
-          role: "기획 · 촬영 · 편집",
-          images: [
-            IMG + "duplit-thumb.jpg",
-            IMG + "duplit-thumb.png"
-          ],
-          url:
-            "https://www.instagram.com/reel/DcKYiCbyROM/"
-        },
-
-        {
-          id: "supercar-project",
-          category: "ai",
-          type: "AI / CINEMATIC AD",
-          title: "SUPERCAR | AI CINEMATIC",
-          description:
-            "AI 비주얼과 시네마틱 편집으로 구현한 15초 슈퍼카 광고 콘셉트.",
-          role: "콘셉트 기획 · AI 연출 · 편집",
-          images: [
-            IMG + "네온 시티의 AI 슈퍼카 시네마틱.png",
-            IMG + "네온 시티의 AI 슈퍼카 시네마틱.jpg"
-          ],
-          video:
-            "assets/img/video/20261030슈퍼카_수정01.mp4"
-        },
-
-        {
-          id: "dongbaek-ai-project",
-          category: "ai",
-          type: "AI / BRAND CONTENT",
-          title: "동백커피 | AI 브랜드 영상",
-          description:
-            "실사와 AI를 연결한 스토리형 브랜드 콘텐츠.",
-          role: "기획 · AI 연출 · 편집",
-          images: [
-            IMG + "dongbaek-ai-thumb.jpg",
-            IMG + "dongbaek-ai-thumb.png"
-          ],
-          video:
-            "assets/img/video/동백커피 AI 최종.mp4"
-        },
-
-        {
-          id: "character-project",
-          category: "design",
-          type: "CHARACTER / BRANDING",
-          title: "MINZ 캐릭터 & 브랜드 디자인",
-          description:
-            "MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.",
-          role: "캐릭터 기획 · 브랜드 디자인",
-          images: [
-            IMG + "minz-character-thumbnail.jpg",
-            IMG + "minz-character-thumbnail.png"
-          ],
-          url:
-            "assets/img/minz-character-case-study.png"
-        },
-
-        {
-          id: "onpick-project",
-          category: "design web",
-          type: "UI / UX DESIGN",
-          title: "ONPICK | 오늘 뭐하지?!",
-          description:
-            "라이프스타일 큐레이션 앱 기획 및 UI 디자인.",
-          role: "서비스 기획 · UI/UX",
-          images: [
-            IMG + "onpick-thumbnail-b.png",
-            IMG + "onpick-thumbnail-2.png"
-          ],
-          url:
-            "https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&starting-point-node-id=324%3A2062"
-        },
-
-        {
-          id: "night-project",
-          category: "design web",
-          type: "VISUAL / UI DESIGN",
-          title: "BUSAN NIGHT 01",
-          description:
-            "부산 야경을 주제로 한 디지털 비주얼 작업.",
-          role: "비주얼 디자인 · UI",
-          images: [
-            IMG + "busan-night-thumbnail.png"
-          ],
-          url:
-            "https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
-        },
-
-        {
-          id: "dart-project",
-          category: "video",
-          type: "YOUTUBE / SHORTS",
-          title: "다트풍선 | YouTube Shorts",
-          description:
-            "빠른 컷 구성과 호흡을 활용한 숏폼 콘텐츠.",
-          role: "기획 · 편집",
-          images: [
-            YT + "CoOvsYrYGBA/hqdefault.jpg"
-          ],
-          url:
-            "https://www.youtube.com/shorts/CoOvsYrYGBA"
-        },
-
-        {
-          id: "website-project",
-          category: "web",
-          type: "WEB / PUBLISHING",
-          title: "MINZ Portfolio Website",
-          description:
-            "영상·AI·브랜딩을 연결하는 포트폴리오 웹사이트.",
-          role: "기획 · 웹 퍼블리싱",
-          images: [],
-          url:
-            "https://github.com/minzlog777/MINZ_Portfolio_001"
-        }
-
-      ];
-
-      /* =====================================
-         NOTIFICATION
-      ===================================== */
-
-      const toast = $("#toast");
-      let toastTimer;
-
-      function notify(message) {
-        toast.textContent = message;
-        toast.classList.add("show");
-
-        clearTimeout(toastTimer);
-
-        toastTimer = setTimeout(() => {
-          toast.classList.remove("show");
-        }, 4000);
-      }
-
-      /* =====================================
-         PROJECT CARD RENDER
-      ===================================== */
-
-      const grid = $("#worksGrid");
-
-      $("#workCount").textContent = projects.length;
-
-      grid.innerHTML = projects.map((project, index) => {
-
-        const number =
-          String(index + 1).padStart(2, "0");
-
-        const image = project.images.length
-          ? `
-            <img
-              src="${escapeHTML(project.images[0])}"
-              data-fallbacks="${escapeHTML(
-                project.images.slice(1).join("|")
-              )}"
-              alt="${escapeHTML(project.title)} 썸네일"
-              loading="lazy">
-          `
-          : "";
-
-        let action = "";
-
-        if (project.video) {
-          action = `
-            <button type="button"
-              class="media-launch"
-              data-video="${escapeHTML(project.video)}"
-              aria-label="${escapeHTML(project.title)} 재생">
-              ▶
-            </button>
-          `;
-        } else if (project.url) {
-          action = `
-            <a class="media-launch"
-               href="${escapeHTML(project.url)}"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="${escapeHTML(project.title)} 보기">
-              ↗
-            </a>
-          `;
-        }
-
-        const viewLabel = project.video
-          ? "▶ WATCH FILM"
-          : project.url
-            ? "↗ VIEW PROJECT"
-            : "VIDEO LINK PENDING";
-
-        return `
-          <article class="project reveal"
-                   id="${escapeHTML(project.id)}"
-                   data-category="${escapeHTML(project.category)}">
-
-            <div class="project-card">
-
-              <div class="project-media">
-
-                <div class="media-fallback">
-                  <span>MINZ / ${number}</span>
-                  <strong>CREATIVE<br>PRODUCTION</strong>
-                </div>
-
-                ${image}
-                ${action}
-
-              </div>
-
-              <div class="project-info">
-
-                <div class="project-meta">
-                  <span>${escapeHTML(project.type)}</span>
-                  <span>${number} / ${projects.length}</span>
-                </div>
-
-                <h3>${escapeHTML(project.title)}</h3>
-
-                <p class="project-description">
-                  ${escapeHTML(project.description)}
-                </p>
-
-                ${project.result ? `
-                  <strong class="project-result">
-                    ${escapeHTML(project.result)}
-                  </strong>
-                ` : ""}
-
-                <div class="project-bottom">
-
-                  <p class="project-role">
-                    MY ROLE · ${escapeHTML(project.role)}
-                  </p>
-
-                  <span class="view-label">
-                    ${viewLabel}
-                  </span>
-
-                </div>
-
-              </div>
+    return `
+      <article id="${esc(p.id)}"
+               class="project reveal"
+               data-category="${esc(p.cat)}">
+        <div class="project-card">
+          <div class="project-media">
+            <div class="media-fallback">
+              <span>MINZ / ${n}</span>
+              <strong>CREATIVE<br>PRODUCTION</strong>
             </div>
-          </article>
-        `;
-      }).join("");
+            ${img}
+            ${action}
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span>${esc(p.type)}</span>
+              <span>${n} / ${projects.length}</span>
+            </div>
+            <h3>${esc(p.title)}</h3>
+            <p class="project-description">${esc(p.desc)}</p>
+            ${p.result
+              ? `<strong class="project-result">${esc(p.result)}</strong>`
+              : ""}
+            <div class="project-bottom">
+              <p class="project-role">MY ROLE · ${esc(p.role)}</p>
+              <span class="view-label">
+                ${p.video ? "▶ WATCH FILM"
+                  : p.url ? "↗ VIEW PROJECT" : "PORTFOLIO"}
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
 
-      /* =====================================
-         IMAGE FALLBACK
-      ===================================== */
+  // 이미지 오류 시 다음 후보를 시도
+  $$(".project-media img").forEach(img => {
+    img.addEventListener("error", () => {
+      const pending = (img.dataset.fallbacks || "")
+        .split("|").filter(Boolean);
 
-      $$(".project-media img").forEach(image => {
-
-        image.addEventListener("error", () => {
-
-          const pending =
-            (image.dataset.fallbacks || "")
-              .split("|")
-              .filter(Boolean);
-
-          if (pending.length === 0) {
-            image.remove();
-            return;
-          }
-
-          image.src = pending.shift();
-          image.dataset.fallbacks = pending.join("|");
-
-        });
-
-      });
-
-      /* =====================================
-         CLICK ON THUMBNAIL
-      ===================================== */
-
-      $$(".project-media").forEach(media => {
-
-        const action = media.querySelector(
-          ".media-launch"
-        );
-
-        if (!action) return;
-
-        media.style.cursor = "pointer";
-
-        media.addEventListener("click", event => {
-
-          if (event.target.closest("a, button")) {
-            return;
-          }
-
-          action.click();
-
-        });
-
-      });
-
-      /* =====================================
-         CATEGORY FILTER
-      ===================================== */
-
-      $$(".filter").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-          const filter = button.dataset.filter;
-
-          $$(".filter").forEach(item => {
-
-            const active = item === button;
-
-            item.classList.toggle("active", active);
-
-            item.setAttribute(
-              "aria-pressed",
-              String(active)
-            );
-
-          });
-
-          $$(".project").forEach(project => {
-
-            const categories =
-              project.dataset.category.split(" ");
-
-            project.hidden =
-              filter !== "all" &&
-              !categories.includes(filter);
-
-          });
-
-        });
-
-      });
-
-      /* =====================================
-         BGM CONTROL
-      ===================================== */
-
-      const bgm = $("#siteBgm");
-      const bgmBtn = $("#bgmBtn");
-
-      let bgmEnabled = false;
-      let activeVideo = false;
-      let bgmRequest = 0;
-
-      bgm.volume = 0.18;
-
-      function updateBgmButton() {
-
-        bgmBtn.textContent =
-          bgmEnabled ? "♫ BGM ON" : "♫ BGM OFF";
-
-        bgmBtn.classList.toggle(
-          "active", bgmEnabled
-        );
-
-        bgmBtn.setAttribute(
-          "aria-pressed", String(bgmEnabled)
-        );
+      if (!pending.length) {
+        img.remove();
+        return;
       }
 
-      async function syncBgm() {
+      img.src = pending.shift();
+      img.dataset.fallbacks = pending.join("|");
+    });
+  });
 
-        const request = ++bgmRequest;
+  // 썸네일 클릭 시 영상/프로젝트 열기
+  $$(".project-media").forEach(media => {
+    media.style.cursor = "pointer";
 
-        if (!bgmEnabled ||
-            activeVideo ||
-            document.hidden) {
-          bgm.pause();
-          return;
-        }
+    media.addEventListener("click", event => {
+      if (event.target.closest("a,button")) return;
+      const action = media.querySelector(".media-launch");
+      if (action) action.click();
+    });
+  });
 
-        try {
-
-          await bgm.play();
-
-          if (request !== bgmRequest ||
-              !bgmEnabled ||
-              activeVideo ||
-              document.hidden) {
-
-            bgm.pause();
-          }
-
-        } catch (error) {
-
-          if (request !== bgmRequest) return;
-
-          bgmEnabled = false;
-          updateBgmButton();
-
-          notify("BGM 파일을 확인해주세요.");
-          console.error(error);
-
-        }
-      }
-
-      bgmBtn.addEventListener("click", () => {
-
-        bgmEnabled = !bgmEnabled;
-
-        updateBgmButton();
-        syncBgm();
-
+  // 카테고리 필터
+  $$(".filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      $$(".filter").forEach(b => {
+        const active = b === btn;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-pressed", String(active));
       });
 
-      bgm.addEventListener("error", () => {
-
-        if (!bgmEnabled) return;
-
-        bgmEnabled = false;
-        updateBgmButton();
-
-        notify("focus-click.mp3 파일 확인 필요");
-
+      const filter = btn.dataset.filter;
+      $$(".project").forEach(card => {
+        card.hidden = filter !== "all" &&
+          !card.dataset.category.split(" ").includes(filter);
       });
+    });
+  });
 
-      document.addEventListener(
-        "visibilitychange",
-        syncBgm
-      );
+  // BGM
+  const bgm = $("#siteBgm");
+  const bgmBtn = $("#bgmBtn");
+  const dialog = $("#videoDialog");
+  const player = $("#dialogPlayer");
 
-      window.addEventListener("blur", () => {
+  let bgmEnabled = false;
+  let localVideoPlaying = false;
+  let bgmRequest = 0;
+
+  bgm.volume = 0.18;
+
+  function updateBgmButton() {
+    bgmBtn.textContent = bgmEnabled ? "♫ BGM ON" : "♫ BGM OFF";
+    bgmBtn.classList.toggle("active", bgmEnabled);
+    bgmBtn.setAttribute("aria-pressed", String(bgmEnabled));
+  }
+
+  async function syncBgm() {
+    const request = ++bgmRequest;
+
+    if (!bgmEnabled || localVideoPlaying || document.hidden) {
+      bgm.pause();
+      return;
+    }
+
+    try {
+      await bgm.play();
+
+      if (request !== bgmRequest ||
+          !bgmEnabled || localVideoPlaying || document.hidden) {
         bgm.pause();
+      }
+    } catch (error) {
+      bgmEnabled = false;
+      updateBgmButton();
+      notify("BGM 파일 assets/audio/focus-click.mp3를 확인해주세요.");
+      console.warn(error);
+    }
+  }
+
+  bgmBtn.addEventListener("click", () => {
+    bgmEnabled = !bgmEnabled;
+    updateBgmButton();
+    syncBgm();
+  });
+
+  bgm.addEventListener("error", () => {
+    if (bgmEnabled) {
+      bgmEnabled = false;
+      updateBgmButton();
+      notify("BGM 파일을 불러오지 못했습니다.");
+    }
+  });
+
+  document.addEventListener("visibilitychange", syncBgm);
+  window.addEventListener("blur", () => bgm.pause());
+  window.addEventListener("focus", syncBgm);
+
+  // 카메라 셔터음
+  const shutterBtn = $("#shutterListenBtn");
+  const heroVideo = $("#heroVideo");
+  const shutter = new Audio("assets/audio/minz-camera.mp3");
+
+  shutter.preload = "auto";
+  shutter.volume = 0.65;
+
+  let oldVolume = null;
+
+  function endShutter() {
+    shutterBtn.classList.remove("is-playing");
+
+    if (oldVolume !== null) {
+      bgm.volume = oldVolume;
+      oldVolume = null;
+    }
+  }
+
+  shutter.addEventListener("ended", endShutter);
+  shutter.addEventListener("error", endShutter);
+
+  shutterBtn.addEventListener("click", () => {
+    if (heroVideo) {
+      try {
+        heroVideo.currentTime = 0;
+        heroVideo.play().catch(() => {});
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    shutter.pause();
+    shutter.currentTime = 0;
+
+    if (!bgm.paused && oldVolume === null) {
+      oldVolume = bgm.volume;
+      bgm.volume = 0.04;
+    }
+
+    shutterBtn.classList.add("is-playing");
+
+    shutter.play().catch(error => {
+      endShutter();
+      notify("셔터음 파일 assets/audio/minz-camera.mp3를 확인해주세요.");
+      console.warn(error);
+    });
+  });
+
+  // 내부 MP4 팝업
+  grid.addEventListener("click", async event => {
+    const btn = event.target.closest("[data-video]");
+    if (!btn) return;
+
+    const video = document.createElement("video");
+    video.src = btn.dataset.video;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("controlsList", "nodownload");
+
+    video.addEventListener("error", () => {
+      notify("영상 파일 경로가 올바른지 확인해주세요.");
+    });
+
+    player.replaceChildren(video);
+    localVideoPlaying = true;
+    syncBgm();
+
+    if (!dialog.open) dialog.showModal();
+
+    try {
+      await video.play();
+    } catch (error) {
+      notify("동영상을 재생할 수 없습니다. 파일을 확인해주세요.");
+      console.warn(error);
+    }
+  });
+
+  function closeDialog() {
+    if (dialog.open) dialog.close();
+  }
+
+  $("#closeDialog").addEventListener("click", closeDialog);
+
+  dialog.addEventListener("click", event => {
+    if (event.target === dialog) closeDialog();
+  });
+
+  dialog.addEventListener("close", () => {
+    const video = player.querySelector("video");
+
+    if (video) {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+
+    player.replaceChildren();
+    localVideoPlaying = false;
+    syncBgm();
+  });
+
+  // 외부 영상 열 때 BGM 일시정지
+  $$('.project-media a[target="_blank"]').forEach(link => {
+    link.addEventListener("click", () => bgm.pause());
+  });
+
+  // 모바일 메뉴
+  const menu = $("#menuBtn");
+  const nav = $("#nav");
+
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+    menu.setAttribute("aria-label",
+      open ? "메뉴 닫기" : "메뉴 열기");
+  });
+
+  $$("#nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // 스크롤 헤더 / 위로 가기
+  const header = $("#header");
+
+  function updateHeader() {
+    header.classList.toggle("scrolled", window.scrollY > 25);
+    $(".back-top").classList.toggle(
+      "visible", window.scrollY > 500
+    );
+  }
+
+  window.addEventListener("scroll", updateHeader, {
+    passive: true
+  });
+  updateHeader();
+
+  // 스크롤 애니메이션
+  const reveals = $$(".reveal");
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach(el => el.classList.add("visible"));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("visible");
+        io.unobserve(entry.target);
       });
+    }, {
+      threshold: 0.05,
+      rootMargin: "0px 0px 40px 0px"
+    });
 
-      window.addEventListener("focus", syncBgm);
+    reveals.forEach(el => io.observe(el));
+  }
 
-      /* =====================================
-         CAMERA SHUTTER SOUND
-      ===================================== */
+  // HERO 타이핑 애니메이션
+  const typing = $("#typingText");
+  const words = [
+    "Creator.",
+    "Video Editor.",
+    "Videographer.",
+    "AI Creator."
+  ];
 
-      const shutterBtn = $("#shutterListenBtn");
-      const heroVideo = $("#heroVideo");
+  if (!reduceMotion) {
+    let wi = 0;
+    let i = words[0].length;
+    let deleting = false;
 
-      const shutter = new Audio(
-        "assets/audio/minz-camera.mp3"
-      );
-
-      shutter.preload = "auto";
-      shutter.volume = 0.65;
-
-      let oldBgmVolume = null;
-
-      function endShutter() {
-
-        shutterBtn.classList.remove("is-playing");
-
-        if (oldBgmVolume !== null) {
-
-          bgm.volume = oldBgmVolume;
-          oldBgmVolume = null;
-
-        }
+    function tick() {
+      if (document.hidden) {
+        setTimeout(tick, 600);
+        return;
       }
 
-      shutter.addEventListener(
-        "ended", endShutter
-      );
+      const word = words[wi];
+      i = deleting
+        ? Math.max(0, i - 1)
+        : Math.min(word.length, i + 1);
 
-      shutter.addEventListener(
-        "error", endShutter
-      );
+      typing.textContent = word.slice(0, i);
 
-      shutterBtn.addEventListener("click", () => {
-
-        if (heroVideo) {
-
-          try {
-
-            heroVideo.currentTime = 0;
-
-            heroVideo.play().catch(console.warn);
-
-          } catch (error) {
-            console.warn(error);
-          }
-        }
-
-        shutter.pause();
-        shutter.currentTime = 0;
-
-        if (!bgm.paused && oldBgmVolume === null) {
-
-          oldBgmVolume = bgm.volume;
-          bgm.volume = 0.04;
-
-        }
-
-        shutterBtn.classList.add("is-playing");
-
-        shutter.play().catch(error => {
-
-          endShutter();
-
-          notify(
-            "minz-camera.mp3 파일을 확인해주세요."
-          );
-
-          console.error(error);
-
-        });
-
-      });
-
-      /* =====================================
-         VIDEO POPUP
-      ===================================== */
-
-      const dialog = $("#videoDialog");
-      const player = $("#dialogPlayer");
-
-      grid.addEventListener("click", async event => {
-
-        const button = event.target.closest(
-          "[data-video]"
-        );
-
-        if (!button) return;
-
-        const video = document.createElement("video");
-
-        video.src = button.dataset.video;
-        video.controls = true;
-        video.playsInline = true;
-        video.preload = "metadata";
-
-        video.addEventListener("error", () => {
-
-          notify(
-            "영상 파일 경로를 확인해주세요."
-          );
-
-        });
-
-        player.replaceChildren(video);
-
-        activeVideo = true;
-        syncBgm();
-
-        if (!dialog.open) {
-          dialog.showModal();
-        }
-
-        try {
-          await video.play();
-        } catch (error) {
-          console.warn(error);
-          notify("영상 재생에 실패했습니다.");
-        }
-
-      });
-
-      function closeDialog() {
-
-        if (dialog.open) {
-          dialog.close();
-        }
-
+      if (!deleting && i === word.length) {
+        deleting = true;
+        setTimeout(tick, 1750);
+        return;
       }
 
-      $("#closeDialog").addEventListener(
-        "click",
-        closeDialog
-      );
-
-      dialog.addEventListener("click", event => {
-
-        if (event.target === dialog) {
-          closeDialog();
-        }
-
-      });
-
-      dialog.addEventListener("close", () => {
-
-        const video = player.querySelector("video");
-
-        if (video) {
-
-          video.pause();
-          video.removeAttribute("src");
-          video.load();
-
-        }
-
-        player.replaceChildren();
-
-        activeVideo = false;
-        syncBgm();
-
-      });
-
-      /* EXTERNAL VIDEO LINKS */
-
-      $$(".project-media a[target='_blank']")
-        .forEach(link => {
-
-          link.addEventListener("click", () => {
-            bgm.pause();
-          });
-
-        });
-
-      /* =====================================
-         MOBILE NAVIGATION
-      ===================================== */
-
-      const menuBtn = $("#menuBtn");
-      const nav = $("#nav");
-
-      menuBtn.addEventListener("click", () => {
-
-        const open = nav.classList.toggle("open");
-
-        menuBtn.setAttribute(
-          "aria-expanded", String(open)
-        );
-
-      });
-
-      $$("#nav a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-          nav.classList.remove("open");
-
-          menuBtn.setAttribute(
-            "aria-expanded", "false"
-          );
-
-        });
-
-      });
-
-      /* =====================================
-         HEADER / SCROLL
-      ===================================== */
-
-      const header = $("#header");
-      const backTop = $(".back-top");
-
-      function updateScroll() {
-
-        header.classList.toggle(
-          "scrolled",
-          window.scrollY > 25
-        );
-
-        backTop.classList.toggle(
-          "visible",
-          window.scrollY > 500
-        );
-
+      if (deleting && i === 0) {
+        deleting = false;
+        wi = (wi + 1) % words.length;
+        setTimeout(tick, 300);
+        return;
       }
 
-      window.addEventListener(
-        "scroll",
-        updateScroll,
-        { passive: true }
-      );
+      setTimeout(tick, deleting ? 55 : 95);
+    }
 
-      updateScroll();
-
-      /* =====================================
-         SCROLL REVEAL
-      ===================================== */
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      const reveals = $$(".reveal");
-
-      if (reduceMotion ||
-          !("IntersectionObserver" in window)) {
-
-        reveals.forEach(el => {
-          el.classList.add("visible");
-        });
-
-      } else {
-
-        const observer = new IntersectionObserver(
-          entries => {
-
-            entries.forEach(entry => {
-
-              if (!entry.isIntersecting) return;
-
-              entry.target.classList.add("visible");
-
-              observer.unobserve(entry.target);
-
-            });
-
-          },
-          {
-            threshold: 0.05,
-            rootMargin: "0px 0px 40px 0px"
-          }
-        );
-
-        reveals.forEach(el => {
-          observer.observe(el);
-        });
-      }
-
-      /* =====================================
-         HERO TYPING ANIMATION
-      ===================================== */
-
-      const typing = $("#typingText");
-
-      const words = [
-        "Creator.",
-        "Video Editor.",
-        "Videographer.",
-        "AI Creator."
-      ];
-
-      if (!reduceMotion) {
-
-        let wordIndex = 0;
-        let charIndex = words[0].length;
-        let deleting = false;
-
-        function typeTick() {
-
-          if (document.hidden) {
-            setTimeout(typeTick, 600);
-            return;
-          }
-
-          const word = words[wordIndex];
-
-          charIndex = deleting
-            ? Math.max(0, charIndex - 1)
-            : Math.min(word.length, charIndex + 1);
-
-          typing.textContent = word.slice(
-            0,
-            charIndex
-          );
-
-          if (!deleting &&
-              charIndex === word.length) {
-
-            deleting = true;
-
-            setTimeout(typeTick, 1750);
-            return;
-          }
-
-          if (deleting && charIndex === 0) {
-
-            deleting = false;
-
-            wordIndex =
-              (wordIndex + 1) % words.length;
-
-            setTimeout(typeTick, 300);
-            return;
-          }
-
-          setTimeout(
-            typeTick,
-            deleting ? 55 : 95
-          );
-        }
-
-        setTimeout(typeTick, 2100);
-
-      }
-
-    })();
-  </script>
-
+    setTimeout(tick, 2100);
+  }
+})();
+</script>
 </body>
 </html>
