@@ -1944,3 +1944,25 @@ button:focus-visible {
   }
 
 }
+
+
+.rotating-text {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+.rotating-text.is-changing {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-text {
+    transition: none;
+  }
+}
+
