@@ -132,6 +132,9 @@
             <a href="#about" class="hero-link">
               ABOUT MINZ ↗
             </a>
+            <button type="button" id="shutterListenBtn" class="button button-white">
+              📷 셔터음 듣기
+            </button>
           </div>
         </div>
 
@@ -1009,6 +1012,37 @@
 
     })();
   </script>
+
+
+  <script>
+    (() => {
+      const button = document.getElementById("shutterListenBtn");
+      const video = document.querySelector(".hero-video");
+      const shutter = new Audio("./assets/audio/minz-camera.mp3");
+
+      shutter.volume = 0.65;
+      shutter.preload = "auto";
+
+      if (!button) return;
+
+      button.addEventListener("click", () => {
+        if (video) {
+          video.currentTime = 0;
+          video.play().catch(console.error);
+        }
+
+        shutter.pause();
+        shutter.currentTime = 0;
+
+        shutter.play().catch(error => {
+          console.error("셔터음 재생 실패:", error);
+          alert("셔터음 파일을 확인해주세요.");
+        });
+      });
+    })();
+  </script>
+
+
 
 </body>
 
