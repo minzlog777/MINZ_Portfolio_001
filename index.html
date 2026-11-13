@@ -1,64 +1,1302 @@
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#171322">
-  <meta name="description" content="MINZ 유재민의 영상 기획, 촬영, 드론, 편집, AI 콘텐츠 포트폴리오">
+
+  <meta name="theme-color" content="#171020">
+  <meta name="description"
+        content="MINZ 영상 기획, 촬영, 드론, 편집, AI 콘텐츠 포트폴리오">
+
   <title>MINZ | Creative Portfolio</title>
 
   <link rel="icon" href="assets/img/lastfavicon.png">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
   <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-  <link rel="stylesheet" href="assets/css/main.css?v=12.3">
-</head>
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
 
+  <style>
+    /* =========================================
+       MINZ PORTFOLIO — DESIGN SYSTEM
+    ========================================= */
 
-<!-- MINZ CAMERA SHUTTER -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const actions = document.querySelector(".hero-actions");
-    const video = document.querySelector(".hero-video");
-
-    if (!actions || document.getElementById("minzShutterBtn")) {
-      return;
+    :root {
+      --dark: #171020;
+      --dark-soft: #251932;
+      --purple: #9868e9;
+      --lavender: #c8adff;
+      --paper: #f8f7f5;
+      --ink: #211c29;
+      --muted: #77717f;
+      --line: #e7e2eb;
+      --font: 'Pretendard Variable', Pretendard,
+              system-ui, sans-serif;
     }
 
-    const shutter = new Audio("./assets/audio/minz-camera.mp3");
-    shutter.preload = "auto";
-    shutter.volume = 0.65;
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
 
-    actions.appendChild(button);
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-    button.addEventListener("click", () => {
-      if (video) {
-        video.currentTime = 0;
-        video.play().catch(console.error);
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--lavender);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1220px, calc(100% - 80px));
+      margin: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .15em;
+      color: var(--purple);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: clamp(50px, 7vw, 98px);
+      font-weight: 950;
+      letter-spacing: -.075em;
+      line-height: .98;
+      margin: 0;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--purple);
+    }
+
+    .section-description {
+      max-width: 340px;
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .header {
+      height: 76px;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(18, 13, 28, .6);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: background .3s;
+    }
+
+    .header.scrolled {
+      background: rgba(18, 13, 28, .97);
+    }
+
+    .nav-layout {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 950;
+      color: white;
+      letter-spacing: -.07em;
+      line-height: 1;
+    }
+
+    .logo span {
+      font-size: 11px;
+      color: var(--lavender);
+      vertical-align: top;
+      margin-left: 3px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav a {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      color: #eee8f5;
+      transition: color .2s;
+    }
+
+    .nav a:hover {
+      color: var(--lavender);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bgm-btn {
+      min-height: 38px;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 100px;
+      background: rgba(255,255,255,.07);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .bgm-btn:hover {
+      background: rgba(255,255,255,.17);
+    }
+
+    .bgm-btn.active {
+      background: var(--lavender);
+      border-color: var(--lavender);
+      color: var(--dark);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 24px;
+      min-width: 40px;
+      min-height: 40px;
+    }
+
+    /* =========================================
+       HERO / CINEMATIC INTRO
+    ========================================= */
+
+    .hero {
+      min-height: 760px;
+      min-height: 100svh;
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(20,12,32,.97) 0%,
+          rgba(25,13,39,.87) 39%,
+          rgba(27,12,41,.48) 75%,
+          rgba(20,10,30,.53) 100%
+        );
+    }
+
+    .hero-layout {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-top: 135px;
+      padding-bottom: 70px;
+    }
+
+    .hero-content {
+      max-width: 740px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: #d2c0ed;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .16em;
+    }
+
+    .signal-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--lavender);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--lavender);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(65px, 9vw, 140px);
+      font-weight: 950;
+      line-height: .92;
+      letter-spacing: -.085em;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--lavender);
+    }
+
+    .typing-line {
+      display: block;
+      min-height: 1.1em;
+      margin-top: 7px;
+      font-size: clamp(42px, 6.8vw, 98px);
+      letter-spacing: -.07em;
+      overflow-wrap: anywhere;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 4px;
+      height: .72em;
+      margin-left: 6px;
+      background: var(--lavender);
+      animation: blink .85s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero-description {
+      margin: 27px 0 22px;
+      font-size: clamp(17px, 1.8vw, 23px);
+      font-weight: 750;
+      letter-spacing: -.05em;
+      line-height: 1.65;
+    }
+
+    .hero-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 34px;
+    }
+
+    .hero-services span {
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 750;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 24px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 850;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-white {
+      background: white;
+      color: #211729;
+      box-shadow: 0 12px 35px rgba(0,0,0,.16);
+    }
+
+    .button-white:hover {
+      box-shadow: 0 18px 40px rgba(0,0,0,.25);
+    }
+
+    .hero-link {
+      font-size: 12px;
+      font-weight: 850;
+      color: #f4effa;
+    }
+
+    .hero-link:hover {
+      color: var(--lavender);
+    }
+
+    /* SHUTTER SOUND — SINGLE BUTTON */
+
+    .shutter-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 68px;
+      min-width: 270px;
+      margin-top: 20px;
+      padding: 17px 0 0;
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,.23);
+      background: transparent;
+      color: white;
+      text-align: left;
+    }
+
+    .shutter-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(200,173,255,.6);
+      background: rgba(200,173,255,.1);
+      color: var(--lavender);
+      transition: .3s;
+    }
+
+    .shutter-control:hover .shutter-icon {
+      transform: scale(1.06);
+      background: rgba(200,173,255,.24);
+    }
+
+    .shutter-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .shutter-copy strong {
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .06em;
+    }
+
+    .shutter-copy small {
+      font-size: 11px;
+      color: #c3b7d0;
+    }
+
+    .shutter-play {
+      margin-left: auto;
+      color: var(--lavender);
+      font-size: 12px;
+    }
+
+    .shutter-control.is-playing .shutter-icon {
+      background: rgba(200,173,255,.25);
+      box-shadow: 0 0 0 5px rgba(200,173,255,.12);
+    }
+
+    .hero-footer {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 20px;
+      padding-bottom: 27px;
+      border-top: 1px solid rgba(255,255,255,.13);
+      color: #cfc1e1;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .1em;
+    }
+
+    /* =========================================
+       RESULTS / ACHIEVEMENTS
+    ========================================= */
+
+    .proof-section {
+      background: #21172f;
+      color: white;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof-item {
+      padding: 43px 28px 45px 0;
+      border-right: 1px solid rgba(255,255,255,.13);
+    }
+
+    .proof-item:not(:first-child) {
+      padding-left: 38px;
+    }
+
+    .proof-item:last-child {
+      border-right: 0;
+    }
+
+    .proof-item small {
+      display: block;
+      color: #bca7d8;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .proof-item strong {
+      display: block;
+      margin: 10px 0;
+      font-size: clamp(34px, 4.8vw, 64px);
+      font-weight: 950;
+      letter-spacing: -.07em;
+      line-height: 1.1;
+    }
+
+    .proof-item strong span {
+      font-size: .43em;
+      margin-left: 5px;
+    }
+
+    .proof-item p {
+      margin: 0;
+      font-size: 12px;
+      color: #d0c4df;
+    }
+
+    /* =========================================
+       PORTFOLIO WORKS
+    ========================================= */
+
+    .works-section {
+      background: var(--paper);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter {
+      padding: 10px 18px;
+      border: 1px solid #ded7e3;
+      border-radius: 100px;
+      background: transparent;
+      color: #6f687b;
+      font-size: 11px;
+      font-weight: 850;
+      transition: .2s;
+    }
+
+    .filter.active {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: white;
+    }
+
+    .filter:hover {
+      border-color: var(--purple);
+    }
+
+    .filter span {
+      color: #c8a8ff;
+      margin-left: 5px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      grid-column: span 6;
+      min-width: 0;
+    }
+
+    .project:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+      border: 1px solid #ebe6ee;
+      overflow: hidden;
+      transition: transform .35s, box-shadow .35s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 21px 46px rgba(36,24,50,.12);
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #261b39;
+      overflow: hidden;
+    }
+
+    .project:nth-child(1) .project-media {
+      aspect-ratio: 16 / 8.4;
+    }
+
+    .project-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .6s;
+    }
+
+    .project-card:hover .project-media img {
+      transform: scale(1.035);
+    }
+
+    .media-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      color: #d8bfff;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          #644198,
+          #21172f 64%
+        );
+    }
+
+    .media-fallback span {
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .14em;
+    }
+
+    .media-fallback strong {
+      font-size: clamp(26px, 3vw, 46px);
+      font-weight: 950;
+      line-height: 1.05;
+    }
+
+    .media-launch {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 47px;
+      height: 47px;
+      border: 0;
+      border-radius: 50%;
+      background: white;
+      color: #27192f;
+      font-size: 21px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.22);
+      transition: transform .25s, background .25s;
+    }
+
+    .media-launch:hover {
+      transform: scale(1.08);
+      background: #e5d4ff;
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 244px;
+      padding: 27px 29px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .project-info h3 {
+      margin: 19px 0 11px;
+      font-size: clamp(20px, 2.2vw, 31px);
+      font-weight: 950;
+      line-height: 1.2;
+      letter-spacing: -.055em;
+      word-break: keep-all;
+    }
+
+    .project-description {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .project-result {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: #7850b6;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .project-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-role {
+      margin: 0;
+      color: #554c60;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .view-label {
+      color: #7850b6;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    /* =========================================
+       BRAND STATEMENT
+    ========================================= */
+
+    .statement-section {
+      padding: 105px 0;
+      background: var(--dark);
+      color: white;
+    }
+
+    .statement-section h2 {
+      margin: 0 0 28px;
+      font-size: clamp(29px, 4.1vw, 57px);
+      font-weight: 950;
+      letter-spacing: -.06em;
+      line-height: 1.38;
+    }
+
+    .statement-section h2 em {
+      color: var(--lavender);
+      font-style: normal;
+    }
+
+    .statement-section .tagline {
+      color: #bba9d1;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    /* =========================================
+       EXPERIENCE
+    ========================================= */
+
+    .experience-section {
+      background: #f1eff2;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 23px;
+    }
+
+    .experience-panel {
+      padding: 34px 36px 20px;
+      background: white;
+      border: 1px solid #e9e4ec;
+    }
+
+    .experience-panel h3 {
+      margin: 0 0 19px;
+      color: #8a59cf;
+      font-size: 12px;
+      letter-spacing: .07em;
+    }
+
+    .career-row {
+      display: grid;
+      grid-template-columns: 98px 1fr;
+      gap: 12px;
+      padding: 22px 0;
+      border-top: 1px solid #eae6ee;
+    }
+
+    .career-row time {
+      color: #956dc7;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .career-row h4 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      letter-spacing: -.04em;
+    }
+
+    .career-row p {
+      margin: 0;
+      color: #6b6473;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* =========================================
+       ABOUT
+    ========================================= */
+
+    .about-section {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      align-items: center;
+      gap: 7vw;
+    }
+
+    .about-image {
+      min-height: 410px;
+      position: relative;
+      background: #281a40;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 22px 18px;
+      background: linear-gradient(
+        0deg,
+        rgba(20,12,30,.8),
+        transparent
+      );
+      color: white;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .about-content h2 {
+      margin: 0 0 27px;
+      font-size: clamp(46px, 5.5vw, 78px);
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -.075em;
+    }
+
+    .about-content h2 em {
+      color: var(--purple);
+      font-style: normal;
+    }
+
+    .about-content h3 {
+      margin: 0 0 19px;
+      font-size: clamp(21px, 2.1vw, 27px);
+      line-height: 1.45;
+    }
+
+    .about-content p:not(.kicker) {
+      margin: 0 0 20px;
+      color: #686172;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .skill-description {
+      color: #8b69b8 !important;
+      font-size: 12px !important;
+      font-weight: 750;
+    }
+
+    .button-dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    /* =========================================
+       CONTACT / FOOTER
+    ========================================= */
+
+    .contact-section {
+      padding: 110px 0;
+      text-align: center;
+      background: #241832;
+      color: white;
+    }
+
+    .contact-section h2 {
+      margin: 0 0 25px;
+      font-size: clamp(54px, 7.5vw, 106px);
+      font-weight: 950;
+      letter-spacing: -.075em;
+      line-height: 1;
+    }
+
+    .contact-section h2 em {
+      color: var(--lavender);
+      font-style: normal;
+    }
+
+    .contact-section p:not(.kicker) {
+      color: #cfc1de;
+      font-size: 14px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .contact-buttons a {
+      padding: 14px 24px;
+      border: 1px solid rgba(255,255,255,.35);
+      font-size: 12px;
+      font-weight: 850;
+      transition: .2s;
+    }
+
+    .contact-buttons a:hover {
+      background: white;
+      color: #241832;
+    }
+
+    .footer {
+      padding: 28px 0;
+      background: #171020;
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-content p,
+    .footer-content small {
+      font-size: 11px;
+      color: #cdbbdc;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 23px;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--dark-soft);
+      color: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* VIDEO MODAL */
+
+    .video-dialog {
+      width: min(1000px, calc(100% - 28px));
+      max-height: 92svh;
+      padding: 0;
+      border: 1px solid rgba(200,173,255,.3);
+      background: #110c1b;
+      color: white;
+    }
+
+    .video-dialog::backdrop {
+      background: rgba(6,4,12,.85);
+      backdrop-filter: blur(8px);
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 19px;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .dialog-header button {
+      min-width: 38px;
+      min-height: 35px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 21px;
+    }
+
+    .dialog-player video {
+      width: 100%;
+      max-height: 78svh;
+      background: black;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 2000;
+      left: 50%;
+      bottom: 25px;
+      transform: translate(-50%, 15px);
+      max-width: calc(100% - 40px);
+      padding: 12px 17px;
+      background: #2e213c;
+      color: white;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      font-size: 12px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* SCROLL ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s, transform .6s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1080px) {
+      .container {
+        width: calc(100% - 56px);
       }
 
-      shutter.pause();
-      shutter.currentTime = 0;
+      .project:nth-child(1),
+      .project:nth-child(2) {
+        grid-column: span 6;
+      }
+    }
 
-      shutter.play().catch(error => {
-        console.error("셔터음 재생 실패:", error);
-        alert("셔터음 파일 경로를 확인해주세요.");
-      });
-    });
-  });
-</script>
+    @media (max-width: 760px) {
+      .container {
+        width: calc(100% - 36px);
+      }
 
+      .section {
+        padding: 75px 0;
+      }
+
+      .header {
+        height: 66px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav {
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 14px 19px 21px;
+        background: rgba(18,13,28,.99);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 12px 7px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      .hero-video {
+        object-position: 58% center;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          90deg,
+          rgba(20,12,32,.94),
+          rgba(20,12,32,.66)
+        );
+      }
+
+      .hero-layout {
+        padding-top: 124px;
+        padding-bottom: 45px;
+      }
+
+      .hero-title {
+        font-size: clamp(56px, 12vw, 92px);
+      }
+
+      .typing-line {
+        font-size: clamp(39px, 8.1vw, 67px);
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .hero-footer {
+        font-size: 9px;
+        flex-wrap: wrap;
+      }
+
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item,
+      .proof-item:not(:first-child) {
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.13);
+      }
+
+      .proof-item strong {
+        font-size: 42px;
+      }
+
+      .section-heading {
+        display: block;
+        margin-bottom: 30px;
+      }
+
+      .section-description {
+        margin-top: 20px;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .project,
+      .project:nth-child(1),
+      .project:nth-child(2) {
+        grid-column: 1 / -1;
+      }
+
+      .project-media,
+      .project:nth-child(1) .project-media {
+        aspect-ratio: 16 / 10;
+      }
+
+      .project-info {
+        min-height: 210px;
+        padding: 22px 20px;
+      }
+
+      .project-info h3 {
+        font-size: 23px;
+      }
+
+      .experience-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-panel {
+        padding: 25px 22px 10px;
+      }
+
+      .career-row {
+        grid-template-columns: 78px 1fr;
+      }
+
+      .about-image {
+        min-height: 430px;
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 410px) {
+      .hero-title {
+        font-size: 54px;
+      }
+
+      .typing-line {
+        font-size: 35px;
+      }
+
+      .hero-actions {
+        gap: 16px;
+      }
+
+      .button {
+        padding: 14px 16px;
+      }
+
+      .shutter-control {
+        min-width: min(100%, 260px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .cursor {
+        animation: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+
   <header class="header" id="header">
     <div class="container nav-layout">
-      <a href="#home" class="logo">MINZ<span>®</span></a>
 
-      <nav class="nav" id="nav" aria-label="메인 메뉴">
+      <a class="logo" href="#home">MINZ<span>®</span></a>
+
+      <nav class="nav" id="nav">
         <a href="#works">WORKS</a>
         <a href="#experience">EXPERIENCE</a>
         <a href="#about">ABOUT</a>
@@ -66,34 +1304,57 @@
       </nav>
 
       <div class="header-actions">
-        <button id="bgmBtn" class="bgm-btn" type="button" aria-pressed="false">
+
+        <button id="bgmBtn" class="bgm-btn"
+                type="button" aria-pressed="false">
           ♫ BGM OFF
         </button>
 
-        <button id="menuBtn" class="menu-btn" type="button" aria-controls="nav" aria-expanded="false">
+        <button id="menuBtn" class="menu-btn"
+                type="button" aria-expanded="false"
+                aria-controls="nav">
           ☰
         </button>
+
       </div>
     </div>
   </header>
 
-  <!-- MUSIC: 기본 OFF, 사용자 클릭 후 재생 -->
-  <audio id="siteBgm" src="./assets/audio/focus-click.mp3" preload="none" loop>
+  <!-- BGM: MINZ 전용 음악 -->
+
+  <audio id="siteBgm"
+         src="assets/audio/focus-click.mp3"
+         preload="none"
+         loop>
   </audio>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="toast" class="toast"
+       role="status" aria-live="polite"></div>
 
   <main>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-        <source src="assets/img/MINZ_hero_shutter.mp4" type="video/mp4">
+    <!-- ======================================
+         HERO
+    ====================================== -->
+
+    <section class="hero" id="home">
+
+      <video class="hero-video"
+             id="heroVideo"
+             autoplay muted loop playsinline
+             preload="metadata"
+             aria-hidden="true">
+
+        <source
+          src="assets/img/MINZ_hero_shutter.mp4"
+          type="video/mp4">
       </video>
+
       <div class="hero-overlay"></div>
 
       <div class="container hero-layout">
         <div class="hero-content">
+
           <div class="hero-kicker">
             <span class="signal-dot"></span>
             CREATIVE PORTFOLIO / 2026
@@ -101,9 +1362,10 @@
 
           <h1 class="hero-title">
             I AM <em>MINZ.</em>
+
             <span class="typing-line">
               <span id="typingText">Creator.</span>
-              <span class="cursor" aria-hidden="true"></span>
+              <span class="cursor"></span>
             </span>
           </h1>
 
@@ -120,50 +1382,63 @@
             <span>AI</span>
           </div>
 
-
           <div class="hero-actions">
-            <a href="#works" class="button button-white">
+
+            <a class="button button-white" href="#works">
               EXPLORE WORKS ↗
             </a>
 
-            <a href="#about" class="hero-link">
+            <a class="hero-link" href="#about">
               ABOUT MINZ ↗
             </a>
+
           </div>
 
-          <!-- MINZ SHUTTER SOUND -->
-          <button type="button" id="shutterListenBtn" class="shutter-control" aria-label="카메라 셔터음과 오프닝 영상 다시 재생">
+          <!-- SHUTTER BUTTON: 하나만 유지 -->
 
-            <span class="shutter-control-icon" aria-hidden="true">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z" />
-                <circle cx="12" cy="13" r="3" />
+          <button type="button"
+                  id="shutterListenBtn"
+                  class="shutter-control"
+                  aria-label="셔터음과 오프닝 영상 다시 재생">
+
+            <span class="shutter-icon" aria-hidden="true">
+              <svg width="19" height="19"
+                   viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.7"
+                   stroke-linecap="round"
+                   stroke-linejoin="round">
+
+                <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z"/>
+                <circle cx="12" cy="13" r="3"/>
               </svg>
             </span>
 
-            <span class="shutter-control-copy">
+            <span class="shutter-copy">
               <strong>SHUTTER SOUND</strong>
               <small>오프닝 사운드 다시 듣기</small>
             </span>
 
-            <span class="shutter-control-play" aria-hidden="true">▶</span>
+            <span class="shutter-play"
+                  aria-hidden="true">▶</span>
+
           </button>
 
-
-          <div class="hero-decoration" aria-hidden="true">
-            <span>MINZ / CREATIVE PRODUCTION</span>
-            <strong>IDEAS<br>TO<br>IMPACT.</strong>
-          </div>
         </div>
+      </div>
 
-        <div class="container hero-footer">
-          <span>BUSAN BASED · CREATIVE PRODUCER</span>
-          <a href="#works">SCROLL TO EXPLORE ↓</a>
-        </div>
+      <div class="container hero-footer">
+        <span>BUSAN BASED · CREATIVE PRODUCER</span>
+        <a href="#works">SCROLL TO EXPLORE ↓</a>
+      </div>
+
     </section>
 
-    <!-- RESULTS -->
+    <!-- ======================================
+         RESULTS
+    ====================================== -->
+
     <section class="proof-section">
       <div class="container proof-grid">
 
@@ -188,39 +1463,57 @@
       </div>
     </section>
 
-    <!-- WORKS -->
-    <section id="works" class="section works-section">
+    <!-- ======================================
+         WORKS
+    ====================================== -->
+
+    <section class="section works-section" id="works">
       <div class="container">
 
         <div class="section-heading reveal">
           <div>
             <p class="kicker">01 / SELECTED PROJECTS</p>
-            <h2>Selected<br><em>Works.</em></h2>
+            <h2 class="section-title">
+              Selected<br><em>Works.</em>
+            </h2>
           </div>
 
           <p class="section-description">
             아이디어를 실행 가능한 결과로.<br>
-            실제 프로젝트, 콘텐츠 성과,
+            실제 프로젝트, 콘텐츠 성과,<br>
             그리고 새로운 시도를 보여줍니다.
           </p>
         </div>
 
-        <div class="filters" role="group" aria-label="작품 카테고리">
-          <button class="filter active" type="button" data-filter="all" aria-pressed="true">
-            ALL <span>14</span>
+        <div class="filters" role="group"
+             aria-label="작품 카테고리">
+
+          <button class="filter active"
+                  data-filter="all"
+                  aria-pressed="true">
+            ALL <span id="workCount">14</span>
           </button>
-          <button class="filter" type="button" data-filter="video" aria-pressed="false">
+
+          <button class="filter" data-filter="video"
+                  aria-pressed="false">
             VIDEO
           </button>
-          <button class="filter" type="button" data-filter="ai" aria-pressed="false">
+
+          <button class="filter" data-filter="ai"
+                  aria-pressed="false">
             AI CONTENT
           </button>
-          <button class="filter" type="button" data-filter="design" aria-pressed="false">
+
+          <button class="filter" data-filter="design"
+                  aria-pressed="false">
             DESIGN
           </button>
-          <button class="filter" type="button" data-filter="web" aria-pressed="false">
+
+          <button class="filter" data-filter="web"
+                  aria-pressed="false">
             WEB / UI
           </button>
+
         </div>
 
         <div id="worksGrid" class="works-grid"></div>
@@ -228,29 +1521,49 @@
       </div>
     </section>
 
-    <!-- BRAND STATEMENT -->
+    <!-- ======================================
+         BRAND STATEMENT
+    ====================================== -->
+
     <section class="statement-section">
       <div class="container">
+
         <p class="kicker">WHAT I DO</p>
+
         <h2 class="reveal">
           콘텐츠는 <em>보여주는 것</em>을 넘어<br>
           기억되게 만드는 것.
         </h2>
-        <p>STRATEGY → PRODUCTION → IMPACT</p>
+
+        <p class="tagline">
+          STRATEGY → PRODUCTION → IMPACT
+        </p>
+
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience-section">
+    <!-- ======================================
+         EXPERIENCE
+    ====================================== -->
+
+    <section class="section experience-section"
+             id="experience">
+
       <div class="container">
 
         <div class="section-heading reveal">
           <div>
-            <p class="kicker">02 / CAREER & ACHIEVEMENTS</p>
-            <h2>Experience<em>.</em></h2>
+            <p class="kicker">
+              02 / CAREER & ACHIEVEMENTS
+            </p>
+
+            <h2 class="section-title">
+              Experience<em>.</em>
+            </h2>
           </div>
+
           <p class="section-description">
-            단순한 제작 경험이 아닌,
+            단순한 제작 경험이 아닌,<br>
             결과물로 증명하는 실무 역량.
           </p>
         </div>
@@ -258,6 +1571,7 @@
         <div class="experience-grid">
 
           <div class="experience-panel reveal">
+
             <h3>PROJECTS & CAREER</h3>
 
             <div class="career-row">
@@ -293,9 +1607,11 @@
                 </p>
               </div>
             </div>
+
           </div>
 
           <div class="experience-panel reveal">
+
             <h3>ACTIVITIES & SKILLS</h3>
 
             <div class="career-row">
@@ -327,24 +1643,34 @@
                 <p>지역 콘텐츠 제작 및 홍보 활동.</p>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section about-section">
+    <!-- ======================================
+         ABOUT
+    ====================================== -->
+
+    <section class="section about-section" id="about">
       <div class="container about-grid">
 
         <div class="about-image reveal">
-          <img src="assets/img/minz-profile.png" alt="MINZ 프로필" loading="lazy">
+
+          <img src="assets/img/minz-profile.png"
+               alt="MINZ 크리에이터 프로필"
+               loading="lazy">
+
           <div class="about-image-label">
             MEET THE CREATOR / MINZ
           </div>
+
         </div>
 
         <div class="about-content reveal">
+
           <p class="kicker">03 / ABOUT MINZ</p>
 
           <h2>
@@ -374,16 +1700,20 @@
           <a class="button button-dark" href="#contact">
             LET'S COLLABORATE ↗
           </a>
-        </div>
 
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
+    <!-- ======================================
+         CONTACT
+    ====================================== -->
+
+    <section class="contact-section" id="contact">
       <div class="container">
 
         <p class="kicker">04 / GET IN TOUCH</p>
+
         <h2>
           Have a story?<br>
           <em>Let's create.</em>
@@ -395,12 +1725,17 @@
         </p>
 
         <div class="contact-buttons">
+
           <a href="mailto:jakeminz@gmail.com">
             EMAIL ME ↗
           </a>
-          <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer">
+
+          <a href="https://www.instagram.com/minz_log/"
+             target="_blank"
+             rel="noopener noreferrer">
             INSTAGRAM ↗
           </a>
+
         </div>
 
       </div>
@@ -409,57 +1744,74 @@
   </main>
 
   <!-- FOOTER -->
+
   <footer class="footer">
     <div class="container footer-content">
+
       <a href="#home" class="logo">
         MINZ<span>®</span>
       </a>
+
       <p>Create Stories. Inspire People.</p>
       <small>© 2026 MINZ · 유재민</small>
+
     </div>
   </footer>
 
-  <a href="#home" class="back-top" aria-label="맨 위로 이동">↑</a>
+  <a class="back-top" href="#home"
+     aria-label="페이지 맨 위로 이동">↑</a>
 
+  <!-- VIDEO MODAL -->
 
-  <!-- INTERACTIVE VIDEO MODAL -->
-  <dialog id="videoDialog" class="video-dialog">
+  <dialog id="videoDialog"
+          class="video-dialog"
+          aria-label="작품 영상">
+
     <div class="dialog-header">
       <span>MINZ · PROJECT FILM</span>
-      <button type="button" id="closeDialog" aria-label="영상 닫기">✕</button>
+      <button type="button" id="closeDialog"
+              aria-label="영상 닫기">✕</button>
     </div>
-    <div id="dialogPlayer" class="dialog-player"></div>
+
+    <div class="dialog-player" id="dialogPlayer"></div>
+
   </dialog>
 
+  <!-- ========================================
+       JAVASCRIPT
+  ======================================== -->
 
-  <!-- JAVASCRIPT -->
   <script>
     (() => {
       "use strict";
 
-      const $ = selector => document.querySelector(selector);
-      const $$ = selector => [...document.querySelectorAll(selector)];
+      const $ = selector =>
+        document.querySelector(selector);
 
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+      const $$ = selector =>
+        Array.from(document.querySelectorAll(selector));
 
-      const escapeHTML = text => String(text).replace(
-        /[&<>"']/g,
-        char => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        })[char]
-      );
+      const escapeHTML = value =>
+        String(value ?? "").replace(
+          /[&<>"']/g,
+          ch => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+          })[ch]
+        );
 
-      /* ===============================
-         01. PORTFOLIO PROJECTS
-      =============================== */
+      const IMG = "assets/img/thumbnails/";
+      const YT = "https://i.ytimg.com/vi/";
+
+      /* =====================================
+         14 PORTFOLIO PROJECTS
+      ===================================== */
 
       const projects = [
+
         {
           id: "bongsan-project",
           category: "video",
@@ -469,10 +1821,12 @@
             "200만 원 제작지원 선정. 기획부터 현장·드론 촬영, 롱폼·숏폼 편집까지.",
           result: "제작지원 200만 원",
           role: "기획 · 촬영 · 드론 · 편집",
-          image:
-            "https://i.ytimg.com/vi/WOeKcOesYJQ/hqdefault.jpg",
+          images: [
+            YT + "WOeKcOesYJQ/hqdefault.jpg"
+          ],
           url: "https://youtu.be/WOeKcOesYJQ"
         },
+
         {
           id: "academy-project",
           category: "video",
@@ -481,11 +1835,15 @@
           description:
             "교육을 통해 새로운 가능성을 발견하는 과정을 인물 중심의 스토리텔링으로 담은 브랜드 홍보영상.",
           role: "기획 · 촬영 · 편집",
-          image:
-            "https://i.ytimg.com/vi/9q5Y0KSXQks/hqdefault.jpg",
-          url:
-            "https://youtu.be/9q5Y0KSXQks"
+          images: [
+            IMG + "도심 옥상정원에서 시작됩니다.png",
+            IMG + "도심 옥상정원에서 시작됩니다.jpg"
+          ],
+
+          // 실제 학원 홍보영상 유튜브 주소 입력
+          url: ""
         },
+
         {
           id: "shinchan-project",
           category: "video",
@@ -495,10 +1853,13 @@
             "현장 중심의 영상과 강한 후킹을 결합한 SNS 콘텐츠.",
           result: "약 5.4만 조회수",
           role: "기획 · 촬영 · 편집",
-          image:
-            "assets/img/thumbnails/shinchan-reel-thumb.jpg",
+          images: [
+            IMG + "shinchan-reel-thumb.jpg",
+            IMG + "shinchan-reel-thumb.png"
+          ],
           url: "https://www.instagram.com/minz_log/"
         },
+
         {
           id: "seogu-project",
           category: "video",
@@ -507,10 +1868,14 @@
           description:
             "부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.",
           role: "촬영 · 편집",
-          image:
-            "https://i.ytimg.com/vi/nzCwQBsn9zk/hqdefault.jpg",
+          images: [
+            IMG + "겨울 오후, 부산 서구 해안 풍경.png",
+            IMG + "겨울 오후, 부산 서구 해안 풍경.jpg",
+            YT + "nzCwQBsn9zk/hqdefault.jpg"
+          ],
           url: "https://youtu.be/nzCwQBsn9zk"
         },
+
         {
           id: "property-project",
           category: "video",
@@ -519,10 +1884,12 @@
           description:
             "건물과 공간, 입지 특성을 전달하는 부동산 영상.",
           role: "기획 · 촬영 · 드론 · 편집",
-          image:
-            "https://i.ytimg.com/vi/Zh1_TzhbqMY/hqdefault.jpg",
+          images: [
+            YT + "Zh1_TzhbqMY/hqdefault.jpg"
+          ],
           url: "https://youtu.be/Zh1_TzhbqMY"
         },
+
         {
           id: "dongbaek-upbeat-project",
           category: "video",
@@ -531,11 +1898,14 @@
           description:
             "비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.",
           role: "촬영 · 편집",
-          image:
-            "assets/img/thumbnails/dongbaek-upbeat-thumb.jpg",
+          images: [
+            IMG + "dongbaek-upbeat-thumb.jpg",
+            IMG + "dongbaek-upbeat-thumb.png"
+          ],
           video:
             "assets/img/video/동백커피 업비트 최종mp4.mp4"
         },
+
         {
           id: "duplit-project",
           category: "video",
@@ -545,11 +1915,14 @@
             "맛집·디저트 정보를 감각적으로 전달한 릴스.",
           result: "약 3.3만 조회수",
           role: "기획 · 촬영 · 편집",
-          image:
-            "assets/img/thumbnails/duplit-thumb.jpg",
+          images: [
+            IMG + "duplit-thumb.jpg",
+            IMG + "duplit-thumb.png"
+          ],
           url:
             "https://www.instagram.com/reel/DcKYiCbyROM/"
         },
+
         {
           id: "supercar-project",
           category: "ai",
@@ -558,11 +1931,14 @@
           description:
             "AI 비주얼과 시네마틱 편집으로 구현한 15초 슈퍼카 광고 콘셉트.",
           role: "콘셉트 기획 · AI 연출 · 편집",
-          image:
-            "assets/img/thumbnails/네온 시티의 AI 슈퍼카 시네마틱.png",
+          images: [
+            IMG + "네온 시티의 AI 슈퍼카 시네마틱.png",
+            IMG + "네온 시티의 AI 슈퍼카 시네마틱.jpg"
+          ],
           video:
             "assets/img/video/20261030슈퍼카_수정01.mp4"
         },
+
         {
           id: "dongbaek-ai-project",
           category: "ai",
@@ -571,11 +1947,14 @@
           description:
             "실사와 AI를 연결한 스토리형 브랜드 콘텐츠.",
           role: "기획 · AI 연출 · 편집",
-          image:
-            "assets/img/thumbnails/dongbaek-ai-thumb.jpg",
+          images: [
+            IMG + "dongbaek-ai-thumb.jpg",
+            IMG + "dongbaek-ai-thumb.png"
+          ],
           video:
             "assets/img/video/동백커피 AI 최종.mp4"
         },
+
         {
           id: "character-project",
           category: "design",
@@ -584,11 +1963,14 @@
           description:
             "MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.",
           role: "캐릭터 기획 · 브랜드 디자인",
-          image:
-            "assets/img/thumbnails/minz-character-thumbnail.jpg",
+          images: [
+            IMG + "minz-character-thumbnail.jpg",
+            IMG + "minz-character-thumbnail.png"
+          ],
           url:
             "assets/img/minz-character-case-study.png"
         },
+
         {
           id: "onpick-project",
           category: "design web",
@@ -597,11 +1979,14 @@
           description:
             "라이프스타일 큐레이션 앱 기획 및 UI 디자인.",
           role: "서비스 기획 · UI/UX",
-          image:
-            "assets/img/thumbnails/onpick-thumbnail-b.png",
+          images: [
+            IMG + "onpick-thumbnail-b.png",
+            IMG + "onpick-thumbnail-2.png"
+          ],
           url:
             "https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&starting-point-node-id=324%3A2062"
         },
+
         {
           id: "night-project",
           category: "design web",
@@ -610,11 +1995,13 @@
           description:
             "부산 야경을 주제로 한 디지털 비주얼 작업.",
           role: "비주얼 디자인 · UI",
-          image:
-            "assets/img/thumbnails/busan-night-thumbnail.png",
+          images: [
+            IMG + "busan-night-thumbnail.png"
+          ],
           url:
             "https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
         },
+
         {
           id: "dart-project",
           category: "video",
@@ -623,11 +2010,13 @@
           description:
             "빠른 컷 구성과 호흡을 활용한 숏폼 콘텐츠.",
           role: "기획 · 편집",
-          image:
-            "https://i.ytimg.com/vi/CoOvsYrYGBA/hqdefault.jpg",
+          images: [
+            YT + "CoOvsYrYGBA/hqdefault.jpg"
+          ],
           url:
             "https://www.youtube.com/shorts/CoOvsYrYGBA"
         },
+
         {
           id: "website-project",
           category: "web",
@@ -636,102 +2025,610 @@
           description:
             "영상·AI·브랜딩을 연결하는 포트폴리오 웹사이트.",
           role: "기획 · 웹 퍼블리싱",
+          images: [],
           url:
             "https://github.com/minzlog777/MINZ_Portfolio_001"
         }
+
       ];
 
-      /* ===============================
-         02. RENDER WORKS
-      =============================== */
+      /* =====================================
+         NOTIFICATION
+      ===================================== */
+
+      const toast = $("#toast");
+      let toastTimer;
+
+      function notify(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 4000);
+      }
+
+      /* =====================================
+         PROJECT CARD RENDER
+      ===================================== */
 
       const grid = $("#worksGrid");
 
-      function renderWorks() {
-        grid.innerHTML = projects.map((p, index) => {
-          const number = String(index + 1).padStart(2, "0");
+      $("#workCount").textContent = projects.length;
 
-          const image = p.image
-            ? `<img
-             src="${escapeHTML(p.image)}"
-             alt="${escapeHTML(p.title)}"
-             loading="lazy">`
-            : "";
+      grid.innerHTML = projects.map((project, index) => {
 
-          const link = p.url
-            ? `<a class="media-link"
-             href="${escapeHTML(p.url)}"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="${escapeHTML(p.title)} 열기">
-             ↗
-           </a>`
-            : "";
+        const number =
+          String(index + 1).padStart(2, "0");
 
-          const video = p.video
-            ? `<button class="watch-button"
-             type="button"
-             data-video="${escapeHTML(p.video)}">
-             ▶ WATCH FILM
-           </button>`
-            : "";
+        const image = project.images.length
+          ? `
+            <img
+              src="${escapeHTML(project.images[0])}"
+              data-fallbacks="${escapeHTML(
+                project.images.slice(1).join("|")
+              )}"
+              alt="${escapeHTML(project.title)} 썸네일"
+              loading="lazy">
+          `
+          : "";
 
-          return `
-        <article
-          id="${p.id}"
-          class="project reveal ${index === 0 ? "featured" : ""}"
-          data-category="${escapeHTML(p.category)}">
-          <div class="project-card">
+        let action = "";
 
-            <div class="project-media">
-              <div class="media-fallback">
-                <span>MINZ / ${number}</span>
-                <strong>CREATIVE<br>PRODUCTION</strong>
+        if (project.video) {
+          action = `
+            <button type="button"
+              class="media-launch"
+              data-video="${escapeHTML(project.video)}"
+              aria-label="${escapeHTML(project.title)} 재생">
+              ▶
+            </button>
+          `;
+        } else if (project.url) {
+          action = `
+            <a class="media-launch"
+               href="${escapeHTML(project.url)}"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="${escapeHTML(project.title)} 보기">
+              ↗
+            </a>
+          `;
+        }
+
+        const viewLabel = project.video
+          ? "▶ WATCH FILM"
+          : project.url
+            ? "↗ VIEW PROJECT"
+            : "VIDEO LINK PENDING";
+
+        return `
+          <article class="project reveal"
+                   id="${escapeHTML(project.id)}"
+                   data-category="${escapeHTML(project.category)}">
+
+            <div class="project-card">
+
+              <div class="project-media">
+
+                <div class="media-fallback">
+                  <span>MINZ / ${number}</span>
+                  <strong>CREATIVE<br>PRODUCTION</strong>
+                </div>
+
+                ${image}
+                ${action}
+
               </div>
-              ${image}
-              ${link}
-            </div>
 
-            <div class="project-info">
-              <div class="project-meta">
-                <span>${escapeHTML(p.type)}</span>
-                <span>${number} / 14</span>
+              <div class="project-info">
+
+                <div class="project-meta">
+                  <span>${escapeHTML(project.type)}</span>
+                  <span>${number} / ${projects.length}</span>
+                </div>
+
+                <h3>${escapeHTML(project.title)}</h3>
+
+                <p class="project-description">
+                  ${escapeHTML(project.description)}
+                </p>
+
+                ${project.result ? `
+                  <strong class="project-result">
+                    ${escapeHTML(project.result)}
+                  </strong>
+                ` : ""}
+
+                <div class="project-bottom">
+
+                  <p class="project-role">
+                    MY ROLE · ${escapeHTML(project.role)}
+                  </p>
+
+                  <span class="view-label">
+                    ${viewLabel}
+                  </span>
+
+                </div>
+
               </div>
-
-              <h3>${escapeHTML(p.title)}</h3>
-              <p>${escapeHTML(p.description)}</p>
-
-              ${p.result
-              ? `<strong class="project-result">
-                     ${escapeHTML(p.result)}
-                   </strong>`
-              : ""}
-
-              <p class="project-role">
-                MY ROLE · ${escapeHTML(p.role)}
-              </p>
-
-              ${video}
             </div>
+          </article>
+        `;
+      }).join("");
 
-          </div>
-        </article>`;
-        }).join("");
+      /* =====================================
+         IMAGE FALLBACK
+      ===================================== */
 
-        $$(".project-media img").forEach(img => {
-          img.addEventListener("error", () => {
-            img.remove();
+      $$(".project-media img").forEach(image => {
+
+        image.addEventListener("error", () => {
+
+          const pending =
+            (image.dataset.fallbacks || "")
+              .split("|")
+              .filter(Boolean);
+
+          if (pending.length === 0) {
+            image.remove();
+            return;
+          }
+
+          image.src = pending.shift();
+          image.dataset.fallbacks = pending.join("|");
+
+        });
+
+      });
+
+      /* =====================================
+         CLICK ON THUMBNAIL
+      ===================================== */
+
+      $$(".project-media").forEach(media => {
+
+        const action = media.querySelector(
+          ".media-launch"
+        );
+
+        if (!action) return;
+
+        media.style.cursor = "pointer";
+
+        media.addEventListener("click", event => {
+
+          if (event.target.closest("a, button")) {
+            return;
+          }
+
+          action.click();
+
+        });
+
+      });
+
+      /* =====================================
+         CATEGORY FILTER
+      ===================================== */
+
+      $$(".filter").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const filter = button.dataset.filter;
+
+          $$(".filter").forEach(item => {
+
+            const active = item === button;
+
+            item.classList.toggle("active", active);
+
+            item.setAttribute(
+              "aria-pressed",
+              String(active)
+            );
+
           });
+
+          $$(".project").forEach(project => {
+
+            const categories =
+              project.dataset.category.split(" ");
+
+            project.hidden =
+              filter !== "all" &&
+              !categories.includes(filter);
+
+          });
+
+        });
+
+      });
+
+      /* =====================================
+         BGM CONTROL
+      ===================================== */
+
+      const bgm = $("#siteBgm");
+      const bgmBtn = $("#bgmBtn");
+
+      let bgmEnabled = false;
+      let activeVideo = false;
+      let bgmRequest = 0;
+
+      bgm.volume = 0.18;
+
+      function updateBgmButton() {
+
+        bgmBtn.textContent =
+          bgmEnabled ? "♫ BGM ON" : "♫ BGM OFF";
+
+        bgmBtn.classList.toggle(
+          "active", bgmEnabled
+        );
+
+        bgmBtn.setAttribute(
+          "aria-pressed", String(bgmEnabled)
+        );
+      }
+
+      async function syncBgm() {
+
+        const request = ++bgmRequest;
+
+        if (!bgmEnabled ||
+            activeVideo ||
+            document.hidden) {
+          bgm.pause();
+          return;
+        }
+
+        try {
+
+          await bgm.play();
+
+          if (request !== bgmRequest ||
+              !bgmEnabled ||
+              activeVideo ||
+              document.hidden) {
+
+            bgm.pause();
+          }
+
+        } catch (error) {
+
+          if (request !== bgmRequest) return;
+
+          bgmEnabled = false;
+          updateBgmButton();
+
+          notify("BGM 파일을 확인해주세요.");
+          console.error(error);
+
+        }
+      }
+
+      bgmBtn.addEventListener("click", () => {
+
+        bgmEnabled = !bgmEnabled;
+
+        updateBgmButton();
+        syncBgm();
+
+      });
+
+      bgm.addEventListener("error", () => {
+
+        if (!bgmEnabled) return;
+
+        bgmEnabled = false;
+        updateBgmButton();
+
+        notify("focus-click.mp3 파일 확인 필요");
+
+      });
+
+      document.addEventListener(
+        "visibilitychange",
+        syncBgm
+      );
+
+      window.addEventListener("blur", () => {
+        bgm.pause();
+      });
+
+      window.addEventListener("focus", syncBgm);
+
+      /* =====================================
+         CAMERA SHUTTER SOUND
+      ===================================== */
+
+      const shutterBtn = $("#shutterListenBtn");
+      const heroVideo = $("#heroVideo");
+
+      const shutter = new Audio(
+        "assets/audio/minz-camera.mp3"
+      );
+
+      shutter.preload = "auto";
+      shutter.volume = 0.65;
+
+      let oldBgmVolume = null;
+
+      function endShutter() {
+
+        shutterBtn.classList.remove("is-playing");
+
+        if (oldBgmVolume !== null) {
+
+          bgm.volume = oldBgmVolume;
+          oldBgmVolume = null;
+
+        }
+      }
+
+      shutter.addEventListener(
+        "ended", endShutter
+      );
+
+      shutter.addEventListener(
+        "error", endShutter
+      );
+
+      shutterBtn.addEventListener("click", () => {
+
+        if (heroVideo) {
+
+          try {
+
+            heroVideo.currentTime = 0;
+
+            heroVideo.play().catch(console.warn);
+
+          } catch (error) {
+            console.warn(error);
+          }
+        }
+
+        shutter.pause();
+        shutter.currentTime = 0;
+
+        if (!bgm.paused && oldBgmVolume === null) {
+
+          oldBgmVolume = bgm.volume;
+          bgm.volume = 0.04;
+
+        }
+
+        shutterBtn.classList.add("is-playing");
+
+        shutter.play().catch(error => {
+
+          endShutter();
+
+          notify(
+            "minz-camera.mp3 파일을 확인해주세요."
+          );
+
+          console.error(error);
+
+        });
+
+      });
+
+      /* =====================================
+         VIDEO POPUP
+      ===================================== */
+
+      const dialog = $("#videoDialog");
+      const player = $("#dialogPlayer");
+
+      grid.addEventListener("click", async event => {
+
+        const button = event.target.closest(
+          "[data-video]"
+        );
+
+        if (!button) return;
+
+        const video = document.createElement("video");
+
+        video.src = button.dataset.video;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+
+        video.addEventListener("error", () => {
+
+          notify(
+            "영상 파일 경로를 확인해주세요."
+          );
+
+        });
+
+        player.replaceChildren(video);
+
+        activeVideo = true;
+        syncBgm();
+
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+
+        try {
+          await video.play();
+        } catch (error) {
+          console.warn(error);
+          notify("영상 재생에 실패했습니다.");
+        }
+
+      });
+
+      function closeDialog() {
+
+        if (dialog.open) {
+          dialog.close();
+        }
+
+      }
+
+      $("#closeDialog").addEventListener(
+        "click",
+        closeDialog
+      );
+
+      dialog.addEventListener("click", event => {
+
+        if (event.target === dialog) {
+          closeDialog();
+        }
+
+      });
+
+      dialog.addEventListener("close", () => {
+
+        const video = player.querySelector("video");
+
+        if (video) {
+
+          video.pause();
+          video.removeAttribute("src");
+          video.load();
+
+        }
+
+        player.replaceChildren();
+
+        activeVideo = false;
+        syncBgm();
+
+      });
+
+      /* EXTERNAL VIDEO LINKS */
+
+      $$(".project-media a[target='_blank']")
+        .forEach(link => {
+
+          link.addEventListener("click", () => {
+            bgm.pause();
+          });
+
+        });
+
+      /* =====================================
+         MOBILE NAVIGATION
+      ===================================== */
+
+      const menuBtn = $("#menuBtn");
+      const nav = $("#nav");
+
+      menuBtn.addEventListener("click", () => {
+
+        const open = nav.classList.toggle("open");
+
+        menuBtn.setAttribute(
+          "aria-expanded", String(open)
+        );
+
+      });
+
+      $$("#nav a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          nav.classList.remove("open");
+
+          menuBtn.setAttribute(
+            "aria-expanded", "false"
+          );
+
+        });
+
+      });
+
+      /* =====================================
+         HEADER / SCROLL
+      ===================================== */
+
+      const header = $("#header");
+      const backTop = $(".back-top");
+
+      function updateScroll() {
+
+        header.classList.toggle(
+          "scrolled",
+          window.scrollY > 25
+        );
+
+        backTop.classList.toggle(
+          "visible",
+          window.scrollY > 500
+        );
+
+      }
+
+      window.addEventListener(
+        "scroll",
+        updateScroll,
+        { passive: true }
+      );
+
+      updateScroll();
+
+      /* =====================================
+         SCROLL REVEAL
+      ===================================== */
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      const reveals = $$(".reveal");
+
+      if (reduceMotion ||
+          !("IntersectionObserver" in window)) {
+
+        reveals.forEach(el => {
+          el.classList.add("visible");
+        });
+
+      } else {
+
+        const observer = new IntersectionObserver(
+          entries => {
+
+            entries.forEach(entry => {
+
+              if (!entry.isIntersecting) return;
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            });
+
+          },
+          {
+            threshold: 0.05,
+            rootMargin: "0px 0px 40px 0px"
+          }
+        );
+
+        reveals.forEach(el => {
+          observer.observe(el);
         });
       }
 
-      renderWorks();
-
-      /* ===============================
-         03. TYPEWRITER
-      =============================== */
+      /* =====================================
+         HERO TYPING ANIMATION
+      ===================================== */
 
       const typing = $("#typingText");
+
       const words = [
         "Creator.",
         "Video Editor.",
@@ -740,356 +2637,61 @@
       ];
 
       if (!reduceMotion) {
+
         let wordIndex = 0;
-        let charIndex = 0;
+        let charIndex = words[0].length;
         let deleting = false;
 
-        const type = () => {
+        function typeTick() {
+
           if (document.hidden) {
-            setTimeout(type, 400);
+            setTimeout(typeTick, 600);
             return;
           }
 
           const word = words[wordIndex];
 
-          if (deleting) {
-            charIndex = Math.max(0, charIndex - 1);
-          } else {
-            charIndex = Math.min(
-              word.length, charIndex + 1
-            );
-          }
+          charIndex = deleting
+            ? Math.max(0, charIndex - 1)
+            : Math.min(word.length, charIndex + 1);
 
-          typing.textContent = word.slice(0, charIndex);
+          typing.textContent = word.slice(
+            0,
+            charIndex
+          );
 
-          if (!deleting && charIndex === word.length) {
+          if (!deleting &&
+              charIndex === word.length) {
+
             deleting = true;
-            setTimeout(type, 1800);
+
+            setTimeout(typeTick, 1750);
             return;
           }
 
           if (deleting && charIndex === 0) {
+
             deleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(type, 350);
+
+            wordIndex =
+              (wordIndex + 1) % words.length;
+
+            setTimeout(typeTick, 300);
             return;
           }
 
-          setTimeout(type, deleting ? 48 : 85);
-        };
-
-        typing.textContent = "";
-        setTimeout(type, 600);
-      }
-
-      /* ===============================
-         04. BGM PLAYER
-      =============================== */
-
-      const bgm = $("#siteBgm");
-      const bgmBtn = $("#bgmBtn");
-      const toast = $("#toast");
-
-      let bgmEnabled = false;
-      let activeVideo = false;
-      let musicRequest = 0;
-      let toastTimer;
-
-      bgm.volume = 0.18;
-
-      function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add("show");
-
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toast.classList.remove("show");
-        }, 5000);
-      }
-
-      function updateMusicButton() {
-        bgmBtn.textContent = bgmEnabled
-          ? "♫ BGM ON"
-          : "♫ BGM OFF";
-
-        bgmBtn.classList.toggle("active", bgmEnabled);
-
-        bgmBtn.setAttribute(
-          "aria-pressed", String(bgmEnabled)
-        );
-      }
-
-      async function syncMusic() {
-        const request = ++musicRequest;
-
-        if (!bgmEnabled || activeVideo) {
-          bgm.pause();
-          return;
-        }
-
-        try {
-          await bgm.play();
-
-          if (request !== musicRequest ||
-            !bgmEnabled || activeVideo) {
-            bgm.pause();
-          }
-        } catch (error) {
-          if (request !== musicRequest) return;
-
-          bgmEnabled = false;
-          updateMusicButton();
-
-          showToast(
-            "BGM 재생 실패: MP3 파일 업로드 및 경로를 확인해 주세요."
+          setTimeout(
+            typeTick,
+            deleting ? 55 : 95
           );
-          console.error("MINZ BGM 오류:", error);
         }
+
+        setTimeout(typeTick, 2100);
+
       }
-
-      bgmBtn.addEventListener("click", () => {
-        bgmEnabled = !bgmEnabled;
-        updateMusicButton();
-        syncMusic();
-      });
-
-      bgm.addEventListener("error", () => {
-        bgmEnabled = false;
-        updateMusicButton();
-
-        showToast(
-          "음악 파일을 불러올 수 없습니다. assets/audio/focus-click.mp3 확인"
-        );
-      });
-
-      /* ===============================
-         05. VIDEO MODAL
-      =============================== */
-
-      const dialog = $("#videoDialog");
-      const player = $("#dialogPlayer");
-
-      function closeVideo() {
-        if (!dialog.open) return;
-
-        dialog.close();
-      }
-
-      grid.addEventListener("click", async event => {
-        const button = event.target.closest("[data-video]");
-        if (!button) return;
-
-        const source = button.dataset.video;
-
-        player.replaceChildren();
-
-        const video = document.createElement("video");
-        video.controls = true;
-        video.playsInline = true;
-        video.autoplay = true;
-        video.src = source;
-
-        video.addEventListener("error", () => {
-          showToast("영상 파일 경로를 확인해 주세요.");
-        });
-
-        video.addEventListener("ended", () => {
-          closeVideo();
-        });
-
-        player.append(video);
-
-        activeVideo = true;
-        syncMusic();
-
-        dialog.showModal();
-
-        try {
-          await video.play();
-        } catch (error) {
-          showToast("영상 재생에 실패했습니다.");
-          console.error(error);
-        }
-      });
-
-      $("#closeDialog").addEventListener("click", closeVideo);
-
-      dialog.addEventListener("click", event => {
-        if (event.target === dialog) closeVideo();
-      });
-
-      dialog.addEventListener("close", () => {
-        const video = $("video", player);
-
-        if (video) {
-          video.pause();
-          video.removeAttribute("src");
-          video.load();
-        }
-
-        player.replaceChildren();
-        activeVideo = false;
-        syncMusic();
-      });
-
-      /* ===============================
-         06. FILTERS
-      =============================== */
-
-      $$(".filter").forEach(button => {
-        button.addEventListener("click", () => {
-          const filter = button.dataset.filter;
-
-          $$(".filter").forEach(item => {
-            const active = item === button;
-
-            item.classList.toggle("active", active);
-            item.setAttribute(
-              "aria-pressed", String(active)
-            );
-          });
-
-          $$(".project").forEach(project => {
-            const categories =
-              project.dataset.category.split(" ");
-
-            project.hidden = filter !== "all" &&
-              !categories.includes(filter);
-          });
-        });
-      });
-
-      /* ===============================
-         07. MOBILE MENU
-      =============================== */
-
-      const menuBtn = $("#menuBtn");
-      const nav = $("#nav");
-
-      menuBtn.addEventListener("click", () => {
-        const open = nav.classList.toggle("open");
-
-        menuBtn.setAttribute(
-          "aria-expanded", String(open)
-        );
-      });
-
-      $$("#nav a").forEach(link => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("open");
-          menuBtn.setAttribute(
-            "aria-expanded", "false"
-          );
-        });
-      });
-
-      /* ===============================
-         08. SCROLL EFFECTS
-      =============================== */
-
-      function initReveal() {
-        const elements = $$(".reveal");
-
-        if (reduceMotion ||
-          !("IntersectionObserver" in window)) {
-          elements.forEach(element =>
-            element.classList.add("visible"));
-          return;
-        }
-
-        const observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (!entry.isIntersecting) return;
-
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            });
-          },
-          {
-            threshold: 0.08,
-            rootMargin: "0px 0px 30px 0px"
-          }
-        );
-
-        elements.forEach(element =>
-          observer.observe(element));
-      }
-
-      initReveal();
-
-      const header = $("#header");
-
-      window.addEventListener("scroll", () => {
-        header.classList.toggle(
-          "scrolled", window.scrollY > 25
-        );
-      }, { passive: true });
 
     })();
   </script>
-
-
-
-  <script>
-    (() => {
-      const button = document.getElementById("shutterListenBtn");
-      if (!button) return;
-
-      const video = document.querySelector(".hero-video");
-      const bgm = document.getElementById("siteBgm");
-
-      const shutter = new Audio("./assets/audio/minz-camera.mp3");
-      shutter.preload = "auto";
-      shutter.volume = 0.65;
-
-      let originalBgmVolume = null;
-
-      function resetShutter() {
-        button.classList.remove("is-playing");
-
-        if (bgm && originalBgmVolume !== null) {
-          bgm.volume = originalBgmVolume;
-          originalBgmVolume = null;
-        }
-      }
-
-      shutter.addEventListener("ended", resetShutter);
-      shutter.addEventListener("error", resetShutter);
-
-      button.addEventListener("click", () => {
-        shutter.pause();
-        shutter.currentTime = 0;
-
-        if (video) {
-          try {
-            video.currentTime = 0;
-            video.play().catch(console.warn);
-          } catch (error) {
-            console.warn(error);
-          }
-        }
-
-        // BGM은 끄지 않고 잠시 볼륨만 줄입니다.
-        if (bgm && !bgm.paused && originalBgmVolume === null) {
-          originalBgmVolume = bgm.volume;
-          bgm.volume = 0.04;
-        }
-
-        button.classList.add("is-playing");
-
-        shutter.play().catch(error => {
-          console.error("셔터음 재생 실패:", error);
-          resetShutter();
-          alert("셔터음 파일을 확인해주세요.");
-        });
-      });
-    })();
-  </script>
-
-
-
 
 </body>
-
 </html>
