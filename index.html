@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-  <link rel="stylesheet" href="assets/css/main.css?v=12.1">
+  <link rel="stylesheet" href="assets/css/main.css?v=12.3">
 </head>
 
 
@@ -125,29 +125,47 @@
             <span>AI</span>
           </div>
 
+
           <div class="hero-actions">
             <a href="#works" class="button button-white">
               EXPLORE WORKS ↗
             </a>
+
             <a href="#about" class="hero-link">
               ABOUT MINZ ↗
             </a>
-            <button type="button" id="shutterListenBtn" class="button button-white">
-              📷 셔터음 듣기
-            </button>
+          </div>
+
+          <!-- MINZ SHUTTER SOUND -->
+          <button type="button" id="shutterListenBtn" class="shutter-control" aria-label="카메라 셔터음과 오프닝 영상 다시 재생">
+
+            <span class="shutter-control-icon" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z" />
+                <circle cx="12" cy="13" r="3" />
+              </svg>
+            </span>
+
+            <span class="shutter-control-copy">
+              <strong>SHUTTER SOUND</strong>
+              <small>오프닝 사운드 다시 듣기</small>
+            </span>
+
+            <span class="shutter-control-play" aria-hidden="true">▶</span>
+          </button>
+
+
+          <div class="hero-decoration" aria-hidden="true">
+            <span>MINZ / CREATIVE PRODUCTION</span>
+            <strong>IDEAS<br>TO<br>IMPACT.</strong>
           </div>
         </div>
 
-        <div class="hero-decoration" aria-hidden="true">
-          <span>MINZ / CREATIVE PRODUCTION</span>
-          <strong>IDEAS<br>TO<br>IMPACT.</strong>
+        <div class="container hero-footer">
+          <span>BUSAN BASED · CREATIVE PRODUCER</span>
+          <a href="#works">SCROLL TO EXPLORE ↓</a>
         </div>
-      </div>
-
-      <div class="container hero-footer">
-        <span>BUSAN BASED · CREATIVE PRODUCER</span>
-        <a href="#works">SCROLL TO EXPLORE ↓</a>
-      </div>
     </section>
 
     <!-- RESULTS -->
@@ -1014,33 +1032,63 @@
   </script>
 
 
+
   <script>
     (() => {
       const button = document.getElementById("shutterListenBtn");
-      const video = document.querySelector(".hero-video");
-      const shutter = new Audio("./assets/audio/minz-camera.mp3");
-
-      shutter.volume = 0.65;
-      shutter.preload = "auto";
-
       if (!button) return;
 
-      button.addEventListener("click", () => {
-        if (video) {
-          video.currentTime = 0;
-          video.play().catch(console.error);
-        }
+      const video = document.querySelector(".hero-video");
+      const bgm = document.getElementById("siteBgm");
 
+      const shutter = new Audio("./assets/audio/minz-camera.mp3");
+      shutter.preload = "auto";
+      shutter.volume = 0.65;
+
+      let originalBgmVolume = null;
+
+      function resetShutter() {
+        button.classList.remove("is-playing");
+
+        if (bgm && originalBgmVolume !== null) {
+          bgm.volume = originalBgmVolume;
+          originalBgmVolume = null;
+        }
+      }
+
+      shutter.addEventListener("ended", resetShutter);
+      shutter.addEventListener("error", resetShutter);
+
+      button.addEventListener("click", () => {
         shutter.pause();
         shutter.currentTime = 0;
 
+        if (video) {
+          try {
+            video.currentTime = 0;
+            video.play().catch(console.warn);
+          } catch (error) {
+            console.warn(error);
+          }
+        }
+
+        // BGM은 끄지 않고 잠시 볼륨만 줄입니다.
+        if (bgm && !bgm.paused && originalBgmVolume === null) {
+          originalBgmVolume = bgm.volume;
+          bgm.volume = 0.04;
+        }
+
+        button.classList.add("is-playing");
+
         shutter.play().catch(error => {
           console.error("셔터음 재생 실패:", error);
+          resetShutter();
           alert("셔터음 파일을 확인해주세요.");
         });
       });
     })();
   </script>
+
 
 
 
