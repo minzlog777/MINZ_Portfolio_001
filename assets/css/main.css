@@ -1149,3 +1149,9 @@ button:focus-visible, a:focus-visible {
     transition: none;
   }
 }
+
+.project-role .role-divider {
+  color: #9868e9;
+  font-weight: 800;
+  margin: 0 5px;
+}

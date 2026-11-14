@@ -1,6 +1,6 @@
-
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,546 +11,550 @@
   <title>MINZ | Creative Portfolio</title>
   <link rel="icon" href="assets/img/lastfavicon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
   <link rel="stylesheet" href="assets/css/main.css?v=20261114-1">
 </head>
+
 <body>
 
-<header class="header" id="header">
-  <div class="container nav-layout">
-    <a class="logo" href="#home" aria-label="MINZ 홈">
-      MINZ<span>®</span>
-    </a>
-    <nav class="nav" id="nav" aria-label="주 메뉴">
-      <a href="#works">WORKS</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-    <div class="header-actions">
-      <button id="bgmBtn" class="bgm-btn" type="button" aria-pressed="false">♫ BGM OFF</button>
-      <button id="menuBtn" class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="메뉴 열기">☰</button>
-    </div>
-  </div>
-</header>
-
-<audio id="siteBgm" src="assets/audio/focus-click.mp3" loop preload="none"></audio>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-<main>
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-      <source src="assets/img/MINZ_hero_shutter.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-layout">
-      <div class="hero-content">
-        <div class="hero-kicker">
-          <span class="signal-dot"></span>
-          CREATIVE PORTFOLIO / 2026
-        </div>
-        <h1 class="hero-title">
-          I AM <em>MINZ.</em>
-          <span class="typing-line">
-            <span id="typingText">Creator.</span><span class="cursor" aria-hidden="true"></span>
-          </span>
-        </h1>
-        <p class="hero-description">
-          생각을 장면으로, 장면을 이야기로.<br>
-          기획부터 마지막 컷까지 직접 완성합니다.
-        </p>
-        <div class="hero-services">
-          <span>DIRECTING</span>
-          <span>FILMING</span>
-          <span>DRONE</span>
-          <span>EDITING</span>
-          <span>AI</span>
-          <span>INFLUENCER</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button button-white" href="#works">EXPLORE WORKS ↗</a>
-          <a class="hero-link" href="#about">ABOUT MINZ ↗</a>
-        </div>
-        <button type="button" id="shutterListenBtn" class="shutter-control" aria-label="셔터음과 오프닝 영상 다시 재생">
-          <span class="shutter-icon" aria-hidden="true">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z"/>
-              <circle cx="12" cy="13" r="3"/>
-            </svg>
-          </span>
-          <span class="shutter-copy">
-            <strong>SHUTTER SOUND</strong>
-            <small>오프닝 사운드 다시 듣기</small>
-          </span>
-          <span class="shutter-play" aria-hidden="true">▶</span>
-        </button>
+  <header class="header" id="header">
+    <div class="container nav-layout">
+      <a class="logo" href="#home" aria-label="MINZ 홈">
+        MINZ<span>®</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="주 메뉴">
+        <a href="#works">WORKS</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <div class="header-actions">
+        <button id="bgmBtn" class="bgm-btn" type="button" aria-pressed="false">♫ BGM OFF</button>
+        <button id="menuBtn" class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"
+          aria-label="메뉴 열기">☰</button>
       </div>
     </div>
-    <div class="container hero-footer">
-      <span>BUSAN BASED · CREATIVE PRODUCER</span>
-      <a href="#works">SCROLL TO EXPLORE ↓</a>
-    </div>
-  </section>
+  </header>
 
-  <!-- ACHIEVEMENTS -->
-  <section class="proof-section" aria-label="주요 성과">
-    <div class="container proof-grid">
-      <div class="proof-item">
-        <small>01 / PROJECT SUPPORT</small>
-        <strong>200<span>만 원</span></strong>
-        <p>봉산마을 관광 콘텐츠 지원사업</p>
-      </div>
-      <div class="proof-item">
-        <small>02 / CONTENT PERFORMANCE</small>
-        <strong>5.4<span>만 회</span></strong>
-        <p>짱구 팝업스토어 릴스 조회수</p>
-      </div>
-      <div class="proof-item">
-        <small>03 / PRODUCTION</small>
-        <strong>ONE STOP</strong>
-        <p>기획 · 촬영 · 드론 · 편집</p>
-      </div>
-    </div>
-  </section>
+  <audio id="siteBgm" src="assets/audio/focus-click.mp3" loop preload="none"></audio>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- SELECTED WORKS -->
-  <section id="works" class="section works-section">
-    <div class="container">
-      <div class="section-heading reveal">
-        <div>
-          <p class="kicker">01 / SELECTED PROJECTS</p>
-          <h2 class="section-title">Selected<br><em>Works.</em></h2>
-        </div>
-        <p class="section-description">
-          아이디어를 실행 가능한 결과로.<br>
-          실제 프로젝트, 콘텐츠 성과, 그리고 새로운 시도를 보여줍니다.
-        </p>
-      </div>
-      <div class="filters" role="group" aria-label="작품 카테고리">
-        <button type="button" class="filter active" data-filter="all" aria-pressed="true">
-          ALL <span id="workCount">14</span>
-        </button>
-        <button type="button" class="filter" data-filter="video" aria-pressed="false">VIDEO</button>
-        <button type="button" class="filter" data-filter="ai" aria-pressed="false">AI CONTENT</button>
-        <button type="button" class="filter" data-filter="design" aria-pressed="false">DESIGN</button>
-        <button type="button" class="filter" data-filter="web" aria-pressed="false">WEB / UI</button>
-      </div>
-      <div id="worksGrid" class="works-grid"></div>
-    </div>
-  </section>
-
-  <!-- BRAND STATEMENT -->
-  <section class="statement-section">
-    <div class="container">
-      <p class="kicker">WHAT I DO</p>
-      <h2 class="reveal">
-        콘텐츠는 <em>보여주는 것</em>을 넘어<br>
-        기억되게 만드는 것.
-      </h2>
-      <p class="tagline">STRATEGY → PRODUCTION → IMPACT</p>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section experience-section" aria-labelledby="expTitle">
-    <div class="container">
-      <div class="section-heading reveal">
-        <div>
-          <p class="kicker">02 / CAREER & ACHIEVEMENTS</p>
-          <h2 class="section-title" id="expTitle">Experience<em>.</em></h2>
-        </div>
-        <p class="section-description">
-          쌓아온 경험을 실질적인 제작 역량으로.<br>
-          기획부터 실행, 성과까지 이어온 기록입니다.
-        </p>
-      </div>
-
-      <article class="exp-feature reveal" aria-label="영도 봉산마을 제작 성과">
-        <div class="exp-feature-copy">
-          <span class="exp-feature-label">FEATURED ACHIEVEMENT / 2026</span>
-          <h3>영도 봉산마을<br>관광 콘텐츠 제작</h3>
-          <p class="exp-feature-description">
-            제작지원 사업 선정부터 콘텐츠 기획, 현장 및 드론 촬영,
-            롱폼·숏폼 편집까지 전 과정을 수행한 지역 관광 프로젝트.
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/img/MINZ_hero_shutter.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span class="signal-dot"></span>
+            CREATIVE PORTFOLIO / 2026
+          </div>
+          <h1 class="hero-title">
+            I AM <em>MINZ.</em>
+            <span class="typing-line">
+              <span id="typingText">Creator.</span><span class="cursor" aria-hidden="true"></span>
+            </span>
+          </h1>
+          <p class="hero-description">
+            생각을 장면으로, 장면을 이야기로.<br>
+            기획부터 마지막 컷까지 직접 완성합니다.
           </p>
-          <div class="exp-feature-tags" aria-label="수행 업무">
+          <div class="hero-services">
             <span>DIRECTING</span>
             <span>FILMING</span>
             <span>DRONE</span>
             <span>EDITING</span>
+            <span>AI</span>
+            <span>INFLUENCER</span>
           </div>
+          <div class="hero-actions">
+            <a class="button button-white" href="#works">EXPLORE WORKS ↗</a>
+            <a class="hero-link" href="#about">ABOUT MINZ ↗</a>
+          </div>
+          <button type="button" id="shutterListenBtn" class="shutter-control" aria-label="셔터음과 오프닝 영상 다시 재생">
+            <span class="shutter-icon" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linejoin="round" stroke-linecap="round">
+                <path d="M14.5 4h-5l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3Z" />
+                <circle cx="12" cy="13" r="3" />
+              </svg>
+            </span>
+            <span class="shutter-copy">
+              <strong>SHUTTER SOUND</strong>
+              <small>오프닝 사운드 다시 듣기</small>
+            </span>
+            <span class="shutter-play" aria-hidden="true">▶</span>
+          </button>
         </div>
-        <div class="exp-stat">
-          <span class="exp-stat-label">PROJECT FUNDING</span>
+      </div>
+      <div class="container hero-footer">
+        <span>BUSAN BASED · CREATIVE PRODUCER</span>
+        <a href="#works">SCROLL TO EXPLORE ↓</a>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="proof-section" aria-label="주요 성과">
+      <div class="container proof-grid">
+        <div class="proof-item">
+          <small>01 / PROJECT SUPPORT</small>
+          <strong>200<span>만 원</span></strong>
+          <p>봉산마을 관광 콘텐츠 지원사업</p>
+        </div>
+        <div class="proof-item">
+          <small>02 / CONTENT PERFORMANCE</small>
+          <strong>5.4<span>만 회</span></strong>
+          <p>짱구 팝업스토어 릴스 조회수</p>
+        </div>
+        <div class="proof-item">
+          <small>03 / PRODUCTION</small>
+          <strong>ONE STOP</strong>
+          <p>기획 · 촬영 · 드론 · 편집</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORKS -->
+    <section id="works" class="section works-section">
+      <div class="container">
+        <div class="section-heading reveal">
           <div>
-            <strong class="exp-stat-number">200</strong>
-            <span class="exp-stat-unit">만 원</span>
+            <p class="kicker">01 / SELECTED PROJECTS</p>
+            <h2 class="section-title">Selected<br><em>Works.</em></h2>
           </div>
-          <p class="exp-stat-caption">관광 콘텐츠 제작지원 선정</p>
+          <p class="section-description">
+            아이디어를 실행 가능한 결과로.<br>
+            실제 프로젝트, 콘텐츠 성과, 그리고 새로운 시도를 보여줍니다.
+          </p>
         </div>
-      </article>
-
-      <div class="exp-panels">
-        <section class="exp-panel reveal" aria-labelledby="careerHeading">
-          <div class="exp-panel-heading">
-            <h3 id="careerHeading">Professional Career</h3>
-            <small>01 / CAREER</small>
-          </div>
-          <div class="exp-timeline">
-            <article class="exp-entry">
-              <span class="exp-period">ONGOING</span>
-              <h4>영상 제작 · 콘텐츠 마케팅</h4>
-              <p>YouTube 채널 운영과 브랜드·지역 홍보영상, SNS 숏폼을 기획하고 직접 촬영·편집합니다.</p>
-            </article>
-            <article class="exp-entry">
-              <span class="exp-period">ONGOING · INFLUENCER</span>
-              <h4>SNS 인플루언서 · @minz_log</h4>
-              <p>부산 맛집·핫플·지역 정보를 알리는 인스타그램 릴스와 브랜드 협업 콘텐츠를 직접 기획·촬영·편집합니다.</p>
-            </article>
-            <article class="exp-entry">
-              <span class="exp-period">7 YEARS</span>
-              <h4>직업상담사 실무 경력</h4>
-              <p>요구 분석과 커뮤니케이션 경험을 콘텐츠 기획, 인터뷰, 정보 전달에 연결합니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="exp-panel reveal" aria-labelledby="activityHeading">
-          <div class="exp-panel-heading">
-            <h3 id="activityHeading">Creative Activities</h3>
-            <small>02 / ACTIVITIES</small>
-          </div>
-          <div class="exp-timeline">
-            <article class="exp-entry">
-              <span class="exp-period">2026</span>
-              <h4>부산 드론 수색대</h4>
-              <p>드론 수색 활동 참여 · 초경량비행장치 조종자 1종 취득.</p>
-            </article>
-            <article class="exp-entry">
-              <span class="exp-period">2025 —</span>
-              <h4>네이버 클립 크리에이터</h4>
-              <p>맛집·여행·지역 정보를 숏폼으로 제작하며 채널 운영을 이어갑니다.</p>
-            </article>
-            <article class="exp-entry">
-              <span class="exp-period">2024</span>
-              <h4>부산콘텐츠코리아랩 서포터즈</h4>
-              <p>지역 콘텐츠 제작 및 홍보 활동.</p>
-            </article>
-            <article class="exp-entry">
-              <span class="exp-period">INFLUENCER ACTIVITY</span>
-              <h4>당근 인플루언서</h4>
-              <p>지역 기반 콘텐츠와 홍보 활동에 참여했습니다.</p>
-            </article>
-          </div>
-        </section>
+        <div class="filters" role="group" aria-label="작품 카테고리">
+          <button type="button" class="filter active" data-filter="all" aria-pressed="true">
+            ALL <span id="workCount">14</span>
+          </button>
+          <button type="button" class="filter" data-filter="video" aria-pressed="false">VIDEO</button>
+          <button type="button" class="filter" data-filter="ai" aria-pressed="false">AI CONTENT</button>
+          <button type="button" class="filter" data-filter="design" aria-pressed="false">DESIGN</button>
+          <button type="button" class="filter" data-filter="web" aria-pressed="false">WEB / UI</button>
+        </div>
+        <div id="worksGrid" class="works-grid"></div>
       </div>
+    </section>
 
-      <div class="exp-footer-line">
-        <span>STRATEGY · PRODUCTION · CONTENT MARKETING</span>
-        <span>MINZ / 2026</span>
+    <!-- BRAND STATEMENT -->
+    <section class="statement-section">
+      <div class="container">
+        <p class="kicker">WHAT I DO</p>
+        <h2 class="reveal">
+          콘텐츠는 <em>보여주는 것</em>을 넘어<br>
+          기억되게 만드는 것.
+        </h2>
+        <p class="tagline">STRATEGY → PRODUCTION → IMPACT</p>
       </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience-section" aria-labelledby="expTitle">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">02 / CAREER & ACHIEVEMENTS</p>
+            <h2 class="section-title" id="expTitle">Experience<em>.</em></h2>
+          </div>
+          <p class="section-description">
+            쌓아온 경험을 실질적인 제작 역량으로.<br>
+            기획부터 실행, 성과까지 이어온 기록입니다.
+          </p>
+        </div>
+
+        <article class="exp-feature reveal" aria-label="영도 봉산마을 제작 성과">
+          <div class="exp-feature-copy">
+            <span class="exp-feature-label">FEATURED ACHIEVEMENT / 2026</span>
+            <h3>영도 봉산마을<br>관광 콘텐츠 제작</h3>
+            <p class="exp-feature-description">
+              제작지원 사업 선정부터 콘텐츠 기획, 현장 및 드론 촬영,
+              롱폼·숏폼 편집까지 전 과정을 수행한 지역 관광 프로젝트.
+            </p>
+            <div class="exp-feature-tags" aria-label="수행 업무">
+              <span>DIRECTING</span>
+              <span>FILMING</span>
+              <span>DRONE</span>
+              <span>EDITING</span>
+            </div>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-stat-label">PROJECT FUNDING</span>
+            <div>
+              <strong class="exp-stat-number">200</strong>
+              <span class="exp-stat-unit">만 원</span>
+            </div>
+            <p class="exp-stat-caption">관광 콘텐츠 제작지원 선정</p>
+          </div>
+        </article>
+
+        <div class="exp-panels">
+          <section class="exp-panel reveal" aria-labelledby="careerHeading">
+            <div class="exp-panel-heading">
+              <h3 id="careerHeading">Professional Career</h3>
+              <small>01 / CAREER</small>
+            </div>
+            <div class="exp-timeline">
+              <article class="exp-entry">
+                <span class="exp-period">ONGOING</span>
+                <h4>영상 제작 · 콘텐츠 마케팅</h4>
+                <p>YouTube 채널 운영과 브랜드·지역 홍보영상, SNS 숏폼을 기획하고 직접 촬영·편집합니다.</p>
+              </article>
+              <article class="exp-entry">
+                <span class="exp-period">ONGOING · INFLUENCER</span>
+                <h4>SNS 인플루언서 · @minz_log</h4>
+                <p>부산 맛집·핫플·지역 정보를 알리는 인스타그램 릴스와 브랜드 협업 콘텐츠를 직접 기획·촬영·편집합니다.</p>
+              </article>
+              <article class="exp-entry">
+                <span class="exp-period">7 YEARS</span>
+                <h4>직업상담사 실무 경력</h4>
+                <p>요구 분석과 커뮤니케이션 경험을 콘텐츠 기획, 인터뷰, 정보 전달에 연결합니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="exp-panel reveal" aria-labelledby="activityHeading">
+            <div class="exp-panel-heading">
+              <h3 id="activityHeading">Creative Activities</h3>
+              <small>02 / ACTIVITIES</small>
+            </div>
+            <div class="exp-timeline">
+              <article class="exp-entry">
+                <span class="exp-period">2026</span>
+                <h4>부산 드론 수색대</h4>
+                <p>드론 수색 활동 참여 · 초경량비행장치 조종자 1종 취득.</p>
+              </article>
+              <article class="exp-entry">
+                <span class="exp-period">2025 —</span>
+                <h4>네이버 클립 크리에이터</h4>
+                <p>맛집·여행·지역 정보를 숏폼으로 제작하며 채널 운영을 이어갑니다.</p>
+              </article>
+              <article class="exp-entry">
+                <span class="exp-period">2024</span>
+                <h4>부산콘텐츠코리아랩 서포터즈</h4>
+                <p>지역 콘텐츠 제작 및 홍보 활동.</p>
+              </article>
+              <article class="exp-entry">
+                <span class="exp-period">INFLUENCER ACTIVITY</span>
+                <h4>당근 인플루언서</h4>
+                <p>지역 기반 콘텐츠와 홍보 활동에 참여했습니다.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <div class="exp-footer-line">
+          <span>STRATEGY · PRODUCTION · CONTENT MARKETING</span>
+          <span>MINZ / 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+      <div class="container about-grid">
+        <div class="about-image reveal">
+          <img src="assets/img/minz-profile.png" alt="MINZ 크리에이터 프로필" loading="lazy">
+          <div class="about-image-label">MEET THE CREATOR / MINZ</div>
+        </div>
+        <div class="about-content reveal">
+          <p class="kicker">03 / ABOUT MINZ</p>
+          <h2>Creative mind.<br><em>Real results.</em></h2>
+          <h3>기획부터 마지막 컷까지,<br>이야기를 완성합니다.</h3>
+          <p>
+            신문방송학 전공을 바탕으로 영상 기획·촬영·편집,
+            콘텐츠 마케팅과 인플루언서 활동을 연결합니다.
+            인스타그램 @minz_log에서 부산 맛집·핫플을 소개하고,
+            브랜드 협업 릴스부터 지역 홍보영상과 AI 콘텐츠까지
+            목적에 맞게 직접 제작합니다.
+          </p>
+          <p class="skill-description">
+            Premiere Pro · After Effects · Photoshop ·
+            Illustrator · Drone · Generative AI
+          </p>
+          <a class="button button-dark" href="#contact">
+            LET'S COLLABORATE ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <p class="kicker">04 / GET IN TOUCH</p>
+        <h2>Have a story?<br><em>Let's create.</em></h2>
+        <p>브랜드 홍보영상 · 드론 촬영 · AI 콘텐츠 · SNS 마케팅</p>
+        <div class="contact-buttons">
+          <a href="mailto:jakeminz@gmail.com">EMAIL ME ↗</a>
+          <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer">
+            INSTAGRAM ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="#home" class="logo">MINZ<span>®</span></a>
+      <p>Create Stories. Inspire People.</p>
+      <small>© 2026 MINZ · 유재민</small>
     </div>
-  </section>
+  </footer>
 
-  <!-- ABOUT -->
-  <section id="about" class="section about-section">
-    <div class="container about-grid">
-      <div class="about-image reveal">
-        <img src="assets/img/minz-profile.png" alt="MINZ 크리에이터 프로필" loading="lazy">
-        <div class="about-image-label">MEET THE CREATOR / MINZ</div>
-      </div>
-      <div class="about-content reveal">
-        <p class="kicker">03 / ABOUT MINZ</p>
-        <h2>Creative mind.<br><em>Real results.</em></h2>
-        <h3>기획부터 마지막 컷까지,<br>이야기를 완성합니다.</h3>
-        <p>
-          신문방송학 전공을 바탕으로 영상 기획·촬영·편집,
-          콘텐츠 마케팅과 인플루언서 활동을 연결합니다.
-          인스타그램 @minz_log에서 부산 맛집·핫플을 소개하고,
-          브랜드 협업 릴스부터 지역 홍보영상과 AI 콘텐츠까지
-          목적에 맞게 직접 제작합니다.
-        </p>
-        <p class="skill-description">
-          Premiere Pro · After Effects · Photoshop ·
-          Illustrator · Drone · Generative AI
-        </p>
-        <a class="button button-dark" href="#contact">
-          LET'S COLLABORATE ↗
-        </a>
-      </div>
+  <a class="back-top" href="#home" aria-label="페이지 맨 위로 이동">↑</a>
+
+  <dialog id="videoDialog" class="video-dialog" aria-label="작품 영상">
+    <div class="dialog-header">
+      <span>MINZ · PROJECT FILM</span>
+      <button type="button" id="closeDialog" aria-label="영상 닫기">✕</button>
     </div>
-  </section>
+    <div class="dialog-player" id="dialogPlayer"></div>
+  </dialog>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <p class="kicker">04 / GET IN TOUCH</p>
-      <h2>Have a story?<br><em>Let's create.</em></h2>
-      <p>브랜드 홍보영상 · 드론 촬영 · AI 콘텐츠 · SNS 마케팅</p>
-      <div class="contact-buttons">
-        <a href="mailto:jakeminz@gmail.com">EMAIL ME ↗</a>
-        <a href="https://www.instagram.com/minz_log/" target="_blank" rel="noopener noreferrer">
-          INSTAGRAM ↗
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
+  <script>
+    (() => {
+      "use strict";
 
-<footer class="footer">
-  <div class="container footer-content">
-    <a href="#home" class="logo">MINZ<span>®</span></a>
-    <p>Create Stories. Inspire People.</p>
-    <small>© 2026 MINZ · 유재민</small>
-  </div>
-</footer>
+      const $ = s => document.querySelector(s);
+      const $$ = s => Array.from(document.querySelectorAll(s));
+      const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c]));
 
-<a class="back-top" href="#home" aria-label="페이지 맨 위로 이동">↑</a>
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-<dialog id="videoDialog" class="video-dialog" aria-label="작품 영상">
-  <div class="dialog-header">
-    <span>MINZ · PROJECT FILM</span>
-    <button type="button" id="closeDialog" aria-label="영상 닫기">✕</button>
-  </div>
-  <div class="dialog-player" id="dialogPlayer"></div>
-</dialog>
+      const YT = "https://i.ytimg.com/vi/";
+      const IMG = "assets/img/thumbnails/";
 
-<script>
-(() => {
-  "use strict";
+      // 14개 작품 데이터
+      const projects = [
+        {
+          id: "bongsan-project",
+          cat: "video",
+          type: "TOURISM / BRAND FILM",
+          title: "영도 봉산마을 관광 콘텐츠",
+          desc: "200만 원 제작지원 선정. 기획부터 현장·드론 촬영, 롱폼·숏폼 편집까지.",
+          result: "제작지원 200만 원",
+          role: "기획 · 촬영 · 드론 · 편집",
+          images: [YT + "WOeKcOesYJQ/hqdefault.jpg"],
+          url: "https://youtu.be/WOeKcOesYJQ"
+        },
+        {
+          id: "academy-project",
+          cat: "video",
+          type: "EDUCATION / BRAND FILM",
+          title: "센텀직업전문학교 | FIND YOUR WAY",
+          desc: "교육을 통해 새로운 가능성을 발견하는 과정을 인물 중심의 스토리텔링으로 담은 브랜드 홍보영상.",
+          role: "기획 · 촬영 · 편집",
+          images: [
+            IMG + "도심 옥상정원에서 시작됩니다.png",
+            IMG + "도심 옥상정원에서 시작됩니다.jpg"
+          ],
+          url: "https://youtu.be/9q5Y0KSXQks?si=49MLWz94KSzqTCTM"
+        },
+        {
+          id: "shinchan-project",
+          cat: "video",
+          type: "INSTAGRAM / SHORT-FORM",
+          title: "짱구 팝업스토어 릴스",
+          desc: "현장 중심의 영상과 강한 후킹을 결합한 SNS 콘텐츠.",
+          result: "약 5.4만 조회수",
+          role: "기획 · 촬영 · 편집",
+          images: [
+            IMG + "shinchan-reel-thumb.jpg",
+            IMG + "shinchan-reel-thumb.png"
+          ],
+          url: "https://www.instagram.com/minz_log/"
+        },
+        {
+          id: "seogu-project",
+          cat: "video",
+          type: "PUBLIC / PROMOTION",
+          title: "부산 서구 홍보영상",
+          desc: "부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.",
+          role: "촬영 · 편집",
+          images: [
+            IMG + "겨울 오후, 부산 서구 해안 풍경.png",
+            IMG + "겨울 오후, 부산 서구 해안 풍경.jpg",
+            YT + "nzCwQBsn9zk/hqdefault.jpg"
+          ],
+          url: "https://youtu.be/nzCwQBsn9zk"
+        },
+        {
+          id: "property-project",
+          cat: "video",
+          type: "COMMERCIAL / REAL ESTATE",
+          title: "부산 강서구 부동산 홍보영상",
+          desc: "건물과 공간, 입지 특성을 전달하는 부동산 영상.",
+          role: "기획 · 촬영 · 드론 · 편집",
+          images: [YT + "Zh1_TzhbqMY/hqdefault.jpg"],
+          url: "https://youtu.be/Zh1_TzhbqMY"
+        },
+        {
+          id: "dongbaek-upbeat-project",
+          cat: "video",
+          type: "BRAND / SHORT AD",
+          title: "동백커피 | 업비트 광고",
+          desc: "비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.",
+          role: "촬영 · 편집",
+          images: [
+            IMG + "dongbaek-upbeat-thumb.jpg",
+            IMG + "dongbaek-upbeat-thumb.png"
+          ],
+          video: "assets/img/video/동백커피 업비트 최종mp4.mp4"
+        },
+        {
+          id: "duplit-project",
+          cat: "video",
+          type: "FOOD / INSTAGRAM",
+          title: "듀플릿 해운대점",
+          desc: "맛집·디저트 정보를 감각적으로 전달한 릴스.",
+          result: "약 3.3만 조회수",
+          role: "기획 · 촬영 · 편집",
+          images: [
+            IMG + "duplit-thumb.jpg",
+            IMG + "duplit-thumb.png"
+          ],
+          url: "https://www.instagram.com/reel/DcKYiCbyROM/"
+        },
+        {
+          id: "supercar-project",
+          cat: "ai",
+          type: "AI / CINEMATIC AD",
+          title: "SUPERCAR | AI CINEMATIC",
+          desc: "AI 비주얼과 시네마틱 편집으로 구현한 15초 슈퍼카 광고 콘셉트.",
+          role: "콘셉트 기획 · AI 연출 · 편집",
+          images: [
+            IMG + "네온 시티의 AI 슈퍼카 시네마틱.png",
+            IMG + "네온 시티의 AI 슈퍼카 시네마틱.jpg"
+          ],
+          video: "assets/img/video/20261030슈퍼카_수정01.mp4"
+        },
+        {
+          id: "dongbaek-ai-project",
+          cat: "ai",
+          type: "AI / BRAND CONTENT",
+          title: "동백커피 | AI 브랜드 영상",
+          desc: "실사와 AI를 연결한 스토리형 브랜드 콘텐츠.",
+          role: "기획 · AI 연출 · 편집",
+          images: [
+            IMG + "dongbaek-ai-thumb.jpg",
+            IMG + "dongbaek-ai-thumb.png"
+          ],
+          video: "assets/img/video/동백커피 AI 최종.mp4"
+        },
+        {
+          id: "character-project",
+          cat: "design",
+          type: "CHARACTER / BRANDING",
+          title: "MINZ 캐릭터 & 브랜드 디자인",
+          desc: "MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.",
+          role: "캐릭터 기획 · 브랜드 디자인",
+          images: [
+            IMG + "minz-character-thumbnail.jpg",
+            IMG + "minz-character-thumbnail.png"
+          ],
+          url: "assets/img/minz-character-case-study.png"
+        },
+        {
+          id: "onpick-project",
+          cat: "design web",
+          type: "UI / UX DESIGN",
+          title: "ONPICK | 오늘 뭐하지?!",
+          desc: "라이프스타일 큐레이션 앱 기획 및 UI 디자인.",
+          role: "서비스 기획 · UI/UX",
+          images: [
+            IMG + "onpick-thumbnail-b.png",
+            IMG + "onpick-thumbnail-2.png"
+          ],
+          url: "https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&starting-point-node-id=324%3A2062"
+        },
+        {
+          id: "night-project",
+          cat: "design web",
+          type: "VISUAL / UI DESIGN",
+          title: "BUSAN NIGHT 01",
+          desc: "부산 야경을 주제로 한 디지털 비주얼 작업.",
+          role: "비주얼 디자인 · UI",
+          images: [IMG + "busan-night-thumbnail.png"],
+          url: "https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
+        },
+        {
+          id: "dart-project",
+          cat: "video",
+          type: "YOUTUBE / SHORTS",
+          title: "다트풍선 | YouTube Shorts",
+          desc: "빠른 컷 구성과 호흡을 활용한 숏폼 콘텐츠.",
+          role: "기획 · 편집",
+          images: [YT + "CoOvsYrYGBA/hqdefault.jpg"],
+          url: "https://www.youtube.com/shorts/CoOvsYrYGBA"
+        },
+        {
+          id: "website-project",
+          cat: "web",
+          type: "WEB / PUBLISHING",
+          title: "MINZ Portfolio Website",
+          desc: "영상·AI·브랜딩을 연결하는 포트폴리오 웹사이트.",
+          role: "기획 · 웹 퍼블리싱",
+          images: [],
+          url: "https://github.com/minzlog777/MINZ_Portfolio_001"
+        }
+      ];
 
-  const $ = s => document.querySelector(s);
-  const $$ = s => Array.from(document.querySelectorAll(s));
-  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[c]));
+      const toast = $("#toast");
+      let toastTimer;
 
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+      function notify(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(
+          () => toast.classList.remove("show"), 4200
+        );
+      }
 
-  const YT = "https://i.ytimg.com/vi/";
-  const IMG = "assets/img/thumbnails/";
+      // 작품 카드 생성
+      const grid = $("#worksGrid");
+      $("#workCount").textContent = String(projects.length);
 
-  // 14개 작품 데이터
-  const projects = [
-    {
-      id: "bongsan-project",
-      cat: "video",
-      type: "TOURISM / BRAND FILM",
-      title: "영도 봉산마을 관광 콘텐츠",
-      desc: "200만 원 제작지원 선정. 기획부터 현장·드론 촬영, 롱폼·숏폼 편집까지.",
-      result: "제작지원 200만 원",
-      role: "기획 · 촬영 · 드론 · 편집",
-      images: [YT + "WOeKcOesYJQ/hqdefault.jpg"],
-      url: "https://youtu.be/WOeKcOesYJQ"
-    },
-    {
-      id: "academy-project",
-      cat: "video",
-      type: "EDUCATION / BRAND FILM",
-      title: "센텀직업전문학교 | FIND YOUR WAY",
-      desc: "교육을 통해 새로운 가능성을 발견하는 과정을 인물 중심의 스토리텔링으로 담은 브랜드 홍보영상.",
-      role: "기획 · 촬영 · 편집",
-      images: [
-        IMG + "도심 옥상정원에서 시작됩니다.png",
-        IMG + "도심 옥상정원에서 시작됩니다.jpg"
-      ],
-      url: "https://youtu.be/9q5Y0KSXQks?si=49MLWz94KSzqTCTM"
-    },
-    {
-      id: "shinchan-project",
-      cat: "video",
-      type: "INSTAGRAM / SHORT-FORM",
-      title: "짱구 팝업스토어 릴스",
-      desc: "현장 중심의 영상과 강한 후킹을 결합한 SNS 콘텐츠.",
-      result: "약 5.4만 조회수",
-      role: "기획 · 촬영 · 편집",
-      images: [
-        IMG + "shinchan-reel-thumb.jpg",
-        IMG + "shinchan-reel-thumb.png"
-      ],
-      url: "https://www.instagram.com/minz_log/"
-    },
-    {
-      id: "seogu-project",
-      cat: "video",
-      type: "PUBLIC / PROMOTION",
-      title: "부산 서구 홍보영상",
-      desc: "부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.",
-      role: "촬영 · 편집",
-      images: [
-        IMG + "겨울 오후, 부산 서구 해안 풍경.png",
-        IMG + "겨울 오후, 부산 서구 해안 풍경.jpg",
-        YT + "nzCwQBsn9zk/hqdefault.jpg"
-      ],
-      url: "https://youtu.be/nzCwQBsn9zk"
-    },
-    {
-      id: "property-project",
-      cat: "video",
-      type: "COMMERCIAL / REAL ESTATE",
-      title: "부산 강서구 부동산 홍보영상",
-      desc: "건물과 공간, 입지 특성을 전달하는 부동산 영상.",
-      role: "기획 · 촬영 · 드론 · 편집",
-      images: [YT + "Zh1_TzhbqMY/hqdefault.jpg"],
-      url: "https://youtu.be/Zh1_TzhbqMY"
-    },
-    {
-      id: "dongbaek-upbeat-project",
-      cat: "video",
-      type: "BRAND / SHORT AD",
-      title: "동백커피 | 업비트 광고",
-      desc: "비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.",
-      role: "촬영 · 편집",
-      images: [
-        IMG + "dongbaek-upbeat-thumb.jpg",
-        IMG + "dongbaek-upbeat-thumb.png"
-      ],
-      video: "assets/img/video/동백커피 업비트 최종mp4.mp4"
-    },
-    {
-      id: "duplit-project",
-      cat: "video",
-      type: "FOOD / INSTAGRAM",
-      title: "듀플릿 해운대점",
-      desc: "맛집·디저트 정보를 감각적으로 전달한 릴스.",
-      result: "약 3.3만 조회수",
-      role: "기획 · 촬영 · 편집",
-      images: [
-        IMG + "duplit-thumb.jpg",
-        IMG + "duplit-thumb.png"
-      ],
-      url: "https://www.instagram.com/reel/DcKYiCbyROM/"
-    },
-    {
-      id: "supercar-project",
-      cat: "ai",
-      type: "AI / CINEMATIC AD",
-      title: "SUPERCAR | AI CINEMATIC",
-      desc: "AI 비주얼과 시네마틱 편집으로 구현한 15초 슈퍼카 광고 콘셉트.",
-      role: "콘셉트 기획 · AI 연출 · 편집",
-      images: [
-        IMG + "네온 시티의 AI 슈퍼카 시네마틱.png",
-        IMG + "네온 시티의 AI 슈퍼카 시네마틱.jpg"
-      ],
-      video: "assets/img/video/20261030슈퍼카_수정01.mp4"
-    },
-    {
-      id: "dongbaek-ai-project",
-      cat: "ai",
-      type: "AI / BRAND CONTENT",
-      title: "동백커피 | AI 브랜드 영상",
-      desc: "실사와 AI를 연결한 스토리형 브랜드 콘텐츠.",
-      role: "기획 · AI 연출 · 편집",
-      images: [
-        IMG + "dongbaek-ai-thumb.jpg",
-        IMG + "dongbaek-ai-thumb.png"
-      ],
-      video: "assets/img/video/동백커피 AI 최종.mp4"
-    },
-    {
-      id: "character-project",
-      cat: "design",
-      type: "CHARACTER / BRANDING",
-      title: "MINZ 캐릭터 & 브랜드 디자인",
-      desc: "MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.",
-      role: "캐릭터 기획 · 브랜드 디자인",
-      images: [
-        IMG + "minz-character-thumbnail.jpg",
-        IMG + "minz-character-thumbnail.png"
-      ],
-      url: "assets/img/minz-character-case-study.png"
-    },
-    {
-      id: "onpick-project",
-      cat: "design web",
-      type: "UI / UX DESIGN",
-      title: "ONPICK | 오늘 뭐하지?!",
-      desc: "라이프스타일 큐레이션 앱 기획 및 UI 디자인.",
-      role: "서비스 기획 · UI/UX",
-      images: [
-        IMG + "onpick-thumbnail-b.png",
-        IMG + "onpick-thumbnail-2.png"
-      ],
-      url: "https://www.figma.com/proto/Ou2MiTEvkYQSkR5TikJLqg?node-id=324-2062&starting-point-node-id=324%3A2062"
-    },
-    {
-      id: "night-project",
-      cat: "design web",
-      type: "VISUAL / UI DESIGN",
-      title: "BUSAN NIGHT 01",
-      desc: "부산 야경을 주제로 한 디지털 비주얼 작업.",
-      role: "비주얼 디자인 · UI",
-      images: [IMG + "busan-night-thumbnail.png"],
-      url: "https://www.figma.com/design/Ou2MiTEvkYQSkR5TikJLqg?node-id=183-191"
-    },
-    {
-      id: "dart-project",
-      cat: "video",
-      type: "YOUTUBE / SHORTS",
-      title: "다트풍선 | YouTube Shorts",
-      desc: "빠른 컷 구성과 호흡을 활용한 숏폼 콘텐츠.",
-      role: "기획 · 편집",
-      images: [YT + "CoOvsYrYGBA/hqdefault.jpg"],
-      url: "https://www.youtube.com/shorts/CoOvsYrYGBA"
-    },
-    {
-      id: "website-project",
-      cat: "web",
-      type: "WEB / PUBLISHING",
-      title: "MINZ Portfolio Website",
-      desc: "영상·AI·브랜딩을 연결하는 포트폴리오 웹사이트.",
-      role: "기획 · 웹 퍼블리싱",
-      images: [],
-      url: "https://github.com/minzlog777/MINZ_Portfolio_001"
-    }
-  ];
+      grid.innerHTML = projects.map((p, i) => {
+        const n = String(i + 1).padStart(2, "0");
 
-  const toast = $("#toast");
-  let toastTimer;
-
-  function notify(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(
-      () => toast.classList.remove("show"), 4200
-    );
-  }
-
-  // 작품 카드 생성
-  const grid = $("#worksGrid");
-  $("#workCount").textContent = String(projects.length);
-
-  grid.innerHTML = projects.map((p, i) => {
-    const n = String(i + 1).padStart(2, "0");
-
-    const img = p.images?.length
-      ? `<img src="${esc(p.images[0])}"
+        const img = p.images?.length
+          ? `<img src="${esc(p.images[0])}"
            data-fallbacks="${esc(p.images.slice(1).join("|"))}"
            alt="${esc(p.title)} 작품 썸네일"
            loading="lazy">`
-      : "";
+          : "";
 
-    const action = p.video
-      ? `<button type="button" class="media-launch"
+        const action = p.video
+          ? `<button type="button" class="media-launch"
            aria-label="${esc(p.title)} 영상 재생"
            data-video="${esc(p.video)}">▶</button>`
-      : p.url
-        ? `<a class="media-launch"
+          : p.url
+            ? `<a class="media-launch"
            aria-label="${esc(p.title)} 열기"
            href="${esc(p.url)}"
            target="_blank"
            rel="noopener noreferrer">↗</a>`
-        : "";
+            : "";
 
-    return `
+        return `
       <article id="${esc(p.id)}"
                class="project reveal"
                data-category="${esc(p.cat)}">
@@ -571,332 +575,335 @@
             <h3>${esc(p.title)}</h3>
             <p class="project-description">${esc(p.desc)}</p>
             ${p.result
-              ? `<strong class="project-result">${esc(p.result)}</strong>`
-              : ""}
+            ? `<strong class="project-result">${esc(p.result)}</strong>`
+            : ""}
             <div class="project-bottom">
-              <p class="project-role">MY ROLE · ${esc(p.role)}</p>
+              
+<p class="project-role">MY ROLE <span class="role-divider">|</span> ${esc(p.role)}</p>
+
               <span class="view-label">
                 ${p.video ? "▶ WATCH FILM"
-                  : p.url ? "↗ VIEW PROJECT" : "PORTFOLIO"}
+            : p.url ? "↗ VIEW PROJECT" : "PORTFOLIO"}
               </span>
             </div>
           </div>
         </div>
       </article>
     `;
-  }).join("");
+      }).join("");
 
-  // 이미지 오류 시 다음 후보를 시도
-  $$(".project-media img").forEach(img => {
-    img.addEventListener("error", () => {
-      const pending = (img.dataset.fallbacks || "")
-        .split("|").filter(Boolean);
+      // 이미지 오류 시 다음 후보를 시도
+      $$(".project-media img").forEach(img => {
+        img.addEventListener("error", () => {
+          const pending = (img.dataset.fallbacks || "")
+            .split("|").filter(Boolean);
 
-      if (!pending.length) {
-        img.remove();
-        return;
-      }
+          if (!pending.length) {
+            img.remove();
+            return;
+          }
 
-      img.src = pending.shift();
-      img.dataset.fallbacks = pending.join("|");
-    });
-  });
-
-  // 썸네일 클릭 시 영상/프로젝트 열기
-  $$(".project-media").forEach(media => {
-    media.style.cursor = "pointer";
-
-    media.addEventListener("click", event => {
-      if (event.target.closest("a,button")) return;
-      const action = media.querySelector(".media-launch");
-      if (action) action.click();
-    });
-  });
-
-  // 카테고리 필터
-  $$(".filter").forEach(btn => {
-    btn.addEventListener("click", () => {
-      $$(".filter").forEach(b => {
-        const active = b === btn;
-        b.classList.toggle("active", active);
-        b.setAttribute("aria-pressed", String(active));
+          img.src = pending.shift();
+          img.dataset.fallbacks = pending.join("|");
+        });
       });
 
-      const filter = btn.dataset.filter;
-      $$(".project").forEach(card => {
-        card.hidden = filter !== "all" &&
-          !card.dataset.category.split(" ").includes(filter);
+      // 썸네일 클릭 시 영상/프로젝트 열기
+      $$(".project-media").forEach(media => {
+        media.style.cursor = "pointer";
+
+        media.addEventListener("click", event => {
+          if (event.target.closest("a,button")) return;
+          const action = media.querySelector(".media-launch");
+          if (action) action.click();
+        });
       });
-    });
-  });
 
-  // BGM
-  const bgm = $("#siteBgm");
-  const bgmBtn = $("#bgmBtn");
-  const dialog = $("#videoDialog");
-  const player = $("#dialogPlayer");
+      // 카테고리 필터
+      $$(".filter").forEach(btn => {
+        btn.addEventListener("click", () => {
+          $$(".filter").forEach(b => {
+            const active = b === btn;
+            b.classList.toggle("active", active);
+            b.setAttribute("aria-pressed", String(active));
+          });
 
-  let bgmEnabled = false;
-  let localVideoPlaying = false;
-  let bgmRequest = 0;
-
-  bgm.volume = 0.18;
-
-  function updateBgmButton() {
-    bgmBtn.textContent = bgmEnabled ? "♫ BGM ON" : "♫ BGM OFF";
-    bgmBtn.classList.toggle("active", bgmEnabled);
-    bgmBtn.setAttribute("aria-pressed", String(bgmEnabled));
-  }
-
-  async function syncBgm() {
-    const request = ++bgmRequest;
-
-    if (!bgmEnabled || localVideoPlaying || document.hidden) {
-      bgm.pause();
-      return;
-    }
-
-    try {
-      await bgm.play();
-
-      if (request !== bgmRequest ||
-          !bgmEnabled || localVideoPlaying || document.hidden) {
-        bgm.pause();
-      }
-    } catch (error) {
-      bgmEnabled = false;
-      updateBgmButton();
-      notify("BGM 파일 assets/audio/focus-click.mp3를 확인해주세요.");
-      console.warn(error);
-    }
-  }
-
-  bgmBtn.addEventListener("click", () => {
-    bgmEnabled = !bgmEnabled;
-    updateBgmButton();
-    syncBgm();
-  });
-
-  bgm.addEventListener("error", () => {
-    if (bgmEnabled) {
-      bgmEnabled = false;
-      updateBgmButton();
-      notify("BGM 파일을 불러오지 못했습니다.");
-    }
-  });
-
-  document.addEventListener("visibilitychange", syncBgm);
-  window.addEventListener("blur", () => bgm.pause());
-  window.addEventListener("focus", syncBgm);
-
-  // 카메라 셔터음
-  const shutterBtn = $("#shutterListenBtn");
-  const heroVideo = $("#heroVideo");
-  const shutter = new Audio("assets/audio/minz-camera.mp3");
-
-  shutter.preload = "auto";
-  shutter.volume = 0.65;
-
-  let oldVolume = null;
-
-  function endShutter() {
-    shutterBtn.classList.remove("is-playing");
-
-    if (oldVolume !== null) {
-      bgm.volume = oldVolume;
-      oldVolume = null;
-    }
-  }
-
-  shutter.addEventListener("ended", endShutter);
-  shutter.addEventListener("error", endShutter);
-
-  shutterBtn.addEventListener("click", () => {
-    if (heroVideo) {
-      try {
-        heroVideo.currentTime = 0;
-        heroVideo.play().catch(() => {});
-      } catch (error) {
-        console.warn(error);
-      }
-    }
-
-    shutter.pause();
-    shutter.currentTime = 0;
-
-    if (!bgm.paused && oldVolume === null) {
-      oldVolume = bgm.volume;
-      bgm.volume = 0.04;
-    }
-
-    shutterBtn.classList.add("is-playing");
-
-    shutter.play().catch(error => {
-      endShutter();
-      notify("셔터음 파일 assets/audio/minz-camera.mp3를 확인해주세요.");
-      console.warn(error);
-    });
-  });
-
-  // 내부 MP4 팝업
-  grid.addEventListener("click", async event => {
-    const btn = event.target.closest("[data-video]");
-    if (!btn) return;
-
-    const video = document.createElement("video");
-    video.src = btn.dataset.video;
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-    video.setAttribute("controlsList", "nodownload");
-
-    video.addEventListener("error", () => {
-      notify("영상 파일 경로가 올바른지 확인해주세요.");
-    });
-
-    player.replaceChildren(video);
-    localVideoPlaying = true;
-    syncBgm();
-
-    if (!dialog.open) dialog.showModal();
-
-    try {
-      await video.play();
-    } catch (error) {
-      notify("동영상을 재생할 수 없습니다. 파일을 확인해주세요.");
-      console.warn(error);
-    }
-  });
-
-  function closeDialog() {
-    if (dialog.open) dialog.close();
-  }
-
-  $("#closeDialog").addEventListener("click", closeDialog);
-
-  dialog.addEventListener("click", event => {
-    if (event.target === dialog) closeDialog();
-  });
-
-  dialog.addEventListener("close", () => {
-    const video = player.querySelector("video");
-
-    if (video) {
-      video.pause();
-      video.removeAttribute("src");
-      video.load();
-    }
-
-    player.replaceChildren();
-    localVideoPlaying = false;
-    syncBgm();
-  });
-
-  // 외부 영상 열 때 BGM 일시정지
-  $$('.project-media a[target="_blank"]').forEach(link => {
-    link.addEventListener("click", () => bgm.pause());
-  });
-
-  // 모바일 메뉴
-  const menu = $("#menuBtn");
-  const nav = $("#nav");
-
-  menu.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    menu.setAttribute("aria-expanded", String(open));
-    menu.setAttribute("aria-label",
-      open ? "메뉴 닫기" : "메뉴 열기");
-  });
-
-  $$("#nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  // 스크롤 헤더 / 위로 가기
-  const header = $("#header");
-
-  function updateHeader() {
-    header.classList.toggle("scrolled", window.scrollY > 25);
-    $(".back-top").classList.toggle(
-      "visible", window.scrollY > 500
-    );
-  }
-
-  window.addEventListener("scroll", updateHeader, {
-    passive: true
-  });
-  updateHeader();
-
-  // 스크롤 애니메이션
-  const reveals = $$(".reveal");
-
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    reveals.forEach(el => el.classList.add("visible"));
-  } else {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("visible");
-        io.unobserve(entry.target);
+          const filter = btn.dataset.filter;
+          $$(".project").forEach(card => {
+            card.hidden = filter !== "all" &&
+              !card.dataset.category.split(" ").includes(filter);
+          });
+        });
       });
-    }, {
-      threshold: 0.05,
-      rootMargin: "0px 0px 40px 0px"
-    });
 
-    reveals.forEach(el => io.observe(el));
-  }
+      // BGM
+      const bgm = $("#siteBgm");
+      const bgmBtn = $("#bgmBtn");
+      const dialog = $("#videoDialog");
+      const player = $("#dialogPlayer");
 
-  // HERO 타이핑 애니메이션
-  const typing = $("#typingText");
-  const words = [
-    "Creator.",
-    "Video Editor.",
-    "Videographer.",
-    "AI Creator."
-  ];
+      let bgmEnabled = false;
+      let localVideoPlaying = false;
+      let bgmRequest = 0;
 
-  if (!reduceMotion) {
-    let wi = 0;
-    let i = words[0].length;
-    let deleting = false;
+      bgm.volume = 0.18;
 
-    function tick() {
-      if (document.hidden) {
-        setTimeout(tick, 600);
-        return;
+      function updateBgmButton() {
+        bgmBtn.textContent = bgmEnabled ? "♫ BGM ON" : "♫ BGM OFF";
+        bgmBtn.classList.toggle("active", bgmEnabled);
+        bgmBtn.setAttribute("aria-pressed", String(bgmEnabled));
       }
 
-      const word = words[wi];
-      i = deleting
-        ? Math.max(0, i - 1)
-        : Math.min(word.length, i + 1);
+      async function syncBgm() {
+        const request = ++bgmRequest;
 
-      typing.textContent = word.slice(0, i);
+        if (!bgmEnabled || localVideoPlaying || document.hidden) {
+          bgm.pause();
+          return;
+        }
 
-      if (!deleting && i === word.length) {
-        deleting = true;
-        setTimeout(tick, 1750);
-        return;
+        try {
+          await bgm.play();
+
+          if (request !== bgmRequest ||
+            !bgmEnabled || localVideoPlaying || document.hidden) {
+            bgm.pause();
+          }
+        } catch (error) {
+          bgmEnabled = false;
+          updateBgmButton();
+          notify("BGM 파일 assets/audio/focus-click.mp3를 확인해주세요.");
+          console.warn(error);
+        }
       }
 
-      if (deleting && i === 0) {
-        deleting = false;
-        wi = (wi + 1) % words.length;
-        setTimeout(tick, 300);
-        return;
+      bgmBtn.addEventListener("click", () => {
+        bgmEnabled = !bgmEnabled;
+        updateBgmButton();
+        syncBgm();
+      });
+
+      bgm.addEventListener("error", () => {
+        if (bgmEnabled) {
+          bgmEnabled = false;
+          updateBgmButton();
+          notify("BGM 파일을 불러오지 못했습니다.");
+        }
+      });
+
+      document.addEventListener("visibilitychange", syncBgm);
+      window.addEventListener("blur", () => bgm.pause());
+      window.addEventListener("focus", syncBgm);
+
+      // 카메라 셔터음
+      const shutterBtn = $("#shutterListenBtn");
+      const heroVideo = $("#heroVideo");
+      const shutter = new Audio("assets/audio/minz-camera.mp3");
+
+      shutter.preload = "auto";
+      shutter.volume = 0.65;
+
+      let oldVolume = null;
+
+      function endShutter() {
+        shutterBtn.classList.remove("is-playing");
+
+        if (oldVolume !== null) {
+          bgm.volume = oldVolume;
+          oldVolume = null;
+        }
       }
 
-      setTimeout(tick, deleting ? 55 : 95);
-    }
+      shutter.addEventListener("ended", endShutter);
+      shutter.addEventListener("error", endShutter);
 
-    setTimeout(tick, 2100);
-  }
-})();
-</script>
+      shutterBtn.addEventListener("click", () => {
+        if (heroVideo) {
+          try {
+            heroVideo.currentTime = 0;
+            heroVideo.play().catch(() => { });
+          } catch (error) {
+            console.warn(error);
+          }
+        }
+
+        shutter.pause();
+        shutter.currentTime = 0;
+
+        if (!bgm.paused && oldVolume === null) {
+          oldVolume = bgm.volume;
+          bgm.volume = 0.04;
+        }
+
+        shutterBtn.classList.add("is-playing");
+
+        shutter.play().catch(error => {
+          endShutter();
+          notify("셔터음 파일 assets/audio/minz-camera.mp3를 확인해주세요.");
+          console.warn(error);
+        });
+      });
+
+      // 내부 MP4 팝업
+      grid.addEventListener("click", async event => {
+        const btn = event.target.closest("[data-video]");
+        if (!btn) return;
+
+        const video = document.createElement("video");
+        video.src = btn.dataset.video;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        video.setAttribute("controlsList", "nodownload");
+
+        video.addEventListener("error", () => {
+          notify("영상 파일 경로가 올바른지 확인해주세요.");
+        });
+
+        player.replaceChildren(video);
+        localVideoPlaying = true;
+        syncBgm();
+
+        if (!dialog.open) dialog.showModal();
+
+        try {
+          await video.play();
+        } catch (error) {
+          notify("동영상을 재생할 수 없습니다. 파일을 확인해주세요.");
+          console.warn(error);
+        }
+      });
+
+      function closeDialog() {
+        if (dialog.open) dialog.close();
+      }
+
+      $("#closeDialog").addEventListener("click", closeDialog);
+
+      dialog.addEventListener("click", event => {
+        if (event.target === dialog) closeDialog();
+      });
+
+      dialog.addEventListener("close", () => {
+        const video = player.querySelector("video");
+
+        if (video) {
+          video.pause();
+          video.removeAttribute("src");
+          video.load();
+        }
+
+        player.replaceChildren();
+        localVideoPlaying = false;
+        syncBgm();
+      });
+
+      // 외부 영상 열 때 BGM 일시정지
+      $$('.project-media a[target="_blank"]').forEach(link => {
+        link.addEventListener("click", () => bgm.pause());
+      });
+
+      // 모바일 메뉴
+      const menu = $("#menuBtn");
+      const nav = $("#nav");
+
+      menu.addEventListener("click", () => {
+        const open = nav.classList.toggle("open");
+        menu.setAttribute("aria-expanded", String(open));
+        menu.setAttribute("aria-label",
+          open ? "메뉴 닫기" : "메뉴 열기");
+      });
+
+      $$("#nav a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menu.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // 스크롤 헤더 / 위로 가기
+      const header = $("#header");
+
+      function updateHeader() {
+        header.classList.toggle("scrolled", window.scrollY > 25);
+        $(".back-top").classList.toggle(
+          "visible", window.scrollY > 500
+        );
+      }
+
+      window.addEventListener("scroll", updateHeader, {
+        passive: true
+      });
+      updateHeader();
+
+      // 스크롤 애니메이션
+      const reveals = $$(".reveal");
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        reveals.forEach(el => el.classList.add("visible"));
+      } else {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.05,
+          rootMargin: "0px 0px 40px 0px"
+        });
+
+        reveals.forEach(el => io.observe(el));
+      }
+
+      // HERO 타이핑 애니메이션
+      const typing = $("#typingText");
+      const words = [
+        "Creator.",
+        "Video Editor.",
+        "Videographer.",
+        "AI Creator."
+      ];
+
+      if (!reduceMotion) {
+        let wi = 0;
+        let i = words[0].length;
+        let deleting = false;
+
+        function tick() {
+          if (document.hidden) {
+            setTimeout(tick, 600);
+            return;
+          }
+
+          const word = words[wi];
+          i = deleting
+            ? Math.max(0, i - 1)
+            : Math.min(word.length, i + 1);
+
+          typing.textContent = word.slice(0, i);
+
+          if (!deleting && i === word.length) {
+            deleting = true;
+            setTimeout(tick, 1750);
+            return;
+          }
+
+          if (deleting && i === 0) {
+            deleting = false;
+            wi = (wi + 1) % words.length;
+            setTimeout(tick, 300);
+            return;
+          }
+
+          setTimeout(tick, deleting ? 55 : 95);
+        }
+
+        setTimeout(tick, 2100);
+      }
+    })();
+  </script>
 </body>
+
 </html>
