@@ -1181,3 +1181,30 @@ button:focus-visible, a:focus-visible {
     transition: none;
   }
 }
+
+
+/* MINZ PROFILE - PREMIUM HOVER */
+
+.about-image {
+  overflow: hidden;
+}
+
+.about-image img {
+  transition:
+    transform 0.7s cubic-bezier(.22, 1, .36, 1),
+    filter 0.7s ease;
+  transform-origin: center center;
+}
+
+@media (hover: hover) {
+  .about-image:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image img {
+    transition: none;
+  }
+}
