@@ -1208,3 +1208,135 @@ button:focus-visible, a:focus-visible {
     transition: none;
   }
 }
+
+/* =====================================
+   MINZ PORTFOLIO · FINAL POLISH
+===================================== */
+
+/* 01. PROFILE IMAGE HOVER */
+
+.about-image {
+  overflow: hidden;
+}
+
+.about-image img {
+  transition:
+    transform .7s cubic-bezier(.22,1,.36,1),
+    filter .7s ease;
+  transform-origin: center;
+}
+
+@media (hover: hover) {
+  .about-image:hover img {
+    transform: scale(1.065);
+    filter: brightness(1.055);
+  }
+}
+
+/* 02. EXPERIENCE TIMELINE */
+
+.exp-panels {
+  gap: 26px;
+}
+
+.exp-panel {
+  border-radius: 16px;
+  border: 1px solid #e6dcf0;
+}
+
+.exp-timeline {
+  border-left: 2px solid #c9a5ef;
+}
+
+.exp-entry {
+  padding-bottom: 8px;
+  transition: transform .3s ease;
+}
+
+.exp-entry::before {
+  background: #8951d8;
+  box-shadow: 0 0 0 3px #eadcf9;
+}
+
+@media (hover: hover) {
+  .exp-entry:hover {
+    transform: translateX(4px);
+  }
+}
+
+.exp-period {
+  border-radius: 6px;
+  background: #f0e6fb;
+  color: #7440ba;
+}
+
+.exp-entry h4 {
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+/* INFLUENCER HIGHLIGHT */
+
+.exp-panel:first-child
+.exp-entry:nth-child(2) {
+  padding: 12px 14px 18px;
+  margin-left: -14px;
+  border-radius: 10px;
+  background: #f8f3fd;
+}
+
+/* 03. MOBILE REFINEMENT */
+
+@media (max-width: 760px) {
+
+  .hero-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 12vw, 76px);
+    line-height: 1;
+  }
+
+  .typing-line {
+    font-size: clamp(30px, 8vw, 50px);
+    overflow-wrap: anywhere;
+  }
+
+  .project-info h3 {
+    font-size: clamp(20px, 5.5vw, 24px);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .project-info {
+    min-height: 0;
+    padding: 24px 21px;
+  }
+
+  .exp-panels {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .exp-panel {
+    padding: 27px 22px;
+  }
+
+  .exp-entry h4 {
+    font-size: 16px;
+  }
+
+  .exp-entry p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image img,
+  .exp-entry {
+    transition: none;
+  }
+}
