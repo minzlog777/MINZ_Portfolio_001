@@ -98,6 +98,199 @@
     </section>
 
     <!-- ACHIEVEMENTS -->
+
+    <!-- MINZ 30-SECOND INTRO -->
+    <section id="minz-intro" class="minz-intro">
+      <div class="container">
+        <div class="minz-intro-heading">
+          <span>MEET THE CREATOR / 2026</span>
+          <h2>Meet <em>MINZ.</em></h2>
+          <p>
+            생각을 장면으로, 장면을 이야기로.<br>
+            30초에 담아낸 저의 크리에이티브 여정입니다.
+          </p>
+        </div>
+
+        <div class="minz-intro-player" id="minzIntroPlayer">
+          <button type="button" class="minz-intro-cover" id="minzIntroPlay" aria-label="MINZ 자기소개 영상 재생">
+            <img src="https://img.youtube.com/vi/jJtmsYwahRo/hqdefault.jpg" alt="MINZ 30초 자기소개 영상 썸네일" loading="lazy">
+            <span class="minz-intro-play-icon">▶</span>
+            <span class="minz-intro-cover-label">
+              WATCH MY 30s FILM
+            </span>
+          </button>
+        </div>
+
+        <div class="minz-intro-bottom">
+          <div>
+            <strong>MINZ — Creative Showreel</strong>
+            <p>DIRECTING · FILMING · DRONE · EDITING</p>
+          </div>
+          <a href="https://youtu.be/jJtmsYwahRo" target="_blank" rel="noopener noreferrer">
+            WATCH ON YOUTUBE ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .minz-intro {
+        padding: 110px 0;
+        background: #101018;
+        color: #fff;
+      }
+
+      .minz-intro-heading {
+        margin-bottom: 32px;
+      }
+
+      .minz-intro-heading>span {
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #b99aff;
+      }
+
+      .minz-intro-heading h2 {
+        font-size: clamp(40px, 6vw, 76px);
+        letter-spacing: -2px;
+        margin: 12px 0;
+      }
+
+      .minz-intro-heading h2 em {
+        color: #b99aff;
+      }
+
+      .minz-intro-heading p {
+        color: #bcbacb;
+        line-height: 1.8;
+      }
+
+      .minz-intro-player {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #181424;
+        border: 1px solid rgba(185, 154, 255, .24);
+      }
+
+      .minz-intro-cover {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        background: #181424;
+        color: white;
+      }
+
+      .minz-intro-cover img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(.65);
+        transition: transform .5s, filter .5s;
+      }
+
+      .minz-intro-cover:hover img {
+        transform: scale(1.035);
+        filter: brightness(.8);
+      }
+
+      .minz-intro-play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: #a77bf4;
+        color: #fff;
+        font-size: 25px;
+        box-shadow: 0 0 50px #a77bf455;
+      }
+
+      .minz-intro-cover-label {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .minz-intro-player iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .minz-intro-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .minz-intro-bottom strong {
+        font-size: 17px;
+      }
+
+      .minz-intro-bottom p {
+        color: #a6a1b5;
+        font-size: 12px;
+        margin-top: 6px;
+      }
+
+      .minz-intro-bottom a {
+        color: #c5a6ff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      @media(max-width: 768px) {
+        .minz-intro {
+          padding: 65px 0;
+        }
+
+        .minz-intro-play-icon {
+          width: 56px;
+          height: 56px;
+          font-size: 19px;
+        }
+      }
+    </style>
+
+    <script>
+      document.getElementById("minzIntroPlay")
+        .addEventListener("click", function () {
+          // 영상 재생 전 기존 홈페이지 BGM 정지
+          const bgm = document.getElementById("siteBgm");
+          if (bgm) bgm.pause();
+
+          const player = document.getElementById("minzIntroPlayer");
+          const iframe = document.createElement("iframe");
+
+          iframe.src =
+            "https://www.youtube-nocookie.com/embed/jJtmsYwahRo?autoplay=1";
+          iframe.title = "MINZ 30초 자기소개 영상";
+          iframe.allow =
+            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+
+          player.replaceChildren(iframe);
+        });
+    </script>
+    <!-- END MINZ INTRO -->
+
     <section class="proof-section" aria-label="주요 성과">
       <div class="container proof-grid">
         <div class="proof-item">
