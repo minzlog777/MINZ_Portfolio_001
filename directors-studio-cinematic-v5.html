@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- YouTube embeds need a valid origin/referrer for player configuration. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#15101f">
   <meta name="description" content="MINZ Director’s Studio | Film, Drone, AI and Creative Direction — 별도 실험용 포트폴리오">
   <meta property="og:title" content="MINZ | Director’s Studio — Fine Cut v5">
@@ -764,7 +766,7 @@
         <div class="intro-bottom">
           <div><strong>MINZ — 30s Introduction Film</strong>
             <p>DIRECTING · FILMING · DRONE · EDITING</p>
-          </div><a href="https://youtu.be/jJtmsYwahRo" target="_blank" rel="noopener noreferrer">WATCH ON YOUTUBE ↗</a>
+          </div><a href="https://youtu.be/jJtmsYwahRo" target="_blank" rel="noopener noreferrer">재생되지 않으면 YouTube에서 바로 보기 ↗</a>
         </div>
       </div>
     </section>
@@ -1036,7 +1038,7 @@
       const introPlayer = $('#introPlayer'), introCover = $('#introPlay'), introClose = $('#introClose');
       const introThumb = introCover.querySelector('img'); introThumb.addEventListener('error', () => { if (introThumb.dataset.fallback) { introThumb.src = introThumb.dataset.fallback; introThumb.dataset.fallback = ''; } });
       function closeIntro() { if (!introPlaying) return; introPlayer.querySelector('iframe')?.remove(); introPlaying = false; introCover.hidden = false; introClose.hidden = true; syncBgm(); }
-      introCover.addEventListener('click', () => { if (introPlaying) return; if (dialog.open) dialog.close(); introPlaying = true; syncBgm(); const frame = document.createElement('iframe'); frame.title = 'MINZ 30초 자기소개 영상'; frame.src = 'https://www.youtube-nocookie.com/embed/jJtmsYwahRo?autoplay=1&playsinline=1'; frame.allow = 'autoplay; encrypted-media; picture-in-picture; web-share'; frame.allowFullscreen = true; introPlayer.append(frame); introCover.hidden = true; introClose.hidden = false; });
+      introCover.addEventListener('click', () => { if (introPlaying) return; if (dialog.open) dialog.close(); introPlaying = true; syncBgm(); const frame = document.createElement('iframe'); frame.title = 'MINZ 30초 자기소개 영상'; frame.referrerPolicy = 'strict-origin-when-cross-origin'; frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; frame.allowFullscreen = true; frame.src = 'https://www.youtube.com/embed/jJtmsYwahRo?autoplay=1&playsinline=1&rel=0'; introPlayer.append(frame); introCover.hidden = true; introClose.hidden = false; });
       introClose.addEventListener('click', closeIntro);
 
       // MP4 작품 팝업
