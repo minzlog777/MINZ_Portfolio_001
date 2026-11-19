@@ -8,7 +8,7 @@
   <meta name="description" content="MINZ Director’s Studio | Film, Drone, AI and Creative Direction — 별도 실험용 포트폴리오">
   <meta property="og:title" content="MINZ | Director’s Studio — Cinematic v4">
   <meta property="og:description" content="Create Stories. Inspire People. 영상 크리에이터 MINZ의 작품과 경험">
-  <title>MINZ | Director’s Studio — Cinematic v4</title>
+  <title>MINZ | Director’s Studio — Cinematic v4.1</title>
   <link rel="icon" href="assets/img/lastfavicon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet"
@@ -346,6 +346,213 @@
 
 </style>
   <link rel="preload" as="image" href="assets/img/thumbnails/donggu-studio-cinematic-v4.webp">
+<style id="minz-equal-project-cards">
+/* MINZ Director's Studio v4 — Equal-height project cards
+   Scope: Director's Studio only, leave FEATURED 01 wide layout intact. */
+.studio-page .works-grid.minz-bento {
+  align-items: stretch;
+}
+
+/* Standard 2-column cards fill the height of their row. */
+.studio-page .works-grid.minz-bento > .project:not(.project--lead),
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+
+.studio-page .works-grid.minz-bento > .project:not(.project--lead) > .project-media,
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead > .project-media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.studio-page .works-grid.minz-bento > .project:not(.project--lead) > .project-content,
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead > .project-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Keep the role and real, clickable CTA at the card bottom. */
+.studio-page .works-grid.minz-bento > .project:not(.project--lead) .project-foot,
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead .project-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 22px;
+}
+.studio-page .works-grid.minz-bento > .project:not(.project--lead) .project-foot small,
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead .project-foot small {
+  flex: 0 1 auto;
+  text-align: left;
+}
+.studio-page .works-grid.minz-bento > .project:not(.project--lead) .project-cta,
+.studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead .project-cta {
+  align-self: flex-end;
+}
+
+@media (max-width: 500px) {
+  .studio-page .works-grid.minz-bento > .project:not(.project--lead) .project-cta,
+  .studio-page .works-grid.minz-bento:not(.minz-all) > .project--lead .project-cta {
+    align-self: stretch;
+  }
+}
+
+</style>
+<style id="minz-studio-stage-v41">
+
+/* ================================================================
+   MINZ Director's Studio / Featured Stage v4.1
+   Fix: image letterboxing, ghost MINZ text, overlapped FRAME labels,
+        narrow right column, responsive typography. Stage only.
+   ================================================================ */
+.studio-page .studio-stage {
+  grid-template-columns: minmax(0, 1.3fr) minmax(365px, .8fr);
+  min-height: 0;
+  align-items: stretch;
+  background: #17111f;
+  border-color: #554065;
+}
+.studio-page .studio-stage-media {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #100d18;
+  border-right: 1px solid rgba(210, 174, 252, .18);
+  overflow: hidden;
+}
+.studio-page .studio-stage-media::after {display: none}
+.studio-page .studio-stage-photo {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(145deg, #281a38, #14101b);
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+.studio-page .studio-stage-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(9, 6, 17, .06), transparent 48%, rgba(9, 6, 17, .08));
+}
+.studio-page #studioStageImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  border: 0;
+  transition: transform .5s ease, opacity .28s ease;
+}
+.studio-page .studio-stage-photo:hover #studioStageImage {transform: scale(1.012)}
+.studio-page .studio-stage-photo .studio-stage-placeholder {display: none}
+.studio-page .studio-stage-photo:has(#studioStageImage[hidden]) .studio-stage-placeholder {
+  display: grid;
+  place-items: center;
+  inset: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #e6d6f8;
+  padding: 15px;
+}
+.studio-page .studio-stage-photo .studio-stage-focus {
+  position: absolute;
+  inset: 16px;
+  z-index: 3;
+}
+.studio-page .studio-stage-photo .studio-stage-focus i {
+  width: 21px;
+  height: 21px;
+  border-color: rgba(255, 255, 255, .85);
+}
+.studio-page .studio-stage-caption {
+  min-height: 49px;
+  margin-top: auto;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  background: #100c18;
+  border-top: 1px solid rgba(215, 187, 248, .18);
+}
+.studio-page .studio-stage-caption-name {
+  color: #cab6df;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .09em;
+  line-height: 1.3;
+}
+.studio-page .studio-stage-caption .studio-stage-index {
+  position: static;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: .11em;
+  font-weight: 850;
+  color: #fff;
+  text-shadow: none;
+  white-space: nowrap;
+}
+.studio-page .studio-stage-info {
+  justify-content: center;
+  gap: 17px;
+  padding: clamp(27px, 3vw, 45px);
+}
+.studio-page .studio-stage-info .studio-mini-label {line-height: 1.5}
+.studio-page .studio-stage-info h3 {
+  font-size: clamp(26px, 2.6vw, 39px);
+  line-height: 1.22;
+  word-break: keep-all;
+}
+.studio-page .studio-stage-info .studio-stage-desc {
+  font-size: 16px;
+  line-height: 1.78;
+  word-break: keep-all;
+}
+.studio-page .studio-stage-info .studio-stage-role {font-size: 13px;line-height: 1.7}
+.studio-page .studio-stage-action {margin-top: 3px}
+@media (max-width: 1100px) {
+  .studio-page .studio-stage {grid-template-columns: minmax(0, 1fr)}
+  .studio-page .studio-stage-media {border-right: 0;border-bottom: 1px solid rgba(210, 174, 252, .18)}
+  .studio-page .studio-stage-photo {aspect-ratio: 16 / 9}
+  .studio-page .studio-stage-info {padding: 27px 30px 32px;gap: 13px}
+  .studio-page .studio-stage-info h3 {font-size: clamp(27px, 4vw, 36px)}
+}
+@media (max-width: 600px) {
+  .studio-page .studio-stage {border-radius: 14px}
+  .studio-page .studio-stage-media {aspect-ratio: auto}
+  .studio-page .studio-stage-photo {aspect-ratio: 16 / 9}
+  .studio-page .studio-stage-photo .studio-stage-focus {inset: 11px}
+  .studio-page .studio-stage-caption {padding: 11px 13px;min-height: 42px}
+  .studio-page .studio-stage-caption-name,
+  .studio-page .studio-stage-caption .studio-stage-index {font-size: 9px;letter-spacing: .035em}
+  .studio-page .studio-stage-info {padding: 23px 21px 26px}
+  .studio-page .studio-stage-info .studio-stage-desc {font-size: 15px;line-height: 1.72}
+  .studio-page .studio-stage-action {min-height: 45px}
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-page .studio-stage-photo:hover #studioStageImage {transform: none}
+}
+
+</style>
 </head>
 
 <body class="studio-page">
@@ -448,10 +655,15 @@
         </div>
         <div class="studio-stage" id="studioStage" aria-live="polite">
           <div class="studio-stage-media">
-            <div class="studio-stage-placeholder" aria-hidden="true">MINZ<span>STUDIO / FRAME 01</span></div>
-            <img id="studioStageImage" src="assets/img/thumbnails/donggu-studio-cinematic-v4.webp" alt="어린 선비가 북항을 바라보며 유리병 속 말린 초대장을 발견하는 AI 연출 이미지" loading="lazy">
-            <div class="studio-stage-focus" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <span class="studio-stage-index" id="studioStageIndex">FRAME 01 / 03</span>
+            <div class="studio-stage-photo">
+              <div class="studio-stage-placeholder" aria-hidden="true">PREVIEW UNAVAILABLE</div>
+              <img id="studioStageImage" src="assets/img/thumbnails/donggu-studio-cinematic-v4.webp" alt="어린 선비가 북항을 바라보며 유리병 속 말린 초대장을 발견하는 AI 연출 이미지" loading="lazy">
+              <div class="studio-stage-focus" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="studio-stage-caption" aria-label="선택된 대표작 프레임">
+              <span class="studio-stage-caption-name">MINZ / DIRECTOR'S SELECT</span>
+              <span class="studio-stage-index" id="studioStageIndex">FRAME 01 / 03</span>
+            </div>
           </div>
           <div class="studio-stage-info">
             <p class="studio-mini-label" id="studioStageType">AI / CINEMATIC STORY</p>
