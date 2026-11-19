@@ -490,3 +490,190 @@
 /* ==========================================
    END OF MINZ DESIGN UPGRADE
 ========================================== */
+
+
+/* ==========================================================
+   MINZ 2026 / READABILITY + INTERACTION PATCH v3
+   Add below all previous rules in assets/css/main.css
+   Preserves 15 projects, thumbnails, filters, BGM, shutter and video modal.
+   ========================================================== */
+
+/* 01. Clearer type scale, contrast, and comfortable reading rhythm */
+:root {
+  --minz-reading: #514958;
+  --minz-reading-soft: #655D6C;
+  --minz-contrast-violet: #693A9F;
+}
+body { font-size: 16px; line-height: 1.75; }
+.section-description,
+.minz-featured-intro > p,
+.about-copy > p:not(.kicker),
+.experience-feature > div > p:not(.kicker) {
+  color: var(--minz-reading);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.section-heading { gap: 35px; }
+.section-description { max-width: 390px; }
+.kicker, .minz-eyebrow { font-size: 12px; letter-spacing: .12em; }
+.works-section .kicker,
+.experience-section .section-heading .kicker,
+.about-section .kicker,
+.proof-item small,
+.minz-eyebrow,
+.project-meta,
+.project-result,
+.project-foot b,
+.experience-panel h3 span,
+.timeline-item small,
+.about-copy .skills {
+  color: var(--minz-contrast-violet);
+}
+
+/* 02. Project cards: content should be the focus, not tiny footnotes */
+.works-grid.minz-bento .project-content {
+  padding: clamp(24px, 2.4vw, 34px);
+  min-height: 290px;
+}
+.works-grid.minz-bento .project-content h3 {
+  font-size: clamp(23px, 2.2vw, 30px);
+  line-height: 1.3;
+  letter-spacing: -.045em;
+  margin: 17px 0 13px;
+  overflow-wrap: anywhere;
+}
+.works-grid.minz-bento .project-content > p {
+  color: var(--minz-reading);
+  font-size: 16px;
+  line-height: 1.78;
+}
+.works-grid.minz-bento .project-meta {
+  font-size: 12px;
+  letter-spacing: .035em;
+  gap: 12px;
+  line-height: 1.5;
+}
+.works-grid.minz-bento .project-result {
+  font-size: 14px;
+  font-weight: 800;
+}
+.works-grid.minz-bento .project-foot {
+  align-items: flex-end;
+  gap: 15px;
+  padding-top: 25px;
+}
+.works-grid.minz-bento .project-foot small {
+  color: var(--minz-reading-soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.works-grid.minz-bento .project-foot b {
+  color: var(--minz-contrast-violet);
+  font-size: 12px;
+  letter-spacing: .02em;
+  line-height: 1.5;
+}
+.works-grid.minz-bento.minz-all .project--lead .project-content > p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.minz-featured-title { font-size: clamp(24px, 3vw, 36px); }
+.minz-featured-intro > p { max-width: 410px; }
+.minz-feature-stamp { font-size: 11px; }
+
+/* Increase label/text legibility throughout the page */
+.proof-item p,
+.timeline-item p { color: var(--minz-reading); font-size: 15px; line-height: 1.8; }
+.proof-item small, .timeline-item small { font-size: 12px; }
+.timeline-item h4 { font-size: 18px; }
+.experience-panel h3 span { font-size: 12px; }
+.intro-head > p:last-child,
+.intro-bottom p { color: #E1D9EA; }
+.intro-head > p:last-child { font-size: 16px; }
+.intro-bottom p { font-size: 12px; }
+.intro-bottom a, .contact-links a { font-size: 13px; }
+.nav a { font-size: 12px; }
+.hero-description { color: #F0EAF6; }
+.hero-services span { font-size: 11px; }
+
+/* 03. Restore a subtle cinematic light sweep (hover/focus only) */
+.works-grid.minz-bento .project-media::before {
+  content: "";
+  position: absolute;
+  top: -25%; left: -45%;
+  width: 32%; height: 150%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.17), transparent);
+  transform: skewX(-18deg) translateX(-240%);
+  transition: transform .85s cubic-bezier(.22,1,.36,1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .works-grid.minz-bento .project:hover .project-media::before,
+  .works-grid.minz-bento .project:focus-within .project-media::before {
+    transform: skewX(-18deg) translateX(680%);
+  }
+  .about-image img { transition: transform .7s cubic-bezier(.22,1,.36,1); }
+  .about-image:hover img { transform: scale(1.045); }
+}
+/* No misleading click affordance on work-in-progress tiles */
+.project-media:not(:has(.project-action)) { cursor: default; }
+/* Ensure keyboard users can find actions */
+.filter:focus-visible, .project-action:focus-visible { outline: 3px solid #AE82EE; outline-offset: 4px; }
+
+/* 04. Tablet: avoid compressed navigation and cards */
+@media (min-width: 761px) and (max-width: 900px) {
+  .menu-btn { display: block; min-width: 44px; min-height: 44px; }
+  .nav {
+    position: absolute; top: 76px; left: 0; right: 0;
+    display: none; flex-direction: column; align-items: stretch;
+    gap: 0; padding: 12px 24px 20px;
+    background: #191221;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px; font-size: 14px; }
+}
+@media (min-width: 761px) and (max-width: 899px) {
+  .works-grid.minz-bento { grid-template-columns: minmax(0,1fr); }
+  .works-grid.minz-bento.minz-all .project--lead { grid-column: auto; }
+  .works-grid.minz-bento .project-media { aspect-ratio: 16 / 9; }
+  .works-grid.minz-bento .project-content { min-height: 0; }
+  .works-grid.minz-bento.minz-all .project--lead .project-content { padding: 30px; }
+}
+
+/* 05. Mobile: readable text, larger touch targets, no cramped labels */
+.bgm-btn { min-height: 44px; }
+.filters .filter { font-size: 12px; min-height: 44px; }
+@media (max-width: 760px) {
+  body { font-size: 15.5px; }
+  .menu-btn { min-width: 44px; min-height: 44px; }
+  .nav a { font-size: 14px; }
+  .hero-services span { font-size: 11px; }
+  .bgm-btn { font-size: 11px; }
+  .section-description,
+  .minz-featured-intro > p,
+  .about-copy > p:not(.kicker) { font-size: 15px; line-height: 1.8; }
+  .works-grid.minz-bento .project-content {
+    min-height: 0;
+    padding: 24px 20px 25px;
+  }
+  .works-grid.minz-bento .project-content h3 { font-size: 23px; }
+  .works-grid.minz-bento .project-content > p,
+  .works-grid.minz-bento.minz-all .project--lead .project-content > p { font-size: 15px; }
+  .works-grid.minz-bento .project-foot small { font-size: 12px; }
+  .works-grid.minz-bento .project-foot b { font-size: 12px; }
+  .project-media { cursor: default; }
+  .minz-featured-title { font-size: 25px; }
+  .section-heading { margin-bottom: 35px; }
+}
+@media (max-width: 390px) {
+  .bgm-btn { font-size: 11px; }
+  .works-grid.minz-bento .project-foot { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .works-grid.minz-bento .project-foot b { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .works-grid.minz-bento .project-media::before { display: none; }
+  .about-image img { transition: none !important; }
+  .about-image:hover img { transform: none; }
+}
