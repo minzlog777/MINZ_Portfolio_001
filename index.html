@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-  <link rel="stylesheet" href="assets/css/main.css?v=20261119-3">
+  <link rel="stylesheet" href="assets/css/main.css?v=20261119-6">
 </head>
 
 <body>
@@ -232,7 +232,20 @@
           note: '영상 제작 중'
         },
         { cat: 'video', type: 'TOURISM / BRAND FILM', title: '영도 봉산마을 관광 콘텐츠', desc: '200만 원 제작지원 선정. 기획부터 현장·드론 촬영과 롱폼·숏폼 편집까지.', result: '제작지원 200만 원', role: '기획 · 촬영 · 드론 · 편집', images: [YT + 'WOeKcOesYJQ/hqdefault.jpg'], url: 'https://youtu.be/WOeKcOesYJQ' },
-        { cat: 'video', type: 'EDUCATION / BRAND FILM', title: '센텀직업전문학교 | FIND YOUR WAY', desc: '새로운 가능성을 발견하는 과정을 인물 중심으로 담은 홍보영상.', role: '기획 · 촬영 · 편집', images: [IMG + '도심 옥상정원에서 시작됩니다.png', IMG + '도심 옥상정원에서 시작됩니다.jpg'], note: '영상 링크 확인 중' },
+        {
+          cat: 'video',
+          type: 'EDUCATION / BRAND FILM',
+          title: '센텀직업전문학교 | FIND YOUR WAY',
+          desc: '새로운 가능성을 발견하는 과정을 인물 중심으로 담은 홍보영상.',
+          role: '기획 · 촬영 · 편집',
+          images: [IMG + '도심 옥상정원에서 시작됩니다.png', IMG + '도심 옥상정원에서 시작됩니다.jpg'],
+          caseStudy: {
+            label: 'PROJECT CONCEPT',
+            message: '인물 중심의 이야기로 배움과 새로운 시작의 메시지를 전하는 교육기관 브랜드 필름.',
+            tags: ['인물 중심 스토리', '교육기관 홍보', '브랜드 필름']
+          },
+          url: 'https://youtu.be/9q5Y0KSXQks'
+        },
         { cat: 'video', type: 'INSTAGRAM / SHORT-FORM', title: '짱구 팝업스토어 릴스', desc: '현장 중심 영상과 강한 후킹을 결합한 SNS 콘텐츠.', result: '약 5.4만 조회수', role: '기획 · 촬영 · 편집', images: [IMG + 'shinchan-reel-thumb.jpg', IMG + 'shinchan-reel-thumb.png'], url: 'https://www.instagram.com/minz_log/' },
         { cat: 'video', type: 'PUBLIC / PROMOTION', title: '부산 서구 홍보영상', desc: '부산 서구의 해안과 도시 풍경을 담은 지역 홍보영상.', role: '촬영 · 편집', images: [IMG + '겨울 오후, 부산 서구 해안 풍경.png', IMG + '겨울 오후, 부산 서구 해안 풍경.jpg', YT + 'nzCwQBsn9zk/hqdefault.jpg'], url: 'https://youtu.be/nzCwQBsn9zk' },
         { cat: 'video', type: 'COMMERCIAL / REAL ESTATE', title: '부산 강서구 부동산 홍보영상', desc: '건물과 공간, 입지 특성을 전달하는 부동산 영상.', role: '기획 · 촬영 · 드론 · 편집', images: [YT + 'Zh1_TzhbqMY/hqdefault.jpg'], url: 'https://youtu.be/Zh1_TzhbqMY' },
@@ -252,11 +265,19 @@
       const grid = $('#worksGrid');
       $('#workCount').textContent = projects.length;
       projects.forEach((p, i) => {
-        const el = document.createElement('article'); el.className = 'project reveal'; el.dataset.category = p.cat;
+        const el = document.createElement('article'); el.className = 'project reveal' + (p.caseStudy ? ' project--detailed' : '') + (!p.video && !p.url ? ' project--no-link' : ''); el.dataset.category = p.cat;
         const num = String(i + 1).padStart(2, '0');
         const media = p.images.length ? `<img src="${esc(p.images[0])}" data-fallbacks="${esc(p.images.slice(1).join('|'))}" alt="${esc(p.title)} 썸네일" loading="lazy">` : '';
+        const caseStudy = p.caseStudy ? `<div class="project-case-note" aria-label="프로젝트 기획 정보"><div class="project-case-note-head">${esc(p.caseStudy.label)}</div><p>${esc(p.caseStudy.message)}</p><div class="project-case-tags">${p.caseStudy.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div></div>` : '';
         const action = p.video ? `<button type="button" class="project-action" data-video="${esc(p.video)}" aria-label="${esc(p.title)} 재생">▶</button>` : p.url ? `<a class="project-action" target="_blank" rel="noopener noreferrer" href="${esc(p.url)}" aria-label="${esc(p.title)} 열기">↗</a>` : '';
-        el.innerHTML = `<div class="project-media"><div class="project-placeholder"><small>MINZ / ${num}</small><strong>CREATIVE<br>PRODUCTION</strong></div>${media}${action}</div><div class="project-content"><div class="project-meta"><span>${esc(p.type)}</span><span>${num} / ${projects.length}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${p.result ? `<strong class="project-result">${esc(p.result)}</strong>` : ''}<div class="project-foot"><small>MY ROLE · ${esc(p.role)}</small><b>${p.video ? '▶ WATCH FILM' : p.url ? '↗ VIEW PROJECT' : esc(p.note || 'PROJECT')}</b></div></div>`;
+        // 하단 CTA는 실제 클릭 가능한 버튼/링크. 외부 URL과 로컬 MP4를 구별합니다.
+        const isVideoLink = p.url && (p.cat.split(' ').includes('video') || /(?:youtu\.be|youtube\.com|instagram\.com\/reel)/i.test(p.url));
+        const footerCTA = p.video
+          ? `<button type="button" class="project-cta project-cta--play" data-video="${esc(p.video)}" aria-label="${esc(p.title)} 영상 재생하기">▶ 영상 재생하기</button>`
+          : p.url
+            ? `<a class="project-cta project-cta--link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.title)} ${isVideoLink ? '영상 보러 가기' : '작품 보러 가기'}">↗ ${isVideoLink ? '영상 보러 가기' : '작품 보러 가기'}</a>`
+            : `<span class="project-cta-status" aria-label="${esc(p.title)} 진행 상태">${esc(p.note || '준비 중')}</span>`;
+        el.innerHTML = `<div class="project-media"><div class="project-placeholder"><small>MINZ / ${num}</small><strong>CREATIVE<br>PRODUCTION</strong></div>${media}${action}</div><div class="project-content"><div class="project-meta"><span>${esc(p.type)}</span><span>${num} / ${projects.length}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${caseStudy}${p.result ? `<strong class="project-result">${esc(p.result)}</strong>` : ''}<div class="project-foot"><small>MY ROLE · ${esc(p.role)}</small>${footerCTA}</div></div>`;
         const image = el.querySelector('img');
         if (image) image.addEventListener('error', () => { const left = (image.dataset.fallbacks || '').split('|').filter(Boolean); if (left.length) { image.src = left.shift(); image.dataset.fallbacks = left.join('|'); } else image.remove(); });
         const mediaEl = el.querySelector('.project-media'); mediaEl.addEventListener('click', e => { if (e.target.closest('button,a')) return; mediaEl.querySelector('.project-action')?.click(); });
