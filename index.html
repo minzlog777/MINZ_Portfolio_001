@@ -277,7 +277,8 @@
           : p.url
             ? `<a class="project-cta project-cta--link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.title)} ${isVideoLink ? '영상 보러 가기' : '작품 보러 가기'}">↗ ${isVideoLink ? '영상 보러 가기' : '작품 보러 가기'}</a>`
             : `<span class="project-cta-status" aria-label="${esc(p.title)} 진행 상태">${esc(p.note || '준비 중')}</span>`;
-        el.innerHTML = `<div class="project-media"><div class="project-placeholder"><small>MINZ / ${num}</small><strong>CREATIVE<br>PRODUCTION</strong></div>${media}${action}</div><div class="project-content"><div class="project-meta"><span>${esc(p.type)}</span><span>${num} / ${projects.length}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${caseStudy}${p.result ? `<strong class="project-result">${esc(p.result)}</strong>` : ''}<div class="project-foot"><small>MY ROLE | ${esc(p.role)}</small>${footerCTA}</div></div>`;
+        el.innerHTML = `<div class="project-media"><div class="project-placeholder"><small>MINZ / ${num}</small><strong>CREATIVE<br>PRODUCTION</strong></div>${media}${action}</div><div class="project-content"><div class="project-meta"><span>${esc(p.type)}</span><span>${num} / ${projects.length}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${caseStudy}${p.result ? `<strong class="project-result">${esc(p.result)}</strong>` : ''}<div class="project-foot"><small>MY ROLE |
+           ${esc(p.role)}</small>${footerCTA}</div></div>`;
         const image = el.querySelector('img');
         if (image) image.addEventListener('error', () => { const left = (image.dataset.fallbacks || '').split('|').filter(Boolean); if (left.length) { image.src = left.shift(); image.dataset.fallbacks = left.join('|'); } else image.remove(); });
         const mediaEl = el.querySelector('.project-media'); mediaEl.addEventListener('click', e => { if (e.target.closest('button,a')) return; mediaEl.querySelector('.project-action')?.click(); });
