@@ -1937,7 +1937,7 @@
     const title = card.querySelector('.project-content h3')?.textContent.trim() || '';
     const type = card.querySelector('.project-meta span:first-child')?.textContent.trim() || '';
     const desc = card.querySelector('.project-content > p')?.textContent.trim() || '';
-    const role = (card.querySelector('.project-foot small')?.textContent.trim() || '').replace(/^MY ROLE\s*·\s*/, '');
+    const role = (card.querySelector('.project-foot small')?.textContent.trim() || '').replace(/^MY ROLE\s*[|·]\s*/, '')
     stageTitle.textContent = title;
     stageType.textContent = type;
     stageDesc.textContent = desc;
@@ -2145,6 +2145,287 @@
   draw(0);
 })();
 </script>
+
+
+<!-- MINZ DIRECTOR'S STUDIO / CREATIVE UPGRADE START -->
+<style id="minz-v56-style">
+/* 01. 작품별 연출 포인트 */
+.studio-page #worksGrid .minz-v56-keycut {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 13px 15px;
+  border-left: 3px solid #8652bd;
+  border-radius: 0 10px 10px 0;
+  background: #f6f1fa;
+  color: #46364e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.minz-v56-keycut strong {
+  color: #7844a9;
+  font-size: 10px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+  margin-top: 3px;
+}
+
+/* 02. Quick View 버튼 */
+.minz-v56-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 18px 0 22px;
+}
+
+.minz-v56-toggle {
+  padding: 12px 20px;
+  background: #281c36;
+  color: #fff;
+  border: 1px solid #72518b;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .25s, transform .25s;
+}
+
+.minz-v56-toggle:hover {
+  background: #64388e;
+  transform: translateY(-2px);
+}
+
+.minz-v56-toggle:focus-visible {
+  outline: 3px solid #b28ae9;
+  outline-offset: 3px;
+}
+
+/* 03. 카드 인터랙션 */
+.studio-page #worksGrid .project {
+  transition: box-shadow .3s ease,
+              border-color .3s ease;
+}
+
+.studio-page #worksGrid .project:hover {
+  box-shadow: 0 16px 38px rgba(49,25,76,.14);
+}
+
+/* 04. 간편 보기 */
+.studio-page #worksGrid.minz-v56-quick {
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+}
+
+.studio-page #worksGrid.minz-v56-quick > .project {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+.studio-page #worksGrid.minz-v56-quick
+.project-content > p,
+.studio-page #worksGrid.minz-v56-quick
+.project-case-note,
+.studio-page #worksGrid.minz-v56-quick
+.minz-v56-keycut {
+  display: none;
+}
+
+.studio-page #worksGrid.minz-v56-quick
+.project-media {
+  aspect-ratio: 16/9 !important;
+}
+
+.studio-page #worksGrid.minz-v56-quick
+.project-content {
+  padding: 19px !important;
+}
+
+.studio-page #worksGrid.minz-v56-quick
+.project-content h3 {
+  font-size: clamp(17px,1.5vw,22px);
+}
+
+@media(max-width:960px) {
+  .studio-page #worksGrid.minz-v56-quick {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:600px) {
+  .studio-page #worksGrid.minz-v56-quick {
+    grid-template-columns: 1fr !important;
+  }
+  .studio-page .minz-v56-keycut {
+    font-size: 12px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .studio-page #worksGrid .project,
+  .minz-v56-toggle {
+    transition: none;
+  }
+}
+</style>
+
+<script id="minz-v56-script">
+(() => {
+  "use strict";
+
+  // 작품의 핵심 아이디어와 연출 의도
+  const notes = {
+    "바다에서 온 초대장":
+      "유리병 속 초대장을 통해 부산 동구의 과거와 현재를 연결하는 이야기.",
+
+    "영도 봉산마을 관광 콘텐츠":
+      "마을의 공간과 일상을 현장·드론 영상으로 연결한 관광 콘텐츠.",
+
+    "부산 서구 홍보영상":
+      "해안과 도시 풍경의 공간감을 살린 지역 홍보영상.",
+
+    "센텀직업전문학교 | FIND YOUR WAY":
+      "새로운 출발의 메시지를 인물과 도시 풍경으로 전달.",
+
+    "짱구 팝업스토어 릴스":
+      "현장의 재미와 볼거리를 빠른 컷으로 전달하는 숏폼.",
+
+    "부산 강서구 부동산 홍보영상":
+      "건물의 공간 구성과 입지 특성을 시각적으로 전달.",
+
+    "동백커피 | 업비트 광고":
+      "비트에 맞춘 컷 전환으로 메뉴와 매장 분위기를 강조.",
+
+    "듀플릿 해운대점":
+      "디저트 클로즈업과 감각적인 구도로 메뉴의 매력 전달.",
+
+    "SUPERCAR | AI CINEMATIC":
+      "네온 조명과 가상 카메라 연출로 속도감 있는 장면 구성.",
+
+    "동백커피 | AI 브랜드 영상":
+      "실사 카페 장면과 AI 연출을 결합한 브랜드 스토리.",
+
+    "MINZ 캐릭터 & 브랜드 디자인":
+      "보라색과 시그니처 소품으로 브랜드 정체성을 시각화.",
+
+    "ONPICK | 오늘 뭐하지?!":
+      "장소 탐색부터 선택까지 연결하는 사용자 중심 UI.",
+
+    "BUSAN NIGHT 01":
+      "부산의 야경과 브랜드 비주얼을 결합한 콘셉트 디자인.",
+
+    "다트풍선 | YouTube Shorts":
+      "빠른 장면 전환과 편집 템포로 게임의 몰입감 전달.",
+
+    "MINZ Portfolio Website":
+      "영상·AI·디자인 프로젝트를 연결하는 디지털 포트폴리오."
+  };
+
+  function initCreative() {
+    const grid = document.getElementById("worksGrid");
+    if (!grid || document.getElementById("minz-v56-toggle")) return;
+
+    const cards = [...grid.querySelectorAll(".project")];
+
+    cards.forEach((card, index) => {
+      const title = card.querySelector(
+        ".project-content h3"
+      )?.textContent.trim();
+
+      const content = card.querySelector(".project-content");
+      const footer = card.querySelector(".project-foot");
+      const note = notes[title];
+
+      if (note && content && footer) {
+        const element = document.createElement("div");
+        element.className = "minz-v56-keycut";
+
+        const label = document.createElement("strong");
+        label.textContent = "KEY CUT";
+
+        const description = document.createElement("span");
+        description.textContent = note;
+
+        element.append(label, description);
+        content.insertBefore(element, footer);
+      }
+
+      // 작품별 실제 역할 보정
+      if (title === "영도 봉산마을 관광 콘텐츠") {
+        const role = footer?.querySelector("small");
+        if (role) {
+          role.textContent =
+            "MY ROLE | 기획 참여 · 현장·드론 촬영 · 편집";
+        }
+      }
+
+      // 실제 화면 순서와 번호 일치
+      const number =
+        String(index + 1).padStart(2, "0") +
+        " / " + String(cards.length).padStart(2, "0");
+
+      const ordinal = card.querySelector(".studio-thumb-ordinal");
+      const meta = card.querySelector(
+        ".project-meta span:last-child"
+      );
+
+      if (ordinal) ordinal.textContent = number;
+      if (meta) meta.textContent = number;
+
+      // 버튼 문구 통일
+      const cta = card.querySelector(".project-cta");
+
+      if (cta?.matches("button")) {
+        cta.textContent = "▶ 영상 보기";
+      } else if (cta?.matches("a")) {
+        const url = cta.getAttribute("href") || "";
+
+        if (/youtu|instagram\.com\/reel/i.test(url)) {
+          cta.textContent = "↗ 영상 보기";
+        } else if (/figma\.com/i.test(url)) {
+          cta.textContent = "↗ Figma 보기";
+        } else if (/github\.com/i.test(url)) {
+          cta.textContent = "↗ 코드 보기";
+        } else {
+          cta.textContent = "↗ 작품 보기";
+        }
+      }
+    });
+
+    // 채용 담당자용 간편 보기
+    const toolbar = document.createElement("div");
+    toolbar.className = "minz-v56-toolbar";
+
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.id = "minz-v56-toggle";
+    toggle.className = "minz-v56-toggle";
+    toggle.textContent = "⚡ QUICK VIEW";
+    toggle.setAttribute("aria-pressed", "false");
+    toggle.setAttribute("aria-controls", "worksGrid");
+
+    toggle.addEventListener("click", () => {
+      const quick = grid.classList.toggle("minz-v56-quick");
+      toggle.textContent =
+        quick ? "상세 보기" : "⚡ QUICK VIEW";
+      toggle.setAttribute("aria-pressed", String(quick));
+    });
+
+    toolbar.append(toggle);
+    grid.before(toolbar);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded", initCreative, {once:true}
+    );
+  } else {
+    initCreative();
+  }
+})();
+</script>
+<!-- MINZ DIRECTOR'S STUDIO / CREATIVE UPGRADE END -->
+
 </body>
 
 </html>
