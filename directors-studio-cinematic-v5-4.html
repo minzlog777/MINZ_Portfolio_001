@@ -8,10 +8,10 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#15101f">
   <meta name="description" content="MINZ Director’s Studio | Film, Drone, AI and Creative Direction — 별도 실험용 포트폴리오">
-  <meta property="og:title" content="MINZ | Director’s Studio — Story Cut v5.3">
+  <meta property="og:title" content="MINZ | Director’s Studio — Design Cut v5.4">
   <meta property="og:description" content="MINZ Director’s Studio — 대표작 제작 노트와 실무 경력까지 담은 시네마틱 포트폴리오.">
   <meta property="og:image" content="https://minzlog777.github.io/MINZ_Portfolio_001/assets/img/thumbnails/minz-showreel-studio-v5.webp">
-  <title>MINZ | Director’s Studio — Story Cut v5.3.2</title>
+  <title>MINZ | Director’s Studio — Design Cut v5.4.2</title>
   <link rel="icon" href="assets/img/lastfavicon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet"
@@ -1114,52 +1114,64 @@
 .studio-page .studio-design-visual-footer b{font-size:11px;color:#f6ecff}
 .studio-page .studio-design-visual-footer span{color:#e4caff}
 
-<style id="minz-cardnews-cover-fix">
-/* MINZ 카드뉴스 대표 이미지 개선 */
+
+/* MINZ v5.4 — card-news cover (inside the existing design stylesheet) */
+/* 카드뉴스 첫 장 전체 노출: 3분할 대신 원본 3:4 비율 유지 */
+.studio-page #design-works .studio-design-visual-news {
+  background: radial-gradient(circle at 50% 38%,#3b2a4c 0%,#17111f 82%);
+  isolation:isolate;
+}
+/* 원본 1번 카드로 배경 톤을 연출하며, 본문은 선명한 이미지로 표시 */
+.studio-page #design-works .studio-design-visual-news::before {
+  content:"";
+  position:absolute;
+  inset:-16px;
+  z-index:0;
+  background:url("assets/img/design/voice-phishing-01.jpg?v=20261120-brand-v4") center/cover no-repeat;
+  filter:blur(22px) brightness(.38) saturate(.76);
+  opacity:.65;
+  pointer-events:none;
+}
 .studio-page #design-works .studio-design-news-panels {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 45px 18px;
-  overflow: hidden;
-  background: radial-gradient(
-    circle at center,
-    #34304a 0%,
-    #171120 75%
-  );
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:32px 18px;
+  overflow:hidden;
+  z-index:1;
 }
-
-/* 2, 3번째 이미지는 대표 화면에서 숨김 */
-.studio-page #design-works .studio-design-news-panels img {
-  display: none;
-}
-
-/* 첫 번째 카드뉴스만 온전히 표시 */
+.studio-page #design-works .studio-design-news-panels img {display:none;}
 .studio-page #design-works .studio-design-news-panels img:first-child {
-  position: relative;
-  display: block;
-  flex: 0 1 auto;
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  display:block;
+  position:relative;
+  width:auto;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+  border-radius:6px;
+  box-shadow:0 12px 30px rgba(0,0,0,.32);
+  transition:transform .35s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .studio-page #design-works .studio-design-visual-news:hover .studio-design-news-panels img:first-child {
+    transform:scale(1.025);
+  }
+}
+@media (max-width:460px) {
+  .studio-page #design-works .studio-design-news-panels {padding:35px 12px 33px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .studio-page #design-works .studio-design-news-panels img:first-child {transition:none!important;transform:none!important;}
 }
 
-/* 마우스를 올렸을 때 부드러운 확대 */
-.studio-page #design-works
-.studio-design-visual-news:hover
-.studio-design-news-panels img:first-child {
-  transform: scale(1.025);
-}
-</style>
-
-.studio-page .studio-design-sony-preview{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease}
+.studio-page .studio-design-sony-preview{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:#211a29;transition:transform .6s ease}
 .studio-page .studio-design-visual-sony:hover .studio-design-sony-preview{transform:scale(1.035)}
 .studio-page .studio-design-body{padding:clamp(22px,2.4vw,32px);display:flex;flex:1;flex-direction:column;gap:14px;align-items:flex-start}
 .studio-page .studio-design-head{display:flex;justify-content:space-between;gap:18px;width:100%;color:#c8a9e9;font-size:10px;font-weight:850;letter-spacing:.1em}
@@ -1179,7 +1191,7 @@
 .studio-gallery-head h3{font-size:18px;color:#fff;line-height:1.4;margin:5px 0 0}
 .studio-gallery-head button{border:1px solid #79638c;border-radius:99px;background:#291e34;color:#fff;font-size:12px;padding:9px 14px;cursor:pointer;white-space:nowrap}
 .studio-gallery-view{display:flex;align-items:center;justify-content:center;gap:10px;min-width:0}
-.studio-gallery-view img{width:auto;height:auto;max-width:calc(100% - 86px);max-height:calc(95vh - 175px);aspect-ratio:1;object-fit:contain;display:block;border-radius:7px;background:#17111c}
+.studio-gallery-view img{width:auto;height:auto;max-width:calc(100% - 86px);max-height:calc(95vh - 175px);aspect-ratio:3/4;object-fit:contain;display:block;border-radius:7px;background:#17111c}
 .studio-gallery-arrow{height:46px;width:38px;flex:0 0 38px;border:1px solid #5d436e;border-radius:10px;background:#2c203b;color:#fff;font-size:31px;line-height:1;cursor:pointer}
 .studio-gallery-arrow:hover{background:#5b357f}
 .studio-gallery-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
@@ -1385,9 +1397,9 @@
             <button type="button" class="studio-design-visual studio-design-visual-news" id="openVoiceGallery" aria-haspopup="dialog" aria-label="AI 보이스피싱 예방 카드뉴스 6장 보기">
               <span class="studio-design-topline"><span>EDITORIAL DESIGN</span><span>01 / 02</span></span>
               <span class="studio-design-news-panels" aria-hidden="true">
-                <img src="assets/img/design/voice-phishing-01.jpg" alt="" loading="lazy">
-                <img src="assets/img/design/voice-phishing-02.jpg" alt="" loading="lazy">
-                <img src="assets/img/design/voice-phishing-03.jpg" alt="" loading="lazy">
+                <img src="assets/img/design/voice-phishing-01.jpg?v=20261120-brand-v4" alt="" loading="lazy">
+                <img src="assets/img/design/voice-phishing-02.jpg?v=20261120-brand-v4" alt="" loading="lazy">
+                <img src="assets/img/design/voice-phishing-03.jpg?v=20261120-brand-v4" alt="" loading="lazy">
               </span>
               <span class="studio-design-visual-footer"><b>6 FRAME STORY</b><span>EXPLORE SERIES ↗</span></span>
             </button>
@@ -1400,9 +1412,9 @@
             </div>
           </article>
           <article class="studio-design-card reveal">
-            <a class="studio-design-visual studio-design-visual-sony" href="https://www.figma.com/design/AvhAlk67j2KT26BQLYI7rF/sony?node-id=0-1" target="_blank" rel="noopener noreferrer" aria-label="Figma에서 SONY 웹 UI 개인 리디자인 열기">
+            <a class="studio-design-visual studio-design-visual-sony" href="https://www.figma.com/design/AvhAlk67j2KT26BQLYI7rF/sony?node-id=72-67" target="_blank" rel="noopener noreferrer" aria-label="Figma에서 SONY 웹 UI 개인 리디자인 열기">
               <span class="studio-design-topline"><span>WEB UI / FIGMA</span><span>02 / 02</span></span>
-              <img class="studio-design-sony-preview" src="assets/img/design/sony-concept-preview.png" alt="SONY 웹 UI 개인 리디자인의 구성을 참고해 만든 임시 콘셉트 미리보기. 실제 Figma 원본 화면은 링크에서 확인" loading="lazy">
+              <img class="studio-design-sony-preview" src="assets/img/design/sony-concept-preview.png?v=20261120-figma-mockup" alt="SONY 웹 UI 개인 리디자인의 구성을 참고해 만든 임시 콘셉트 미리보기. 실제 Figma 원본 화면은 링크에서 확인" loading="lazy">
               <span class="studio-design-visual-footer"><b>WEB EXPERIENCE</b><span>OPEN FIGMA ↗</span></span>
             </a>
             <div class="studio-design-body">
@@ -1410,11 +1422,11 @@
               <h3>SONY 카메라 스토어<br><em>웹 UI 리디자인</em></h3>
               <p>제품 탐색 동선과 메인 화면 구성, 색상·타이포그래피 가이드를 정리한 비공식 개인 리디자인 작업입니다.</p>
               <div class="studio-design-pills"><span>웹 레이아웃</span><span>UI 구성</span><span>브랜드 리서치</span></div>
-              <a class="studio-design-cta" href="https://www.figma.com/design/AvhAlk67j2KT26BQLYI7rF/sony?node-id=0-1" target="_blank" rel="noopener noreferrer">Figma 원본 보기 <span aria-hidden="true">↗</span></a>
+              <a class="studio-design-cta" href="https://www.figma.com/design/AvhAlk67j2KT26BQLYI7rF/sony?node-id=72-67" target="_blank" rel="noopener noreferrer">Figma 원본 보기 <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         </div>
-        <p class="studio-design-footnote">* SONY 리디자인은 브랜드 공식 의뢰가 아닌 개인 디자인 프로젝트이며, 썸네일은 실제 Figma 캡처가 아닌 콘셉트 미리보기입니다.</p>
+        <p class="studio-design-footnote">* SONY 리디자인은 브랜드 공식 의뢰가 아닌 개인 디자인 프로젝트이며, 썸네일은 실제 Figma 프로젝트의 목업 이미지를 사용했습니다.</p>
       </div>
     </section>
 
@@ -1527,7 +1539,7 @@
   <dialog id="designGalleryDialog" class="studio-gallery-dialog" aria-labelledby="studioGalleryTitle">
     <div class="studio-gallery-inner">
       <div class="studio-gallery-head"><div><span>MINZ / DESIGN WORKS</span><h3 id="studioGalleryTitle">AI 보이스피싱 예방 카드뉴스</h3></div><button type="button" id="closeDesignGallery" aria-label="카드뉴스 닫기">✕ 닫기</button></div>
-      <div class="studio-gallery-view"><button type="button" id="designPrev" class="studio-gallery-arrow" aria-label="이전 카드">‹</button><img id="designGalleryImage" src="assets/img/design/voice-phishing-01.jpg" alt="카드뉴스 1번째 장" width="643" height="643"><button type="button" id="designNext" class="studio-gallery-arrow" aria-label="다음 카드">›</button></div>
+      <div class="studio-gallery-view"><button type="button" id="designPrev" class="studio-gallery-arrow" aria-label="이전 카드">‹</button><img id="designGalleryImage" src="assets/img/design/voice-phishing-01.jpg?v=20261120-brand-v4" alt="카드뉴스 1번째 장" width="643" height="643"><button type="button" id="designNext" class="studio-gallery-arrow" aria-label="다음 카드">›</button></div>
       <div class="studio-gallery-bottom"><p id="designGalleryCounter" aria-live="polite">01 / 06</p><div id="designGalleryDots" class="studio-gallery-dots" aria-label="카드뉴스 페이지 이동"></div><span>← → 방향키로 이동</span></div>
     </div>
   </dialog>
@@ -2105,7 +2117,7 @@
   const image=document.getElementById('designGalleryImage');
   const dots=document.getElementById('designGalleryDots');
   const counter=document.getElementById('designGalleryCounter');
-  const slides=Array.from({length:6},(_,i)=>'assets/img/design/voice-phishing-'+String(i+1).padStart(2,'0')+'.jpg');
+  const slides=Array.from({length:6},(_,i)=>'assets/img/design/voice-phishing-'+String(i+1).padStart(2,'0')+'.jpg?v=20261120-brand-v4');
   if(!dialog||!image||!dots)return;
   let active=0;
   const draw=index=>{
