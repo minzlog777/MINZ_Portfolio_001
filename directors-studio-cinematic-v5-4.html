@@ -4646,6 +4646,381 @@
   </script>
   <!-- MINZ DIRECTOR'S STUDIO / CREATIVE UPGRADE END -->
 
+
+  <!-- MINZ | SONY FIGMA CASE STUDY -->
+  <style>
+    .minz-sony-dialog {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: min(1040px, calc(100vw - 28px));
+      max-height: 92dvh;
+      padding: 0;
+      overflow-y: auto;
+      border: 1px solid #68517d;
+      border-radius: 22px;
+      background: #17111f;
+      color: #fff;
+      box-shadow: 0 35px 130px rgba(0, 0, 0, .7);
+    }
+
+    .minz-sony-dialog::backdrop {
+      background: rgba(5, 3, 10, .83);
+      backdrop-filter: blur(7px);
+    }
+
+    .minz-sony-dialog * {
+      box-sizing: border-box;
+    }
+
+    .minz-sony-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 28px;
+      background: #17111f;
+      border-bottom: 1px solid #493754;
+    }
+
+    .minz-sony-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      color: #d0adfa;
+    }
+
+    .minz-sony-close {
+      border: 1px solid #79618e;
+      background: #2c2038;
+      color: #fff;
+      border-radius: 100px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+
+    .minz-sony-close:hover {
+      background: #4a315e;
+    }
+
+    .minz-sony-inner {
+      padding: 28px;
+    }
+
+    .minz-sony-inner h2 {
+      margin: 12px 0;
+      font-size: clamp(27px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -.045em;
+      color: #fff;
+    }
+
+    .minz-sony-lead {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #d9ccdf;
+      margin-bottom: 24px;
+    }
+
+    .minz-sony-shot {
+      margin: 0;
+      padding: 16px;
+      border: 1px solid #50415d;
+      border-radius: 16px;
+      background: #231a2c;
+      text-align: center;
+    }
+
+    .minz-sony-shot img {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .minz-sony-shot figcaption {
+      margin-top: 12px;
+      color: #beaeca;
+      font-size: 12px;
+    }
+
+    .minz-sony-details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .minz-sony-detail {
+      padding: 19px;
+      border: 1px solid #4c3a5e;
+      border-radius: 14px;
+      background: #231a2c;
+    }
+
+    .minz-sony-detail strong {
+      display: block;
+      color: #d6b5ff;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .minz-sony-detail p {
+      color: #eee5f0;
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .minz-sony-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .minz-sony-actions a,
+    .minz-sony-actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 21px;
+      border-radius: 100px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .minz-sony-actions a {
+      background: #c9a8ff;
+      color: #170f20;
+    }
+
+    .minz-sony-actions button {
+      background: transparent;
+      border: 1px solid #8e78a1;
+      color: #fff;
+    }
+
+    .minz-sony-note {
+      color: #ad9dbb;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .minz-sony-dialog :focus-visible {
+      outline: 3px solid #caa2ff;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 640px) {
+      .minz-sony-dialog {
+        max-height: 94dvh;
+        border-radius: 16px;
+      }
+
+      .minz-sony-head {
+        padding: 14px 17px;
+      }
+
+      .minz-sony-inner {
+        padding: 18px;
+      }
+
+      .minz-sony-details {
+        grid-template-columns: 1fr;
+      }
+
+      .minz-sony-shot {
+        padding: 8px;
+      }
+    }
+  </style>
+
+  <script id="minz-sony-case-script">
+    (() => {
+      'use strict';
+
+      // 기존 SONY 작품 카드 선택
+      const cover = document.querySelector(
+        '.studio-design-visual-sony'
+      );
+
+      // 중복 실행 방지
+      if (!cover || document.getElementById(
+        'minzSonyCaseDialog'
+      )) return;
+
+      // 기존 썸네일 및 Figma 링크 재사용
+      const preview = cover.querySelector('img');
+      const previewUrl = preview
+        ? preview.getAttribute('src')
+        : 'assets/img/design/sony-concept-preview.png';
+
+      const figmaUrl = cover.getAttribute('href');
+
+      // 상세 보기 팝업 생성
+      const dialog = document.createElement('dialog');
+      dialog.id = 'minzSonyCaseDialog';
+      dialog.className = 'minz-sony-dialog';
+      dialog.setAttribute(
+        'aria-labelledby',
+        'minzSonyCaseTitle'
+      );
+
+      dialog.innerHTML = `
+    <header class="minz-sony-head">
+      <span class="minz-sony-label">
+        MINZ / DESIGN CASE STUDY
+      </span>
+      <button
+        type="button"
+        class="minz-sony-close"
+        data-close
+        aria-label="상세 보기 닫기">
+        ✕ 닫기
+      </button>
+    </header>
+
+    <div class="minz-sony-inner">
+      <span class="minz-sony-label">
+        WEB UI · FIGMA · PERSONAL REDESIGN
+      </span>
+
+      <h2 id="minzSonyCaseTitle">
+        SONY 카메라 스토어<br>
+        웹 UI 리디자인
+      </h2>
+
+      <p class="minz-sony-lead">
+        카메라 제품을 탐색하는 흐름을 중심으로
+        메인 화면과 정보 구조를 정리한
+        개인 리디자인 프로젝트입니다.
+      </p>
+
+      <figure class="minz-sony-shot">
+        <img
+          id="minzSonyPreview"
+          alt="SONY 카메라 스토어 Figma 디자인 목업"
+          loading="lazy"
+        >
+        <figcaption>
+          ORIGINAL FIGMA MOCKUP
+        </figcaption>
+      </figure>
+
+      <div class="minz-sony-details">
+
+        <div class="minz-sony-detail">
+          <strong>01 / OBJECTIVE</strong>
+          <p>
+            제품 탐색을 중심으로 사용자 동선을
+            고려한 화면 구성
+          </p>
+        </div>
+
+        <div class="minz-sony-detail">
+          <strong>02 / DESIGN FOCUS</strong>
+          <p>
+            이미지와 타이포그래피의 우선순위,
+            레이아웃 및 정보 구조 설계
+          </p>
+        </div>
+
+        <div class="minz-sony-detail">
+          <strong>03 / DELIVERABLE</strong>
+          <p>
+            Figma 기반 카메라 스토어
+            UI 리디자인 및 목업
+          </p>
+        </div>
+
+      </div>
+
+      <nav class="minz-sony-actions">
+        <a
+          id="minzSonyFigmaLink"
+          target="_blank"
+          rel="noopener noreferrer">
+          Figma 원본 보기 ↗
+        </a>
+
+        <button type="button" data-close>
+          포트폴리오로 돌아가기
+        </button>
+      </nav>
+
+      <p class="minz-sony-note">
+        ※ SONY 공식 의뢰가 아닌
+        비공식 개인 UI 리디자인 프로젝트입니다.
+      </p>
+    </div>
+  `;
+
+      // 이미지와 링크 연결
+      dialog.querySelector('#minzSonyPreview').src =
+        previewUrl;
+
+      if (figmaUrl) {
+        dialog.querySelector('#minzSonyFigmaLink').href =
+          figmaUrl;
+      }
+
+      document.body.appendChild(dialog);
+
+      // 기존 썸네일 클릭 시 팝업 열기
+      cover.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+      });
+
+      cover.setAttribute(
+        'aria-label',
+        'SONY 카메라 스토어 디자인 상세 보기'
+      );
+
+      // 썸네일 아래 문구 수정
+      const footer = cover.querySelector(
+        '.studio-design-visual-footer span'
+      );
+
+      if (footer) {
+        footer.textContent = 'VIEW CASE STUDY ↗';
+      }
+
+      // 닫기 버튼
+      dialog.querySelectorAll('[data-close]').forEach(
+        button => {
+          button.addEventListener('click', () => {
+            dialog.close();
+          });
+        }
+      );
+
+      // 팝업 외부 클릭 시 닫기
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+          dialog.close();
+        }
+      });
+
+      // 닫은 후 원래 카드로 포커스 복귀
+      dialog.addEventListener('close', () => {
+        cover.focus();
+      });
+
+    })();
+  </script>
+  <!-- END MINZ SONY CASE STUDY -->
+  f
 </body>
 
 </html>
