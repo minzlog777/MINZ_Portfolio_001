@@ -1254,3 +1254,85 @@
 .minz-reel-meta p{color:#ddd0e6;line-height:1.8;font-size:14px;margin:0 0 20px}
 .minz-reel-meta a{display:inline-flex;border-radius:30px;background:#c8a8ff;color:#21102c;text-decoration:none;padding:12px 18px;font-size:13px;font-weight:800}
 @media(max-width:630px){.minz-reel-body{display:flex;flex-direction:column;padding:14px}.minz-reel-frame{width:min(330px,100%);height:min(63dvh,560px)}.minz-reel-meta{width:100%}}
+
+
+/* ==========================================================
+   MINZ v5.4 / FINAL EDITORIAL POLISH
+   One maintained stylesheet. No competing short-form rules.
+   ========================================================== */
+.studio-page .studio-skip-link {
+  position: fixed;
+  z-index: 10000;
+  left: 16px;
+  top: -90px;
+  padding: 12px 18px;
+  color: #20142e;
+  background: #f8efff;
+  border: 2px solid #7642a3;
+  border-radius: 10px;
+  font: 800 14px/1.3 Pretendard, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.26);
+}
+.studio-page .studio-skip-link:focus-visible { top: 10px; }
+
+/* Let the description, editorial focus, and author credit read in that order. */
+.studio-page #worksGrid .project-focus {
+  margin: clamp(15px,2vw,22px) 0 0;
+  padding: 13px 16px 14px;
+  border: 1px solid #eee4f2;
+  border-left: 3px solid #8250aa;
+  border-radius: 0 11px 11px 0;
+  background: #faf7fc;
+  min-width: 0;
+}
+.studio-page #worksGrid .project-focus > span {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 850;
+  letter-spacing: .085em;
+  color: #7644a5;
+}
+.studio-page #worksGrid .project-focus > p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 650;
+  letter-spacing: -.015em;
+  color: #36283c;
+  overflow-wrap: anywhere;
+}
+.studio-page #worksGrid .project-foot small {
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 650;
+  color: #55475b;
+  overflow-wrap: anywhere;
+}
+.studio-page #worksGrid .project-meta span:first-child {
+  line-height: 1.45;
+  word-break: keep-all;
+}
+.studio-page #worksGrid .project-content h3 { text-wrap: balance; }
+.studio-page #worksGrid .project-content > p { word-break: keep-all; }
+.studio-page #worksGrid :is(.project-cta,.project-action):focus-visible,
+.studio-page :is(.menu-btn,.bgm-btn,.shutter-control,.studio-design-cta,.studio-design-visual):focus-visible {
+  outline: 3px solid #9a61d1;
+  outline-offset: 4px;
+}
+.studio-page #worksGrid .project-cta:not(.project-cta-status) { min-height: 44px; }
+.studio-page .project-focus ~ .project-foot { margin-top: auto; }
+
+/* Smaller screens: the editorial focus stays readable without crowding the CTA. */
+@media (max-width: 660px) {
+  .studio-page #worksGrid .project-focus { padding: 12px 13px; margin-top: 14px; }
+  .studio-page #worksGrid .project-focus > p { font-size: 12px; }
+  .studio-page #worksGrid .project-content h3 { word-break: keep-all; }
+  .studio-page .studio-stage-info .studio-stage-role { line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-page #worksGrid .project-cta { transition-duration: .01ms; }
+  .studio-page #worksGrid .project-action { transition-duration: .01ms; }
+}
