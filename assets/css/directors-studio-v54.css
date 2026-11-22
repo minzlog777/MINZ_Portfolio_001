@@ -1355,28 +1355,6 @@
   text-shadow: 0 2px 12px rgba(0,0,0,.32);
 }
 .studio-page .hero-jobline span {color:#c69ff3;padding:0 .15em;}
-.studio-page .minz-featured-intro {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 18px 34px;
-  padding: clamp(19px,2.7vw,30px) 0 19px;
-  margin: 0 0 25px;
-  border-bottom: 1px solid rgba(94,58,117,.23);
-}
-.studio-page .minz-featured-intro[hidden] {display:none!important;}
-.studio-page .minz-featured-intro > div {display:flex;flex-direction:column;gap:8px;}
-.studio-page .minz-featured-intro .minz-eyebrow {
-  color:#7246a4; letter-spacing:.14em; font-size:11px; font-weight:850;
-}
-.studio-page .minz-featured-intro .minz-featured-title {
-  font-size:clamp(20px,2.5vw,30px);letter-spacing:-.04em;
-  color:#251a32;line-height:1.2;font-weight:850;
-}
-.studio-page .minz-featured-intro > p {
-  max-width:510px; margin:0; font-size:14px;line-height:1.75;
-  color:#5b4e67;word-break:keep-all;
-}
 .studio-page #worksGrid .project--featured {
   border-color:#d2bce4;
   box-shadow:0 7px 24px rgba(62,31,96,.085);
@@ -1391,8 +1369,6 @@
 }
 .studio-page #worksGrid .project--featured .project-foot small {color:#4b3a55;}
 @media (max-width:740px) {
-  .studio-page .minz-featured-intro {align-items:start;flex-direction:column;gap:10px;}
-  .studio-page .minz-featured-intro > p {max-width:100%;font-size:13px;}
   .studio-page .hero-jobline {margin-bottom:13px;}
 }
 @media (prefers-reduced-motion:reduce) {
