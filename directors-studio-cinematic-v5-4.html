@@ -5052,6 +5052,269 @@
     })();
   </script>
 
+  <!-- MINZ | FIGMA WORKS CASE STUDY -->
+  <script id="minz-figma-works-script">
+    (() => {
+      'use strict';
+
+      const grid = document.getElementById('worksGrid');
+
+      // 중복 설치 방지
+      if (!grid || document.getElementById(
+        'minzFigmaWorksDialog'
+      )) return;
+
+      const projects = {
+        'ONPICK | 오늘 뭐하지?!': {
+          category: 'APP UI/UX · FIGMA',
+          lead: '라이프스타일 큐레이션 앱의 서비스 기획과 UI/UX 디자인 프로젝트입니다.',
+          caption: 'ONPICK / APP UI DESIGN',
+          details: [
+            ['01 / CONCEPT', '일상 속 활동과 장소를 탐색하는 라이프스타일 큐레이션 앱'],
+            ['02 / DESIGN', '앱 화면 구성과 서비스 이용 흐름을 고려한 UI/UX 디자인'],
+            ['03 / MY ROLE', '서비스 기획 · UI/UX']
+          ],
+          button: 'Figma 프로토타입 체험하기 ↗',
+          note: '실제 화면 전환과 인터랙션은 Figma 프로토타입에서 확인할 수 있습니다.'
+        },
+
+        'BUSAN NIGHT 01': {
+          category: 'VISUAL DESIGN · FIGMA',
+          lead: '부산의 야경을 소재로 제작한 디지털 비주얼 디자인 프로젝트입니다.',
+          caption: 'BUSAN NIGHT / VISUAL DESIGN',
+          details: [
+            ['01 / CONCEPT', '부산의 밤과 도시 풍경을 시각적으로 표현한 디자인'],
+            ['02 / VISUAL', '야경 이미지 중심의 분위기와 시각적 구성'],
+            ['03 / MY ROLE', '비주얼 디자인 · UI']
+          ],
+          button: 'Figma 원본 보기 ↗',
+          note: '기존 포트폴리오 이미지를 사용한 작품 소개입니다.'
+        }
+      };
+
+      const dialog = document.createElement('dialog');
+      dialog.id = 'minzFigmaWorksDialog';
+      dialog.className = 'minz-sony-dialog';
+      dialog.setAttribute(
+        'aria-labelledby',
+        'minzFigmaWorksTitle'
+      );
+
+      dialog.innerHTML = `
+    <header class="minz-sony-head">
+      <span class="minz-sony-eyebrow">
+        MINZ / DESIGN CASE STUDY
+      </span>
+      <button
+        type="button"
+        class="minz-sony-close"
+        data-figma-close>
+        ✕ 닫기
+      </button>
+    </header>
+
+    <div class="minz-sony-inner">
+      <div class="minz-sony-heading">
+        <span
+          class="minz-sony-eyebrow"
+          id="minzFigmaWorksCategory">
+        </span>
+
+        <h2 id="minzFigmaWorksTitle"></h2>
+
+        <p
+          class="minz-sony-lead"
+          id="minzFigmaWorksLead">
+        </p>
+      </div>
+
+      <figure class="minz-sony-shot">
+        <img
+          id="minzFigmaWorksImage"
+          alt="Figma 작품 이미지">
+
+        <figcaption
+          id="minzFigmaWorksCaption">
+        </figcaption>
+      </figure>
+
+      <div
+        class="minz-sony-details"
+        id="minzFigmaWorksDetails">
+      </div>
+
+      <nav class="minz-sony-actions">
+        <a
+          id="minzFigmaWorksLink"
+          target="_blank"
+          rel="noopener noreferrer">
+        </a>
+
+        <button
+          type="button"
+          data-figma-close>
+          포트폴리오로 돌아가기
+        </button>
+      </nav>
+
+      <p
+        class="minz-sony-note"
+        id="minzFigmaWorksNote">
+      </p>
+    </div>
+  `;
+
+      document.body.appendChild(dialog);
+
+      const image = dialog.querySelector(
+        '#minzFigmaWorksImage'
+      );
+      const link = dialog.querySelector(
+        '#minzFigmaWorksLink'
+      );
+
+      let previousFocus = null;
+
+      function openCase(card, data, trigger) {
+        const title = card.querySelector(
+          '.project-content h3'
+        ).textContent.trim();
+
+        const thumbnail = card.querySelector(
+          '.project-media img'
+        );
+
+        const originalLink = card.querySelector(
+          '.project-cta--link[href]'
+        );
+
+        previousFocus = trigger;
+
+        dialog.querySelector(
+          '#minzFigmaWorksTitle'
+        ).textContent = title;
+
+        dialog.querySelector(
+          '#minzFigmaWorksCategory'
+        ).textContent = data.category;
+
+        dialog.querySelector(
+          '#minzFigmaWorksLead'
+        ).textContent = data.lead;
+
+        dialog.querySelector(
+          '#minzFigmaWorksCaption'
+        ).textContent = data.caption;
+
+        dialog.querySelector(
+          '#minzFigmaWorksNote'
+        ).textContent = data.note;
+
+        // 기존 작품 썸네일 그대로 사용
+        if (thumbnail) {
+          image.src = thumbnail.currentSrc || thumbnail.src;
+          image.hidden = false;
+          image.alt = title + ' 대표 디자인';
+        } else {
+          image.removeAttribute('src');
+          image.hidden = true;
+        }
+
+        image.onerror = () => {
+          image.hidden = true;
+        };
+
+        // 실제 프로젝트 설명 생성
+        const details = dialog.querySelector(
+          '#minzFigmaWorksDetails'
+        );
+
+        details.replaceChildren();
+
+        data.details.forEach(([label, description]) => {
+          const box = document.createElement('div');
+          box.className = 'minz-sony-detail';
+
+          const heading = document.createElement('strong');
+          heading.textContent = label;
+
+          const paragraph = document.createElement('p');
+          paragraph.textContent = description;
+
+          box.append(heading, paragraph);
+          details.appendChild(box);
+        });
+
+        // 기존 Figma 링크 재사용
+        if (originalLink) {
+          link.href = originalLink.href;
+          link.textContent = data.button;
+          link.hidden = false;
+        } else {
+          link.removeAttribute('href');
+          link.hidden = true;
+        }
+
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+      }
+
+      // Selected Works 작품 클릭 처리
+      grid.addEventListener('click', event => {
+        const card = event.target.closest('.project');
+
+        if (!card) return;
+
+        const title = card.querySelector(
+          '.project-content h3'
+        )?.textContent.trim();
+
+        const data = projects[title];
+
+        if (!data) return;
+
+        // 작품 이미지와 하단 CTA에서만 팝업 열기
+        const clickable = event.target.closest(
+          '.project-media, .project-cta--link'
+        );
+
+        if (!clickable) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        const trigger = event.target.closest('a,button')
+          || card.querySelector('.project-cta--link');
+
+        openCase(card, data, trigger);
+      }, true);
+
+      // 상세 보기 닫기
+      dialog.querySelectorAll(
+        '[data-figma-close]'
+      ).forEach(button => {
+        button.addEventListener('click', () => {
+          dialog.close();
+        });
+      });
+
+      // 배경 클릭 시 닫기
+      dialog.addEventListener('click', event => {
+        if (event.target === dialog) {
+          dialog.close();
+        }
+      });
+
+      // 닫은 뒤 작품 카드로 포커스 복귀
+      dialog.addEventListener('close', () => {
+        previousFocus?.focus?.();
+      });
+
+    })();
+  </script>
+  <!-- END MINZ FIGMA WORKS CASE STUDY -->
+
 </body>
 
 </html>
