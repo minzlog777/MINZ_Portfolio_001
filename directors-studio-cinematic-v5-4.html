@@ -5020,7 +5020,38 @@
     })();
   </script>
   <!-- END MINZ SONY CASE STUDY -->
-  f
+
+
+  <!-- SONY Case Study Click Fix -->
+  <script>
+    (() => {
+      if (window.__minzSonyClickFix) return;
+      window.__minzSonyClickFix = true;
+
+      document.addEventListener('click', (event) => {
+        const trigger = event.target.closest?.(
+          '.studio-design-visual-sony'
+        );
+
+        if (!trigger) return;
+
+        const popup = document.getElementById(
+          'minzSonyCaseDialog'
+        );
+
+        if (!popup) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        if (!popup.open &&
+          typeof popup.showModal === 'function') {
+          popup.showModal();
+        }
+      }, true);
+    })();
+  </script>
+
 </body>
 
 </html>
