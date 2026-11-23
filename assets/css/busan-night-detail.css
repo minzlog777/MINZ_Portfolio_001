@@ -28,3 +28,33 @@ main{width:100%;padding-top:clamp(16px,3vw,32px)}
 footer{padding:22px 16px;text-align:center;font-size:10px;letter-spacing:.11em;color:#7587a1;border-top:1px solid var(--line)}
 @media(max-width:650px){.topbar{height:62px;gap:12px}.brand{font-size:21px}.page-identity{display:none}.figma-link{display:none}.intro-line{font-size:8px;letter-spacing:0;gap:8px;padding:0 10px}.afterword{font-size:11px}.nav-back{padding:9px 11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* === BUSAN NIGHT Figma hero GIF/MP4 replacement overlay (Nov 23) ===
+ * Frame #183:191 total size 860 × 15201; image layer x=0,y=2280,w=860,h=1336.
+ * Overlay exactly covers the existing static screenshot segment; rest unchanged.
+ * Source at assets/img/design/KakaoTalk_20260929_103843507_860%201.gif
+ * Keep user's original animated GIF file unchanged in the GitHub repo.
+ */
+.original-design { position: relative; }
+.busan-night-motion {
+  position: absolute;
+  left: 0;
+  top: 14.9990%; /* 2280px of total 15201px */
+  width: 100%;
+  height: 8.7889%; /* 1336px of total 15201px */
+  overflow: hidden;
+  background-color: #071325;
+  line-height: 0;
+  pointer-events: none;
+}
+.busan-night-motion[hidden] { display: none !important; }
+.busan-night-motion img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
+  border: none;
+}

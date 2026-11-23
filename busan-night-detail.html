@@ -8,7 +8,7 @@
   <meta property="og:title" content="BUSAN NIGHT 01 | MINZ Portfolio">
   <title>BUSAN NIGHT 01 | MINZ Director's Studio</title>
   <link rel="icon" href="assets/img/lastfavicon.png">
-  <link rel="stylesheet" href="assets/css/busan-night-detail.css?v=20261123-fullpage">
+  <link rel="stylesheet" href="assets/css/busan-night-detail.css?v=20261123-gif-overlay">
 </head>
 <body>
   <a class="skip-link" href="#full-design">전체 디자인으로 건너뛰기</a>
@@ -33,6 +33,18 @@
         decoding="async"
         fetchpriority="high"
       >
+      <!-- Figma 183:191의 이미지 레이어(x=0,y=2280,w=860,h=1336).
+           원본 GIF를 정지 PNG 위에 레이어로 표시합니다.
+           GIF 파일은 GitHub에 사용자가 별도로 업로드한 원본을 사용합니다. -->
+      <div class="busan-night-motion" id="busanNightMotion" aria-hidden="true">
+        <img
+          id="busanNightMotionAsset"
+          src="assets/img/design/KakaoTalk_20260929_103843507_860%201.gif"
+          alt=""
+          width="860" height="1525"
+          decoding="async" loading="lazy"
+        >
+      </div>
       <div class="image-missing" id="missingImage" role="status" hidden>
         <h1>BUSAN NIGHT 01</h1>
         <p>원본 Figma 이미지를 넣으면 세로 15,201px 디자인이 잘림 없이 표시됩니다.</p>
@@ -48,7 +60,17 @@
     const image = document.getElementById('originalDesignImage');
     const fallback = document.getElementById('missingImage');
     const full = document.getElementById('originalSizeLink');
-    function failed(){ image.hidden = true; fallback.hidden = false; full.hidden = true; }
+    const motion = document.getElementById('busanNightMotion');
+    const motionAsset = document.getElementById('busanNightMotionAsset');
+    function failed(){
+      image.hidden = true;
+      fallback.hidden = false;
+      full.hidden = true;
+      motion.hidden = true;
+    }
+    // When the animation file is missing, keep the Figma full-page image visible.
+    motionAsset.addEventListener('error', () => { motion.hidden = true; });
+    if (motionAsset.complete && motionAsset.naturalWidth === 0) motion.hidden = true;
     image.addEventListener('error', failed);
     if (image.complete && image.naturalWidth === 0) failed();
     const indicator = document.getElementById('readingProgress');
