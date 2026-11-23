@@ -22,6 +22,18 @@
   <link rel="preload" as="image" href="assets/img/thumbnails/donggu-studio-cinematic-v4.webp">
   <!-- Director Studio: one maintained CSS file -->
   <link rel="stylesheet" href="assets/css/directors-studio-v54.css?v=20261122-cleanheading">
+
+<style id="minz-news-process-style">
+/* Scoped extension; keeps the original Director's Studio design intact. */
+#minz-news-process{margin:48px 0 22px;padding:clamp(22px,4vw,52px);border:1px solid rgba(177,155,215,.22);border-radius:24px;background:linear-gradient(140deg,rgba(122,83,165,.11),rgba(13,12,19,.25) 50%,rgba(122,83,165,.06));color:#f3edf9;scroll-margin-top:100px}
+.minz-process-header{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:26px}.minz-process-overline{font-size:11px;letter-spacing:.22em;color:#bb98ed;font-weight:750;margin:0 0 10px}.minz-process-header h3{font-size:clamp(26px,3.6vw,45px);letter-spacing:-.045em;line-height:1.17;margin:0;font-weight:800}.minz-process-header h3 em{font-style:normal;color:#c69cff}.minz-process-header>p{font-size:13px;line-height:1.9;color:#bcb1c9;margin:0}
+.minz-process-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 30px}.minz-process-steps>div{border:1px solid rgba(207,179,239,.16);background:rgba(255,255,255,.035);padding:19px;border-radius:13px}.minz-process-steps span,.minz-process-compare-head span{font-size:10px;letter-spacing:.14em;color:#ae86df;font-weight:700;display:block;margin-bottom:9px}.minz-process-steps strong{display:block;font-size:17px;margin-bottom:7px;color:#f7f2fb}.minz-process-steps p{font-size:12px;color:#a99fb4;line-height:1.6;margin:0}
+.minz-process-compare{border-top:1px solid rgba(228,203,250,.16);padding-top:26px}.minz-process-compare-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:17px}.minz-process-compare-head h4{font-size:clamp(16px,2.1vw,24px);letter-spacing:-.03em;margin:0;color:#fff}.minz-process-compare-head>p{font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:.12em;color:#cba5ff;margin:0}
+.minz-process-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.minz-process-frame{min-width:0;margin:0;border:1px solid rgba(220,192,245,.15);border-radius:15px;overflow:hidden;background:#111017}.minz-process-frame figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 15px;min-height:45px}.minz-process-frame figcaption span{font-size:10px;letter-spacing:.18em;color:#c19cfa;font-weight:850}.minz-process-frame figcaption strong{font-size:12px;color:#ece5f2;font-weight:600}.minz-process-image{position:relative;aspect-ratio:1/1;background:#18141f;display:grid;place-items:center}.minz-process-image img{display:block;width:100%;height:100%;object-fit:contain}.minz-process-image img:not([src]){display:none}.minz-process-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center;padding:16px;background:radial-gradient(circle at 50% 35%,#292037,#121017 75%)}.minz-process-empty[hidden]{display:none}.minz-process-empty strong{font-size:clamp(12px,1.5vw,18px);letter-spacing:.11em;color:#d6c6e8}.minz-process-empty span{font-size:12px;color:#c0b0ce}.minz-process-empty small{font-size:10px;color:#83778d;overflow-wrap:anywhere}
+.minz-process-navigation{display:flex;align-items:center;justify-content:center;gap:15px;margin:20px 0}.minz-process-navigation>button,.minz-process-pages>button{background:transparent;color:#e5d2fb;border:1px solid rgba(209,179,242,.29);border-radius:9px;min-height:39px;min-width:39px;cursor:pointer;font:inherit}.minz-process-navigation>button:hover,.minz-process-pages>button:hover{background:rgba(191,140,244,.17)}.minz-process-pages{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.minz-process-pages>button[aria-pressed="true"]{background:#b58ae4;color:#17101c;border-color:#b58ae4;font-weight:800}.minz-process-note{border-top:1px solid rgba(228,203,250,.13);padding-top:17px;display:flex;gap:12px;flex-wrap:wrap;font-size:10px;letter-spacing:.07em;color:#b899dd;margin:15px 0 0}.minz-process-note b{font-size:11px;letter-spacing:0;color:#d6cede;font-weight:550;margin-right:14px}
+@media(max-width:720px){.minz-process-header{display:block}.minz-process-header>p{margin-top:15px}.minz-process-steps{grid-template-columns:1fr;gap:7px}.minz-process-steps>div{padding:13px 16px}.minz-process-pair{gap:8px}.minz-process-frame figcaption{padding:10px;display:block}.minz-process-frame figcaption strong{display:block;margin-top:4px}.minz-process-empty small{display:none}.minz-process-empty span{font-size:10px}.minz-process-navigation{gap:8px}.minz-process-pages{gap:4px}.minz-process-pages>button,.minz-process-navigation>button{min-width:34px;min-height:36px}}
+@media(prefers-reduced-motion:reduce){#minz-news-process *{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 
 <body class="studio-page">
@@ -223,9 +235,10 @@
             <div class="studio-design-body">
               <div class="studio-design-head"><span>01 / INFORMATION CAMPAIGN</span><span>6 SLIDES</span></div>
               <h3>AI 보이스피싱 예방<br><em>카드뉴스 디자인</em></h3>
-              <p>목소리 모방 범죄의 위험과 대응 방법을 질문형 카피, 컬러 코드, 단계별 정보 구조로 전달한 6장 카드뉴스입니다.</p>
+              <p>포토샵으로 기획·제작한 6장 정보 콘텐츠를 생성형 AI 기반 비주얼 작업으로 확장했습니다. 원본부터 리디자인까지 제작 과정을 비교해 볼 수 있습니다.</p>
               <div class="studio-design-pills"><span>정보 구조화</span><span>타이포그래피</span><span>카피라이팅</span></div>
-              <button type="button" id="openVoiceGalleryBottom" class="studio-design-cta">카드뉴스 6장 보기 <span aria-hidden="true">↗</span></button>
+              <button type="button" id="openVoiceGalleryBottom" class="studio-design-cta">최종 포토뉴스 6장 보기 <span aria-hidden="true">↗</span></button>
+              <a class="studio-design-cta" href="#minz-news-process">제작 과정 비교하기 <span aria-hidden="true">↓</span></a>
             </div>
           </article>
           <article class="studio-design-card reveal">
@@ -243,6 +256,28 @@
             </div>
           </article>
         </div>
+
+        <!-- MINZ: original Photoshop to AI-assisted redesign; original assets supplied separately. -->
+        <section id="minz-news-process" class="minz-news-process" aria-labelledby="minzProcessTitle">
+          <div class="minz-process-header">
+            <div><p class="minz-process-overline">DESIGN PROCESS / 01—03</p><h3 id="minzProcessTitle">From Photoshop <em>to AI.</em></h3></div>
+            <p>직접 만든 디자인을 AI로 한 번 더 발전시키다.<br>결과만이 아닌 제작의 흐름을 보여줍니다.</p>
+          </div>
+          <div class="minz-process-steps" aria-label="제작 과정">
+            <div><span>01 / ORIGINAL</span><strong>Photoshop 제작</strong><p>콘텐츠 구성, 카피, 이미지 편집과 타이포그래피 설계</p></div>
+            <div><span>02 / EXPERIMENT</span><strong>AI 비주얼 확장</strong><p>기존 메시지를 바탕으로 비주얼 표현과 연출 방식 탐색</p></div>
+            <div><span>03 / FINAL</span><strong>6장 리디자인</strong><p>정보 전달력과 전체 시리즈의 시각적 일관성 보완</p></div>
+          </div>
+          <div class="minz-process-compare">
+            <div class="minz-process-compare-head"><div><span>VISUAL EVOLUTION</span><h4>Same Story. New Visual Language.</h4></div><p id="minzFrameCounter" aria-live="polite">01 / 06</p></div>
+            <div class="minz-process-pair">
+              <figure class="minz-process-frame"><figcaption><span>BEFORE</span><strong>Adobe Photoshop</strong></figcaption><div class="minz-process-image"><img id="minzBeforeImage" alt="포토샵 초기 제작본 1장" loading="lazy"><div class="minz-process-empty" id="minzBeforeEmpty"><strong>ORIGINAL ARCHIVE</strong><span>포토샵 원본 이미지 업로드 후 표시됩니다.</span><small>assets/img/design/Artboard 1.jpg (또는 .png)</small></div></div></figure>
+              <figure class="minz-process-frame"><figcaption><span>AFTER</span><strong>AI-assisted redesign</strong></figcaption><div class="minz-process-image"><img id="minzAfterImage" src="assets/img/design/voice-phishing-01.jpg?v=20261120-brand-v4" alt="AI 리디자인 결과 1장" loading="lazy"><div class="minz-process-empty" id="minzAfterEmpty" hidden><strong>FINAL ARCHIVE</strong><span>최종 이미지 경로를 확인해 주세요.</span></div></div></figure>
+            </div>
+            <div class="minz-process-navigation"><button type="button" id="minzProcessPrev" aria-label="이전 포토뉴스">←</button><div class="minz-process-pages" id="minzProcessPages" role="group" aria-label="비교할 포토뉴스 장 선택"></div><button type="button" id="minzProcessNext" aria-label="다음 포토뉴스">→</button></div>
+            <p class="minz-process-note">MY ROLE <b>콘텐츠 기획 · Photoshop 디자인 · AI 비주얼 리디자인</b> <span>TOOLS <b>Adobe Photoshop · Generative AI</b></span></p>
+          </div>
+        </section>
         <p class="studio-design-footnote">* SONY 리디자인은 브랜드 공식 의뢰가 아닌 개인 디자인 프로젝트이며, 썸네일은 실제 Figma 프로젝트의 목업 이미지를 사용했습니다.</p>
       </div>
     </section>
@@ -1194,6 +1229,54 @@
 })();
 </script>
 <!-- END MINZ UNIFIED MODULES -->
+
+<script id="minz-news-process-script">
+(() => {
+  'use strict';
+  const base='assets/img/design/';
+  const before=document.getElementById('minzBeforeImage');
+  const after=document.getElementById('minzAfterImage');
+  const beforeEmpty=document.getElementById('minzBeforeEmpty');
+  const afterEmpty=document.getElementById('minzAfterEmpty');
+  const counter=document.getElementById('minzFrameCounter');
+  const pages=document.getElementById('minzProcessPages');
+  if(!before||!after||!pages)return;
+  let current=0;
+  const originals=Array.from({length:6},(_,i)=>{const name='Artboard '+(i+1);return [base+name+'.jpg',base+name+'.png',base+name+'.jpeg',base+name+'.webp'];});
+  const finals=Array.from({length:6},(_,i)=>base+'voice-phishing-'+String(i+1).padStart(2,'0')+'.jpg?v=20261120-brand-v4');
+  function load(img,placeholder,urls){
+    const options=Array.isArray(urls)?urls:[urls];
+    let index=0;
+    img.onload=()=>{img.style.visibility='visible';placeholder.hidden=true;};
+    img.onerror=()=>{
+      index++;
+      if(index<options.length){img.src=options[index];}
+      else{img.style.visibility='hidden';placeholder.hidden=false;}
+    };
+    placeholder.hidden=true;
+    img.style.visibility='visible';
+    img.src=options[index];
+  }
+  function show(n){
+    current=(n+6)%6;
+    const number=String(current+1).padStart(2,'0');
+    counter.textContent=number+' / 06';
+    before.alt='포토샵 초기 원본 '+(current+1)+'번째 장';
+    after.alt='AI 리디자인 최종 결과 '+(current+1)+'번째 장';
+    beforeEmpty.querySelector('small').textContent='assets/img/design/Artboard '+(current+1)+'.jpg 또는 .png';
+    load(before,beforeEmpty,originals[current]);
+    load(after,afterEmpty,finals[current]);
+    pages.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===current)));
+  }
+  for(let i=0;i<6;i++){
+    const b=document.createElement('button');b.type='button';b.textContent=String(i+1).padStart(2,'0');b.setAttribute('aria-label',`${i+1}번 포토뉴스 비교`);
+    b.addEventListener('click',()=>show(i));pages.appendChild(b);
+  }
+  document.getElementById('minzProcessPrev')?.addEventListener('click',()=>show(current-1));
+  document.getElementById('minzProcessNext')?.addEventListener('click',()=>show(current+1));
+  show(0);
+})();
+</script>
 </body>
 
 </html>
