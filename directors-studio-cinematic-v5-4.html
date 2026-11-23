@@ -485,7 +485,7 @@
         },
         { cat: 'video', type: 'COMMERCIAL / REAL ESTATE', title: '부산 강서구 부동산 홍보영상', desc: '건물과 공간, 입지 특성을 전달하는 부동산 영상.', role: '기획 · 촬영 · 드론 · 편집', images: [YT + 'Zh1_TzhbqMY/hqdefault.jpg'], url: 'https://youtu.be/Zh1_TzhbqMY' },
         { cat: 'video', type: 'BRAND / SHORT AD', title: '동백커피 | 업비트 광고', desc: '비트 싱크와 컷 전환을 활용한 카페 브랜드 숏폼.', role: '촬영 · 편집', images: [IMG + 'dongbaek-upbeat-thumb.jpg', IMG + 'dongbaek-upbeat-thumb.png'], video: 'assets/img/video/동백커피 업비트 최종mp4.mp4', format: 'short' },
-        { cat: 'video', type: 'FOOD / INSTAGRAM', title: '듀플릿 해운대점', desc: '맛집·디저트 정보를 감각적으로 전달한 릴스.', result: '약 3.3만 조회수', role: '기획 · 촬영 · 편집', images: [IMG + 'duplit-thumb.jpg', IMG + 'duplit-thumb.png'], url: 'https://www.instagram.com/reel/DcKYiCbyROM/', format: 'short' },
+        { cat: 'video', type: 'FOOD / INSTAGRAM', title: '듀플릿 해운대점', desc: '맛집·디저트 정보를 감각적으로 전달한 릴스.', result: '약 3.3만 조회수', role: '기획 · 촬영 · 편집', images: [IMG + 'duplit-thumb.jpg', IMG + 'duplit-thumb.png'], url: 'https://www.instagram.com/reel/DcKYiCbyROM/', embed: 'instagram', format: 'short' },
         { cat: 'ai', type: 'AI / CINEMATIC AD', title: 'SUPERCAR | AI CINEMATIC', desc: '도심 네온 무드와 빠른 장면 전환을 결합한 15초 AI 시네마틱 광고.', role: '콘셉트 기획 · AI 연출 · 편집', focus: '15초 시네마틱 구성 · AI 연출', images: [IMG + '네온 시티의 AI 슈퍼카 시네마틱.png', IMG + '네온 시티의 AI 슈퍼카 시네마틱.jpg'], video: 'assets/img/video/20261030슈퍼카_수정01.mp4' },
         { cat: 'ai', type: 'AI / BRAND CONTENT', title: '동백커피 | AI 브랜드 영상', desc: '실사와 AI를 연결한 스토리형 브랜드 콘텐츠.', role: '기획 · AI 연출 · 편집', images: [IMG + 'dongbaek-ai-thumb.jpg', IMG + 'dongbaek-ai-thumb.png'], video: 'assets/img/video/동백커피 AI 최종.mp4' },
         { cat: 'design', type: 'CHARACTER / BRANDING', title: 'MINZ 캐릭터 & 브랜드 디자인', desc: 'MINZ의 보라색 아이덴티티를 담은 3D 캐릭터.', role: '캐릭터 기획 · 브랜드 디자인', images: [IMG + 'minz-character-thumbnail.jpg', IMG + 'minz-character-thumbnail.png'], url: 'assets/img/minz-character-case-study.png' },
@@ -1220,7 +1220,7 @@
     <div class="minz-reel-body">
       <div class="minz-reel-frame" id="minzReelFrame"></div>
       <div class="minz-reel-meta">
-        <h3>짱구 팝업스토어 릴스</h3>
+        <h3 id="minzReelProjectTitle">인스타그램 릴스</h3>
         <p>세로형 숏폼 작품입니다. 인스타그램의 정책이나 브라우저 설정에 따라 화면 안에서 재생되지 않을 수 있습니다.</p>
         <a id="minzReelExternal" target="_blank" rel="noopener noreferrer">Instagram에서 영상 보기 ↗</a>
       </div>
@@ -1235,12 +1235,14 @@
     event.preventDefault(); event.stopImmediatePropagation();
     lastTrigger = button;
     const url = button.dataset.reel;
+    const reelTitle = button.closest('.project')?.querySelector('.project-content h3')?.textContent?.trim() || '인스타그램 릴스';
+    dialog.querySelector('#minzReelProjectTitle').textContent = reelTitle;
     link.href = url;
     const match = url.match(/instagram\.com\/reel\/([a-zA-Z0-9_-]+)/);
     frameHost.replaceChildren();
     if (match) {
       const iframe = document.createElement('iframe');
-      iframe.title = '짱구 팝업스토어 인스타그램 릴스';
+      iframe.title = reelTitle + ' 인스타그램 릴스';
       iframe.src = 'https://www.instagram.com/reel/' + match[1] + '/embed/';
       iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1339,7 +1341,7 @@
       card.classList.add('minz-video-card');
       const action = card.querySelector('.project-media .project-action');
       if (action) { action.classList.add('minz-cinema-trigger'); action.textContent = '▶';action.setAttribute('aria-label',title+' 영상 바로 재생'); }
-      // Existing MP4 / Instagram dialog handlers still work, including their BGM pause behavior.
+      // MP4 and Instagram dialogs keep their existing pause/resume behavior, including Duplit.
       const cta = card.querySelector('.project-foot .project-cta');
       if (cta) cta.textContent = '▶ 영상 재생';
     }
