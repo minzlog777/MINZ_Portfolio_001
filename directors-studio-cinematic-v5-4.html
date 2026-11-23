@@ -34,6 +34,20 @@
 @media(max-width:720px){.minz-process-header{display:block}.minz-process-header>p{margin-top:15px}.minz-process-steps{grid-template-columns:1fr;gap:7px}.minz-process-steps>div{padding:13px 16px}.minz-process-pair{gap:8px}.minz-process-frame figcaption{padding:10px;display:block}.minz-process-frame figcaption strong{display:block;margin-top:4px}.minz-process-empty small{display:none}.minz-process-empty span{font-size:10px}.minz-process-navigation{gap:8px}.minz-process-pages{gap:4px}.minz-process-pages>button,.minz-process-navigation>button{min-width:34px;min-height:36px}}
 @media(prefers-reduced-motion:reduce){#minz-news-process *{scroll-behavior:auto!important;transition:none!important}}
 </style>
+
+<style id="minz-case-upgrade-style">
+/* v5.4 in-place update: fix overlapping achievement heading and strengthen verified case studies */
+.studio-achievement-strip .studio-achievement-main h3{position:relative!important;display:block!important;isolation:isolate;line-height:1.36!important;letter-spacing:-.045em!important;overflow:visible!important;text-wrap:balance!important;text-shadow:none!important;transform:none!important;filter:none!important}
+.studio-achievement-strip .studio-achievement-main h3 span{display:inline!important;position:static!important;line-height:inherit!important;transform:none!important;filter:none!important;text-shadow:none!important}
+.studio-achievement-strip .studio-achievement-main h3::before,.studio-achievement-strip .studio-achievement-main h3::after,.studio-achievement-strip .studio-achievement-main h3 span::before,.studio-achievement-strip .studio-achievement-main h3 span::after{content:none!important;display:none!important}
+.minz-proof-area{margin:26px 0 40px}.minz-proof-label{margin:0 0 17px;font-size:11px;letter-spacing:.18em;color:#744ba3;font-weight:850}.minz-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.minz-proof-card{padding:clamp(20px,3vw,30px);border:1px solid rgba(126,90,164,.2);background:linear-gradient(150deg,#23172f,#17111f);border-radius:20px;color:#f7f3fb;box-shadow:0 12px 30px rgba(36,22,53,.09)}.minz-proof-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.14em;color:#bb91ef;font-weight:800}.minz-proof-card h3{font-size:clamp(22px,2.6vw,31px);line-height:1.28;letter-spacing:-.045em;margin:22px 0 12px;color:white;word-break:keep-all}.minz-proof-lead{font-size:13px;line-height:1.85;color:#d4c8df;margin:0 0 24px}.minz-proof-lines{display:grid;gap:0;margin:0;padding:0}.minz-proof-lines>div{border-top:1px solid rgba(230,204,250,.16);padding:14px 0;display:grid;grid-template-columns:105px 1fr;gap:12px;align-items:start}.minz-proof-lines dt{font-size:10px;letter-spacing:.1em;color:#bf9be9;font-weight:800}.minz-proof-lines dd{font-size:12px;color:#eee6f5;line-height:1.7;margin:0;word-break:keep-all}.minz-proof-action{display:inline-flex;align-items:center;justify-content:center;min-height:43px;margin-top:16px;padding:10px 18px;border-radius:9px;background:#c6a0f4;color:#201128!important;text-decoration:none;font-size:12px;font-weight:850;transition:background .2s,transform .2s}.minz-proof-action:hover{background:#e3caff;transform:translateY(-2px)}.minz-proof-honesty{font-size:11px;color:#b8a9c6;line-height:1.65;margin:13px 0 0}.minz-proof-tip{font-size:12px;color:#6f607d;margin:14px 0 0;line-height:1.7}
+@media(max-width:750px){.minz-proof-grid{grid-template-columns:1fr}.minz-proof-lines>div{grid-template-columns:92px 1fr}.studio-achievement-strip .studio-achievement-main h3{font-size:clamp(23px,6.2vw,33px)!important}}
+@media(prefers-reduced-motion:reduce){.minz-proof-action{transition:none}}
+</style>
+<style id="minz-seogu-media-style">
+.minz-seogu-feature{margin:0 0 18px;border-radius:12px;overflow:hidden;background:#100f19;position:relative}.minz-seogu-feature img{display:block;width:100%;height:clamp(180px,21vw,250px);object-fit:cover;object-position:center 56%;filter:saturate(.95)}.minz-seogu-feature figcaption{position:absolute;bottom:10px;left:13px;color:#fff;font-weight:750;font-size:9px;letter-spacing:.11em;text-shadow:0 2px 9px #000}.minz-seogu-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}.minz-seogu-shots a{display:block;overflow:hidden;border-radius:9px;aspect-ratio:1.2;background:#302a39}.minz-seogu-shots img{width:100%;height:100%;object-fit:cover;transition:transform .2s ease}.minz-seogu-shots a:hover img{transform:scale(1.05)}
+@media(max-width:650px){.minz-seogu-feature img{height:190px}}@media(prefers-reduced-motion:reduce){.minz-seogu-shots img{transition:none}}
+</style>
 </head>
 
 <body class="studio-page">
@@ -308,6 +322,46 @@
             <span class="studio-achievement-location">BUSAN · YEONGDO / 2026</span>
           </div>
         </article>
+
+        <!-- MINZ Case Study Upgrade: content grounded in roles and user-supplied project history -->
+        <section class="minz-proof-area" id="minz-project-studies" aria-label="주요 프로젝트 실무 사례">
+          <p class="minz-proof-label">SELECTED CASE STUDIES / ROLE &amp; PROCESS</p>
+          <div class="minz-proof-grid">
+            <article class="minz-proof-card" aria-labelledby="minz-seogu-title">
+              <div class="minz-proof-top"><span>01 / PUBLIC PROMOTION</span><span>BUSAN · SEO-GU</span></div>
+              <figure class="minz-seogu-feature"><img src="assets/img/seogu/seogu-sunset-harbor.webp" loading="lazy" alt="부산 서구 항구와 도시를 물들이는 노을 풍경"><figcaption>BUSAN SEO-GU · ORIGINAL LOCATION WORK</figcaption></figure>
+              <h3 id="minz-seogu-title">부산 서구 홍보영상<br>기획부터 마지막 컷까지.</h3>
+              <p class="minz-proof-lead">자유주제로 제시된 부산 서구 홍보영상 과제를 기획·촬영·편집까지 단독 수행했습니다. 노을에서 야경으로 이어지는 도시와 해안의 풍경을 영상으로 구성했습니다.</p>
+              <dl class="minz-proof-lines">
+                <div><dt>MY ROLE</dt><dd>콘텐츠 기획 · 현장 촬영 · 전체 편집 / 전 과정 단독 수행</dd></div>
+                <div><dt>BRIEF</dt><dd>부산 서구 자유주제 홍보영상 제작</dd></div>
+                <div><dt>PRODUCTION</dt><dd>약 1주일 내 제작으로 기억 (정확한 일정 확인 전)</dd></div>
+                <div><dt>CAREER NOTE</dt><dd>이 작업을 포트폴리오에 활용하여 서구 홍보 관련 직무 최종 면접까지 진출</dd></div>
+              </dl>
+              <div class="minz-seogu-shots" aria-label="서구 홍보 프로젝트 현장 촬영 이미지">
+                <a href="assets/img/seogu/seogu-songdo-coast.webp" target="_blank" aria-label="송도 해안 촬영 원본 이미지 보기"><img src="assets/img/seogu/seogu-songdo-coast.webp" loading="lazy" alt="송도 해안과 곡선형 해안 산책로"></a>
+                <a href="assets/img/seogu/seogu-night-harbor.webp" target="_blank" aria-label="야경 원본 이미지 보기"><img src="assets/img/seogu/seogu-night-harbor.webp" loading="lazy" alt="야간 항구와 도심의 불빛"></a>
+                <a href="assets/img/seogu/seogu-sunset-city.webp" target="_blank" aria-label="노을 촬영 원본 이미지 보기"><img src="assets/img/seogu/seogu-sunset-city.webp" loading="lazy" alt="노을이 내려앉은 부산 시가지"></a>
+              </div>
+              <p class="minz-proof-honesty">현장 자료 7장 중 대표 컷을 선택했습니다. 사진을 클릭하면 확대해서 볼 수 있습니다.</p>
+              <a class="minz-proof-action" href="https://youtu.be/nzCwQBsn9zk" target="_blank" rel="noopener noreferrer">완성 영상 보기 ↗</a>
+              <p class="minz-proof-honesty">※ 최종 면접 진출은 개인 취업 경험이며, 홍보영상의 공식 성과를 뜻하지 않습니다.</p>
+            </article>
+            <article class="minz-proof-card" aria-labelledby="minz-bongsan-title">
+              <div class="minz-proof-top"><span>02 / TOURISM CONTENT</span><span>BUSAN · YEONGDO</span></div>
+              <h3 id="minz-bongsan-title">영도 봉산마을<br>현장에서 완성한 이야기.</h3>
+              <p class="minz-proof-lead">관광 콘텐츠 제작지원 선정 프로젝트. 현장 경험을 바탕으로 지역 공간의 분위기와 이야기를 영상으로 전달했습니다.</p>
+              <dl class="minz-proof-lines">
+                <div><dt>MY ROLE</dt><dd>기획 참여 · 현장 촬영 · 드론 촬영 · 롱폼 및 숏폼 편집</dd></div>
+                <div><dt>WORKFLOW</dt><dd>기획 참여 → 현장 및 항공 촬영 → 목적별 영상 편집</dd></div>
+                <div><dt>PROJECT</dt><dd>200만 원 제작지원 선정 프로젝트에 참여 (개인 수상·개인 수령 금액 아님)</dd></div>
+              </dl>
+              <a class="minz-proof-action" href="#works">관련 작품 둘러보기 ↗</a>
+              <p class="minz-proof-honesty">※ 전체 프로젝트 기획 총괄이 아닌 기획 참여와 촬영·편집 중심의 담당 범위를 명시했습니다.</p>
+            </article>
+          </div>
+          <p class="minz-proof-tip">작품 상세 과정은 실제 제작 자료가 확인되는 범위에서 보강하며, 사용하지 않은 도구나 검증되지 않은 성과는 표기하지 않습니다.</p>
+        </section>
         <div class="experience-grid">
           <section class="experience-panel reveal">
             <h3>Production & Strategy <span>01 / CAREER</span></h3>
