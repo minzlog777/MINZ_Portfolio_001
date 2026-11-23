@@ -44,9 +44,51 @@
 @media(max-width:750px){.minz-proof-grid{grid-template-columns:1fr}.minz-proof-lines>div{grid-template-columns:92px 1fr}.studio-achievement-strip .studio-achievement-main h3{font-size:clamp(23px,6.2vw,33px)!important}}
 @media(prefers-reduced-motion:reduce){.minz-proof-action{transition:none}}
 </style>
-<style id="minz-seogu-media-style">
-.minz-seogu-feature{margin:0 0 18px;border-radius:12px;overflow:hidden;background:#100f19;position:relative}.minz-seogu-feature img{display:block;width:100%;height:clamp(180px,21vw,250px);object-fit:cover;object-position:center 56%;filter:saturate(.95)}.minz-seogu-feature figcaption{position:absolute;bottom:10px;left:13px;color:#fff;font-weight:750;font-size:9px;letter-spacing:.11em;text-shadow:0 2px 9px #000}.minz-seogu-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}.minz-seogu-shots a{display:block;overflow:hidden;border-radius:9px;aspect-ratio:1.2;background:#302a39}.minz-seogu-shots img{width:100%;height:100%;object-fit:cover;transition:transform .2s ease}.minz-seogu-shots a:hover img{transform:scale(1.05)}
-@media(max-width:650px){.minz-seogu-feature img{height:190px}}@media(prefers-reduced-motion:reduce){.minz-seogu-shots img{transition:none}}
+<style id="minz-ux-v56">
+/* MINZ v5.6 — recruiter-first, one-click film UX + progressive disclosure */
+.project .project-content > p,
+.project .project-content > .project-case-note,
+.project .project-content > .project-focus {display:none !important}
+.project .project-content {display:flex;flex-direction:column;gap:10px}
+.project .project-content h3 {line-height:1.28;letter-spacing:-.035em;margin:0;word-break:keep-all}
+.project .project-content .project-meta {margin-bottom:1px}
+.project .project-content .project-foot {margin-top:auto;padding-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.project .project-content .project-result {margin:1px 0;font-size:12px;line-height:1.45}
+.project .project-content .minz-copy-details {border-top:1px solid rgba(148,118,184,.24);padding-top:11px;font-size:12px;line-height:1.8;color:#cfc4da}
+.project .project-content .minz-copy-details summary {cursor:pointer;list-style:none;display:inline-flex;gap:6px;align-items:center;color:#bda0ec;font-size:11px;font-weight:760;letter-spacing:.02em;min-height:35px}
+.project .project-content .minz-copy-details summary::after {content:'+';font-weight:800;font-size:17px;line-height:1}
+.project .project-content .minz-copy-details[open] summary::after {content:'−'}
+.project .project-content .minz-copy-details summary::-webkit-details-marker {display:none}
+.project .project-content .minz-copy-details p {margin:9px 0;line-height:1.8;color:#d2c9db;display:block!important}
+.project .project-content .minz-copy-details .minz-facts {color:#ab9ab8;font-size:11px}
+.project.minz-video-card .project-media {cursor:pointer;isolation:isolate}
+.project.minz-video-card .project-media img {transition:transform .38s cubic-bezier(.2,.7,.2,1),filter .3s ease}
+.project.minz-video-card .project-media:hover img {transform:scale(1.035);filter:brightness(.7)}
+.project.minz-video-card .project-action.minz-cinema-trigger {
+  position:absolute!important;z-index:8!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;
+  transform:translate(-50%,-50%)!important;width:66px!important;height:66px!important;border-radius:50%!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;
+  background:rgba(36,23,48,.76)!important;color:white!important;box-shadow:0 10px 38px rgba(0,0,0,.34);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.65)!important;
+  font-size:23px!important;font-weight:700!important;opacity:.88;transition:background .2s,opacity .2s,box-shadow .2s!important
+}
+.project.minz-video-card .project-media:hover .project-action.minz-cinema-trigger,
+.project.minz-video-card .project-action.minz-cinema-trigger:focus-visible {background:rgba(159,109,213,.96)!important;opacity:1;box-shadow:0 12px 45px rgba(104,67,156,.56)}
+.project.minz-video-card .project-media:after {content:'클릭하여 영상 재생';position:absolute;z-index:5;left:0;right:0;bottom:16px;color:#fff;text-align:center;text-shadow:0 1px 12px #000;font-size:11px;letter-spacing:.04em;pointer-events:none;opacity:0;transition:opacity .2s}
+.project.minz-video-card .project-media:hover:after {opacity:1}
+.project.minz-video-card .project-media .studio-viewfinder,.project.minz-video-card .project-media .studio-thumb-label,.project.minz-video-card .project-media .studio-thumb-ordinal,.project.minz-video-card .project-media .studio-thumb-signature {pointer-events:none}
+#minzYoutubeDialog {width:min(96vw,1140px);max-height:95dvh;margin:auto;padding:0;border:1px solid rgba(212,180,245,.24);border-radius:18px;background:#110f17;color:#f6f2f9;box-shadow:0 45px 140px rgba(0,0,0,.7);overflow:auto}
+#minzYoutubeDialog::backdrop {background:rgba(5,4,9,.87);backdrop-filter:blur(9px)}
+.minz-yt-top {padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid rgba(255,255,255,.1)}
+.minz-yt-top span {font-size:11px;color:#b99ad6;letter-spacing:.13em;font-weight:700}
+.minz-yt-top button {padding:8px 14px;background:#2e243b;color:#fff;border:1px solid #614978;border-radius:10px;cursor:pointer;min-height:38px}
+.minz-yt-stage {aspect-ratio:16/9;background:#000;width:100%}
+.minz-yt-stage iframe {border:0;width:100%;height:100%;display:block}
+.minz-yt-bottom {padding:16px 22px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.minz-yt-bottom h3 {margin:0;color:white;font-size:clamp(16px,2vw,21px);line-height:1.4}
+.minz-yt-bottom a {color:#ceb0fa;font-size:12px;text-decoration:underline}
+@media(max-width:700px){.project.minz-video-card .project-action.minz-cinema-trigger{width:58px!important;height:58px!important;opacity:1}.project.minz-video-card .project-media:after{opacity:1}.minz-yt-top{padding:10px 14px}.minz-yt-bottom{padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.project.minz-video-card .project-media img,.project.minz-video-card .project-action,.project.minz-video-card .project-media:after{transition:none!important}.project.minz-video-card .project-media img{transform:none!important}}
 </style>
 </head>
 
@@ -89,7 +131,7 @@
           <p class="hero-jobline">영상 제작자 <span>·</span> 영상 편집자 <span>·</span> 콘텐츠 마케터</p>
           <p class="hero-description">현장에서 포착한 이야기를, 오래 남는 콘텐츠로.<br>촬영 · 편집 · 드론 · AI 연출로 브랜드의 메시지를 완성합니다.</p>
           <div class="hero-services">
-            <span>DIRECTING</span><span>FILMING</span><span>DRONE</span><span>EDITING</span><span>AI</span><span>INFLUENCER</span>
+            <span>FILMING</span><span>EDITING</span><span>DRONE</span><span>AI</span>
           </div>
           <div class="hero-actions"><a class="button button-white" href="#studio-reel">대표 프로젝트 보기 ↗</a><a class="hero-link"
               href="#minz-intro">30초 쇼릴 보기 ↗</a></div>
@@ -213,7 +255,7 @@
             <p class="kicker">02 / SELECTED PROJECTS</p>
             <h2 class="section-title">Selected<br><em>Works.</em></h2>
           </div>
-          <p class="section-description">현장에서 완성하고, 결과로 증명한 프로젝트.<br>실사·드론 촬영, AI 연출, 지역 홍보영상과 SNS 콘텐츠까지. 실제 수행한 역할과 제작 결과를 중심으로 소개합니다.</p>
+          <p class="section-description">현장에서 만든 결과를 영상으로 확인하세요.<br>썸네일을 누르면 바로 재생됩니다.</p>
         </div>
         <div class="filters" role="group" aria-label="작품 카테고리"><button class="filter active" data-filter="all"
             aria-pressed="true">ALL <span id="workCount">14</span></button><button class="filter" data-filter="video"
@@ -329,21 +371,13 @@
           <div class="minz-proof-grid">
             <article class="minz-proof-card" aria-labelledby="minz-seogu-title">
               <div class="minz-proof-top"><span>01 / PUBLIC PROMOTION</span><span>BUSAN · SEO-GU</span></div>
-              <figure class="minz-seogu-feature"><img src="assets/img/seogu/seogu-sunset-harbor.webp" loading="lazy" alt="부산 서구 항구와 도시를 물들이는 노을 풍경"><figcaption>BUSAN SEO-GU · ORIGINAL LOCATION WORK</figcaption></figure>
-              <h3 id="minz-seogu-title">부산 서구 홍보영상<br>기획부터 마지막 컷까지.</h3>
-              <p class="minz-proof-lead">자유주제로 제시된 부산 서구 홍보영상 과제를 기획·촬영·편집까지 단독 수행했습니다. 노을에서 야경으로 이어지는 도시와 해안의 풍경을 영상으로 구성했습니다.</p>
+              <h3 id="minz-seogu-title">서구청 홍보영상<br>지역을 영상으로 전달하다.</h3>
+              <p class="minz-proof-lead">지역의 매력을 짧은 영상 속에서 전달하는 홍보 콘텐츠. 결과 영상뿐 아니라 전달 목적과 장면 구성의 관점에서 작업을 소개합니다.</p>
               <dl class="minz-proof-lines">
-                <div><dt>MY ROLE</dt><dd>콘텐츠 기획 · 현장 촬영 · 전체 편집 / 전 과정 단독 수행</dd></div>
-                <div><dt>BRIEF</dt><dd>부산 서구 자유주제 홍보영상 제작</dd></div>
-                <div><dt>PRODUCTION</dt><dd>약 1주일 내 제작으로 기억 (정확한 일정 확인 전)</dd></div>
+                <div><dt>OBJECTIVE</dt><dd>지역 홍보 목적에 맞는 영상 콘텐츠 구성</dd></div>
+                <div><dt>PROCESS</dt><dd>장면 선정과 흐름, 영상 편집의 전달력 중심으로 프로젝트 소개</dd></div>
                 <div><dt>CAREER NOTE</dt><dd>이 작업을 포트폴리오에 활용하여 서구 홍보 관련 직무 최종 면접까지 진출</dd></div>
               </dl>
-              <div class="minz-seogu-shots" aria-label="서구 홍보 프로젝트 현장 촬영 이미지">
-                <a href="assets/img/seogu/seogu-songdo-coast.webp" target="_blank" aria-label="송도 해안 촬영 원본 이미지 보기"><img src="assets/img/seogu/seogu-songdo-coast.webp" loading="lazy" alt="송도 해안과 곡선형 해안 산책로"></a>
-                <a href="assets/img/seogu/seogu-night-harbor.webp" target="_blank" aria-label="야경 원본 이미지 보기"><img src="assets/img/seogu/seogu-night-harbor.webp" loading="lazy" alt="야간 항구와 도심의 불빛"></a>
-                <a href="assets/img/seogu/seogu-sunset-city.webp" target="_blank" aria-label="노을 촬영 원본 이미지 보기"><img src="assets/img/seogu/seogu-sunset-city.webp" loading="lazy" alt="노을이 내려앉은 부산 시가지"></a>
-              </div>
-              <p class="minz-proof-honesty">현장 자료 7장 중 대표 컷을 선택했습니다. 사진을 클릭하면 확대해서 볼 수 있습니다.</p>
               <a class="minz-proof-action" href="https://youtu.be/nzCwQBsn9zk" target="_blank" rel="noopener noreferrer">완성 영상 보기 ↗</a>
               <p class="minz-proof-honesty">※ 최종 면접 진출은 개인 취업 경험이며, 홍보영상의 공식 성과를 뜻하지 않습니다.</p>
             </article>
@@ -597,7 +631,7 @@
       const bgm = $('#siteBgm'), bgmBtn = $('#bgmBtn'), dialog = $('#videoDialog'), dialogPlayer = $('#dialogPlayer');
       let bgmEnabled = false, introPlaying = false, localVideoPlaying = false, bgmRequest = 0;
       bgm.volume = 0.18;
-      function bgmBlocked() { return !bgmEnabled || introPlaying || localVideoPlaying || !!document.getElementById('minzReelDialog')?.open || document.hidden || !document.hasFocus(); }
+      function bgmBlocked() { return !bgmEnabled || introPlaying || localVideoPlaying || !!document.getElementById('minzReelDialog')?.open || !!document.getElementById('minzYoutubeDialog')?.open || document.hidden || !document.hasFocus(); }
       function updateBgm() { bgmBtn.textContent = bgmEnabled ? '♫ BGM ON' : '♫ BGM OFF'; bgmBtn.classList.toggle('active', bgmEnabled); bgmBtn.setAttribute('aria-pressed', String(bgmEnabled)); }
       async function syncBgm() { const request = ++bgmRequest; if (bgmBlocked()) { bgm.pause(); return; } try { await bgm.play(); if (request !== bgmRequest || bgmBlocked()) bgm.pause(); } catch (error) { bgmEnabled = false; updateBgm(); notify('BGM 파일을 확인해주세요.'); console.warn(error); } }
       bgmBtn.addEventListener('click', () => { bgmEnabled = !bgmEnabled; updateBgm(); syncBgm(); });
@@ -1219,6 +1253,11 @@
     const key = trigger.classList.contains('studio-design-visual-sony')
       ? 'sony' : trigger.dataset.case;
     if (!caseData[key]) return;
+    if (key === 'busan-night') {
+      event.preventDefault(); event.stopImmediatePropagation();
+      location.href = 'busan-night-detail.html';
+      return;
+    }
     event.preventDefault();
     event.stopImmediatePropagation();
     openCase(key, trigger);
@@ -1329,6 +1368,86 @@
   document.getElementById('minzProcessPrev')?.addEventListener('click',()=>show(current-1));
   document.getElementById('minzProcessNext')?.addEventListener('click',()=>show(current+1));
   show(0);
+})();
+</script>
+<script id="minz-ux-v56-script">
+(() => {
+  'use strict';
+  const grid = document.getElementById('worksGrid');
+  if (!grid) return;
+  // Suppress repeated paragraphs on cards, but retain the detailed evidence on demand.
+  grid.querySelectorAll('.project').forEach(card => {
+    const content = card.querySelector('.project-content');
+    if (!content) return;
+    const title = content.querySelector('h3')?.textContent.trim() || '프로젝트';
+    const originalIntro = content.querySelector(':scope > p');
+    const caseNote = content.querySelector(':scope > .project-case-note');
+    const focus = content.querySelector(':scope > .project-focus p');
+    if ((originalIntro || caseNote || focus) && !content.querySelector('.minz-copy-details')) {
+      const details = document.createElement('details');
+      details.className = 'minz-copy-details';
+      details.innerHTML = '<summary>제작 정보 더 보기</summary>';
+      if (originalIntro) {
+        const p = document.createElement('p'); p.textContent = originalIntro.textContent.trim();details.appendChild(p);
+      }
+      if (caseNote && caseNote.textContent.trim()) {
+        const p=document.createElement('p');p.className='minz-facts';p.textContent=caseNote.textContent.trim().replace(/\s+/g,' ');details.appendChild(p);
+      }
+      // Avoid repeating focus tags on the card where they echo the role description.
+      const footer = content.querySelector('.project-foot');
+      if (footer) footer.before(details); else content.appendChild(details);
+    }
+    const isVideo = Boolean(card.querySelector('[data-video],[data-reel]')) || [...card.querySelectorAll('.project-action[href],.project-cta[href]')].some(link => /(?:youtube\.com|youtu\.be)/.test(link.href));
+    if (isVideo) {
+      card.classList.add('minz-video-card');
+      const action = card.querySelector('.project-media .project-action');
+      if (action) { action.classList.add('minz-cinema-trigger'); action.textContent = '▶';action.setAttribute('aria-label',title+' 영상 바로 재생'); }
+      // Existing MP4 / Instagram dialog handlers still work, including their BGM pause behavior.
+      const cta = card.querySelector('.project-foot .project-cta');
+      if (cta) cta.textContent = '▶ 영상 재생';
+    }
+  });
+  // Explicitly route YouTube to an on-page player, while leaving MP4 and Instagram players intact.
+  const dialog = document.createElement('dialog');
+  dialog.id = 'minzYoutubeDialog';dialog.setAttribute('aria-labelledby','minzYouTubeTitle');
+  dialog.innerHTML = '<div class="minz-yt-top"><span>MINZ / PROJECT FILM</span><button type="button" data-youtube-close aria-label="영상 닫기">✕ 닫기</button></div><div id="minzYTStage" class="minz-yt-stage"></div><div class="minz-yt-bottom"><h3 id="minzYouTubeTitle"></h3><a id="minzYtExternal" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a></div>';
+  document.body.appendChild(dialog);
+  const stage = dialog.querySelector('#minzYTStage');
+  const titleEl = dialog.querySelector('#minzYouTubeTitle');
+  const external = dialog.querySelector('#minzYtExternal');
+  let lastTrigger=null;
+  function extractId(url) {
+    try {
+      const u=new URL(url,location.href);
+      if (u.hostname.endsWith('youtu.be')) return u.pathname.split('/').filter(Boolean)[0] || '';
+      if (u.hostname.endsWith('youtube.com') || u.hostname.endsWith('youtube-nocookie.com')) {
+        if (u.pathname.startsWith('/shorts/') || u.pathname.startsWith('/embed/')) return u.pathname.split('/')[2] || '';
+        return u.searchParams.get('v') || '';
+      }
+    } catch(e){} return '';
+  }
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('#worksGrid .project a.project-action, #worksGrid .project a.project-cta');
+    if (!link) return;
+    const id=extractId(link.href);
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    event.preventDefault();event.stopImmediatePropagation();lastTrigger=link;
+    const card=link.closest('.project');const title=card?.querySelector('.project-content h3')?.textContent.trim() || 'MINZ 작품 영상';
+    titleEl.textContent=title;external.href=link.href;
+    const iframe=document.createElement('iframe');
+    iframe.title=title+' 영상 플레이어';
+    iframe.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0';
+    iframe.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allowFullscreen=true;
+    stage.replaceChildren(iframe);
+    // Defer the player until actual user interaction, never autoplay on hover.
+    if (!dialog.open) dialog.showModal();
+    window.dispatchEvent(new Event('minz:media-state'));
+  },true);
+  dialog.querySelector('[data-youtube-close]').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+  dialog.addEventListener('close',()=>{stage.replaceChildren();window.dispatchEvent(new Event('minz:media-state'));lastTrigger?.focus?.();});
+  // Unavailable films (no verified playable URL) stay unlinked — no fabricated playback source.
 })();
 </script>
 </body>
