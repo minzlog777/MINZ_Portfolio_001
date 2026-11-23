@@ -65,3 +65,26 @@
 .minz-yt-bottom a {color:#ceb0fa;font-size:12px;text-decoration:underline}
 @media(max-width:700px){.project.minz-video-card .project-action.minz-cinema-trigger{width:58px!important;height:58px!important;opacity:1}.project.minz-video-card .project-media:after{opacity:1}.minz-yt-top{padding:10px 14px}.minz-yt-bottom{padding:12px 14px}}
 @media(prefers-reduced-motion:reduce){.project.minz-video-card .project-media img,.project.minz-video-card .project-action,.project.minz-video-card .project-media:after{transition:none!important}.project.minz-video-card .project-media img{transform:none!important}}
+
+
+/* MINZ FINAL POLISH · 2026-11-23: no empty original/AI compare panels */
+#minz-news-process .minz-process-frame[hidden] { display: none !important; }
+#minz-news-process .minz-process-pair.is-final-only {
+  grid-template-columns: minmax(0, 660px);
+  justify-content: center;
+}
+#minz-news-process .minz-process-frame.is-gallery-only .minz-process-image {
+  aspect-ratio: 3 / 4;
+  max-height: 690px;
+}
+#minz-news-process .minz-process-image img:not([src]) { display: none; }
+#minz-news-process .minz-process-frame.is-gallery-only img { object-fit: contain; }
+#minz-news-process .minz-process-frame figcaption { letter-spacing: normal; }
+/* Remove redundant editorial boilerplate, retain role labels as an immediate reading cue. */
+.minz-proof-card .minz-proof-lead { max-width: 58ch; }
+.project .project-content .project-foot small { line-height: 1.6; word-break: keep-all; }
+@media (max-width: 720px) {
+  #minz-news-process .minz-process-pair.is-final-only { grid-template-columns: minmax(0, 1fr); }
+  #minz-news-process .minz-process-frame.is-gallery-only .minz-process-image { max-height: none; }
+  .minz-proof-card h3 { margin-top: 15px; }
+}
